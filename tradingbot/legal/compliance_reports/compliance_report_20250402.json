@@ -1,0 +1,49 @@
+{
+  "timestamp": "2025-04-02T20:43:10.644355",
+  "platform": "webull",
+  "paper_trading": true,
+  "compliance_checks": [
+    {
+      "check": "Paper Trading Mode",
+      "status": "Compliant",
+      "details": "Using paper trading mode, no regulatory concerns."
+    },
+    {
+      "check": "Halal Compliance",
+      "status": "Compliant",
+      "details": "Halal compliance check enabled."
+    },
+    {
+      "check": "Minimum Holding Period",
+      "status": "Compliant",
+      "details": "Minimum hold period set to 48.0 hours, which is sufficient."
+    },
+    {
+      "check": "API Terms of Service",
+      "status": "Action Required",
+      "details": "Verify that automated trading is permitted under webull terms of service."
+    },
+    {
+      "check": "Data Privacy",
+      "status": "Compliant",
+      "details": "Credentials are stored securely using encryption."
+    },
+    {
+      "check": "Quantum Computing Compliance",
+      "status": "Compliant",
+      "details": "Quantum computing methods are used for analysis only, not for transaction execution."
+    }
+  ],
+  "regulatory_notes": [
+    {
+      "region": "United States",
+      "body": "SEC",
+      "note": "Algorithmic trading is subject to oversight. Ensure compliance with market manipulation rules."
+    },
+    {
+      "region": "Global",
+      "body": "Islamic Finance",
+      "note": "System is configured to check for Halal compliance using Zoya API."
+    }
+  ]
+}

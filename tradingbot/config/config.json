@@ -1,0 +1,55 @@
+{
+  "trading": {
+    "enabled": true,
+    "symbols": [
+      "AAPL",
+      "MSFT",
+      "NVDA"
+    ],
+    "max_drawdown": 0.05,
+    "kelly_fraction": 0.02,
+    "quantity": 1,
+    "min_hold_period": 172800,
+    "sleep_time": 60,
+    "halal_compliance": true
+  },
+  "quantum": {
+    "enabled": true,
+    "error_threshold": 0.15,
+    "min_confidence": 0.65,
+    "device": "default.qubit",
+    "shots": 1000,
+    "use_error_mitigation": true,
+    "fallback_to_classical": true
+  },
+  "news": {
+    "enabled": true,
+    "api_keys": {
+      "alpha_vantage": "",
+      "news_api": "",
+      "finnhub": ""
+    },
+    "sentiment_weights": {
+      "news": 0.5,
+      "social": 0.3,
+      "fear_greed": 0.2
+    },
+    "cache_duration": 3600,
+    "use_cache": true,
+    "news_lookback_days": 3
+  },
+  "platform": {
+    "name": "mock",
+    "use_paper_trading": true
+  },
+  "monitoring": {
+    "enabled": true,
+    "check_interval": 3600,
+    "alert_emails": []
+  },
+  "logging": {
+    "level": "INFO",
+    "log_to_file": true,
+    "log_dir": "logs"
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "timestamp": "2025-04-15T06:49:27.806973",
+    "module": "trading_bot",
+    "issues": [
+        "Line 80: Possible hardcoded credential - api_key = os.environ.get(\"ZOYA_API_KEY\")",
+        "Line 1223: Possible hardcoded credential - api_key = os.environ.get(\"ZOYA_API_KEY\")"
+    ]
+}

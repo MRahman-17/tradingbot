@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-04-12T23:08:33.131344",
+  "symbol": "AAPL",
+  "news_sentiment": 0,
+  "social_sentiment": 0.17897041052312296,
+  "fear_greed_sentiment": -0.1,
+  "fear_greed_score": 45,
+  "fear_greed_classification": "Fear",
+  "market_regime": "Neutral - Range Bound",
+  "combined_sentiment": 0.033691123156936884,
+  "sentiment_signal": 0.5168455615784684
+}

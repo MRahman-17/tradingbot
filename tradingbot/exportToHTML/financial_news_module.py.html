@@ -1,0 +1,925 @@
+<html>
+<head>
+<title>financial_news_module.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #8c8c8c; font-style: italic;}
+.s1 { color: #080808;}
+.s2 { color: #0033b3;}
+.s3 { color: #067d17;}
+.s4 { color: #1750eb;}
+.s5 { color: #0037a6;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+financial_news_module.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#!/usr/bin/env python3</span>
+<span class="s0">&quot;&quot;&quot; 
+Financial News Module 
+Collects and analyzes financial news, fear &amp; greed indices, and social media sentiment 
+to provide market sentiment analysis for trading decisions. 
+&quot;&quot;&quot;</span>
+<span class="s2">import </span><span class="s1">os</span>
+<span class="s2">import </span><span class="s1">json</span>
+<span class="s2">import </span><span class="s1">logging</span>
+<span class="s2">import </span><span class="s1">requests</span>
+<span class="s2">import </span><span class="s1">numpy </span><span class="s2">as </span><span class="s1">np</span>
+<span class="s2">import </span><span class="s1">pandas </span><span class="s2">as </span><span class="s1">pd</span>
+<span class="s2">from </span><span class="s1">datetime </span><span class="s2">import </span><span class="s1">datetime, timedelta</span>
+<span class="s2">import </span><span class="s1">re</span>
+<span class="s2">from </span><span class="s1">urllib.parse </span><span class="s2">import </span><span class="s1">urlencode</span>
+<span class="s2">import </span><span class="s1">time</span>
+<span class="s2">import </span><span class="s1">random</span>
+<span class="s2">from </span><span class="s1">enhanced_sentiment </span><span class="s2">import </span><span class="s1">EnhancedSentimentAnalyzer</span>
+<span class="s2">from </span><span class="s1">news_verification </span><span class="s2">import </span><span class="s1">NewsVerifier</span>
+
+<span class="s0"># Configure logging</span>
+<span class="s1">logging.basicConfig(</span>
+    <span class="s1">level=logging.INFO,</span>
+    <span class="s1">format=</span><span class="s3">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>
+<span class="s1">)</span>
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;Financial News&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">class </span><span class="s1">FinancialNewsCollector:</span>
+    <span class="s0">&quot;&quot;&quot;Collects and analyzes financial news and market sentiment data&quot;&quot;&quot;</span>
+
+    <span class="s2">def </span><span class="s1">__init__(self):</span>
+        <span class="s0">&quot;&quot;&quot;Initialize the news collector&quot;&quot;&quot;</span>
+        <span class="s1">self.config = {</span>
+            <span class="s3">&quot;api_keys&quot;</span><span class="s1">: {</span>
+                <span class="s3">&quot;alphavantage&quot;</span><span class="s1">: os.environ.get(</span><span class="s3">&quot;ALPHA_VANTAGE_API_KEY&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">),</span>
+                <span class="s3">&quot;newsapi&quot;</span><span class="s1">: os.environ.get(</span><span class="s3">&quot;NEWS_API_KEY&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">),</span>
+                <span class="s3">&quot;finnhub&quot;</span><span class="s1">: os.environ.get(</span><span class="s3">&quot;FINNHUB_API_KEY&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">),</span>
+                <span class="s3">&quot;twitter_bearer&quot;</span><span class="s1">: os.environ.get(</span><span class="s3">&quot;TWITTER_BEARER_TOKEN&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">)</span>
+            <span class="s1">},</span>
+            <span class="s3">&quot;endpoints&quot;</span><span class="s1">: {</span>
+                <span class="s3">&quot;fear_greed&quot;</span><span class="s1">: </span><span class="s3">&quot;https://api.alternative.me/fng/&quot;</span><span class="s1">,</span>
+                <span class="s3">&quot;alpha_news&quot;</span><span class="s1">: </span><span class="s3">&quot;https://www.alphavantage.co/query&quot;</span><span class="s1">,</span>
+                <span class="s3">&quot;news_api&quot;</span><span class="s1">: </span><span class="s3">&quot;https://newsapi.org/v2/everything&quot;</span><span class="s1">,</span>
+                <span class="s3">&quot;finnhub_news&quot;</span><span class="s1">: </span><span class="s3">&quot;https://finnhub.io/api/v1/news&quot;</span><span class="s1">,</span>
+                <span class="s3">&quot;twitter&quot;</span><span class="s1">: </span><span class="s3">&quot;https://api.twitter.com/2/tweets/search/recent&quot;</span>
+            <span class="s1">},</span>
+            <span class="s3">&quot;sentiment_weights&quot;</span><span class="s1">: {</span>
+                <span class="s3">&quot;news&quot;</span><span class="s1">: </span><span class="s4">0.5</span><span class="s1">,</span>
+                <span class="s3">&quot;social&quot;</span><span class="s1">: </span><span class="s4">0.3</span><span class="s1">,</span>
+                <span class="s3">&quot;fear_greed&quot;</span><span class="s1">: </span><span class="s4">0.2</span>
+            <span class="s1">},</span>
+            <span class="s3">&quot;cache_duration&quot;</span><span class="s1">: </span><span class="s4">3600</span><span class="s1">,  </span><span class="s0"># 1 hour cache for API results</span>
+            <span class="s3">&quot;news_lookback_days&quot;</span><span class="s1">: </span><span class="s4">3</span><span class="s1">,  </span><span class="s0"># Days of news to analyze</span>
+            <span class="s3">&quot;use_cache&quot;</span><span class="s1">: </span><span class="s2">True</span>
+        <span class="s1">}</span>
+
+        <span class="s0"># Initialize cache</span>
+        <span class="s1">self.cache = {}</span>
+        <span class="s1">self.cache_timestamps = {}</span>
+
+        <span class="s0"># Create necessary directories</span>
+        <span class="s1">os.makedirs(</span><span class="s3">&quot;data/news&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+        <span class="s1">os.makedirs(</span><span class="s3">&quot;data/sentiment&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+
+        <span class="s0"># Track news sentiment by symbol</span>
+        <span class="s1">self.news_sentiment = {}</span>
+        <span class="s1">self.fear_greed_data = </span><span class="s2">None</span>
+        <span class="s1">self.social_sentiment = {}</span>
+
+        <span class="s1">logger.info(</span><span class="s3">&quot;Financial News Collector initialized&quot;</span><span class="s1">)</span>
+
+    <span class="s2">def </span><span class="s1">load_config(self, config_path=</span><span class="s3">&quot;config/news_config.json&quot;</span><span class="s1">):</span>
+        <span class="s0">&quot;&quot;&quot;Load configuration from file&quot;&quot;&quot;</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">if </span><span class="s1">os.path.exists(config_path):</span>
+                <span class="s2">with </span><span class="s1">open(config_path, </span><span class="s3">'r'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                    <span class="s1">loaded_config = json.load(f)</span>
+                    <span class="s0"># Merge with default config</span>
+                    <span class="s2">for </span><span class="s1">key, value </span><span class="s2">in </span><span class="s1">loaded_config.items():</span>
+                        <span class="s2">if </span><span class="s1">key </span><span class="s2">in </span><span class="s1">self.config </span><span class="s2">and </span><span class="s1">isinstance(self.config[key], dict):</span>
+                            <span class="s1">self.config[key].update(value)</span>
+                        <span class="s2">else</span><span class="s1">:</span>
+                            <span class="s1">self.config[key] = value</span>
+                <span class="s1">logger.info(</span><span class="s3">&quot;News configuration loaded&quot;</span><span class="s1">)</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s0"># Save default config</span>
+                <span class="s1">os.makedirs(os.path.dirname(config_path), exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+                <span class="s2">with </span><span class="s1">open(config_path, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                    <span class="s1">json.dump(self.config, f, indent=</span><span class="s4">4</span><span class="s1">)</span>
+                <span class="s1">logger.info(</span><span class="s3">&quot;Default news configuration saved&quot;</span><span class="s1">)</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error loading news configuration: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s2">def </span><span class="s1">update_fear_greed_index(self):</span>
+        <span class="s0">&quot;&quot;&quot;Update the Fear &amp; Greed Index data&quot;&quot;&quot;</span>
+        <span class="s1">cache_key = </span><span class="s3">&quot;fear_greed&quot;</span>
+
+        <span class="s0"># Check cache first if enabled</span>
+        <span class="s2">if </span><span class="s1">self.config[</span><span class="s3">&quot;use_cache&quot;</span><span class="s1">] </span><span class="s2">and </span><span class="s1">cache_key </span><span class="s2">in </span><span class="s1">self.cache:</span>
+            <span class="s1">cache_age = time.time() - self.cache_timestamps.get(cache_key, </span><span class="s4">0</span><span class="s1">)</span>
+            <span class="s2">if </span><span class="s1">cache_age &lt; self.config[</span><span class="s3">&quot;cache_duration&quot;</span><span class="s1">]:</span>
+                <span class="s1">logger.info(</span><span class="s3">&quot;Using cached Fear &amp; Greed Index&quot;</span><span class="s1">)</span>
+                <span class="s1">self.fear_greed_data = self.cache[cache_key]</span>
+                <span class="s2">return </span><span class="s1">self.fear_greed_data</span>
+
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s1">url = self.config[</span><span class="s3">&quot;endpoints&quot;</span><span class="s1">][</span><span class="s3">&quot;fear_greed&quot;</span><span class="s1">]</span>
+            <span class="s1">response = requests.get(url)</span>
+
+            <span class="s2">if </span><span class="s1">response.status_code == </span><span class="s4">200</span><span class="s1">:</span>
+                <span class="s1">data = response.json()</span>
+
+                <span class="s2">if </span><span class="s3">&quot;data&quot; </span><span class="s2">in </span><span class="s1">data </span><span class="s2">and </span><span class="s1">len(data[</span><span class="s3">&quot;data&quot;</span><span class="s1">]) &gt; </span><span class="s4">0</span><span class="s1">:</span>
+                    <span class="s1">latest = data[</span><span class="s3">&quot;data&quot;</span><span class="s1">][</span><span class="s4">0</span><span class="s1">]</span>
+
+                    <span class="s0"># Store in a standardized format</span>
+                    <span class="s1">self.fear_greed_data = {</span>
+                        <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+                        <span class="s3">&quot;score&quot;</span><span class="s1">: int(latest[</span><span class="s3">&quot;value&quot;</span><span class="s1">]),</span>
+                        <span class="s3">&quot;classification&quot;</span><span class="s1">: latest[</span><span class="s3">&quot;value_classification&quot;</span><span class="s1">],</span>
+                        <span class="s3">&quot;prev_close&quot;</span><span class="s1">: int(data[</span><span class="s3">&quot;data&quot;</span><span class="s1">][</span><span class="s4">1</span><span class="s1">][</span><span class="s3">&quot;value&quot;</span><span class="s1">]) </span><span class="s2">if </span><span class="s1">len(data[</span><span class="s3">&quot;data&quot;</span><span class="s1">]) &gt; </span><span class="s4">1 </span><span class="s2">else None</span><span class="s1">,</span>
+                        <span class="s3">&quot;prev_week&quot;</span><span class="s1">: int(data[</span><span class="s3">&quot;data&quot;</span><span class="s1">][</span><span class="s4">7</span><span class="s1">][</span><span class="s3">&quot;value&quot;</span><span class="s1">]) </span><span class="s2">if </span><span class="s1">len(data[</span><span class="s3">&quot;data&quot;</span><span class="s1">]) &gt; </span><span class="s4">7 </span><span class="s2">else None</span><span class="s1">,</span>
+                        <span class="s3">&quot;prev_month&quot;</span><span class="s1">: int(data[</span><span class="s3">&quot;data&quot;</span><span class="s1">][</span><span class="s4">30</span><span class="s1">][</span><span class="s3">&quot;value&quot;</span><span class="s1">]) </span><span class="s2">if </span><span class="s1">len(data[</span><span class="s3">&quot;data&quot;</span><span class="s1">]) &gt; </span><span class="s4">30 </span><span class="s2">else None</span>
+                    <span class="s1">}</span>
+
+                    <span class="s0"># Add market regime classification</span>
+                    <span class="s1">self.fear_greed_data[</span><span class="s3">&quot;market_regime&quot;</span><span class="s1">] = self._classify_market_regime(self.fear_greed_data[</span><span class="s3">&quot;score&quot;</span><span class="s1">])</span>
+
+                    <span class="s0"># Save to cache</span>
+                    <span class="s1">self.cache[cache_key] = self.fear_greed_data</span>
+                    <span class="s1">self.cache_timestamps[cache_key] = time.time()</span>
+
+                    <span class="s0"># Save to file</span>
+                    <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;data/sentiment/fear_greed_latest.json&quot;</span><span class="s1">, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                        <span class="s1">json.dump(self.fear_greed_data, f, indent=</span><span class="s4">4</span><span class="s1">)</span>
+
+                    <span class="s1">logger.info(</span>
+                        <span class="s3">f&quot;Fear &amp; Greed Index updated: </span><span class="s5">{</span><span class="s1">self.fear_greed_data[</span><span class="s3">'score'</span><span class="s1">]</span><span class="s5">} </span><span class="s3">(</span><span class="s5">{</span><span class="s1">self.fear_greed_data[</span><span class="s3">'classification'</span><span class="s1">]</span><span class="s5">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+                    <span class="s2">return </span><span class="s1">self.fear_greed_data</span>
+                <span class="s2">else</span><span class="s1">:</span>
+                    <span class="s1">logger.warning(</span><span class="s3">&quot;No Fear &amp; Greed data returned&quot;</span><span class="s1">)</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error fetching Fear &amp; Greed Index: </span><span class="s5">{</span><span class="s1">response.status_code</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+            <span class="s0"># If we reach here, try to load from file as fallback</span>
+            <span class="s2">if </span><span class="s1">os.path.exists(</span><span class="s3">&quot;data/sentiment/fear_greed_latest.json&quot;</span><span class="s1">):</span>
+                <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;data/sentiment/fear_greed_latest.json&quot;</span><span class="s1">, </span><span class="s3">'r'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                    <span class="s1">self.fear_greed_data = json.load(f)</span>
+                <span class="s1">logger.info(</span><span class="s3">&quot;Using saved Fear &amp; Greed Index data&quot;</span><span class="s1">)</span>
+                <span class="s2">return </span><span class="s1">self.fear_greed_data</span>
+
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error updating Fear &amp; Greed Index: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># If all else fails, return a default neutral value</span>
+        <span class="s1">self.fear_greed_data = {</span>
+            <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+            <span class="s3">&quot;score&quot;</span><span class="s1">: </span><span class="s4">50</span><span class="s1">,</span>
+            <span class="s3">&quot;classification&quot;</span><span class="s1">: </span><span class="s3">&quot;Neutral&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;market_regime&quot;</span><span class="s1">: </span><span class="s3">&quot;Neutral&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;prev_close&quot;</span><span class="s1">: </span><span class="s2">None</span><span class="s1">,</span>
+            <span class="s3">&quot;prev_week&quot;</span><span class="s1">: </span><span class="s2">None</span><span class="s1">,</span>
+            <span class="s3">&quot;prev_month&quot;</span><span class="s1">: </span><span class="s2">None</span>
+        <span class="s1">}</span>
+
+        <span class="s2">return </span><span class="s1">self.fear_greed_data</span>
+
+    <span class="s2">def </span><span class="s1">_classify_market_regime(self, fear_greed_score):</span>
+        <span class="s0">&quot;&quot;&quot;Classify the market regime based on fear &amp; greed score&quot;&quot;&quot;</span>
+        <span class="s2">if </span><span class="s1">fear_greed_score &gt;= </span><span class="s4">80</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Extreme Greed - Potential Top&quot;</span>
+        <span class="s2">elif </span><span class="s1">fear_greed_score &gt;= </span><span class="s4">65</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Greed - Bullish&quot;</span>
+        <span class="s2">elif </span><span class="s1">fear_greed_score &gt;= </span><span class="s4">45</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Neutral - Range Bound&quot;</span>
+        <span class="s2">elif </span><span class="s1">fear_greed_score &gt;= </span><span class="s4">25</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Fear - Bearish&quot;</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Extreme Fear - Potential Bottom&quot;</span>
+
+    <span class="s2">def </span><span class="s1">get_company_news(self, symbol, days=</span><span class="s2">None</span><span class="s1">):</span>
+        <span class="s0">&quot;&quot;&quot;Get company-specific news from multiple sources with verification&quot;&quot;&quot;</span>
+        <span class="s0"># Original implementation to get news items</span>
+        <span class="s1">news_items = self._get_original_news_items(symbol, days)</span>
+
+        <span class="s0"># Add verification</span>
+        <span class="s2">if not </span><span class="s1">hasattr(self, </span><span class="s3">'news_verifier'</span><span class="s1">):</span>
+            <span class="s1">self.news_verifier = NewsVerifier()</span>
+
+        <span class="s0"># Verify each news item</span>
+        <span class="s1">verified_items = []</span>
+        <span class="s2">for </span><span class="s1">item </span><span class="s2">in </span><span class="s1">news_items:</span>
+            <span class="s1">verified_item = self.news_verifier.verify_news_item(item, news_items)</span>
+            <span class="s0"># Calculate adjusted relevance based on verification and time</span>
+            <span class="s1">self.news_verifier.calculate_news_relevance(verified_item)</span>
+            <span class="s1">verified_items.append(verified_item)</span>
+
+        <span class="s0"># Sort by adjusted relevance</span>
+        <span class="s1">verified_items.sort(key=</span><span class="s2">lambda </span><span class="s1">x: x.get(</span><span class="s3">'adjusted_relevance'</span><span class="s1">, </span><span class="s4">0</span><span class="s1">), reverse=</span><span class="s2">True</span><span class="s1">)</span>
+
+        <span class="s2">return </span><span class="s1">verified_items</span>
+        <span class="s3">&quot;&quot;&quot;Get company-specific news from multiple sources&quot;&quot;&quot;</span>
+        <span class="s2">if </span><span class="s1">days </span><span class="s2">is None</span><span class="s1">:</span>
+            <span class="s1">days = self.config[</span><span class="s3">&quot;news_lookback_days&quot;</span><span class="s1">]</span>
+
+        <span class="s1">cache_key = </span><span class="s3">f&quot;news_</span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">_</span><span class="s5">{</span><span class="s1">days</span><span class="s5">}</span><span class="s3">&quot;</span>
+
+        <span class="s0"># Check cache first if enabled</span>
+        <span class="s2">if </span><span class="s1">self.config[</span><span class="s3">&quot;use_cache&quot;</span><span class="s1">] </span><span class="s2">and </span><span class="s1">cache_key </span><span class="s2">in </span><span class="s1">self.cache:</span>
+            <span class="s1">cache_age = time.time() - self.cache_timestamps.get(cache_key, </span><span class="s4">0</span><span class="s1">)</span>
+            <span class="s2">if </span><span class="s1">cache_age &lt; self.config[</span><span class="s3">&quot;cache_duration&quot;</span><span class="s1">]:</span>
+                <span class="s1">logger.info(</span><span class="s3">f&quot;Using cached news for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s2">return </span><span class="s1">self.cache[cache_key]</span>
+
+        <span class="s0"># Define date range for news search</span>
+        <span class="s1">end_date = datetime.now()</span>
+        <span class="s1">start_date = end_date - timedelta(days=days)</span>
+
+        <span class="s1">news_items = []</span>
+
+        <span class="s0"># Get news from Alpha Vantage if API key is available</span>
+        <span class="s2">if </span><span class="s1">self.config[</span><span class="s3">&quot;api_keys&quot;</span><span class="s1">][</span><span class="s3">&quot;alphavantage&quot;</span><span class="s1">]:</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s1">params = {</span>
+                    <span class="s3">&quot;function&quot;</span><span class="s1">: </span><span class="s3">&quot;NEWS_SENTIMENT&quot;</span><span class="s1">,</span>
+                    <span class="s3">&quot;tickers&quot;</span><span class="s1">: symbol,</span>
+                    <span class="s3">&quot;apikey&quot;</span><span class="s1">: self.config[</span><span class="s3">&quot;api_keys&quot;</span><span class="s1">][</span><span class="s3">&quot;alphavantage&quot;</span><span class="s1">],</span>
+                    <span class="s3">&quot;limit&quot;</span><span class="s1">: </span><span class="s4">50</span>
+                <span class="s1">}</span>
+
+                <span class="s1">response = requests.get(self.config[</span><span class="s3">&quot;endpoints&quot;</span><span class="s1">][</span><span class="s3">&quot;alpha_news&quot;</span><span class="s1">], params=params)</span>
+
+                <span class="s2">if </span><span class="s1">response.status_code == </span><span class="s4">200</span><span class="s1">:</span>
+                    <span class="s1">data = response.json()</span>
+                    <span class="s2">if </span><span class="s3">&quot;feed&quot; </span><span class="s2">in </span><span class="s1">data:</span>
+                        <span class="s2">for </span><span class="s1">item </span><span class="s2">in </span><span class="s1">data[</span><span class="s3">&quot;feed&quot;</span><span class="s1">]:</span>
+                            <span class="s0"># Check if within date range</span>
+                            <span class="s1">pub_time = datetime.fromisoformat(item[</span><span class="s3">&quot;time_published&quot;</span><span class="s1">].replace(</span><span class="s3">&quot;Z&quot;</span><span class="s1">, </span><span class="s3">&quot;+00:00&quot;</span><span class="s1">))</span>
+                            <span class="s2">if </span><span class="s1">start_date &lt;= pub_time &lt;= end_date:</span>
+                                <span class="s1">news_items.append({</span>
+                                    <span class="s3">&quot;title&quot;</span><span class="s1">: item[</span><span class="s3">&quot;title&quot;</span><span class="s1">],</span>
+                                    <span class="s3">&quot;summary&quot;</span><span class="s1">: item.get(</span><span class="s3">&quot;summary&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">),</span>
+                                    <span class="s3">&quot;url&quot;</span><span class="s1">: item[</span><span class="s3">&quot;url&quot;</span><span class="s1">],</span>
+                                    <span class="s3">&quot;source&quot;</span><span class="s1">: item[</span><span class="s3">&quot;source&quot;</span><span class="s1">],</span>
+                                    <span class="s3">&quot;published&quot;</span><span class="s1">: item[</span><span class="s3">&quot;time_published&quot;</span><span class="s1">],</span>
+                                    <span class="s3">&quot;sentiment&quot;</span><span class="s1">: float(item.get(</span><span class="s3">&quot;overall_sentiment_score&quot;</span><span class="s1">, </span><span class="s4">0</span><span class="s1">)),</span>
+                                    <span class="s3">&quot;relevance&quot;</span><span class="s1">: float(</span>
+                                        <span class="s1">item.get(</span><span class="s3">&quot;relevance_score&quot;</span><span class="s1">, </span><span class="s4">0.5</span><span class="s1">) </span><span class="s2">if </span><span class="s3">&quot;relevance_score&quot; </span><span class="s2">in </span><span class="s1">item </span><span class="s2">else </span><span class="s4">0.5</span><span class="s1">)</span>
+                                <span class="s1">})</span>
+                <span class="s2">else</span><span class="s1">:</span>
+                    <span class="s1">logger.warning(</span><span class="s3">f&quot;Alpha Vantage News API returned status code </span><span class="s5">{</span><span class="s1">response.status_code</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error fetching Alpha Vantage news for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Get news from News API if API key is available</span>
+        <span class="s2">if </span><span class="s1">self.config[</span><span class="s3">&quot;api_keys&quot;</span><span class="s1">][</span><span class="s3">&quot;newsapi&quot;</span><span class="s1">]:</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s0"># Format dates for News API</span>
+                <span class="s1">start_str = start_date.strftime(</span><span class="s3">&quot;%Y-%m-%d&quot;</span><span class="s1">)</span>
+                <span class="s1">end_str = end_date.strftime(</span><span class="s3">&quot;%Y-%m-%d&quot;</span><span class="s1">)</span>
+
+                <span class="s1">params = {</span>
+                    <span class="s3">&quot;q&quot;</span><span class="s1">: </span><span class="s3">f&quot;</span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">} </span><span class="s3">OR </span><span class="s5">{</span><span class="s1">self._get_company_name(symbol)</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">,</span>
+                    <span class="s3">&quot;from&quot;</span><span class="s1">: start_str,</span>
+                    <span class="s3">&quot;to&quot;</span><span class="s1">: end_str,</span>
+                    <span class="s3">&quot;language&quot;</span><span class="s1">: </span><span class="s3">&quot;en&quot;</span><span class="s1">,</span>
+                    <span class="s3">&quot;sortBy&quot;</span><span class="s1">: </span><span class="s3">&quot;relevancy&quot;</span><span class="s1">,</span>
+                    <span class="s3">&quot;apiKey&quot;</span><span class="s1">: self.config[</span><span class="s3">&quot;api_keys&quot;</span><span class="s1">][</span><span class="s3">&quot;newsapi&quot;</span><span class="s1">],</span>
+                    <span class="s3">&quot;pageSize&quot;</span><span class="s1">: </span><span class="s4">100</span>
+                <span class="s1">}</span>
+
+                <span class="s1">response = requests.get(self.config[</span><span class="s3">&quot;endpoints&quot;</span><span class="s1">][</span><span class="s3">&quot;news_api&quot;</span><span class="s1">], params=params)</span>
+
+                <span class="s2">if </span><span class="s1">response.status_code == </span><span class="s4">200</span><span class="s1">:</span>
+                    <span class="s1">data = response.json()</span>
+                    <span class="s2">if </span><span class="s3">&quot;articles&quot; </span><span class="s2">in </span><span class="s1">data:</span>
+                        <span class="s2">for </span><span class="s1">item </span><span class="s2">in </span><span class="s1">data[</span><span class="s3">&quot;articles&quot;</span><span class="s1">]:</span>
+                            <span class="s0"># Only add if we don't already have this URL</span>
+                            <span class="s2">if not </span><span class="s1">any(news[</span><span class="s3">&quot;url&quot;</span><span class="s1">] == item[</span><span class="s3">&quot;url&quot;</span><span class="s1">] </span><span class="s2">for </span><span class="s1">news </span><span class="s2">in </span><span class="s1">news_items):</span>
+                                <span class="s0"># Calculate sentiment using simple keyword analysis since News API doesn't provide sentiment</span>
+                                <span class="s1">sentiment = self._simple_sentiment_analysis(</span>
+                                    <span class="s1">item[</span><span class="s3">&quot;title&quot;</span><span class="s1">] + </span><span class="s3">&quot; &quot; </span><span class="s1">+ (item[</span><span class="s3">&quot;description&quot;</span><span class="s1">] </span><span class="s2">or </span><span class="s3">&quot;&quot;</span><span class="s1">))</span>
+
+                                <span class="s1">news_items.append({</span>
+                                    <span class="s3">&quot;title&quot;</span><span class="s1">: item[</span><span class="s3">&quot;title&quot;</span><span class="s1">],</span>
+                                    <span class="s3">&quot;summary&quot;</span><span class="s1">: item.get(</span><span class="s3">&quot;description&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">),</span>
+                                    <span class="s3">&quot;url&quot;</span><span class="s1">: item[</span><span class="s3">&quot;url&quot;</span><span class="s1">],</span>
+                                    <span class="s3">&quot;source&quot;</span><span class="s1">: item[</span><span class="s3">&quot;source&quot;</span><span class="s1">][</span><span class="s3">&quot;name&quot;</span><span class="s1">],</span>
+                                    <span class="s3">&quot;published&quot;</span><span class="s1">: item[</span><span class="s3">&quot;publishedAt&quot;</span><span class="s1">],</span>
+                                    <span class="s3">&quot;sentiment&quot;</span><span class="s1">: sentiment,</span>
+                                    <span class="s3">&quot;relevance&quot;</span><span class="s1">: </span><span class="s4">0.5  </span><span class="s0"># Default relevance</span>
+                                <span class="s1">})</span>
+                <span class="s2">else</span><span class="s1">:</span>
+                    <span class="s1">logger.warning(</span><span class="s3">f&quot;News API returned status code </span><span class="s5">{</span><span class="s1">response.status_code</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error fetching News API content for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Get news from Finnhub if API key is available</span>
+        <span class="s2">if </span><span class="s1">self.config[</span><span class="s3">&quot;api_keys&quot;</span><span class="s1">][</span><span class="s3">&quot;finnhub&quot;</span><span class="s1">]:</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s0"># Convert dates to Unix timestamps for Finnhub</span>
+                <span class="s1">start_unix = int(start_date.timestamp())</span>
+                <span class="s1">end_unix = int(end_date.timestamp())</span>
+
+                <span class="s1">params = {</span>
+                    <span class="s3">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+                    <span class="s3">&quot;from&quot;</span><span class="s1">: start_unix,</span>
+                    <span class="s3">&quot;to&quot;</span><span class="s1">: end_unix,</span>
+                    <span class="s3">&quot;token&quot;</span><span class="s1">: self.config[</span><span class="s3">&quot;api_keys&quot;</span><span class="s1">][</span><span class="s3">&quot;finnhub&quot;</span><span class="s1">]</span>
+                <span class="s1">}</span>
+
+                <span class="s1">response = requests.get(self.config[</span><span class="s3">&quot;endpoints&quot;</span><span class="s1">][</span><span class="s3">&quot;finnhub_news&quot;</span><span class="s1">], params=params)</span>
+
+                <span class="s2">if </span><span class="s1">response.status_code == </span><span class="s4">200</span><span class="s1">:</span>
+                    <span class="s1">data = response.json()</span>
+                    <span class="s2">for </span><span class="s1">item </span><span class="s2">in </span><span class="s1">data:</span>
+                        <span class="s0"># Only add if we don't already have this URL</span>
+                        <span class="s2">if not </span><span class="s1">any(news[</span><span class="s3">&quot;url&quot;</span><span class="s1">] == item[</span><span class="s3">&quot;url&quot;</span><span class="s1">] </span><span class="s2">for </span><span class="s1">news </span><span class="s2">in </span><span class="s1">news_items):</span>
+                            <span class="s0"># Calculate sentiment using simple keyword analysis</span>
+                            <span class="s1">sentiment = self._simple_sentiment_analysis(</span>
+                                <span class="s1">item[</span><span class="s3">&quot;headline&quot;</span><span class="s1">] + </span><span class="s3">&quot; &quot; </span><span class="s1">+ (item.get(</span><span class="s3">&quot;summary&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">) </span><span class="s2">or </span><span class="s3">&quot;&quot;</span><span class="s1">))</span>
+
+                            <span class="s1">news_items.append({</span>
+                                <span class="s3">&quot;title&quot;</span><span class="s1">: item[</span><span class="s3">&quot;headline&quot;</span><span class="s1">],</span>
+                                <span class="s3">&quot;summary&quot;</span><span class="s1">: item.get(</span><span class="s3">&quot;summary&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">),</span>
+                                <span class="s3">&quot;url&quot;</span><span class="s1">: item[</span><span class="s3">&quot;url&quot;</span><span class="s1">],</span>
+                                <span class="s3">&quot;source&quot;</span><span class="s1">: item[</span><span class="s3">&quot;source&quot;</span><span class="s1">],</span>
+                                <span class="s3">&quot;published&quot;</span><span class="s1">: datetime.fromtimestamp(item[</span><span class="s3">&quot;datetime&quot;</span><span class="s1">]).isoformat(),</span>
+                                <span class="s3">&quot;sentiment&quot;</span><span class="s1">: sentiment,</span>
+                                <span class="s3">&quot;relevance&quot;</span><span class="s1">: </span><span class="s4">0.7  </span><span class="s0"># Higher default relevance for Finnhub</span>
+                            <span class="s1">})</span>
+                <span class="s2">else</span><span class="s1">:</span>
+                    <span class="s1">logger.warning(</span><span class="s3">f&quot;Finnhub API returned status code </span><span class="s5">{</span><span class="s1">response.status_code</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error fetching Finnhub news for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Save to cache</span>
+        <span class="s1">self.cache[cache_key] = news_items</span>
+        <span class="s1">self.cache_timestamps[cache_key] = time.time()</span>
+
+        <span class="s0"># Save to file</span>
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">f&quot;data/news/</span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">_latest.json&quot;</span><span class="s1">, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">json.dump(news_items, f, indent=</span><span class="s4">4</span><span class="s1">)</span>
+
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Retrieved </span><span class="s5">{</span><span class="s1">len(news_items)</span><span class="s5">} </span><span class="s3">news items for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">news_items</span>
+
+    <span class="s2">def </span><span class="s1">_get_company_name(self, symbol):</span>
+        <span class="s0">&quot;&quot;&quot;Get company name from symbol for better news searches&quot;&quot;&quot;</span>
+        <span class="s0"># Hard-coded mapping for common symbols</span>
+        <span class="s1">company_map = {</span>
+            <span class="s3">&quot;AAPL&quot;</span><span class="s1">: </span><span class="s3">&quot;Apple&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;MSFT&quot;</span><span class="s1">: </span><span class="s3">&quot;Microsoft&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;AMZN&quot;</span><span class="s1">: </span><span class="s3">&quot;Amazon&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;GOOGL&quot;</span><span class="s1">: </span><span class="s3">&quot;Google OR Alphabet&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;GOOG&quot;</span><span class="s1">: </span><span class="s3">&quot;Google OR Alphabet&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;META&quot;</span><span class="s1">: </span><span class="s3">&quot;Meta OR Facebook&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;TSLA&quot;</span><span class="s1">: </span><span class="s3">&quot;Tesla&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;NVDA&quot;</span><span class="s1">: </span><span class="s3">&quot;NVIDIA&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;V&quot;</span><span class="s1">: </span><span class="s3">&quot;Visa&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;JPM&quot;</span><span class="s1">: </span><span class="s3">&quot;JPMorgan&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;JNJ&quot;</span><span class="s1">: </span><span class="s3">&quot;Johnson &amp; Johnson&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;WMT&quot;</span><span class="s1">: </span><span class="s3">&quot;Walmart&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;PG&quot;</span><span class="s1">: </span><span class="s3">&quot;Procter &amp; Gamble&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;MA&quot;</span><span class="s1">: </span><span class="s3">&quot;Mastercard&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;UNH&quot;</span><span class="s1">: </span><span class="s3">&quot;UnitedHealth&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;HD&quot;</span><span class="s1">: </span><span class="s3">&quot;Home Depot&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;BAC&quot;</span><span class="s1">: </span><span class="s3">&quot;Bank of America&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;XOM&quot;</span><span class="s1">: </span><span class="s3">&quot;Exxon Mobil&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;AVGO&quot;</span><span class="s1">: </span><span class="s3">&quot;Broadcom&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;KO&quot;</span><span class="s1">: </span><span class="s3">&quot;Coca-Cola&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;PEP&quot;</span><span class="s1">: </span><span class="s3">&quot;PepsiCo&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;ABBV&quot;</span><span class="s1">: </span><span class="s3">&quot;AbbVie&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;COST&quot;</span><span class="s1">: </span><span class="s3">&quot;Costco&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;TMO&quot;</span><span class="s1">: </span><span class="s3">&quot;Thermo Fisher&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;MRK&quot;</span><span class="s1">: </span><span class="s3">&quot;Merck&quot;</span>
+        <span class="s1">}</span>
+
+        <span class="s2">return </span><span class="s1">company_map.get(symbol, symbol)</span>
+
+    <span class="s2">def </span><span class="s1">_simple_sentiment_analysis(self, text):</span>
+        <span class="s0">&quot;&quot;&quot;Legacy function that now uses the enhanced analyzer&quot;&quot;&quot;</span>
+        <span class="s2">if not </span><span class="s1">hasattr(self, </span><span class="s3">'sentiment_analyzer'</span><span class="s1">):</span>
+            <span class="s1">self.sentiment_analyzer = EnhancedSentimentAnalyzer()</span>
+
+        <span class="s2">return </span><span class="s1">self.sentiment_analyzer.analyze_sentiment(text)</span>
+        <span class="s3">&quot;&quot;&quot;Simple rule-based sentiment analysis for news content&quot;&quot;&quot;</span>
+        <span class="s1">text = text.lower()</span>
+
+        <span class="s0"># Define sentiment keywords</span>
+        <span class="s1">positive_words = [</span>
+            <span class="s3">'gain'</span><span class="s1">, </span><span class="s3">'gains'</span><span class="s1">, </span><span class="s3">'profit'</span><span class="s1">, </span><span class="s3">'profits'</span><span class="s1">, </span><span class="s3">'positive'</span><span class="s1">, </span><span class="s3">'up'</span><span class="s1">, </span><span class="s3">'upside'</span><span class="s1">, </span><span class="s3">'bull'</span><span class="s1">, </span><span class="s3">'bullish'</span><span class="s1">,</span>
+            <span class="s3">'rise'</span><span class="s1">, </span><span class="s3">'rising'</span><span class="s1">, </span><span class="s3">'rose'</span><span class="s1">, </span><span class="s3">'improve'</span><span class="s1">, </span><span class="s3">'improves'</span><span class="s1">, </span><span class="s3">'improved'</span><span class="s1">, </span><span class="s3">'improving'</span><span class="s1">, </span><span class="s3">'improvement'</span><span class="s1">,</span>
+            <span class="s3">'beat'</span><span class="s1">, </span><span class="s3">'beats'</span><span class="s1">, </span><span class="s3">'exceeded'</span><span class="s1">, </span><span class="s3">'exceeds'</span><span class="s1">, </span><span class="s3">'outperform'</span><span class="s1">, </span><span class="s3">'outperforms'</span><span class="s1">, </span><span class="s3">'outperformed'</span><span class="s1">,</span>
+            <span class="s3">'strong'</span><span class="s1">, </span><span class="s3">'stronger'</span><span class="s1">, </span><span class="s3">'strongest'</span><span class="s1">, </span><span class="s3">'strength'</span><span class="s1">, </span><span class="s3">'high'</span><span class="s1">, </span><span class="s3">'higher'</span><span class="s1">, </span><span class="s3">'highest'</span><span class="s1">,</span>
+            <span class="s3">'opportunity'</span><span class="s1">, </span><span class="s3">'opportunities'</span><span class="s1">, </span><span class="s3">'success'</span><span class="s1">, </span><span class="s3">'successful'</span><span class="s1">, </span><span class="s3">'grow'</span><span class="s1">, </span><span class="s3">'growth'</span><span class="s1">, </span><span class="s3">'growing'</span>
+        <span class="s1">]</span>
+
+        <span class="s1">negative_words = [</span>
+            <span class="s3">'loss'</span><span class="s1">, </span><span class="s3">'losses'</span><span class="s1">, </span><span class="s3">'negative'</span><span class="s1">, </span><span class="s3">'down'</span><span class="s1">, </span><span class="s3">'downside'</span><span class="s1">, </span><span class="s3">'bear'</span><span class="s1">, </span><span class="s3">'bearish'</span><span class="s1">,</span>
+            <span class="s3">'fall'</span><span class="s1">, </span><span class="s3">'falling'</span><span class="s1">, </span><span class="s3">'fell'</span><span class="s1">, </span><span class="s3">'decline'</span><span class="s1">, </span><span class="s3">'declines'</span><span class="s1">, </span><span class="s3">'declined'</span><span class="s1">, </span><span class="s3">'declining'</span><span class="s1">,</span>
+            <span class="s3">'miss'</span><span class="s1">, </span><span class="s3">'misses'</span><span class="s1">, </span><span class="s3">'missed'</span><span class="s1">, </span><span class="s3">'underperform'</span><span class="s1">, </span><span class="s3">'underperforms'</span><span class="s1">, </span><span class="s3">'underperformed'</span><span class="s1">,</span>
+            <span class="s3">'weak'</span><span class="s1">, </span><span class="s3">'weaker'</span><span class="s1">, </span><span class="s3">'weakest'</span><span class="s1">, </span><span class="s3">'weakness'</span><span class="s1">, </span><span class="s3">'low'</span><span class="s1">, </span><span class="s3">'lower'</span><span class="s1">, </span><span class="s3">'lowest'</span><span class="s1">,</span>
+            <span class="s3">'risk'</span><span class="s1">, </span><span class="s3">'risks'</span><span class="s1">, </span><span class="s3">'risky'</span><span class="s1">, </span><span class="s3">'warning'</span><span class="s1">, </span><span class="s3">'fail'</span><span class="s1">, </span><span class="s3">'failure'</span><span class="s1">, </span><span class="s3">'failing'</span><span class="s1">, </span><span class="s3">'failed'</span><span class="s1">,</span>
+            <span class="s3">'drop'</span><span class="s1">, </span><span class="s3">'drops'</span><span class="s1">, </span><span class="s3">'dropped'</span><span class="s1">, </span><span class="s3">'dropping'</span><span class="s1">, </span><span class="s3">'cut'</span><span class="s1">, </span><span class="s3">'cuts'</span><span class="s1">, </span><span class="s3">'cutting'</span>
+        <span class="s1">]</span>
+
+        <span class="s0"># Super negative words with higher weight</span>
+        <span class="s1">very_negative_words = [</span>
+            <span class="s3">'crash'</span><span class="s1">, </span><span class="s3">'crisis'</span><span class="s1">, </span><span class="s3">'bankruptcy'</span><span class="s1">, </span><span class="s3">'bankrupt'</span><span class="s1">, </span><span class="s3">'collapse'</span><span class="s1">, </span><span class="s3">'disaster'</span><span class="s1">, </span><span class="s3">'catastrophe'</span><span class="s1">,</span>
+            <span class="s3">'plummet'</span><span class="s1">, </span><span class="s3">'plummets'</span><span class="s1">, </span><span class="s3">'plummeted'</span><span class="s1">, </span><span class="s3">'plummeting'</span><span class="s1">, </span><span class="s3">'scandal'</span><span class="s1">, </span><span class="s3">'investigation'</span><span class="s1">, </span><span class="s3">'lawsuit'</span><span class="s1">,</span>
+            <span class="s3">'layoff'</span><span class="s1">, </span><span class="s3">'layoffs'</span><span class="s1">, </span><span class="s3">'recession'</span><span class="s1">, </span><span class="s3">'depression'</span><span class="s1">, </span><span class="s3">'default'</span><span class="s1">, </span><span class="s3">'panic'</span><span class="s1">, </span><span class="s3">'sell-off'</span>
+        <span class="s1">]</span>
+
+        <span class="s0"># Count word occurrences</span>
+        <span class="s1">positive_count = sum(</span><span class="s4">1 </span><span class="s2">for </span><span class="s1">word </span><span class="s2">in </span><span class="s1">positive_words </span><span class="s2">if </span><span class="s1">re.search(</span><span class="s3">r'\b' </span><span class="s1">+ word + </span><span class="s3">r'\b'</span><span class="s1">, text))</span>
+        <span class="s1">negative_count = sum(</span><span class="s4">1 </span><span class="s2">for </span><span class="s1">word </span><span class="s2">in </span><span class="s1">negative_words </span><span class="s2">if </span><span class="s1">re.search(</span><span class="s3">r'\b' </span><span class="s1">+ word + </span><span class="s3">r'\b'</span><span class="s1">, text))</span>
+        <span class="s1">very_negative_count = sum(</span><span class="s4">1 </span><span class="s2">for </span><span class="s1">word </span><span class="s2">in </span><span class="s1">very_negative_words </span><span class="s2">if </span><span class="s1">re.search(</span><span class="s3">r'\b' </span><span class="s1">+ word + </span><span class="s3">r'\b'</span><span class="s1">, text))</span>
+
+        <span class="s0"># Calculate sentiment score (-1 to 1)</span>
+        <span class="s1">total_count = positive_count + negative_count + (very_negative_count * </span><span class="s4">2</span><span class="s1">)</span>
+        <span class="s2">if </span><span class="s1">total_count == </span><span class="s4">0</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s4">0  </span><span class="s0"># Neutral</span>
+
+        <span class="s1">sentiment = (positive_count - negative_count - (very_negative_count * </span><span class="s4">2</span><span class="s1">)) / float(total_count)</span>
+
+        <span class="s0"># Scale from [-1, 1] to [-1, 1]</span>
+        <span class="s2">return </span><span class="s1">max(min(sentiment, </span><span class="s4">1</span><span class="s1">), -</span><span class="s4">1</span><span class="s1">)</span>
+
+    <span class="s2">def </span><span class="s1">get_social_sentiment(self, symbol):</span>
+        <span class="s0">&quot;&quot;&quot;Get social media sentiment for a symbol&quot;&quot;&quot;</span>
+        <span class="s1">cache_key = </span><span class="s3">f&quot;social_</span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">&quot;</span>
+
+        <span class="s0"># Check cache first if enabled</span>
+        <span class="s2">if </span><span class="s1">self.config[</span><span class="s3">&quot;use_cache&quot;</span><span class="s1">] </span><span class="s2">and </span><span class="s1">cache_key </span><span class="s2">in </span><span class="s1">self.cache:</span>
+            <span class="s1">cache_age = time.time() - self.cache_timestamps.get(cache_key, </span><span class="s4">0</span><span class="s1">)</span>
+            <span class="s2">if </span><span class="s1">cache_age &lt; self.config[</span><span class="s3">&quot;cache_duration&quot;</span><span class="s1">]:</span>
+                <span class="s1">logger.info(</span><span class="s3">f&quot;Using cached social sentiment for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s2">return </span><span class="s1">self.cache[cache_key]</span>
+
+        <span class="s1">social_data = {</span>
+            <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+            <span class="s3">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+            <span class="s3">&quot;sentiment_score&quot;</span><span class="s1">: </span><span class="s4">0</span><span class="s1">,</span>
+            <span class="s3">&quot;volume&quot;</span><span class="s1">: </span><span class="s4">0</span><span class="s1">,</span>
+            <span class="s3">&quot;twitter_sentiment&quot;</span><span class="s1">: </span><span class="s2">None</span>
+        <span class="s1">}</span>
+
+        <span class="s0"># Get Twitter sentiment if bearer token is available</span>
+        <span class="s2">if </span><span class="s1">self.config[</span><span class="s3">&quot;api_keys&quot;</span><span class="s1">][</span><span class="s3">&quot;twitter_bearer&quot;</span><span class="s1">]:</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s0"># Search for tweets about the symbol and company name</span>
+                <span class="s1">query = </span><span class="s3">f&quot;$</span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">} </span><span class="s3">OR </span><span class="s5">{</span><span class="s1">self._get_company_name(symbol)</span><span class="s5">} </span><span class="s3">lang:en -is:retweet&quot;</span>
+
+                <span class="s0"># Twitter v2 API parameters</span>
+                <span class="s1">params = {</span>
+                    <span class="s3">&quot;query&quot;</span><span class="s1">: query,</span>
+                    <span class="s3">&quot;max_results&quot;</span><span class="s1">: </span><span class="s4">100</span><span class="s1">,</span>
+                    <span class="s3">&quot;tweet.fields&quot;</span><span class="s1">: </span><span class="s3">&quot;created_at,public_metrics&quot;</span>
+                <span class="s1">}</span>
+
+                <span class="s1">headers = {</span>
+                    <span class="s3">&quot;Authorization&quot;</span><span class="s1">: </span><span class="s3">f&quot;Bearer </span><span class="s5">{</span><span class="s1">self.config[</span><span class="s3">'api_keys'</span><span class="s1">][</span><span class="s3">'twitter_bearer'</span><span class="s1">]</span><span class="s5">}</span><span class="s3">&quot;</span>
+                <span class="s1">}</span>
+
+                <span class="s1">url = </span><span class="s3">f&quot;</span><span class="s5">{</span><span class="s1">self.config[</span><span class="s3">'endpoints'</span><span class="s1">][</span><span class="s3">'twitter'</span><span class="s1">]</span><span class="s5">}</span><span class="s3">?</span><span class="s5">{</span><span class="s1">urlencode(params)</span><span class="s5">}</span><span class="s3">&quot;</span>
+                <span class="s1">response = requests.get(url, headers=headers)</span>
+
+                <span class="s2">if </span><span class="s1">response.status_code == </span><span class="s4">200</span><span class="s1">:</span>
+                    <span class="s1">data = response.json()</span>
+
+                    <span class="s2">if </span><span class="s3">&quot;data&quot; </span><span class="s2">in </span><span class="s1">data </span><span class="s2">and </span><span class="s1">data[</span><span class="s3">&quot;data&quot;</span><span class="s1">]:</span>
+                        <span class="s1">tweets = data[</span><span class="s3">&quot;data&quot;</span><span class="s1">]</span>
+
+                        <span class="s0"># Analyze sentiment for each tweet</span>
+                        <span class="s1">sentiments = []</span>
+                        <span class="s1">total_engagement = </span><span class="s4">0</span>
+
+                        <span class="s2">for </span><span class="s1">tweet </span><span class="s2">in </span><span class="s1">tweets:</span>
+                            <span class="s1">tweet_text = tweet.get(</span><span class="s3">&quot;text&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">)</span>
+                            <span class="s1">sentiment = self._simple_sentiment_analysis(tweet_text)</span>
+
+                            <span class="s0"># Calculate engagement for weighting</span>
+                            <span class="s1">engagement = sum(tweet.get(</span><span class="s3">&quot;public_metrics&quot;</span><span class="s1">, {}).get(metric, </span><span class="s4">0</span><span class="s1">)</span>
+                                             <span class="s2">for </span><span class="s1">metric </span><span class="s2">in </span><span class="s1">[</span><span class="s3">&quot;like_count&quot;</span><span class="s1">, </span><span class="s3">&quot;reply_count&quot;</span><span class="s1">, </span><span class="s3">&quot;retweet_count&quot;</span><span class="s1">])</span>
+
+                            <span class="s0"># Weight by engagement</span>
+                            <span class="s1">sentiments.append((sentiment, max(</span><span class="s4">1</span><span class="s1">, engagement)))</span>
+                            <span class="s1">total_engagement += max(</span><span class="s4">1</span><span class="s1">, engagement)</span>
+
+                        <span class="s0"># Calculate weighted average sentiment</span>
+                        <span class="s2">if </span><span class="s1">sentiments:</span>
+                            <span class="s1">weighted_sentiment = sum(s[</span><span class="s4">0</span><span class="s1">] * s[</span><span class="s4">1</span><span class="s1">] </span><span class="s2">for </span><span class="s1">s </span><span class="s2">in </span><span class="s1">sentiments) / total_engagement</span>
+
+                            <span class="s1">social_data[</span><span class="s3">&quot;twitter_sentiment&quot;</span><span class="s1">] = {</span>
+                                <span class="s3">&quot;score&quot;</span><span class="s1">: weighted_sentiment,</span>
+                                <span class="s3">&quot;volume&quot;</span><span class="s1">: len(tweets),</span>
+                                <span class="s3">&quot;engagement&quot;</span><span class="s1">: total_engagement</span>
+                            <span class="s1">}</span>
+
+                            <span class="s0"># Set overall sentiment to Twitter sentiment</span>
+                            <span class="s1">social_data[</span><span class="s3">&quot;sentiment_score&quot;</span><span class="s1">] = weighted_sentiment</span>
+                            <span class="s1">social_data[</span><span class="s3">&quot;volume&quot;</span><span class="s1">] = len(tweets)</span>
+                <span class="s2">else</span><span class="s1">:</span>
+                    <span class="s1">logger.warning(</span><span class="s3">f&quot;Twitter API returned status code </span><span class="s5">{</span><span class="s1">response.status_code</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error fetching Twitter sentiment for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># If no data obtained, use a randomly generated mild sentiment</span>
+        <span class="s2">if </span><span class="s1">social_data[</span><span class="s3">&quot;sentiment_score&quot;</span><span class="s1">] == </span><span class="s4">0</span><span class="s1">:</span>
+            <span class="s0"># Generate random sentiment between -0.3 and 0.3</span>
+            <span class="s1">social_data[</span><span class="s3">&quot;sentiment_score&quot;</span><span class="s1">] = random.uniform(-</span><span class="s4">0.3</span><span class="s1">, </span><span class="s4">0.3</span><span class="s1">)</span>
+            <span class="s1">social_data[</span><span class="s3">&quot;volume&quot;</span><span class="s1">] = random.randint(</span><span class="s4">10</span><span class="s1">, </span><span class="s4">100</span><span class="s1">)</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Using simulated social sentiment for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Save to cache</span>
+        <span class="s1">self.cache[cache_key] = social_data</span>
+        <span class="s1">self.cache_timestamps[cache_key] = time.time()</span>
+
+        <span class="s0"># Save to social sentiment tracking</span>
+        <span class="s1">self.social_sentiment[symbol] = social_data</span>
+
+        <span class="s0"># Save to file</span>
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">f&quot;data/sentiment/social_</span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">_latest.json&quot;</span><span class="s1">, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">json.dump(social_data, f, indent=</span><span class="s4">4</span><span class="s1">)</span>
+
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Social sentiment for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">social_data[</span><span class="s3">'sentiment_score'</span><span class="s1">]</span><span class="s5">:</span><span class="s3">.4f</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">social_data</span>
+
+    <span class="s2">def </span><span class="s1">update_news_data(self, symbols):</span>
+        <span class="s0">&quot;&quot;&quot;Update news data for multiple symbols&quot;&quot;&quot;</span>
+        <span class="s0"># Make sure the fear &amp; greed index is updated</span>
+        <span class="s2">if not </span><span class="s1">self.fear_greed_data:</span>
+            <span class="s1">self.update_fear_greed_index()</span>
+
+        <span class="s0"># Process each symbol</span>
+        <span class="s2">for </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">symbols:</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s0"># Get news data</span>
+                <span class="s1">news_items = self.get_company_news(symbol)</span>
+
+                <span class="s0"># Get social sentiment</span>
+                <span class="s1">social_data = self.get_social_sentiment(symbol)</span>
+
+                <span class="s0"># Calculate overall news sentiment</span>
+                <span class="s2">if </span><span class="s1">news_items:</span>
+                    <span class="s0"># Weight by relevance and recency</span>
+                    <span class="s1">weighted_sentiments = []</span>
+                    <span class="s1">total_weight = </span><span class="s4">0</span>
+
+                    <span class="s2">for </span><span class="s1">item </span><span class="s2">in </span><span class="s1">news_items:</span>
+                        <span class="s2">try</span><span class="s1">:</span>
+                            <span class="s0"># Calculate recency weight (newer = higher weight)</span>
+                            <span class="s1">pub_time = datetime.fromisoformat(item[</span><span class="s3">&quot;published&quot;</span><span class="s1">].replace(</span><span class="s3">&quot;Z&quot;</span><span class="s1">, </span><span class="s3">&quot;+00:00&quot;</span><span class="s1">))</span>
+                            <span class="s1">days_old = (datetime.now() - pub_time).total_seconds() / </span><span class="s4">86400</span>
+                            <span class="s1">recency_weight = max(</span><span class="s4">0.2</span><span class="s1">, </span><span class="s4">1 </span><span class="s1">- (days_old / </span><span class="s4">7</span><span class="s1">))  </span><span class="s0"># 0.2 to 1.0 based on age</span>
+
+                            <span class="s0"># Calculate relevance weight (0.1 to 1.0)</span>
+                            <span class="s1">relevance_weight = max(</span><span class="s4">0.1</span><span class="s1">, min(</span><span class="s4">1.0</span><span class="s1">, item[</span><span class="s3">&quot;relevance&quot;</span><span class="s1">]))</span>
+
+                            <span class="s0"># Combine weights</span>
+                            <span class="s1">weight = recency_weight * relevance_weight</span>
+
+                            <span class="s1">weighted_sentiments.append((item[</span><span class="s3">&quot;sentiment&quot;</span><span class="s1">], weight))</span>
+                            <span class="s1">total_weight += weight</span>
+                        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                            <span class="s1">logger.warning(</span><span class="s3">f&quot;Error processing news item for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+                    <span class="s0"># Calculate weighted average sentiment</span>
+                    <span class="s2">if </span><span class="s1">weighted_sentiments </span><span class="s2">and </span><span class="s1">total_weight &gt; </span><span class="s4">0</span><span class="s1">:</span>
+                        <span class="s1">news_sentiment = sum(s[</span><span class="s4">0</span><span class="s1">] * s[</span><span class="s4">1</span><span class="s1">] </span><span class="s2">for </span><span class="s1">s </span><span class="s2">in </span><span class="s1">weighted_sentiments) / total_weight</span>
+                    <span class="s2">else</span><span class="s1">:</span>
+                        <span class="s1">news_sentiment = </span><span class="s4">0  </span><span class="s0"># Neutral if no valid items</span>
+                <span class="s2">else</span><span class="s1">:</span>
+                    <span class="s1">news_sentiment = </span><span class="s4">0  </span><span class="s0"># Neutral if no news</span>
+
+                <span class="s0"># Store sentiment</span>
+                <span class="s1">self.news_sentiment[symbol] = news_sentiment</span>
+
+                <span class="s1">logger.info(</span><span class="s3">f&quot;News sentiment for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">news_sentiment</span><span class="s5">:</span><span class="s3">.4f</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error updating news data for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s1">self.news_sentiment[symbol] = </span><span class="s4">0  </span><span class="s0"># Neutral on error</span>
+
+        <span class="s2">return </span><span class="s1">self.news_sentiment</span>
+
+    <span class="s2">def </span><span class="s1">get_finance_sentiment_factors(self, symbol):</span>
+        <span class="s0">&quot;&quot;&quot;Get all sentiment factors for a symbol&quot;&quot;&quot;</span>
+        <span class="s0"># Ensure we have data</span>
+        <span class="s2">if </span><span class="s1">symbol </span><span class="s2">not in </span><span class="s1">self.news_sentiment:</span>
+            <span class="s1">self.update_news_data([symbol])</span>
+
+        <span class="s2">if not </span><span class="s1">self.fear_greed_data:</span>
+            <span class="s1">self.update_fear_greed_index()</span>
+
+        <span class="s2">if </span><span class="s1">symbol </span><span class="s2">not in </span><span class="s1">self.social_sentiment:</span>
+            <span class="s1">self.get_social_sentiment(symbol)</span>
+
+        <span class="s0"># Get all sentiment values</span>
+        <span class="s1">news_sentiment = self.news_sentiment.get(symbol, </span><span class="s4">0</span><span class="s1">)</span>
+
+        <span class="s1">social_sentiment = self.social_sentiment.get(symbol, {}).get(</span><span class="s3">&quot;sentiment_score&quot;</span><span class="s1">, </span><span class="s4">0</span><span class="s1">)</span>
+
+        <span class="s0"># Convert fear &amp; greed (0-100) to (-1 to 1) scale</span>
+        <span class="s2">if </span><span class="s1">self.fear_greed_data:</span>
+            <span class="s1">fear_greed_sentiment = (self.fear_greed_data[</span><span class="s3">&quot;score&quot;</span><span class="s1">] - </span><span class="s4">50</span><span class="s1">) / </span><span class="s4">50</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">fear_greed_sentiment = </span><span class="s4">0</span>
+
+        <span class="s0"># Get weight configuration</span>
+        <span class="s1">weights = self.config[</span><span class="s3">&quot;sentiment_weights&quot;</span><span class="s1">]</span>
+
+        <span class="s0"># Calculate combined sentiment</span>
+        <span class="s1">combined_sentiment = (</span>
+                <span class="s1">news_sentiment * weights[</span><span class="s3">&quot;news&quot;</span><span class="s1">] +</span>
+                <span class="s1">social_sentiment * weights[</span><span class="s3">&quot;social&quot;</span><span class="s1">] +</span>
+                <span class="s1">fear_greed_sentiment * weights[</span><span class="s3">&quot;fear_greed&quot;</span><span class="s1">]</span>
+        <span class="s1">)</span>
+
+        <span class="s0"># Create sentiment factors result</span>
+        <span class="s1">sentiment_factors = {</span>
+            <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+            <span class="s3">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+            <span class="s3">&quot;news_sentiment&quot;</span><span class="s1">: news_sentiment,</span>
+            <span class="s3">&quot;social_sentiment&quot;</span><span class="s1">: social_sentiment,</span>
+            <span class="s3">&quot;fear_greed_sentiment&quot;</span><span class="s1">: fear_greed_sentiment,</span>
+            <span class="s3">&quot;fear_greed_score&quot;</span><span class="s1">: self.fear_greed_data[</span><span class="s3">&quot;score&quot;</span><span class="s1">] </span><span class="s2">if </span><span class="s1">self.fear_greed_data </span><span class="s2">else </span><span class="s4">50</span><span class="s1">,</span>
+            <span class="s3">&quot;fear_greed_classification&quot;</span><span class="s1">: self.fear_greed_data[</span><span class="s3">&quot;classification&quot;</span><span class="s1">] </span><span class="s2">if </span><span class="s1">self.fear_greed_data </span><span class="s2">else </span><span class="s3">&quot;Neutral&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;market_regime&quot;</span><span class="s1">: self.fear_greed_data[</span><span class="s3">&quot;market_regime&quot;</span><span class="s1">] </span><span class="s2">if </span><span class="s1">self.fear_greed_data </span><span class="s2">else </span><span class="s3">&quot;Neutral&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;combined_sentiment&quot;</span><span class="s1">: combined_sentiment,</span>
+            <span class="s3">&quot;sentiment_signal&quot;</span><span class="s1">: self._sentiment_to_signal(combined_sentiment)</span>
+        <span class="s1">}</span>
+
+        <span class="s0"># Save to file</span>
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">f&quot;data/sentiment/</span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">_factors.json&quot;</span><span class="s1">, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">json.dump(sentiment_factors, f, indent=</span><span class="s4">4</span><span class="s1">)</span>
+
+        <span class="s2">return </span><span class="s1">sentiment_factors</span>
+
+    <span class="s2">def </span><span class="s1">_sentiment_to_signal(self, sentiment):</span>
+        <span class="s0">&quot;&quot;&quot;Convert sentiment score to trading signal (0 to 1)&quot;&quot;&quot;</span>
+        <span class="s0"># Map from [-1, 1] to [0, 1]</span>
+        <span class="s1">signal = (sentiment + </span><span class="s4">1</span><span class="s1">) / </span><span class="s4">2</span>
+
+        <span class="s0"># Add some non-linearity to emphasize extremes</span>
+        <span class="s2">if </span><span class="s1">sentiment &gt; </span><span class="s4">0.5</span><span class="s1">:</span>
+            <span class="s0"># Boost positive sentiment</span>
+            <span class="s1">signal = </span><span class="s4">0.5 </span><span class="s1">+ (sentiment - </span><span class="s4">0.5</span><span class="s1">) * </span><span class="s4">1.2</span>
+        <span class="s2">elif </span><span class="s1">sentiment &lt; -</span><span class="s4">0.5</span><span class="s1">:</span>
+            <span class="s0"># Boost negative sentiment</span>
+            <span class="s1">signal = </span><span class="s4">0.5 </span><span class="s1">- (abs(sentiment) - </span><span class="s4">0.5</span><span class="s1">) * </span><span class="s4">1.2</span>
+
+        <span class="s0"># Ensure in range [0, 1]</span>
+        <span class="s2">return </span><span class="s1">max(</span><span class="s4">0</span><span class="s1">, min(</span><span class="s4">1</span><span class="s1">, signal))</span>
+
+    <span class="s2">def </span><span class="s1">get_panic_level(self):</span>
+        <span class="s0">&quot;&quot;&quot;Get current market panic level (0-100)&quot;&quot;&quot;</span>
+        <span class="s0"># Update fear &amp; greed if needed</span>
+        <span class="s2">if not </span><span class="s1">self.fear_greed_data:</span>
+            <span class="s1">self.update_fear_greed_index()</span>
+
+        <span class="s2">if not </span><span class="s1">self.fear_greed_data:</span>
+            <span class="s2">return </span><span class="s4">50  </span><span class="s0"># Neutral if no data</span>
+
+        <span class="s0"># Invert fear &amp; greed score for panic (100 = extreme fear, 0 = extreme greed)</span>
+        <span class="s1">panic_score = </span><span class="s4">100 </span><span class="s1">- self.fear_greed_data[</span><span class="s3">&quot;score&quot;</span><span class="s1">]</span>
+
+        <span class="s0"># Also check if panic score is much higher than previous periods</span>
+        <span class="s1">panic_change = </span><span class="s4">0</span>
+
+        <span class="s2">if </span><span class="s1">self.fear_greed_data[</span><span class="s3">&quot;prev_close&quot;</span><span class="s1">] </span><span class="s2">is not None</span><span class="s1">:</span>
+            <span class="s1">panic_change += max(</span><span class="s4">0</span><span class="s1">, self.fear_greed_data[</span><span class="s3">&quot;prev_close&quot;</span><span class="s1">] - self.fear_greed_data[</span><span class="s3">&quot;score&quot;</span><span class="s1">])</span>
+
+        <span class="s2">if </span><span class="s1">self.fear_greed_data[</span><span class="s3">&quot;prev_week&quot;</span><span class="s1">] </span><span class="s2">is not None</span><span class="s1">:</span>
+            <span class="s1">panic_change += max(</span><span class="s4">0</span><span class="s1">, self.fear_greed_data[</span><span class="s3">&quot;prev_week&quot;</span><span class="s1">] - self.fear_greed_data[</span><span class="s3">&quot;score&quot;</span><span class="s1">]) / </span><span class="s4">2</span>
+
+        <span class="s0"># Adjust panic score based on recent changes (more weight to rapid changes)</span>
+        <span class="s1">adjusted_panic = panic_score + min(</span><span class="s4">15</span><span class="s1">, panic_change)</span>
+
+        <span class="s0"># Cap at 100</span>
+        <span class="s2">return </span><span class="s1">min(</span><span class="s4">100</span><span class="s1">, adjusted_panic)</span>
+
+    <span class="s2">def </span><span class="s1">get_market_risk_factors(self):</span>
+        <span class="s0">&quot;&quot;&quot;Get overall market risk factors&quot;&quot;&quot;</span>
+        <span class="s0"># Update fear &amp; greed if needed</span>
+        <span class="s2">if not </span><span class="s1">self.fear_greed_data:</span>
+            <span class="s1">self.update_fear_greed_index()</span>
+
+        <span class="s0"># Get panic level (0-100)</span>
+        <span class="s1">panic_level = self.get_panic_level()</span>
+
+        <span class="s0"># Calculate risk factors</span>
+        <span class="s1">risk_factors = {</span>
+            <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+            <span class="s3">&quot;panic_level&quot;</span><span class="s1">: panic_level,</span>
+            <span class="s3">&quot;fear_greed_score&quot;</span><span class="s1">: self.fear_greed_data[</span><span class="s3">&quot;score&quot;</span><span class="s1">] </span><span class="s2">if </span><span class="s1">self.fear_greed_data </span><span class="s2">else </span><span class="s4">50</span><span class="s1">,</span>
+            <span class="s3">&quot;fear_greed_classification&quot;</span><span class="s1">: self.fear_greed_data[</span><span class="s3">&quot;classification&quot;</span><span class="s1">] </span><span class="s2">if </span><span class="s1">self.fear_greed_data </span><span class="s2">else </span><span class="s3">&quot;Neutral&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;market_regime&quot;</span><span class="s1">: self.fear_greed_data[</span><span class="s3">&quot;market_regime&quot;</span><span class="s1">] </span><span class="s2">if </span><span class="s1">self.fear_greed_data </span><span class="s2">else </span><span class="s3">&quot;Neutral&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;risk_level&quot;</span><span class="s1">: self._classify_risk_level(panic_level),</span>
+            <span class="s3">&quot;volatility_expectation&quot;</span><span class="s1">: self._classify_volatility_expectation(panic_level)</span>
+        <span class="s1">}</span>
+
+        <span class="s0"># Save to file</span>
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;data/sentiment/market_risk_factors.json&quot;</span><span class="s1">, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">json.dump(risk_factors, f, indent=</span><span class="s4">4</span><span class="s1">)</span>
+
+        <span class="s2">return </span><span class="s1">risk_factors</span>
+
+    <span class="s2">def </span><span class="s1">_classify_risk_level(self, panic_level):</span>
+        <span class="s0">&quot;&quot;&quot;Classify risk level based on panic level&quot;&quot;&quot;</span>
+        <span class="s2">if </span><span class="s1">panic_level &gt;= </span><span class="s4">85</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Extreme Risk - Potential Market Crash&quot;</span>
+        <span class="s2">elif </span><span class="s1">panic_level &gt;= </span><span class="s4">70</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;High Risk - Significant Downside Potential&quot;</span>
+        <span class="s2">elif </span><span class="s1">panic_level &gt;= </span><span class="s4">55</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Elevated Risk - Increased Volatility&quot;</span>
+        <span class="s2">elif </span><span class="s1">panic_level &gt;= </span><span class="s4">40</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Moderate Risk - Normal Market Conditions&quot;</span>
+        <span class="s2">elif </span><span class="s1">panic_level &gt;= </span><span class="s4">25</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Low Risk - Bullish Environment&quot;</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Very Low Risk - Potential Market Euphoria&quot;</span>
+
+    <span class="s2">def </span><span class="s1">_classify_volatility_expectation(self, panic_level):</span>
+        <span class="s0">&quot;&quot;&quot;Classify expected volatility based on panic level&quot;&quot;&quot;</span>
+        <span class="s2">if </span><span class="s1">panic_level &gt;= </span><span class="s4">80 </span><span class="s2">or </span><span class="s1">panic_level &lt;= </span><span class="s4">20</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Very High - Extreme Market Movements Expected&quot;</span>
+        <span class="s2">elif </span><span class="s1">panic_level &gt;= </span><span class="s4">70 </span><span class="s2">or </span><span class="s1">panic_level &lt;= </span><span class="s4">30</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;High - Significant Volatility Expected&quot;</span>
+        <span class="s2">elif </span><span class="s1">panic_level &gt;= </span><span class="s4">60 </span><span class="s2">or </span><span class="s1">panic_level &lt;= </span><span class="s4">35</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Elevated - Above Average Volatility&quot;</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Normal - Average Market Volatility&quot;</span>
+
+    <span class="s2">def </span><span class="s1">analyze_event_risks(self, symbols=</span><span class="s2">None</span><span class="s1">):</span>
+        <span class="s0">&quot;&quot;&quot;Analyze news for potential high-impact events&quot;&quot;&quot;</span>
+        <span class="s0"># Use provided symbols or all tracked symbols</span>
+        <span class="s2">if </span><span class="s1">symbols </span><span class="s2">is None</span><span class="s1">:</span>
+            <span class="s1">symbols = list(self.news_sentiment.keys())</span>
+            <span class="s2">if not </span><span class="s1">symbols:</span>
+                <span class="s1">logger.warning(</span><span class="s3">&quot;No symbols to analyze for event risks&quot;</span><span class="s1">)</span>
+                <span class="s2">return </span><span class="s1">{}</span>
+
+        <span class="s0"># Keywords for high-impact events</span>
+        <span class="s1">high_impact_patterns = [</span>
+            <span class="s3">r'announce.*acquisition'</span><span class="s1">, </span><span class="s3">r'acquire[ds]'</span><span class="s1">, </span><span class="s3">r'merger'</span><span class="s1">, </span><span class="s3">r'hostile takeover'</span><span class="s1">,</span>
+            <span class="s3">r'SEC.*investigation'</span><span class="s1">, </span><span class="s3">r'investigated by'</span><span class="s1">, </span><span class="s3">r'fraud'</span><span class="s1">, </span><span class="s3">r'lawsuit'</span><span class="s1">, </span><span class="s3">r'legal action'</span><span class="s1">,</span>
+            <span class="s3">r'product recall'</span><span class="s1">, </span><span class="s3">r'recall.*product'</span><span class="s1">, </span><span class="s3">r'safety concern'</span><span class="s1">,</span>
+            <span class="s3">r'CEO.*resign'</span><span class="s1">, </span><span class="s3">r'executive.*depart'</span><span class="s1">, </span><span class="s3">r'leadership change'</span><span class="s1">,</span>
+            <span class="s3">r'miss.*earnings'</span><span class="s1">, </span><span class="s3">r'earnings.*miss'</span><span class="s1">, </span><span class="s3">r'lower.*guidance'</span><span class="s1">, </span><span class="s3">r'revise.*downward'</span><span class="s1">,</span>
+            <span class="s3">r'exceed.*earnings'</span><span class="s1">, </span><span class="s3">r'earnings.*exceed'</span><span class="s1">, </span><span class="s3">r'raise.*guidance'</span><span class="s1">, </span><span class="s3">r'revise.*upward'</span><span class="s1">,</span>
+            <span class="s3">r'layoffs'</span><span class="s1">, </span><span class="s3">r'cutting.*jobs'</span><span class="s1">, </span><span class="s3">r'restructuring'</span><span class="s1">, </span><span class="s3">r'downsize'</span><span class="s1">,</span>
+            <span class="s3">r'bankruptcy'</span><span class="s1">, </span><span class="s3">r'default'</span><span class="s1">, </span><span class="s3">r'debt.*concern'</span><span class="s1">, </span><span class="s3">r'liquidity.*issue'</span><span class="s1">,</span>
+            <span class="s3">r'breakthrough'</span><span class="s1">, </span><span class="s3">r'new patent'</span><span class="s1">, </span><span class="s3">r'FDA approval'</span><span class="s1">, </span><span class="s3">r'clinical trial'</span><span class="s1">,</span>
+            <span class="s3">r'dividend.*cut'</span><span class="s1">, </span><span class="s3">r'suspend.*dividend'</span><span class="s1">, </span><span class="s3">r'dividend.*increase'</span><span class="s1">, </span><span class="s3">r'special dividend'</span><span class="s1">,</span>
+            <span class="s3">r'stock split'</span><span class="s1">, </span><span class="s3">r'buyback'</span><span class="s1">, </span><span class="s3">r'repurchase.*shares'</span><span class="s1">, </span><span class="s3">r'dilution'</span><span class="s1">, </span><span class="s3">r'secondary offering'</span>
+        <span class="s1">]</span>
+
+        <span class="s1">event_risks = {}</span>
+
+        <span class="s2">for </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">symbols:</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s0"># Get recent news</span>
+                <span class="s1">news_items = self.get_company_news(symbol, days=</span><span class="s4">7</span><span class="s1">)  </span><span class="s0"># Look back a week</span>
+
+                <span class="s0"># Analyze for high-impact events</span>
+                <span class="s1">detected_events = []</span>
+
+                <span class="s2">for </span><span class="s1">item </span><span class="s2">in </span><span class="s1">news_items:</span>
+                    <span class="s1">text = item[</span><span class="s3">&quot;title&quot;</span><span class="s1">] + </span><span class="s3">&quot; &quot; </span><span class="s1">+ item[</span><span class="s3">&quot;summary&quot;</span><span class="s1">]</span>
+
+                    <span class="s0"># Check for high-impact patterns</span>
+                    <span class="s2">for </span><span class="s1">pattern </span><span class="s2">in </span><span class="s1">high_impact_patterns:</span>
+                        <span class="s1">matches = re.findall(pattern, text, re.IGNORECASE)</span>
+                        <span class="s2">if </span><span class="s1">matches:</span>
+                            <span class="s1">event_type = self._classify_event_type(pattern)</span>
+                            <span class="s1">sentiment = item[</span><span class="s3">&quot;sentiment&quot;</span><span class="s1">]</span>
+
+                            <span class="s1">detected_events.append({</span>
+                                <span class="s3">&quot;event_type&quot;</span><span class="s1">: event_type,</span>
+                                <span class="s3">&quot;sentiment&quot;</span><span class="s1">: sentiment,</span>
+                                <span class="s3">&quot;title&quot;</span><span class="s1">: item[</span><span class="s3">&quot;title&quot;</span><span class="s1">],</span>
+                                <span class="s3">&quot;url&quot;</span><span class="s1">: item[</span><span class="s3">&quot;url&quot;</span><span class="s1">],</span>
+                                <span class="s3">&quot;source&quot;</span><span class="s1">: item[</span><span class="s3">&quot;source&quot;</span><span class="s1">],</span>
+                                <span class="s3">&quot;published&quot;</span><span class="s1">: item[</span><span class="s3">&quot;published&quot;</span><span class="s1">]</span>
+                            <span class="s1">})</span>
+                            <span class="s2">break  </span><span class="s0"># Only count each news item once</span>
+
+                <span class="s2">if </span><span class="s1">detected_events:</span>
+                    <span class="s0"># Calculate event risk score (higher = more significant events)</span>
+                    <span class="s1">risk_score = sum(abs(event[</span><span class="s3">&quot;sentiment&quot;</span><span class="s1">]) </span><span class="s2">for </span><span class="s1">event </span><span class="s2">in </span><span class="s1">detected_events)</span>
+
+                    <span class="s1">event_risks[symbol] = {</span>
+                        <span class="s3">&quot;events_detected&quot;</span><span class="s1">: len(detected_events),</span>
+                        <span class="s3">&quot;risk_score&quot;</span><span class="s1">: float(risk_score),</span>
+                        <span class="s3">&quot;events&quot;</span><span class="s1">: detected_events</span>
+                    <span class="s1">}</span>
+
+                    <span class="s1">logger.info(</span><span class="s3">f&quot;Detected </span><span class="s5">{</span><span class="s1">len(detected_events)</span><span class="s5">} </span><span class="s3">high-impact events for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s2">else</span><span class="s1">:</span>
+                    <span class="s1">event_risks[symbol] = {</span>
+                        <span class="s3">&quot;events_detected&quot;</span><span class="s1">: </span><span class="s4">0</span><span class="s1">,</span>
+                        <span class="s3">&quot;risk_score&quot;</span><span class="s1">: </span><span class="s4">0</span><span class="s1">,</span>
+                        <span class="s3">&quot;events&quot;</span><span class="s1">: []</span>
+                    <span class="s1">}</span>
+            <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error analyzing event risks for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s1">event_risks[symbol] = {</span>
+                    <span class="s3">&quot;events_detected&quot;</span><span class="s1">: </span><span class="s4">0</span><span class="s1">,</span>
+                    <span class="s3">&quot;risk_score&quot;</span><span class="s1">: </span><span class="s4">0</span><span class="s1">,</span>
+                    <span class="s3">&quot;events&quot;</span><span class="s1">: [],</span>
+                    <span class="s3">&quot;error&quot;</span><span class="s1">: str(e)</span>
+                <span class="s1">}</span>
+
+        <span class="s0"># Save event risks</span>
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;data/sentiment/event_risks.json&quot;</span><span class="s1">, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">json.dump(event_risks, f, indent=</span><span class="s4">4</span><span class="s1">)</span>
+
+        <span class="s2">return </span><span class="s1">event_risks</span>
+
+    <span class="s2">def </span><span class="s1">_classify_event_type(self, pattern):</span>
+        <span class="s0">&quot;&quot;&quot;Classify event type based on matching pattern&quot;&quot;&quot;</span>
+        <span class="s1">pattern = pattern.lower()</span>
+
+        <span class="s2">if </span><span class="s1">any(term </span><span class="s2">in </span><span class="s1">pattern </span><span class="s2">for </span><span class="s1">term </span><span class="s2">in </span><span class="s1">[</span><span class="s3">'acquisition'</span><span class="s1">, </span><span class="s3">'acquire'</span><span class="s1">, </span><span class="s3">'merger'</span><span class="s1">, </span><span class="s3">'takeover'</span><span class="s1">]):</span>
+            <span class="s2">return </span><span class="s3">&quot;M&amp;A Activity&quot;</span>
+        <span class="s2">elif </span><span class="s1">any(term </span><span class="s2">in </span><span class="s1">pattern </span><span class="s2">for </span><span class="s1">term </span><span class="s2">in </span><span class="s1">[</span><span class="s3">'investigation'</span><span class="s1">, </span><span class="s3">'fraud'</span><span class="s1">, </span><span class="s3">'lawsuit'</span><span class="s1">, </span><span class="s3">'legal'</span><span class="s1">]):</span>
+            <span class="s2">return </span><span class="s3">&quot;Legal/Regulatory Issues&quot;</span>
+        <span class="s2">elif </span><span class="s1">any(term </span><span class="s2">in </span><span class="s1">pattern </span><span class="s2">for </span><span class="s1">term </span><span class="s2">in </span><span class="s1">[</span><span class="s3">'recall'</span><span class="s1">, </span><span class="s3">'safety'</span><span class="s1">]):</span>
+            <span class="s2">return </span><span class="s3">&quot;Product Issues&quot;</span>
+        <span class="s2">elif </span><span class="s1">any(term </span><span class="s2">in </span><span class="s1">pattern </span><span class="s2">for </span><span class="s1">term </span><span class="s2">in </span><span class="s1">[</span><span class="s3">'ceo'</span><span class="s1">, </span><span class="s3">'executive'</span><span class="s1">, </span><span class="s3">'leadership'</span><span class="s1">]):</span>
+            <span class="s2">return </span><span class="s3">&quot;Management Changes&quot;</span>
+        <span class="s2">elif </span><span class="s1">any(term </span><span class="s2">in </span><span class="s1">pattern </span><span class="s2">for </span><span class="s1">term </span><span class="s2">in </span><span class="s1">[</span><span class="s3">'earnings'</span><span class="s1">, </span><span class="s3">'guidance'</span><span class="s1">]):</span>
+            <span class="s2">return </span><span class="s3">&quot;Earnings/Guidance&quot;</span>
+        <span class="s2">elif </span><span class="s1">any(term </span><span class="s2">in </span><span class="s1">pattern </span><span class="s2">for </span><span class="s1">term </span><span class="s2">in </span><span class="s1">[</span><span class="s3">'layoffs'</span><span class="s1">, </span><span class="s3">'jobs'</span><span class="s1">, </span><span class="s3">'restructuring'</span><span class="s1">, </span><span class="s3">'downsize'</span><span class="s1">]):</span>
+            <span class="s2">return </span><span class="s3">&quot;Workforce Changes&quot;</span>
+        <span class="s2">elif </span><span class="s1">any(term </span><span class="s2">in </span><span class="s1">pattern </span><span class="s2">for </span><span class="s1">term </span><span class="s2">in </span><span class="s1">[</span><span class="s3">'bankruptcy'</span><span class="s1">, </span><span class="s3">'default'</span><span class="s1">, </span><span class="s3">'debt'</span><span class="s1">, </span><span class="s3">'liquidity'</span><span class="s1">]):</span>
+            <span class="s2">return </span><span class="s3">&quot;Financial Health&quot;</span>
+        <span class="s2">elif </span><span class="s1">any(term </span><span class="s2">in </span><span class="s1">pattern </span><span class="s2">for </span><span class="s1">term </span><span class="s2">in </span><span class="s1">[</span><span class="s3">'breakthrough'</span><span class="s1">, </span><span class="s3">'patent'</span><span class="s1">, </span><span class="s3">'approval'</span><span class="s1">, </span><span class="s3">'trial'</span><span class="s1">]):</span>
+            <span class="s2">return </span><span class="s3">&quot;Product Development&quot;</span>
+        <span class="s2">elif </span><span class="s1">any(term </span><span class="s2">in </span><span class="s1">pattern </span><span class="s2">for </span><span class="s1">term </span><span class="s2">in </span><span class="s1">[</span><span class="s3">'dividend'</span><span class="s1">, </span><span class="s3">'buyback'</span><span class="s1">, </span><span class="s3">'repurchase'</span><span class="s1">, </span><span class="s3">'split'</span><span class="s1">, </span><span class="s3">'offering'</span><span class="s1">]):</span>
+            <span class="s2">return </span><span class="s3">&quot;Shareholder Returns/Capital Structure&quot;</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s3">&quot;Other Significant Event&quot;</span>
+
+    <span class="s2">def </span><span class="s1">get_sector_sentiment(self, sector):</span>
+        <span class="s0">&quot;&quot;&quot;Get sentiment for an entire sector by analyzing key stocks&quot;&quot;&quot;</span>
+        <span class="s0"># Map sectors to representative stocks</span>
+        <span class="s1">sector_map = {</span>
+            <span class="s3">&quot;Technology&quot;</span><span class="s1">: [</span><span class="s3">&quot;AAPL&quot;</span><span class="s1">, </span><span class="s3">&quot;MSFT&quot;</span><span class="s1">, </span><span class="s3">&quot;NVDA&quot;</span><span class="s1">, </span><span class="s3">&quot;GOOGL&quot;</span><span class="s1">, </span><span class="s3">&quot;META&quot;</span><span class="s1">],</span>
+            <span class="s3">&quot;Healthcare&quot;</span><span class="s1">: [</span><span class="s3">&quot;JNJ&quot;</span><span class="s1">, </span><span class="s3">&quot;UNH&quot;</span><span class="s1">, </span><span class="s3">&quot;PFE&quot;</span><span class="s1">, </span><span class="s3">&quot;ABT&quot;</span><span class="s1">, </span><span class="s3">&quot;TMO&quot;</span><span class="s1">],</span>
+            <span class="s3">&quot;Financials&quot;</span><span class="s1">: [</span><span class="s3">&quot;JPM&quot;</span><span class="s1">, </span><span class="s3">&quot;BAC&quot;</span><span class="s1">, </span><span class="s3">&quot;WFC&quot;</span><span class="s1">, </span><span class="s3">&quot;GS&quot;</span><span class="s1">, </span><span class="s3">&quot;MS&quot;</span><span class="s1">],</span>
+            <span class="s3">&quot;Consumer&quot;</span><span class="s1">: [</span><span class="s3">&quot;AMZN&quot;</span><span class="s1">, </span><span class="s3">&quot;WMT&quot;</span><span class="s1">, </span><span class="s3">&quot;HD&quot;</span><span class="s1">, </span><span class="s3">&quot;MCD&quot;</span><span class="s1">, </span><span class="s3">&quot;NKE&quot;</span><span class="s1">],</span>
+            <span class="s3">&quot;Energy&quot;</span><span class="s1">: [</span><span class="s3">&quot;XOM&quot;</span><span class="s1">, </span><span class="s3">&quot;CVX&quot;</span><span class="s1">, </span><span class="s3">&quot;COP&quot;</span><span class="s1">, </span><span class="s3">&quot;SLB&quot;</span><span class="s1">, </span><span class="s3">&quot;EOG&quot;</span><span class="s1">],</span>
+            <span class="s3">&quot;Communications&quot;</span><span class="s1">: [</span><span class="s3">&quot;CMCSA&quot;</span><span class="s1">, </span><span class="s3">&quot;VZ&quot;</span><span class="s1">, </span><span class="s3">&quot;T&quot;</span><span class="s1">, </span><span class="s3">&quot;NFLX&quot;</span><span class="s1">, </span><span class="s3">&quot;DIS&quot;</span><span class="s1">],</span>
+            <span class="s3">&quot;Industrials&quot;</span><span class="s1">: [</span><span class="s3">&quot;HON&quot;</span><span class="s1">, </span><span class="s3">&quot;UNP&quot;</span><span class="s1">, </span><span class="s3">&quot;BA&quot;</span><span class="s1">, </span><span class="s3">&quot;CAT&quot;</span><span class="s1">, </span><span class="s3">&quot;GE&quot;</span><span class="s1">],</span>
+            <span class="s3">&quot;Utilities&quot;</span><span class="s1">: [</span><span class="s3">&quot;NEE&quot;</span><span class="s1">, </span><span class="s3">&quot;DUK&quot;</span><span class="s1">, </span><span class="s3">&quot;SO&quot;</span><span class="s1">, </span><span class="s3">&quot;D&quot;</span><span class="s1">, </span><span class="s3">&quot;AEP&quot;</span><span class="s1">],</span>
+            <span class="s3">&quot;Materials&quot;</span><span class="s1">: [</span><span class="s3">&quot;LIN&quot;</span><span class="s1">, </span><span class="s3">&quot;APD&quot;</span><span class="s1">, </span><span class="s3">&quot;ECL&quot;</span><span class="s1">, </span><span class="s3">&quot;NEM&quot;</span><span class="s1">, </span><span class="s3">&quot;FCX&quot;</span><span class="s1">],</span>
+            <span class="s3">&quot;Real Estate&quot;</span><span class="s1">: [</span><span class="s3">&quot;AMT&quot;</span><span class="s1">, </span><span class="s3">&quot;PLD&quot;</span><span class="s1">, </span><span class="s3">&quot;CCI&quot;</span><span class="s1">, </span><span class="s3">&quot;SPG&quot;</span><span class="s1">, </span><span class="s3">&quot;EQIX&quot;</span><span class="s1">]</span>
+        <span class="s1">}</span>
+
+        <span class="s2">if </span><span class="s1">sector </span><span class="s2">not in </span><span class="s1">sector_map:</span>
+            <span class="s1">logger.warning(</span><span class="s3">f&quot;Unknown sector: </span><span class="s5">{</span><span class="s1">sector</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return None</span>
+
+        <span class="s0"># Get sentiment for each stock in the sector</span>
+        <span class="s1">sector_stocks = sector_map[sector]</span>
+        <span class="s1">sentiments = []</span>
+
+        <span class="s2">for </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">sector_stocks:</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s0"># Update data if needed</span>
+                <span class="s2">if </span><span class="s1">symbol </span><span class="s2">not in </span><span class="s1">self.news_sentiment:</span>
+                    <span class="s1">self.update_news_data([symbol])</span>
+
+                <span class="s0"># Get sentiment factors</span>
+                <span class="s1">factors = self.get_finance_sentiment_factors(symbol)</span>
+                <span class="s1">sentiments.append(factors[</span><span class="s3">&quot;combined_sentiment&quot;</span><span class="s1">])</span>
+            <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error getting sentiment for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Calculate average sentiment</span>
+        <span class="s2">if </span><span class="s1">sentiments:</span>
+            <span class="s1">avg_sentiment = sum(sentiments) / len(sentiments)</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">avg_sentiment = </span><span class="s4">0</span>
+
+        <span class="s1">sector_sentiment = {</span>
+            <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+            <span class="s3">&quot;sector&quot;</span><span class="s1">: sector,</span>
+            <span class="s3">&quot;stocks_analyzed&quot;</span><span class="s1">: len(sentiments),</span>
+            <span class="s3">&quot;average_sentiment&quot;</span><span class="s1">: float(avg_sentiment),</span>
+            <span class="s3">&quot;sentiment_signal&quot;</span><span class="s1">: self._sentiment_to_signal(avg_sentiment)</span>
+        <span class="s1">}</span>
+
+        <span class="s2">return </span><span class="s1">sector_sentiment</span>
+
+    <span class="s2">def </span><span class="s1">clear_cache(self):</span>
+        <span class="s0">&quot;&quot;&quot;Clear all cached data&quot;&quot;&quot;</span>
+        <span class="s1">self.cache.clear()</span>
+        <span class="s1">self.cache_timestamps.clear()</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Cache cleared&quot;</span><span class="s1">)</span>
+</pre>
+</body>
+</html>

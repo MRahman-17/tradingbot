@@ -1,0 +1,22 @@
+{
+    "timestamp": "2025-04-22T16:52:54.180668",
+    "system": {
+        "cpu_percent": 11.5,
+        "memory_percent": 74.4,
+        "disk_percent": 2.7,
+        "platform": "macOS-15.3.2-arm64-arm-64bit-Mach-O",
+        "python_version": "3.13.0"
+    },
+    "process": {
+        "cpu_percent": 0.0,
+        "memory_mb": 30.25,
+        "runtime": 28760.529275894165
+    },
+    "storage": {
+        "log_dir_mb": 6.136618614196777,
+        "data_dir_mb": 0.7237615585327148
+    },
+    "time_since_last_check": 12064.65221619606,
+    "issues": [],
+    "status": "ok"
+}

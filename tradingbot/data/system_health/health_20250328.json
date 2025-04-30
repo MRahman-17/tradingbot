@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-03-28T23:39:32.948251",
+  "win_rate": 0.5555555555555556,
+  "avg_profit": 0.2537321639095597,
+  "trend": {
+    "win_rate_change": 0.0,
+    "profit_change": 0.0
+  },
+  "status": "healthy",
+  "recommendations": []
+}

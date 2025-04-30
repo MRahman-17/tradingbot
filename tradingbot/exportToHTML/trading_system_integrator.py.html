@@ -1,0 +1,153 @@
+<html>
+<head>
+<title>trading_system_integrator.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #8c8c8c; font-style: italic;}
+.s1 { color: #080808;}
+.s2 { color: #0033b3;}
+.s3 { color: #067d17;}
+.s4 { color: #0037a6;}
+.s5 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+trading_system_integrator.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#!/usr/bin/env python3</span>
+<span class="s0">&quot;&quot;&quot; 
+Trading System Integrator 
+Connects trading_bot.py and news_trading_integration.py without circular imports 
+&quot;&quot;&quot;</span>
+<span class="s2">import </span><span class="s1">logging</span>
+<span class="s2">import </span><span class="s1">importlib</span>
+
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;Trading System Integrator&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">integrate_components():</span>
+    <span class="s0">&quot;&quot;&quot;Integrate all trading system components without circular imports&quot;&quot;&quot;</span>
+    <span class="s0"># Import components when needed, not at the module level</span>
+    <span class="s2">from </span><span class="s1">news_trading_integration </span><span class="s2">import </span><span class="s1">NewsIntegrator</span>
+
+    <span class="s0"># Create news integrator instance</span>
+    <span class="s1">news_integrator = NewsIntegrator()</span>
+
+    <span class="s0"># Dynamically import trading_bot to prevent circular imports</span>
+    <span class="s1">trading_bot = importlib.import_module(</span><span class="s3">'trading_bot'</span><span class="s1">)</span>
+
+    <span class="s0"># Store original functions for reference (if needed to restore them)</span>
+    <span class="s1">original_functions = {</span>
+        <span class="s3">'make_trading_decision'</span><span class="s1">: trading_bot.make_trading_decision </span><span class="s2">if </span><span class="s1">hasattr(trading_bot,</span>
+                                                                              <span class="s3">'make_trading_decision'</span><span class="s1">) </span><span class="s2">else None</span><span class="s1">,</span>
+        <span class="s3">'quantum_prediction'</span><span class="s1">: trading_bot.quantum_prediction </span><span class="s2">if </span><span class="s1">hasattr(trading_bot, </span><span class="s3">'quantum_prediction'</span><span class="s1">) </span><span class="s2">else None</span>
+    <span class="s1">}</span>
+
+    <span class="s0"># Define enhanced functions</span>
+    <span class="s2">def </span><span class="s1">enhanced_make_trading_decision(symbol, quantum_device, config):</span>
+        <span class="s0">&quot;&quot;&quot;Enhanced trading decision with news integration&quot;&quot;&quot;</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Making enhanced trading decision for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Get historical data</span>
+        <span class="s1">historical_data = trading_bot.platform_adapter.get_market_data(symbol)</span>
+
+        <span class="s0"># Get classical technical signal</span>
+        <span class="s1">technical_signal = trading_bot.classical_decision(historical_data)</span>
+
+        <span class="s0"># Get quantum prediction if available</span>
+        <span class="s1">quantum_signal = </span><span class="s2">None</span>
+        <span class="s2">if </span><span class="s1">trading_bot.QUANTUM_AVAILABLE </span><span class="s2">and </span><span class="s1">quantum_device </span><span class="s2">is not None</span><span class="s1">:</span>
+            <span class="s0"># Get quantum configuration</span>
+            <span class="s1">quantum_enabled = config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;enabled&quot;</span><span class="s1">, </span><span class="s2">True</span><span class="s1">)</span>
+            <span class="s1">error_threshold = config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;error_threshold&quot;</span><span class="s1">, </span><span class="s5">0.15</span><span class="s1">)</span>
+
+            <span class="s0"># Estimate error rate</span>
+            <span class="s1">error_rate = trading_bot.estimate_quantum_error_rate(quantum_device)</span>
+
+            <span class="s2">if </span><span class="s1">quantum_enabled </span><span class="s2">and </span><span class="s1">error_rate &lt;= error_threshold:</span>
+                <span class="s0"># Get quantum prediction</span>
+                <span class="s1">quantum_signal, confidence, actual_error = trading_bot.quantum_prediction(</span>
+                    <span class="s1">symbol, historical_data, quantum_device, error_rate, config</span>
+                <span class="s1">)</span>
+
+        <span class="s0"># Prepare signals for integration</span>
+        <span class="s1">technical_signals = {symbol: technical_signal}</span>
+        <span class="s1">quantum_signals = {symbol: quantum_signal </span><span class="s2">if </span><span class="s1">quantum_signal </span><span class="s2">is not None else </span><span class="s1">technical_signal}</span>
+
+        <span class="s0"># Get integrated signals</span>
+        <span class="s1">integrated_signals = news_integrator.get_integrated_signals(</span>
+            <span class="s1">[symbol], technical_signals, quantum_signals</span>
+        <span class="s1">)</span>
+
+        <span class="s0"># Make trading decision based on integrated signal</span>
+        <span class="s1">has_position = symbol </span><span class="s2">in </span><span class="s1">trading_bot.trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">]</span>
+        <span class="s1">decision, confidence, reason = news_integrator.make_trading_decision(</span>
+            <span class="s1">symbol, integrated_signals[symbol],</span>
+            <span class="s1">trading_bot.trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">] </span><span class="s2">if </span><span class="s1">hasattr(trading_bot, </span><span class="s3">'trade_history'</span><span class="s1">) </span><span class="s2">else None</span>
+        <span class="s1">)</span>
+
+        <span class="s0"># Log the decision</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Trading decision for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">decision</span><span class="s4">} </span><span class="s3">(confidence: </span><span class="s4">{</span><span class="s1">confidence</span><span class="s4">:</span><span class="s3">.2f</span><span class="s4">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Reason: </span><span class="s4">{</span><span class="s1">reason</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Execute trade if needed</span>
+        <span class="s2">if </span><span class="s1">decision == </span><span class="s3">&quot;BUY&quot; </span><span class="s2">and not </span><span class="s1">has_position:</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;BUY signal for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">based on integrated analysis&quot;</span><span class="s1">)</span>
+            <span class="s1">trading_bot.execute_trade(</span><span class="s3">&quot;BUY&quot;</span><span class="s1">, symbol)</span>
+        <span class="s2">elif </span><span class="s1">decision == </span><span class="s3">&quot;SELL&quot; </span><span class="s2">and </span><span class="s1">has_position:</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;SELL signal for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">based on integrated analysis&quot;</span><span class="s1">)</span>
+            <span class="s1">trading_bot.execute_trade(</span><span class="s3">&quot;SELL&quot;</span><span class="s1">, symbol)</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;HOLD signal for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s2">return </span><span class="s1">decision, confidence, reason</span>
+
+    <span class="s2">def </span><span class="s1">enhanced_quantum_prediction(symbol, historical_data, quantum_device, error_rate, config):</span>
+        <span class="s0">&quot;&quot;&quot;Enhanced quantum prediction with news adjustments&quot;&quot;&quot;</span>
+        <span class="s0"># Get original prediction</span>
+        <span class="s1">signal, confidence, actual_error = original_functions[</span><span class="s3">'quantum_prediction'</span><span class="s1">](</span>
+            <span class="s1">symbol, historical_data, quantum_device, error_rate, config</span>
+        <span class="s1">)</span>
+
+        <span class="s0"># Get news adjustment factors</span>
+        <span class="s1">adjustment_factors = news_integrator.get_quantum_adjustment_factors(symbol)</span>
+
+        <span class="s0"># Adjust confidence based on news factors</span>
+        <span class="s1">trend_consistency = adjustment_factors.get(</span><span class="s3">&quot;trend_consistency&quot;</span><span class="s1">, </span><span class="s5">1.0</span><span class="s1">)</span>
+        <span class="s1">adjusted_confidence = confidence * trend_consistency</span>
+
+        <span class="s0"># Adjust signal based on sentiment</span>
+        <span class="s1">sentiment_factor = adjustment_factors.get(</span><span class="s3">&quot;sentiment_factor&quot;</span><span class="s1">, </span><span class="s5">1.0</span><span class="s1">)</span>
+        <span class="s1">sentiment_bias = (sentiment_factor - </span><span class="s5">1.0</span><span class="s1">) * </span><span class="s5">0.1  </span><span class="s0"># Scale to small adjustment</span>
+        <span class="s1">adjusted_signal = max(</span><span class="s5">0</span><span class="s1">, min(</span><span class="s5">1</span><span class="s1">, signal + sentiment_bias))</span>
+
+        <span class="s2">return </span><span class="s1">adjusted_signal, adjusted_confidence, actual_error</span>
+
+    <span class="s0"># Patch trading_bot with enhanced functions</span>
+    <span class="s2">if </span><span class="s1">hasattr(trading_bot, </span><span class="s3">'make_trading_decision'</span><span class="s1">):</span>
+        <span class="s1">trading_bot.make_trading_decision = enhanced_make_trading_decision</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Enhanced trading_bot.make_trading_decision with news integration&quot;</span><span class="s1">)</span>
+
+    <span class="s2">if </span><span class="s1">hasattr(trading_bot, </span><span class="s3">'quantum_prediction'</span><span class="s1">) </span><span class="s2">and </span><span class="s1">original_functions[</span><span class="s3">'quantum_prediction'</span><span class="s1">] </span><span class="s2">is not None</span><span class="s1">:</span>
+        <span class="s1">trading_bot.quantum_prediction = enhanced_quantum_prediction</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Enhanced trading_bot.quantum_prediction with news adjustments&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Share platform adapter with news integrator</span>
+    <span class="s2">if </span><span class="s1">hasattr(trading_bot, </span><span class="s3">'platform_adapter'</span><span class="s1">) </span><span class="s2">and </span><span class="s1">trading_bot.platform_adapter </span><span class="s2">is not None</span><span class="s1">:</span>
+        <span class="s1">news_integrator.platform_adapter = trading_bot.platform_adapter</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Shared platform adapter with news integrator&quot;</span><span class="s1">)</span>
+
+    <span class="s1">logger.info(</span><span class="s3">&quot;Trading system components integrated successfully&quot;</span><span class="s1">)</span>
+    <span class="s2">return </span><span class="s1">news_integrator</span>
+
+
+<span class="s0"># Allow for direct execution</span>
+<span class="s2">if </span><span class="s1">__name__ == </span><span class="s3">&quot;__main__&quot;</span><span class="s1">:</span>
+    <span class="s1">logging.basicConfig(level=logging.INFO)</span>
+    <span class="s1">integrate_components()</span>
+</pre>
+</body>
+</html>

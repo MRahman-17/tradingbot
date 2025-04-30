@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-04-08T00:43:32.267771",
+  "symbol": "BAC",
+  "news_sentiment": 0,
+  "social_sentiment": -0.1683233746342652,
+  "fear_greed_sentiment": -0.52,
+  "fear_greed_score": 24,
+  "fear_greed_classification": "Extreme Fear",
+  "market_regime": "Extreme Fear - Potential Bottom",
+  "combined_sentiment": -0.15449701239027958,
+  "sentiment_signal": 0.4227514938048602
+}

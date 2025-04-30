@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-03-24T16:00:51.030365",
+  "win_rate": 0.4923062693872905,
+  "avg_profit": 0.1199802424197411,
+  "trend": {
+    "win_rate_change": -0.6761858608033244,
+    "profit_change": -21.603345873771108
+  },
+  "status": "needs_improvement",
+  "recommendations": [
+    "Consider optimizing entry/exit criteria to improve win rate"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-04-08T00:43:32.269874",
+  "symbol": "GOOGL",
+  "news_sentiment": 0,
+  "social_sentiment": 0.05520142598111605,
+  "fear_greed_sentiment": -0.52,
+  "fear_greed_score": 24,
+  "fear_greed_classification": "Extreme Fear",
+  "market_regime": "Extreme Fear - Potential Bottom",
+  "combined_sentiment": -0.0874395722056652,
+  "sentiment_signal": 0.4562802138971674
+}

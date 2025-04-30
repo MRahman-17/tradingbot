@@ -1,0 +1,185 @@
+<html>
+<head>
+<title>news_verification.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #8c8c8c; font-style: italic;}
+.s3 { color: #067d17;}
+.s4 { color: #0037a6;}
+.s5 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+news_verification.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">logging</span>
+<span class="s0">import </span><span class="s1">requests</span>
+<span class="s0">import </span><span class="s1">json</span>
+<span class="s0">import </span><span class="s1">os</span>
+<span class="s0">import </span><span class="s1">math  </span><span class="s2"># Added math module import</span>
+<span class="s0">from </span><span class="s1">datetime </span><span class="s0">import </span><span class="s1">datetime, timedelta</span>
+
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;News Verification&quot;</span><span class="s1">)</span>
+
+
+<span class="s0">class </span><span class="s1">NewsVerifier:</span>
+    <span class="s0">def </span><span class="s1">__init__(self):</span>
+        <span class="s1">self.source_credibility_cache = {}</span>
+        <span class="s1">self.load_source_database()</span>
+
+    <span class="s0">def </span><span class="s1">load_source_database(self):</span>
+        <span class="s2">&quot;&quot;&quot;Load or create database of credible sources&quot;&quot;&quot;</span>
+        <span class="s1">db_path = </span><span class="s3">&quot;data/news/source_credibility.json&quot;</span>
+
+        <span class="s0">if </span><span class="s1">os.path.exists(db_path):</span>
+            <span class="s0">try</span><span class="s1">:</span>
+                <span class="s0">with </span><span class="s1">open(db_path, </span><span class="s3">'r'</span><span class="s1">) </span><span class="s0">as </span><span class="s1">f:</span>
+                    <span class="s1">self.source_db = json.load(f)</span>
+                <span class="s1">logger.info(</span><span class="s3">&quot;Source credibility database loaded&quot;</span><span class="s1">)</span>
+            <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error loading source database: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s1">self.initialize_default_database(db_path)</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s1">self.initialize_default_database(db_path)</span>
+
+    <span class="s0">def </span><span class="s1">initialize_default_database(self, db_path):</span>
+        <span class="s2">&quot;&quot;&quot;Initialize a default source credibility database&quot;&quot;&quot;</span>
+        <span class="s1">self.source_db = {</span>
+            <span class="s3">&quot;tier_1&quot;</span><span class="s1">: {</span>
+                <span class="s3">&quot;sources&quot;</span><span class="s1">: [</span><span class="s3">&quot;Bloomberg&quot;</span><span class="s1">, </span><span class="s3">&quot;Reuters&quot;</span><span class="s1">, </span><span class="s3">&quot;Financial Times&quot;</span><span class="s1">, </span><span class="s3">&quot;Wall Street Journal&quot;</span><span class="s1">],</span>
+                <span class="s3">&quot;credibility&quot;</span><span class="s1">: </span><span class="s5">1.0</span>
+            <span class="s1">},</span>
+            <span class="s3">&quot;tier_2&quot;</span><span class="s1">: {</span>
+                <span class="s3">&quot;sources&quot;</span><span class="s1">: [</span><span class="s3">&quot;CNBC&quot;</span><span class="s1">, </span><span class="s3">&quot;MarketWatch&quot;</span><span class="s1">, </span><span class="s3">&quot;Yahoo Finance&quot;</span><span class="s1">, </span><span class="s3">&quot;Barron's&quot;</span><span class="s1">, </span><span class="s3">&quot;Forbes&quot;</span><span class="s1">],</span>
+                <span class="s3">&quot;credibility&quot;</span><span class="s1">: </span><span class="s5">0.8</span>
+            <span class="s1">},</span>
+            <span class="s3">&quot;tier_3&quot;</span><span class="s1">: {</span>
+                <span class="s3">&quot;sources&quot;</span><span class="s1">: [</span><span class="s3">&quot;Business Insider&quot;</span><span class="s1">, </span><span class="s3">&quot;Seeking Alpha&quot;</span><span class="s1">, </span><span class="s3">&quot;The Motley Fool&quot;</span><span class="s1">, </span><span class="s3">&quot;Investopedia&quot;</span><span class="s1">],</span>
+                <span class="s3">&quot;credibility&quot;</span><span class="s1">: </span><span class="s5">0.6</span>
+            <span class="s1">}</span>
+        <span class="s1">}</span>
+
+        <span class="s2"># Save the database</span>
+        <span class="s1">os.makedirs(os.path.dirname(db_path), exist_ok=</span><span class="s0">True</span><span class="s1">)</span>
+        <span class="s0">with </span><span class="s1">open(db_path, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s0">as </span><span class="s1">f:</span>
+            <span class="s1">json.dump(self.source_db, f, indent=</span><span class="s5">4</span><span class="s1">)</span>
+
+        <span class="s1">logger.info(</span><span class="s3">&quot;Created default source credibility database&quot;</span><span class="s1">)</span>
+
+    <span class="s0">def </span><span class="s1">get_source_credibility(self, source_name):</span>
+        <span class="s2">&quot;&quot;&quot;Rate the credibility of news sources&quot;&quot;&quot;</span>
+        <span class="s2"># Check cache first</span>
+        <span class="s0">if </span><span class="s1">source_name </span><span class="s0">in </span><span class="s1">self.source_credibility_cache:</span>
+            <span class="s0">return </span><span class="s1">self.source_credibility_cache[source_name]</span>
+
+        <span class="s2"># Search through tiers</span>
+        <span class="s0">for </span><span class="s1">tier, info </span><span class="s0">in </span><span class="s1">self.source_db.items():</span>
+            <span class="s0">if </span><span class="s1">source_name </span><span class="s0">in </span><span class="s1">info[</span><span class="s3">&quot;sources&quot;</span><span class="s1">]:</span>
+                <span class="s1">credibility = info[</span><span class="s3">&quot;credibility&quot;</span><span class="s1">]</span>
+                <span class="s2"># Cache the result</span>
+                <span class="s1">self.source_credibility_cache[source_name] = credibility</span>
+                <span class="s0">return </span><span class="s1">credibility</span>
+
+        <span class="s2"># Default credibility for unknown sources</span>
+        <span class="s1">self.source_credibility_cache[source_name] = </span><span class="s5">0.4</span>
+        <span class="s0">return </span><span class="s5">0.4</span>
+
+    <span class="s0">def </span><span class="s1">verify_news_item(self, news_item, all_news_items):</span>
+        <span class="s2">&quot;&quot;&quot;Verify a news item against other collected items&quot;&quot;&quot;</span>
+        <span class="s2"># Extract key information</span>
+        <span class="s1">source = news_item.get(</span><span class="s3">&quot;source&quot;</span><span class="s1">, </span><span class="s3">&quot;Unknown&quot;</span><span class="s1">)</span>
+        <span class="s1">title = news_item.get(</span><span class="s3">&quot;title&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">)</span>
+        <span class="s1">published = news_item.get(</span><span class="s3">&quot;published&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">)</span>
+
+        <span class="s2"># Get base credibility from source</span>
+        <span class="s1">source_credibility = self.get_source_credibility(source)</span>
+
+        <span class="s2"># Try to find similar news from other sources</span>
+        <span class="s1">similar_items = self.find_similar_news(news_item, all_news_items)</span>
+
+        <span class="s1">verification_score = source_credibility</span>
+
+        <span class="s2"># If we found similar news from other sources, increase verification score</span>
+        <span class="s0">if </span><span class="s1">similar_items:</span>
+            <span class="s2"># Average the credibility of all sources reporting this news</span>
+            <span class="s1">additional_sources_credibility = sum(self.get_source_credibility(item[</span><span class="s3">&quot;source&quot;</span><span class="s1">])</span>
+                                                 <span class="s0">for </span><span class="s1">item </span><span class="s0">in </span><span class="s1">similar_items)</span>
+
+            <span class="s2"># Increase verification based on number of corroborating sources</span>
+            <span class="s0">if </span><span class="s1">len(similar_items) &gt; </span><span class="s5">0</span><span class="s1">:</span>
+                <span class="s1">verification_boost = min(</span><span class="s5">0.5</span><span class="s1">, </span><span class="s5">0.1 </span><span class="s1">* len(similar_items))  </span><span class="s2"># Cap at +0.5</span>
+                <span class="s1">avg_credibility = additional_sources_credibility / len(similar_items)</span>
+                <span class="s1">verification_score = min(</span><span class="s5">1.0</span><span class="s1">, source_credibility + verification_boost * avg_credibility)</span>
+
+        <span class="s2"># Add verification score to the news item</span>
+        <span class="s1">news_item[</span><span class="s3">&quot;verification_score&quot;</span><span class="s1">] = verification_score</span>
+
+        <span class="s0">return </span><span class="s1">news_item</span>
+
+    <span class="s0">def </span><span class="s1">find_similar_news(self, target_news, all_news):</span>
+        <span class="s2">&quot;&quot;&quot;Find news items similar to the target&quot;&quot;&quot;</span>
+        <span class="s1">similar_items = []</span>
+
+        <span class="s2"># Get basic data about target news</span>
+        <span class="s1">target_title = target_news.get(</span><span class="s3">&quot;title&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">).lower()</span>
+        <span class="s1">target_time = datetime.fromisoformat(target_news.get(</span><span class="s3">&quot;published&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">).replace(</span><span class="s3">&quot;Z&quot;</span><span class="s1">, </span><span class="s3">&quot;+00:00&quot;</span><span class="s1">))</span>
+        <span class="s1">target_source = target_news.get(</span><span class="s3">&quot;source&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">)</span>
+
+        <span class="s2"># Set time threshold (24 hours)</span>
+        <span class="s1">time_threshold = timedelta(hours=</span><span class="s5">24</span><span class="s1">)</span>
+
+        <span class="s2"># Find similar news by title overlap and time proximity</span>
+        <span class="s0">for </span><span class="s1">item </span><span class="s0">in </span><span class="s1">all_news:</span>
+            <span class="s2"># Skip the same item or same source</span>
+            <span class="s0">if </span><span class="s1">item == target_news </span><span class="s0">or </span><span class="s1">item.get(</span><span class="s3">&quot;source&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">) == target_source:</span>
+                <span class="s0">continue</span>
+
+            <span class="s2"># Check time proximity</span>
+            <span class="s1">item_time = datetime.fromisoformat(item.get(</span><span class="s3">&quot;published&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">).replace(</span><span class="s3">&quot;Z&quot;</span><span class="s1">, </span><span class="s3">&quot;+00:00&quot;</span><span class="s1">))</span>
+            <span class="s0">if </span><span class="s1">abs(target_time - item_time) &gt; time_threshold:</span>
+                <span class="s0">continue</span>
+
+            <span class="s2"># Check title similarity (simple approach - word overlap)</span>
+            <span class="s1">item_title = item.get(</span><span class="s3">&quot;title&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">).lower()</span>
+
+            <span class="s2"># Count word overlap</span>
+            <span class="s1">target_words = set(target_title.split())</span>
+            <span class="s1">item_words = set(item_title.split())</span>
+            <span class="s1">overlap = len(target_words.intersection(item_words))</span>
+
+            <span class="s2"># If significant overlap, consider it similar</span>
+            <span class="s0">if </span><span class="s1">overlap &gt;= </span><span class="s5">3 </span><span class="s0">or </span><span class="s1">(overlap / len(target_words) &gt; </span><span class="s5">0.3</span><span class="s1">):</span>
+                <span class="s1">similar_items.append(item)</span>
+
+        <span class="s0">return </span><span class="s1">similar_items</span>
+
+    <span class="s0">def </span><span class="s1">calculate_news_relevance(self, news_item):</span>
+        <span class="s2">&quot;&quot;&quot;Calculate relevance of news based on recency and verified status&quot;&quot;&quot;</span>
+        <span class="s2"># Get time since publication</span>
+        <span class="s1">pub_time = datetime.fromisoformat(news_item.get(</span><span class="s3">&quot;published&quot;</span><span class="s1">, </span><span class="s3">&quot;&quot;</span><span class="s1">).replace(</span><span class="s3">&quot;Z&quot;</span><span class="s1">, </span><span class="s3">&quot;+00:00&quot;</span><span class="s1">))</span>
+        <span class="s1">hours_old = (datetime.now() - pub_time).total_seconds() / </span><span class="s5">3600</span>
+
+        <span class="s2"># Apply exponential decay to relevance</span>
+        <span class="s1">time_factor = math.exp(-</span><span class="s5">0.05 </span><span class="s1">* hours_old)  </span><span class="s2"># Half-life of ~14 hours</span>
+
+        <span class="s2"># Factor in verification</span>
+        <span class="s1">verification_score = news_item.get(</span><span class="s3">&quot;verification_score&quot;</span><span class="s1">, </span><span class="s5">0.5</span><span class="s1">)</span>
+
+        <span class="s2"># Base relevance score</span>
+        <span class="s1">base_relevance = news_item.get(</span><span class="s3">&quot;relevance&quot;</span><span class="s1">, </span><span class="s5">0.5</span><span class="s1">)</span>
+
+        <span class="s2"># Combine factors</span>
+        <span class="s1">relevance = time_factor * verification_score * base_relevance</span>
+
+        <span class="s2"># Update the relevance score</span>
+        <span class="s1">news_item[</span><span class="s3">&quot;adjusted_relevance&quot;</span><span class="s1">] = relevance</span>
+
+        <span class="s0">return </span><span class="s1">relevance</span>
+</pre>
+</body>
+</html>

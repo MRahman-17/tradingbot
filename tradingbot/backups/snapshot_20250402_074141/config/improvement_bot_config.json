@@ -1,0 +1,20 @@
+{
+  "improvement_bot": {
+    "enabled": true,
+    "check_interval": 3600,
+    "debug_scan_interval": 21600,
+    "backup_interval": 86400,
+    "ml_update_interval": 604800,
+    "quantum_optimization_interval": 1209600,
+    "min_improvement_threshold": 0.05
+  },
+  "improvement_bot": {
+    "enabled": true,
+    "check_interval": 3600,
+    "debug_scan_interval": 21600,
+    "ml_update_interval": 604800,
+    "quantum_optimization_interval": 86400,
+    "quantum_error_analysis_interval": 43200,
+    "quantum_prediction_analysis_interval": 86400
+  }
+}

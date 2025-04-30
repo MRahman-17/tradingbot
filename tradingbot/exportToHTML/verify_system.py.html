@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>verify_system.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #8c8c8c; font-style: italic;}
+.s1 { color: #080808;}
+.s2 { color: #0033b3;}
+.s3 { color: #067d17;}
+.s4 { color: #0037a6;}
+.s5 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+verify_system.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#!/usr/bin/env python3</span>
+<span class="s0">&quot;&quot;&quot; 
+Verification script to check if all dependencies and authentication are working 
+&quot;&quot;&quot;</span>
+<span class="s2">import </span><span class="s1">os</span>
+<span class="s2">import </span><span class="s1">sys</span>
+<span class="s2">import </span><span class="s1">importlib</span>
+<span class="s2">import </span><span class="s1">logging</span>
+
+<span class="s0"># Set up logging</span>
+<span class="s1">logging.basicConfig(level=logging.INFO, format=</span><span class="s3">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span><span class="s1">)</span>
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;Verification&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">check_dependencies():</span>
+    <span class="s0">&quot;&quot;&quot;Check if all required packages are installed&quot;&quot;&quot;</span>
+    <span class="s1">required_packages = [</span>
+        <span class="s3">&quot;numpy&quot;</span><span class="s1">, </span><span class="s3">&quot;pandas&quot;</span><span class="s1">, </span><span class="s3">&quot;webull-api&quot;</span><span class="s1">, </span><span class="s3">&quot;robin_stocks&quot;</span><span class="s1">, </span><span class="s3">&quot;qiskit&quot;</span><span class="s1">, </span><span class="s3">&quot;scikit-learn&quot;</span><span class="s1">,</span>
+        <span class="s3">&quot;matplotlib&quot;</span><span class="s1">, </span><span class="s3">&quot;cryptography&quot;</span><span class="s1">, </span><span class="s3">&quot;requests&quot;</span><span class="s1">, </span><span class="s3">&quot;schedule&quot;</span><span class="s1">, </span><span class="s3">&quot;joblib&quot;</span>
+    <span class="s1">]</span>
+
+    <span class="s1">missing = []</span>
+    <span class="s2">for </span><span class="s1">pkg </span><span class="s2">in </span><span class="s1">required_packages:</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s1">pkg_name = pkg.replace(</span><span class="s3">&quot;-&quot;</span><span class="s1">, </span><span class="s3">&quot;_&quot;</span><span class="s1">)</span>
+            <span class="s1">importlib.import_module(pkg_name)</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;✓ </span><span class="s4">{</span><span class="s1">pkg</span><span class="s4">} </span><span class="s3">is installed&quot;</span><span class="s1">)</span>
+        <span class="s2">except </span><span class="s1">ImportError:</span>
+            <span class="s1">missing.append(pkg)</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;✗ </span><span class="s4">{</span><span class="s1">pkg</span><span class="s4">} </span><span class="s3">is missing&quot;</span><span class="s1">)</span>
+
+    <span class="s2">return </span><span class="s1">len(missing) == </span><span class="s5">0</span>
+
+
+<span class="s2">def </span><span class="s1">check_environment():</span>
+    <span class="s0">&quot;&quot;&quot;Verify that all required directories and files exist&quot;&quot;&quot;</span>
+    <span class="s1">required_dirs = [</span>
+        <span class="s3">&quot;logs&quot;</span><span class="s1">, </span><span class="s3">&quot;models&quot;</span><span class="s1">, </span><span class="s3">&quot;data&quot;</span><span class="s1">, </span><span class="s3">&quot;config&quot;</span><span class="s1">, </span><span class="s3">&quot;platform_adapters&quot;</span><span class="s1">,</span>
+        <span class="s3">&quot;security/encryption&quot;</span><span class="s1">, </span><span class="s3">&quot;legal/compliance_reports&quot;</span>
+    <span class="s1">]</span>
+
+    <span class="s1">required_files = [</span>
+        <span class="s3">&quot;config/config.json&quot;</span><span class="s1">,</span>
+        <span class="s3">&quot;platform_adapters/__init__.py&quot;</span><span class="s1">,</span>
+        <span class="s3">&quot;platform_adapters/platform_factory.py&quot;</span>
+    <span class="s1">]</span>
+
+    <span class="s2">for </span><span class="s1">directory </span><span class="s2">in </span><span class="s1">required_dirs:</span>
+        <span class="s2">if not </span><span class="s1">os.path.exists(directory):</span>
+            <span class="s1">logger.warning(</span><span class="s3">f&quot;Creating missing directory: </span><span class="s4">{</span><span class="s1">directory</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">os.makedirs(directory, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+
+    <span class="s2">for </span><span class="s1">file_path </span><span class="s2">in </span><span class="s1">required_files:</span>
+        <span class="s2">if not </span><span class="s1">os.path.exists(file_path):</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Required file missing: </span><span class="s4">{</span><span class="s1">file_path</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return False</span>
+
+    <span class="s2">return True</span>
+
+
+<span class="s2">def </span><span class="s1">check_authentication():</span>
+    <span class="s0">&quot;&quot;&quot;Test authentication with trading platforms&quot;&quot;&quot;</span>
+    <span class="s1">sys.path.append(os.path.dirname(os.path.abspath(__file__)))</span>
+
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s2">from </span><span class="s1">platform_adapters.platform_factory </span><span class="s2">import </span><span class="s1">PlatformFactory</span>
+        <span class="s1">factory = PlatformFactory()</span>
+
+        <span class="s1">config_path = </span><span class="s3">&quot;config/config.json&quot;</span>
+        <span class="s2">if not </span><span class="s1">os.path.exists(config_path):</span>
+            <span class="s1">logger.error(</span><span class="s3">&quot;Config file not found&quot;</span><span class="s1">)</span>
+            <span class="s2">return False</span>
+
+        <span class="s2">import </span><span class="s1">json</span>
+        <span class="s2">with </span><span class="s1">open(config_path, </span><span class="s3">'r'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">config = json.load(f)</span>
+
+        <span class="s1">platform_name = config.get(</span><span class="s3">'platform'</span><span class="s1">, {}).get(</span><span class="s3">'name'</span><span class="s1">, </span><span class="s3">'webull'</span><span class="s1">)</span>
+        <span class="s1">adapter = factory.create_adapter(platform_name)</span>
+
+        <span class="s2">if </span><span class="s1">adapter </span><span class="s2">is None</span><span class="s1">:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Failed to create adapter for </span><span class="s4">{</span><span class="s1">platform_name</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return False</span>
+
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Testing login to </span><span class="s4">{</span><span class="s1">platform_name</span><span class="s4">}</span><span class="s3">...&quot;</span><span class="s1">)</span>
+        <span class="s2">if </span><span class="s1">hasattr(adapter, </span><span class="s3">'login'</span><span class="s1">) </span><span class="s2">and </span><span class="s1">callable(adapter.login):</span>
+            <span class="s1">result = adapter.login()</span>
+            <span class="s2">if </span><span class="s1">result:</span>
+                <span class="s1">logger.info(</span><span class="s3">f&quot;✓ Successfully authenticated with </span><span class="s4">{</span><span class="s1">platform_name</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s2">return True</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;✗ Authentication failed with </span><span class="s4">{</span><span class="s1">platform_name</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s2">return False</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Adapter for </span><span class="s4">{</span><span class="s1">platform_name</span><span class="s4">} </span><span class="s3">doesn't have a login method&quot;</span><span class="s1">)</span>
+            <span class="s2">return False</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error checking authentication: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return False</span>
+
+
+<span class="s2">if </span><span class="s1">__name__ == </span><span class="s3">&quot;__main__&quot;</span><span class="s1">:</span>
+    <span class="s1">print(</span><span class="s3">&quot;=== Environment Check ===&quot;</span><span class="s1">)</span>
+    <span class="s1">env_ok = check_environment()</span>
+
+    <span class="s1">print(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">=== Dependency Check ===&quot;</span><span class="s1">)</span>
+    <span class="s1">deps_ok = check_dependencies()</span>
+
+    <span class="s1">print(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">=== Authentication Check ===&quot;</span><span class="s1">)</span>
+    <span class="s1">auth_ok = check_authentication()</span>
+
+    <span class="s2">if </span><span class="s1">env_ok </span><span class="s2">and </span><span class="s1">deps_ok </span><span class="s2">and </span><span class="s1">auth_ok:</span>
+        <span class="s1">print(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">✓ All checks passed. System should be able to run.&quot;</span><span class="s1">)</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s1">print(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">✗ Some checks failed. Please fix the issues before running the system.&quot;</span><span class="s1">)</span>
+</pre>
+</body>
+</html>

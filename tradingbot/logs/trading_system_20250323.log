@@ -1,0 +1,1610 @@
+2025-03-23 00:00:28,522 - Trading System - INFO - Configuration loaded successfully
+2025-03-23 00:00:28,522 - Trading System - INFO - Environment variables loaded
+2025-03-23 00:00:28,530 - Trading System - INFO - Encryption key loaded
+2025-03-23 00:00:28,530 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-23 00:00:28,695 - Trading System - ERROR - Missing required packages: scikit-learn
+2025-03-23 00:00:28,696 - Trading System - INFO - Please install missing packages with: pip install scikit-learn
+2025-03-23 00:00:28,696 - Trading System - ERROR - Missing required dependencies. Exiting.
+2025-03-23 00:05:11,463 - Trading System - INFO - Configuration loaded successfully
+2025-03-23 00:05:11,463 - Trading System - INFO - Environment variables loaded
+2025-03-23 00:05:11,472 - Trading System - INFO - Encryption key loaded
+2025-03-23 00:05:11,472 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-23 00:05:11,649 - Trading System - ERROR - Missing required packages: scikit-learn
+2025-03-23 00:05:11,649 - Trading System - INFO - Please install missing packages with: pip install scikit-learn
+2025-03-23 00:05:11,649 - Trading System - ERROR - Missing required dependencies. Exiting.
+2025-03-23 00:08:59,250 - Trading System - INFO - Configuration loaded successfully
+2025-03-23 00:08:59,251 - Trading System - INFO - Environment variables loaded
+2025-03-23 00:08:59,259 - Trading System - INFO - Encryption key loaded
+2025-03-23 00:08:59,259 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-23 00:08:59,884 - Trading System - INFO - scikit-learn is available (version 1.6.1)
+2025-03-23 00:08:59,884 - Trading Bot - INFO - Mock adapter initialized
+2025-03-23 00:08:59,985 - Trading Bot - INFO - Trading bot starting
+2025-03-23 00:08:59,985 - Trading System - INFO - Started Trading Bot
+2025-03-23 00:08:59,985 - Trading Bot - INFO - No trade history found, using empty
+2025-03-23 00:08:59,985 - Monitor Bot - INFO - Starting monitoring loop
+2025-03-23 00:08:59,985 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:08:59,985 - Trading System - INFO - Started Monitor Bot
+2025-03-23 00:08:59,985 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:08:59,985 - Improvement Bot - INFO - Starting improvement bot
+2025-03-23 00:08:59,985 - Trading System - INFO - Started Improvement Bot
+2025-03-23 00:08:59,985 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:08:59,985 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:08:59,985 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:08:59,985 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:08:59,985 - Trading System - INFO - All bots started. Press Ctrl+C to exit.
+2025-03-23 00:08:59,986 - Improvement Bot - INFO - Configuration loaded successfully
+2025-03-23 00:08:59,986 - Improvement Bot - INFO - Running scheduled task: System Backup
+2025-03-23 00:08:59,988 - Monitor Bot - INFO - Running scheduled task: Initial Performance Metrics
+2025-03-23 00:08:59,988 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 00:08:59,988 - Monitor Bot - WARNING - Task Initial Performance Metrics completed with warnings
+2025-03-23 00:08:59,988 - Monitor Bot - INFO - Running scheduled task: Initial API Health Check
+2025-03-23 00:08:59,989 - Improvement Bot - INFO - System snapshot created at backups/snapshot_20250323_000859
+2025-03-23 00:08:59,989 - Improvement Bot - INFO - Task System Backup completed successfully
+2025-03-23 00:08:59,989 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Trading Bot
+2025-03-23 00:08:59,989 - Improvement Bot - INFO - No issues found in trading_bot
+2025-03-23 00:08:59,989 - Improvement Bot - WARNING - Task Code Quality Check - Trading Bot completed with warnings
+2025-03-23 00:08:59,989 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Monitor Bot
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - Found 2 issues in monitor_bot
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - Task Code Quality Check - Monitor Bot completed successfully
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Improvement Bot
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - Found 6 issues in improvement_bot
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - Task Code Quality Check - Improvement Bot completed successfully
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - Running scheduled task: ML Model Optimization
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - No ML models found to optimize
+2025-03-23 00:08:59,990 - Improvement Bot - WARNING - Task ML Model Optimization completed with warnings
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - Running scheduled task: Quantum Weight Optimization
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - Generated new quantum-optimized weights
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - Task Quantum Weight Optimization completed successfully
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-03-23 00:08:59,990 - Improvement Bot - INFO - No performance metrics found for analysis
+2025-03-23 00:08:59,990 - Improvement Bot - WARNING - Task System Health Analysis completed with warnings
+2025-03-23 00:09:00,189 - Monitor Bot - INFO - === API Health Status ===
+2025-03-23 00:09:00,189 - Monitor Bot - INFO - WebUll API: Unavailable
+2025-03-23 00:09:00,189 - Monitor Bot - INFO - Zoya API: Error: 204
+2025-03-23 00:09:00,189 - Monitor Bot - INFO - =======================
+2025-03-23 00:09:00,189 - Monitor Bot - INFO - Task Initial API Health Check completed successfully
+2025-03-23 00:09:00,189 - Monitor Bot - INFO - Running scheduled task: Initial Legal Compliance Report
+2025-03-23 00:09:00,190 - Monitor Bot - INFO - Legal compliance report generated at legal/compliance_reports/compliance_report_20250323.json
+2025-03-23 00:09:00,190 - Monitor Bot - INFO - Task Initial Legal Compliance Report completed successfully
+2025-03-23 00:09:59,990 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:09:59,990 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:09:59,991 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:09:59,992 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:09:59,992 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:09:59,992 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:10:59,993 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:10:59,994 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:10:59,994 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:10:59,995 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:10:59,995 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:10:59,995 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:11:59,994 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:11:59,995 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:11:59,996 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:12:00,000 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:12:00,000 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:12:00,001 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:13:00,000 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:13:00,002 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:13:00,002 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:13:00,005 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:13:00,005 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:13:00,005 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:14:00,006 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:14:00,008 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:14:00,008 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:14:00,010 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:14:00,010 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:14:00,011 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:15:00,013 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:15:00,013 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:15:00,014 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:15:00,015 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:15:00,015 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:15:00,015 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:16:00,018 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:16:00,018 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:16:00,019 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:16:00,019 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:16:00,020 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:16:00,020 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:17:00,024 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:17:00,025 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:17:00,025 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:17:00,025 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:17:00,025 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:17:00,026 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:18:00,027 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:18:00,029 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:18:00,029 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:18:00,030 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:18:00,030 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:18:00,030 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:19:00,031 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:19:00,033 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:19:00,033 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:19:00,034 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:19:00,034 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:19:00,034 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:20:00,037 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:20:00,037 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:20:00,037 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:20:00,038 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:20:00,038 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:20:00,038 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:21:00,070 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:21:00,071 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:21:00,071 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:21:00,071 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:21:00,072 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:21:00,072 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:22:00,081 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:22:00,082 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:22:00,083 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:22:00,083 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:22:00,083 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:22:00,083 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:23:00,087 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:23:00,088 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:23:00,089 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:23:00,088 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:23:00,089 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:23:00,089 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:24:00,092 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:24:00,093 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:24:00,093 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:24:00,093 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:24:00,094 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:24:00,094 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:25:00,099 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:25:00,100 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:25:00,101 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:25:00,101 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:25:00,101 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:25:00,102 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:26:00,102 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:26:00,102 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:26:00,104 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:26:00,104 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:26:00,104 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:26:00,104 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:27:00,106 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:27:00,107 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:27:00,107 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:27:00,109 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:27:00,109 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:27:00,109 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:28:00,112 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:28:00,112 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:28:00,113 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:28:00,113 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:28:00,113 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:28:00,114 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:29:00,117 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:29:00,118 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:29:00,119 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:29:00,119 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:29:00,119 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:29:00,119 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:30:00,124 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:30:00,124 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:30:00,125 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:30:00,125 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:30:00,126 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:30:00,126 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:31:00,127 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:31:00,128 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:31:00,129 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:31:00,129 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:31:00,129 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:31:00,129 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:32:00,133 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:32:00,134 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:32:00,135 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:32:00,135 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:32:00,135 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:32:00,135 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:33:00,139 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:33:00,140 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:33:00,141 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:33:00,141 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:33:00,141 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:33:00,141 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:34:00,142 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:34:00,142 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:34:00,144 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:34:00,144 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:34:00,144 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:34:00,144 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:35:00,145 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:35:00,146 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:35:00,147 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:35:00,148 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:35:00,149 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:35:00,149 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:36:00,152 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:36:00,152 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:36:00,153 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:36:00,154 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:36:00,154 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:36:00,154 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:37:00,158 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:37:00,159 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:37:00,159 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:37:00,160 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:37:00,160 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:37:00,160 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:38:00,165 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:38:00,165 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:38:00,166 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:38:00,167 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:38:00,167 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:38:00,167 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:39:00,168 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:39:00,169 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:39:00,169 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:39:00,172 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:39:00,172 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:39:00,172 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:40:00,169 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:40:00,170 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:40:00,170 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:40:00,177 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:40:00,178 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:40:00,178 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:41:00,172 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:41:00,173 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:41:00,173 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:41:00,182 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:41:00,182 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:41:00,182 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:42:00,179 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:42:00,181 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:42:00,182 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:42:00,186 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:42:00,187 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:42:00,187 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:43:00,182 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:43:00,183 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:43:00,183 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:43:00,187 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:43:00,187 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:43:00,187 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:44:00,191 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:44:00,192 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:44:00,192 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 00:44:00,196 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:44:00,197 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:44:00,197 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:45:28,695 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 00:45:28,696 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 00:45:28,697 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 00:45:28,698 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 00:45:28,698 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 00:45:28,698 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 01:01:52,647 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 01:01:52,648 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 01:01:52,649 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 01:01:52,649 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 01:01:52,649 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 01:01:52,649 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 01:11:42,346 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 01:11:42,347 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 01:11:42,348 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 01:11:42,348 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 01:11:42,348 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 01:11:42,348 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 01:11:42,539 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 01:11:42,539 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 01:11:42,540 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 01:13:41,637 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 01:13:41,637 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 01:13:41,638 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 01:13:41,638 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 01:13:41,638 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 01:13:41,638 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 01:31:07,485 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 01:31:07,485 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 01:31:07,486 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 01:31:07,486 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 01:31:07,486 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 01:31:07,487 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 01:59:36,234 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 01:59:36,234 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 01:59:36,235 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 01:59:36,236 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 01:59:36,236 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 01:59:36,236 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 02:15:50,199 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 02:15:50,200 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 02:15:50,201 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 02:15:50,201 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 02:15:50,201 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 02:15:50,201 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 02:15:50,389 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 02:15:50,389 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 02:15:50,389 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 02:33:39,088 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 02:33:39,088 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 02:33:39,089 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 02:33:39,090 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 02:33:39,090 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 02:33:39,090 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 02:41:13,971 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 02:41:13,971 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 02:41:13,972 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 02:41:13,972 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 02:41:13,972 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 02:41:13,973 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 02:57:23,880 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 02:57:23,880 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 02:57:23,881 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 02:57:23,882 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 02:57:23,882 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 02:57:23,882 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 03:31:21,025 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 03:31:21,025 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 03:31:21,026 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 03:31:21,026 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 03:31:21,026 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 03:31:21,027 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 03:31:21,209 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 03:31:21,210 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 03:31:21,210 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 03:41:49,857 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 03:41:49,857 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 03:41:49,858 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 03:41:49,859 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 03:41:49,859 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 03:41:49,859 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 03:47:08,877 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 03:47:08,878 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 03:47:08,878 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 03:47:08,878 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 03:47:08,878 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 03:47:08,878 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 04:03:42,691 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 04:03:42,691 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 04:03:42,693 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 04:03:42,693 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 04:03:42,693 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 04:03:42,693 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 04:20:13,085 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 04:20:13,086 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 04:20:13,087 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 04:20:13,087 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 04:20:13,087 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 04:20:13,087 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 04:42:38,940 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 04:42:38,940 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 04:42:38,941 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 04:42:38,941 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 04:42:38,942 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 04:42:38,942 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 04:42:39,124 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 04:42:39,125 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 04:42:39,125 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 04:59:31,847 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 04:59:31,847 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 04:59:31,848 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 04:59:31,849 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 04:59:31,849 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 04:59:31,849 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 05:16:14,003 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 05:16:14,003 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 05:16:14,004 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 05:16:14,005 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 05:16:14,005 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 05:16:14,005 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 05:33:04,956 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 05:33:04,957 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 05:33:04,958 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 05:33:04,958 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 05:33:04,958 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 05:33:04,959 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 05:44:14,861 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 05:44:14,861 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 05:44:14,861 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 05:44:14,862 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 05:44:14,862 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 05:44:14,862 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 05:44:15,042 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 05:44:15,042 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 05:44:15,042 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 06:01:28,728 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 06:01:28,728 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 06:01:28,729 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 06:01:28,730 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 06:01:28,730 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 06:01:28,730 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 06:35:26,932 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 06:35:26,932 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 06:35:26,934 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 06:35:26,934 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 06:35:26,934 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 06:35:26,934 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 06:44:50,822 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 06:44:50,822 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 06:44:50,823 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 06:44:50,824 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 06:44:50,824 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 06:44:50,824 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 06:44:51,001 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 06:44:51,001 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 06:44:51,001 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 07:02:28,419 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 07:02:28,420 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 07:02:28,421 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 07:02:28,421 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 07:02:28,421 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 07:02:28,421 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 07:18:33,463 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Trading Bot
+2025-03-23 07:18:33,466 - Improvement Bot - INFO - No issues found in trading_bot
+2025-03-23 07:18:33,467 - Improvement Bot - WARNING - Task Code Quality Check - Trading Bot completed with warnings
+2025-03-23 07:18:33,467 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Monitor Bot
+2025-03-23 07:18:33,470 - Improvement Bot - INFO - Found 2 issues in monitor_bot
+2025-03-23 07:18:33,470 - Improvement Bot - INFO - Task Code Quality Check - Monitor Bot completed successfully
+2025-03-23 07:18:33,470 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Improvement Bot
+2025-03-23 07:18:33,473 - Improvement Bot - INFO - Found 6 issues in improvement_bot
+2025-03-23 07:18:33,474 - Improvement Bot - INFO - Task Code Quality Check - Improvement Bot completed successfully
+2025-03-23 07:18:33,474 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-03-23 07:18:33,474 - Improvement Bot - INFO - No performance metrics found for analysis
+2025-03-23 07:18:33,474 - Improvement Bot - WARNING - Task System Health Analysis completed with warnings
+2025-03-23 07:18:33,941 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 07:18:33,941 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 07:18:33,941 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 07:18:33,942 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 07:18:33,942 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 07:18:33,942 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 07:23:10,835 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 07:23:10,836 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 07:23:10,837 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 07:23:10,837 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 07:23:10,837 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 07:23:10,837 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 07:45:38,681 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 07:45:38,681 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 07:45:38,681 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 07:45:38,682 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 07:45:38,682 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 07:45:38,682 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 07:45:38,857 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 07:45:38,857 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 07:45:38,857 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 08:02:36,627 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 08:02:36,627 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 08:02:36,628 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 08:02:36,628 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 08:02:36,628 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 08:02:36,629 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 08:20:06,779 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 08:20:06,779 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 08:20:06,780 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 08:20:06,780 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 08:20:06,781 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 08:20:06,781 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 08:36:34,673 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 08:36:34,673 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 08:36:34,674 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 08:36:34,674 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 08:36:34,675 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 08:36:34,675 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 08:47:14,315 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 08:47:14,315 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 08:47:14,316 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 08:47:14,317 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 08:47:14,317 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 08:47:14,317 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 08:47:14,488 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 08:47:14,488 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 08:47:14,488 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 09:04:22,294 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 09:04:22,294 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 09:04:22,295 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 09:04:22,295 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 09:04:22,295 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 09:04:22,295 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 09:38:41,820 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 09:38:41,821 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 09:38:41,822 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 09:38:41,822 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 09:38:41,822 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 09:38:41,823 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 09:47:51,699 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 09:47:51,699 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 09:47:51,700 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 09:47:51,700 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 09:47:51,701 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 09:47:51,701 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 09:47:51,869 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 09:47:51,869 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 09:47:51,869 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 10:04:52,555 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 10:04:52,557 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 10:04:52,558 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 10:04:52,558 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 10:04:52,559 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 10:04:52,559 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 10:23:13,490 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 10:23:13,491 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 10:23:13,492 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 10:23:13,492 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 10:23:13,492 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 10:23:13,492 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 10:41:11,214 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 10:41:11,214 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 10:41:11,215 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 10:41:11,216 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 10:41:11,216 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 10:41:11,216 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 10:42:11,225 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 10:42:11,227 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 10:42:11,227 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 10:42:11,227 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 10:42:11,227 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 10:42:11,228 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 10:43:11,233 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 10:43:11,233 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 10:43:11,233 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 10:43:11,236 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 10:43:11,236 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 10:43:11,236 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 10:44:11,242 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 10:44:11,243 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 10:44:11,243 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 10:44:11,243 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 10:44:11,244 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 10:44:11,244 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 10:45:11,247 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 10:45:11,248 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 10:45:11,249 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 10:45:11,254 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 10:45:11,254 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 10:45:11,254 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 11:04:53,066 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 11:04:53,067 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 11:04:53,067 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 11:04:53,067 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 11:04:53,067 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 11:04:53,067 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 11:04:53,236 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 11:04:53,237 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 11:04:53,237 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 11:21:14,010 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 11:21:14,010 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 11:21:14,011 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 11:21:14,011 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 11:21:14,011 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 11:21:14,011 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 11:37:44,947 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 11:37:44,947 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 11:37:44,948 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 11:37:44,949 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 11:37:44,949 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 11:37:44,949 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 11:50:04,842 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 11:50:04,842 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 11:50:04,844 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 11:50:04,844 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 11:50:04,844 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 11:50:04,844 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:06:34,706 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:06:34,707 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:06:34,708 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:06:34,708 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:06:34,708 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:06:34,709 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:06:34,874 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 12:06:34,875 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 12:06:34,875 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 12:22:03,425 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:22:03,426 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:22:03,428 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:22:03,428 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:22:03,428 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:22:03,428 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:23:31,787 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:23:31,788 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:23:31,788 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:23:31,788 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:23:31,788 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:23:31,788 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:30:53,193 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:30:53,194 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:30:53,195 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:30:53,195 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:30:53,195 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:30:53,196 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:31:53,199 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:31:53,201 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:31:53,201 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:31:53,201 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:31:53,201 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:31:53,202 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:32:53,205 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:32:53,205 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:32:53,206 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:32:53,207 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:32:53,207 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:32:53,207 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:33:53,210 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:33:53,212 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:33:53,213 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:33:53,213 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:33:53,213 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:33:53,213 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:34:53,218 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:34:53,219 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:34:53,220 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:34:53,220 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:34:53,220 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:34:53,221 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:35:53,226 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:35:53,226 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:35:53,226 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:35:53,226 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:35:53,227 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:35:53,227 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:36:53,232 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:36:53,233 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:36:53,234 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:36:53,234 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:36:53,234 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:36:53,235 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:37:53,237 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:37:53,237 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:37:53,238 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:37:53,240 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:37:53,240 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:37:53,241 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:38:53,241 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:38:53,243 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:38:53,243 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:38:53,245 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:38:53,245 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:38:53,245 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:39:53,248 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:39:53,248 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:39:53,249 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:39:53,250 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:39:53,250 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:39:53,250 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:40:53,252 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:40:53,253 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:40:53,254 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:40:53,255 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:40:53,256 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:40:53,256 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:41:53,259 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:41:53,259 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:41:53,260 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:41:53,260 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:41:53,261 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:41:53,261 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:42:53,265 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:42:53,267 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:42:53,267 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:42:53,268 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:42:53,268 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:42:53,268 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:42:58,293 - Trading System - INFO - Main process interrupted, shutting down...
+2025-03-23 12:42:58,294 - Trading System - INFO - Trading system shutdown complete
+2025-03-23 12:43:53,271 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:43:53,273 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:43:53,273 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:43:53,273 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:43:53,273 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:43:53,273 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:44:53,279 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:44:53,279 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:44:53,280 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:44:53,280 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:44:53,280 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:44:53,280 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:45:53,284 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:45:53,286 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:45:53,286 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:45:53,286 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:45:53,286 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:45:53,286 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:46:53,291 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:46:53,292 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:46:53,293 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:46:53,293 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:46:53,293 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:46:53,293 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:47:53,294 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:47:53,296 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:47:53,296 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:47:53,298 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:47:53,298 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:47:53,299 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:48:53,301 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:48:53,303 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:48:53,303 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:48:53,304 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:48:53,304 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:48:53,304 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:49:53,307 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:49:53,308 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:49:53,309 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:49:53,309 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:49:53,309 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:49:53,310 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:50:53,311 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:50:53,311 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:50:53,312 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:50:53,313 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:50:53,313 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:50:53,314 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:51:53,317 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:51:53,318 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:51:53,318 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:51:53,319 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:51:53,319 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:51:53,319 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:52:53,306 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:52:53,308 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:52:53,308 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:52:53,309 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:52:53,309 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:52:53,309 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:53:53,307 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:53:53,309 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:53:53,309 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:53:53,315 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:53:53,315 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:53:53,315 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:54:53,314 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:54:53,315 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:54:53,315 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:54:53,325 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:54:53,325 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:54:53,325 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:55:53,322 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:55:53,324 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:55:53,324 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:55:53,335 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:55:53,335 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:55:53,336 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:57:21,781 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:57:21,783 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:57:21,783 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:57:21,793 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:57:21,793 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:57:21,794 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 12:59:48,913 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 12:59:48,915 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 12:59:48,916 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 12:59:48,922 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 12:59:48,922 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 12:59:48,923 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:00:48,920 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:00:48,921 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:00:48,921 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:00:48,926 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:00:48,926 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:00:48,926 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:01:48,926 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:01:48,927 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:01:48,927 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:01:48,931 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:01:48,931 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:01:48,931 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:02:48,932 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:02:48,932 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:02:48,932 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:02:48,933 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:02:48,933 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:02:48,933 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:03:48,937 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:03:48,938 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:03:48,938 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:03:48,938 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:03:48,938 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:03:48,939 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:04:48,940 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:04:48,941 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:04:48,941 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:04:48,943 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:04:48,944 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:04:48,944 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:05:48,946 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:05:48,947 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:05:48,948 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:05:48,949 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:05:48,949 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:05:48,949 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:06:48,955 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:06:48,956 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:06:48,957 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:06:48,958 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:06:48,958 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:06:48,958 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:06:49,103 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 13:06:49,103 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 13:06:49,103 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 13:07:48,966 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:07:48,967 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:07:48,967 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:07:48,967 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:07:48,967 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:07:48,967 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:08:48,014 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-03-23 13:08:48,015 - Improvement Bot - INFO - No performance metrics found for analysis
+2025-03-23 13:08:48,015 - Improvement Bot - WARNING - Task System Health Analysis completed with warnings
+2025-03-23 13:08:48,970 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:08:48,971 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:08:48,971 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:08:48,971 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:08:48,971 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:08:48,972 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:09:48,982 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:09:48,982 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:09:48,982 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:09:48,983 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:09:48,983 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:09:48,983 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:10:48,990 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:10:48,991 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:10:48,991 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:10:48,992 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:10:48,993 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:10:48,993 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:20:42,914 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:20:42,915 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:20:42,915 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:20:42,924 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:20:42,924 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:20:42,924 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:21:42,910 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:21:42,911 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:21:42,912 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:21:42,916 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:21:42,916 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:21:42,917 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:22:42,916 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:22:42,917 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:22:42,917 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:22:42,918 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:22:42,918 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:22:42,918 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:23:42,919 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:23:42,920 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:23:42,921 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:23:42,921 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:23:42,922 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:23:42,922 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:24:42,925 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:24:42,927 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:24:42,927 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:24:42,927 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:24:42,927 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:24:42,927 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:25:42,932 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:25:42,932 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:25:42,934 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:25:42,934 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:25:42,934 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:25:42,934 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:26:42,938 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:26:42,939 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:26:42,940 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:26:42,940 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:26:42,941 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:26:42,941 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:27:42,943 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:27:42,944 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:27:42,944 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:27:42,945 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:27:42,945 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:27:42,945 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:28:42,947 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:28:42,949 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:28:42,949 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:28:42,949 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:28:42,950 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:28:42,950 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:29:42,956 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:29:42,957 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:29:42,957 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:29:42,957 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:29:42,958 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:29:42,958 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:30:42,962 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:30:42,962 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:30:42,963 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:30:42,963 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:30:42,963 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:30:42,963 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:33:10,428 - Trading System - INFO - Configuration loaded successfully
+2025-03-23 13:33:10,428 - Trading System - INFO - Environment variables loaded
+2025-03-23 13:33:10,450 - Trading System - INFO - Encryption key loaded
+2025-03-23 13:33:10,451 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-23 13:33:11,187 - Trading System - INFO - scikit-learn is available (version 1.6.1)
+2025-03-23 13:33:11,188 - Trading Bot - INFO - Mock adapter initialized
+2025-03-23 13:33:11,300 - Trading Bot - INFO - Trading bot starting
+2025-03-23 13:33:11,300 - Trading System - INFO - Started Trading Bot
+2025-03-23 13:33:11,300 - Trading Bot - INFO - No trade history found, using empty
+2025-03-23 13:33:11,300 - Monitor Bot - INFO - Starting monitoring loop
+2025-03-23 13:33:11,300 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:33:11,300 - Trading System - INFO - Started Monitor Bot
+2025-03-23 13:33:11,301 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:33:11,301 - Improvement Bot - INFO - Starting improvement bot
+2025-03-23 13:33:11,301 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:33:11,301 - Trading System - INFO - Started Improvement Bot
+2025-03-23 13:33:11,301 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:33:11,301 - Trading System - INFO - All bots started. Press Ctrl+C to exit.
+2025-03-23 13:33:11,301 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:33:11,301 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:33:11,301 - Improvement Bot - INFO - Configuration loaded successfully
+2025-03-23 13:33:11,301 - Improvement Bot - INFO - Running scheduled task: System Backup
+2025-03-23 13:33:11,305 - Monitor Bot - INFO - Running scheduled task: Initial Performance Metrics
+2025-03-23 13:33:11,305 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 13:33:11,305 - Monitor Bot - WARNING - Task Initial Performance Metrics completed with warnings
+2025-03-23 13:33:11,305 - Monitor Bot - INFO - Running scheduled task: Initial API Health Check
+2025-03-23 13:33:11,306 - Improvement Bot - INFO - System snapshot created at backups/snapshot_20250323_133311
+2025-03-23 13:33:11,306 - Improvement Bot - INFO - Task System Backup completed successfully
+2025-03-23 13:33:11,306 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Trading Bot
+2025-03-23 13:33:11,306 - Improvement Bot - INFO - No issues found in trading_bot
+2025-03-23 13:33:11,306 - Improvement Bot - WARNING - Task Code Quality Check - Trading Bot completed with warnings
+2025-03-23 13:33:11,306 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Monitor Bot
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - Found 2 issues in monitor_bot
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - Task Code Quality Check - Monitor Bot completed successfully
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Improvement Bot
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - Found 6 issues in improvement_bot
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - Task Code Quality Check - Improvement Bot completed successfully
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - Running scheduled task: ML Model Optimization
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - No ML models found to optimize
+2025-03-23 13:33:11,307 - Improvement Bot - WARNING - Task ML Model Optimization completed with warnings
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - Running scheduled task: Quantum Weight Optimization
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - Generated new quantum-optimized weights
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - Task Quantum Weight Optimization completed successfully
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-03-23 13:33:11,307 - Improvement Bot - INFO - No performance metrics found for analysis
+2025-03-23 13:33:11,308 - Improvement Bot - WARNING - Task System Health Analysis completed with warnings
+2025-03-23 13:33:11,490 - Monitor Bot - INFO - === API Health Status ===
+2025-03-23 13:33:11,490 - Monitor Bot - INFO - WebUll API: Unavailable
+2025-03-23 13:33:11,490 - Monitor Bot - INFO - Zoya API: Error: 204
+2025-03-23 13:33:11,490 - Monitor Bot - INFO - =======================
+2025-03-23 13:33:11,490 - Monitor Bot - INFO - Task Initial API Health Check completed successfully
+2025-03-23 13:33:11,490 - Monitor Bot - INFO - Running scheduled task: Initial Legal Compliance Report
+2025-03-23 13:33:11,490 - Monitor Bot - INFO - Legal compliance report generated at legal/compliance_reports/compliance_report_20250323.json
+2025-03-23 13:33:11,490 - Monitor Bot - INFO - Task Initial Legal Compliance Report completed successfully
+2025-03-23 13:34:11,305 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:34:11,306 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:34:11,307 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:34:11,307 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:34:11,308 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:34:11,308 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:35:11,312 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:35:11,315 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:35:11,315 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:35:11,315 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:35:11,315 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:35:11,316 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:35:40,908 - Trading System - INFO - Main process interrupted, shutting down...
+2025-03-23 13:35:40,908 - Trading System - INFO - Trading system shutdown complete
+2025-03-23 13:36:38,340 - Trading System - INFO - Configuration loaded successfully
+2025-03-23 13:36:38,340 - Trading System - INFO - Environment variables loaded
+2025-03-23 13:36:38,348 - Trading System - INFO - Encryption key loaded
+2025-03-23 13:36:38,349 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-23 13:36:38,931 - Trading System - INFO - scikit-learn is available (version 1.6.1)
+2025-03-23 13:36:38,931 - Trading Bot - INFO - Mock adapter initialized
+2025-03-23 13:36:39,032 - Trading Bot - INFO - Trading bot starting
+2025-03-23 13:36:39,032 - Trading System - INFO - Started Trading Bot
+2025-03-23 13:36:39,032 - Trading Bot - INFO - No trade history found, using empty
+2025-03-23 13:36:39,032 - Monitor Bot - INFO - Starting monitoring loop
+2025-03-23 13:36:39,032 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:36:39,032 - Trading System - INFO - Started Monitor Bot
+2025-03-23 13:36:39,032 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:36:39,032 - Improvement Bot - INFO - Starting improvement bot
+2025-03-23 13:36:39,032 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:36:39,032 - Trading System - INFO - Started Improvement Bot
+2025-03-23 13:36:39,032 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:36:39,032 - Trading System - INFO - All bots started. Press Ctrl+C to exit.
+2025-03-23 13:36:39,032 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:36:39,032 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:36:39,033 - Improvement Bot - INFO - Configuration loaded successfully
+2025-03-23 13:36:39,033 - Improvement Bot - INFO - Running scheduled task: System Backup
+2025-03-23 13:36:39,035 - Monitor Bot - INFO - Running scheduled task: Initial Performance Metrics
+2025-03-23 13:36:39,035 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 13:36:39,035 - Monitor Bot - WARNING - Task Initial Performance Metrics completed with warnings
+2025-03-23 13:36:39,035 - Monitor Bot - INFO - Running scheduled task: Initial API Health Check
+2025-03-23 13:36:39,036 - Improvement Bot - INFO - System snapshot created at backups/snapshot_20250323_133639
+2025-03-23 13:36:39,036 - Improvement Bot - INFO - Task System Backup completed successfully
+2025-03-23 13:36:39,036 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Trading Bot
+2025-03-23 13:36:39,036 - Improvement Bot - INFO - No issues found in trading_bot
+2025-03-23 13:36:39,036 - Improvement Bot - WARNING - Task Code Quality Check - Trading Bot completed with warnings
+2025-03-23 13:36:39,036 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Monitor Bot
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - Found 2 issues in monitor_bot
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - Task Code Quality Check - Monitor Bot completed successfully
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Improvement Bot
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - Found 6 issues in improvement_bot
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - Task Code Quality Check - Improvement Bot completed successfully
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - Running scheduled task: ML Model Optimization
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - No ML models found to optimize
+2025-03-23 13:36:39,037 - Improvement Bot - WARNING - Task ML Model Optimization completed with warnings
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - Running scheduled task: Quantum Weight Optimization
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - Generated new quantum-optimized weights
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - Task Quantum Weight Optimization completed successfully
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-03-23 13:36:39,037 - Improvement Bot - INFO - No performance metrics found for analysis
+2025-03-23 13:36:39,037 - Improvement Bot - WARNING - Task System Health Analysis completed with warnings
+2025-03-23 13:36:39,106 - Monitor Bot - INFO - === API Health Status ===
+2025-03-23 13:36:39,106 - Monitor Bot - INFO - WebUll API: Unavailable
+2025-03-23 13:36:39,106 - Monitor Bot - INFO - Zoya API: Error: 204
+2025-03-23 13:36:39,106 - Monitor Bot - INFO - =======================
+2025-03-23 13:36:39,106 - Monitor Bot - INFO - Task Initial API Health Check completed successfully
+2025-03-23 13:36:39,106 - Monitor Bot - INFO - Running scheduled task: Initial Legal Compliance Report
+2025-03-23 13:36:39,106 - Monitor Bot - INFO - Legal compliance report generated at legal/compliance_reports/compliance_report_20250323.json
+2025-03-23 13:36:39,107 - Monitor Bot - INFO - Task Initial Legal Compliance Report completed successfully
+2025-03-23 13:37:39,037 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:37:39,037 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:37:39,038 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:37:39,039 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:37:39,039 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:37:39,039 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:38:39,041 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:38:39,043 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:38:39,043 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:38:39,044 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:38:39,044 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:38:39,045 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:39:39,048 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:39:39,048 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:39:39,049 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:39:39,050 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:39:39,050 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:39:39,050 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:40:39,051 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:40:39,051 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:40:39,054 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:40:39,054 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:40:39,054 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:40:39,054 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:41:39,055 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:41:39,057 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:41:39,057 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:41:39,059 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:41:39,059 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:41:39,059 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:42:39,062 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:42:39,062 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:42:39,064 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:42:39,064 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:42:39,064 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:42:39,064 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:43:39,067 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:43:39,068 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:43:39,069 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:43:39,069 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:43:39,070 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:43:39,070 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:44:39,074 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:44:39,075 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:44:39,076 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:44:39,076 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:44:39,076 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:44:39,076 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:45:39,076 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:45:39,077 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:45:39,078 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:45:39,079 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:45:39,079 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:45:39,079 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:46:39,079 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:46:39,082 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:46:39,082 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:46:39,084 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:46:39,084 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:46:39,084 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:47:39,085 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:47:39,087 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:47:39,087 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:47:39,087 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:47:39,087 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:47:39,088 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:48:39,091 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:48:39,092 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:48:39,093 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:48:39,093 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:48:39,093 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:48:39,093 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:49:39,098 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:49:39,098 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:49:39,099 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:49:39,100 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:49:39,100 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:49:39,100 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:50:39,105 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:50:39,107 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:50:39,107 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:50:39,107 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:50:39,107 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:50:39,108 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:51:39,112 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:51:39,112 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:51:39,113 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:51:39,113 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:51:39,113 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:51:39,114 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:52:39,115 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:52:39,116 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:52:39,117 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:52:39,120 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:52:39,120 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:52:39,121 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:53:39,124 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:53:39,125 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:53:39,125 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:53:39,126 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:53:39,126 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:53:39,126 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:55:07,663 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:55:07,663 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:55:07,665 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:55:07,665 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:55:07,665 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:55:07,665 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:57:04,032 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:57:04,033 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:57:04,035 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:57:04,035 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:57:04,035 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:57:04,035 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:58:04,039 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:58:04,039 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:58:04,040 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:58:04,040 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:58:04,041 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:58:04,041 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 13:59:04,045 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 13:59:04,046 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 13:59:04,047 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 13:59:04,047 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 13:59:04,047 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 13:59:04,047 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:00:04,049 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:00:04,050 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:00:04,050 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:00:04,050 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:00:04,051 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:00:04,051 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:01:04,055 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:01:04,055 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:01:04,055 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:01:04,056 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:01:04,056 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:01:04,056 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:02:04,056 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:02:04,058 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:02:04,058 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:02:04,058 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:02:04,058 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:02:04,058 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:03:04,061 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:03:04,061 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:03:04,062 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:03:04,062 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:03:04,063 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:03:04,063 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:04:04,065 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:04:04,066 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:04:04,066 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:04:04,067 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:04:04,067 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:04:04,068 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:05:04,070 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:05:04,071 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:05:04,071 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:05:04,071 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:05:04,071 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:05:04,071 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:06:04,076 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:06:04,076 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:06:04,077 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:06:04,077 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:06:04,078 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:06:04,078 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:07:04,082 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:07:04,082 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:07:04,083 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:07:04,083 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:07:04,084 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:07:04,084 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:08:04,085 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:08:04,086 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:08:04,086 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:08:04,088 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:08:04,088 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:08:04,089 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:09:04,086 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:09:04,087 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:09:04,087 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:09:04,093 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:09:04,093 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:09:04,093 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:10:04,094 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:10:04,095 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:10:04,095 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:10:04,097 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:10:04,097 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:10:04,097 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:11:04,103 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:11:04,103 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:11:04,104 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:11:04,105 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:11:04,106 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:11:04,106 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:12:04,107 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:12:04,108 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:12:04,108 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:12:04,115 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:12:04,115 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:12:04,115 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:13:04,118 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:13:04,119 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:13:04,120 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:13:04,120 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:13:04,120 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:13:04,120 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:15:06,372 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:15:06,373 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:15:06,374 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:15:06,374 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:15:06,375 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 14:15:06,375 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:31:23,253 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 14:31:23,253 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 14:31:23,254 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 14:31:23,255 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 14:31:23,255 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 14:31:23,255 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 15:05:40,043 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 15:05:40,043 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 15:05:40,044 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 15:05:40,044 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 15:05:40,044 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 15:05:40,045 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 15:05:40,088 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 15:05:40,089 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 15:05:40,089 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 15:23:18,183 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 15:23:18,184 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 15:23:18,185 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 15:23:18,185 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 15:23:18,186 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 15:23:18,185 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 15:35:45,111 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 15:35:45,111 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 15:35:45,112 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 15:35:45,112 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 15:35:45,112 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 15:35:45,113 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 15:52:44,137 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 15:52:44,137 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 15:52:44,138 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 15:52:44,138 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 15:52:44,138 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 15:52:44,138 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 16:10:02,047 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 16:10:02,047 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 16:10:02,048 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 16:10:02,049 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 16:10:02,049 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 16:10:02,049 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 16:10:02,089 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 16:10:02,090 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 16:10:02,090 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 16:43:51,844 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 16:43:51,844 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 16:43:51,845 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 16:43:51,845 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 16:43:51,845 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 16:43:51,846 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 17:01:22,572 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 17:01:22,572 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 17:01:22,573 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 17:01:22,574 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 17:01:22,574 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 17:01:22,574 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 17:10:38,865 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 17:10:38,866 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 17:10:38,867 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 17:10:38,867 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 17:10:38,867 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 17:10:38,868 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 17:10:38,905 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 17:10:38,905 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 17:10:38,905 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 17:17:07,117 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 17:17:07,118 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 17:17:07,119 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 17:17:07,119 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 17:17:07,120 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 17:17:07,120 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 17:19:49,702 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 17:19:49,702 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 17:19:49,703 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 17:19:49,704 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 17:19:49,704 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 17:19:49,704 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 17:52:16,512 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 17:52:16,512 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 17:52:16,513 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 17:52:16,514 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 17:52:16,514 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 17:52:16,514 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 18:10:06,438 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 18:10:06,438 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 18:10:06,439 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 18:10:06,439 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 18:10:06,439 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 18:10:06,440 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 18:26:36,352 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 18:26:36,353 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 18:26:36,354 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 18:26:36,354 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 18:26:36,354 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 18:26:36,354 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 18:26:36,385 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 18:26:36,385 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 18:26:36,386 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 18:43:49,795 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 18:43:49,795 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 18:43:49,796 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 18:43:49,796 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 18:43:49,796 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 18:43:49,797 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 19:00:36,008 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 19:00:36,008 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 19:00:36,008 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 19:00:36,008 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 19:00:36,008 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 19:00:36,009 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 19:11:32,141 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 19:11:32,141 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 19:11:32,142 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 19:11:32,142 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 19:11:32,143 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 19:11:32,143 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 19:28:49,067 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 19:28:49,067 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 19:28:49,068 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 19:28:49,068 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 19:28:49,069 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 19:28:49,069 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 19:28:49,106 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 19:28:49,106 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 19:28:49,107 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 19:45:53,974 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 19:45:53,974 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 19:45:53,975 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 19:45:53,975 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 19:45:53,976 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 19:45:53,976 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 20:02:51,909 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 20:02:51,909 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 20:02:51,910 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 20:02:51,910 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 20:02:51,911 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 20:02:51,911 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 20:13:43,114 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 20:13:43,115 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 20:13:43,116 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 20:13:43,116 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 20:13:43,116 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 20:13:43,117 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 20:31:49,921 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 20:31:49,922 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 20:31:49,922 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 20:31:49,922 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 20:31:49,922 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 20:31:49,922 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 20:31:49,942 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 20:31:49,942 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 20:31:49,942 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 20:50:23,203 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 20:50:23,203 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 20:50:23,204 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 20:50:23,205 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 20:50:23,205 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 20:50:23,205 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 21:07:12,659 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Trading Bot
+2025-03-23 21:07:12,662 - Improvement Bot - INFO - No issues found in trading_bot
+2025-03-23 21:07:12,662 - Improvement Bot - WARNING - Task Code Quality Check - Trading Bot completed with warnings
+2025-03-23 21:07:12,662 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Monitor Bot
+2025-03-23 21:07:12,665 - Improvement Bot - INFO - Found 2 issues in monitor_bot
+2025-03-23 21:07:12,665 - Improvement Bot - INFO - Task Code Quality Check - Monitor Bot completed successfully
+2025-03-23 21:07:12,665 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Improvement Bot
+2025-03-23 21:07:12,667 - Improvement Bot - INFO - Found 6 issues in improvement_bot
+2025-03-23 21:07:12,667 - Improvement Bot - INFO - Task Code Quality Check - Improvement Bot completed successfully
+2025-03-23 21:07:12,667 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-03-23 21:07:12,667 - Improvement Bot - INFO - No performance metrics found for analysis
+2025-03-23 21:07:12,667 - Improvement Bot - WARNING - Task System Health Analysis completed with warnings
+2025-03-23 21:07:13,173 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 21:07:13,173 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 21:07:13,173 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 21:07:13,174 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 21:07:13,174 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 21:07:13,174 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 21:13:56,601 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 21:13:56,601 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 21:13:56,602 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 21:13:56,602 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 21:13:56,602 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 21:13:56,603 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 21:46:14,326 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 21:46:14,326 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 21:46:14,326 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 21:46:14,327 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 21:46:14,327 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 21:46:14,327 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 21:46:14,344 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 21:46:14,344 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 21:46:14,344 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 22:02:32,204 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 22:02:32,204 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 22:02:32,205 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 22:02:32,206 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 22:02:32,206 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 22:02:32,206 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 22:14:32,397 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 22:14:32,397 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 22:14:32,398 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 22:14:32,398 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 22:14:32,399 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 22:14:32,399 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 22:32:14,291 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 22:32:14,291 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 22:32:14,292 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 22:32:14,293 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 22:32:14,293 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 22:32:14,293 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 22:48:17,152 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 22:48:17,153 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 22:48:17,154 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 22:48:17,154 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 22:48:17,154 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 22:48:17,155 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 22:48:17,167 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 22:48:17,167 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 22:48:17,168 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 23:04:53,067 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:04:53,067 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:04:53,068 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:04:53,069 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:04:53,069 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:04:53,069 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:16:07,355 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:16:07,355 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:16:07,356 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:16:07,357 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:16:07,357 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:16:07,357 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:32:16,234 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:32:16,235 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:32:16,236 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:32:16,236 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:32:16,236 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:32:16,236 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:34:49,828 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:34:49,829 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:34:49,830 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:34:49,830 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:34:49,830 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:34:49,830 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:48:55,575 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:48:55,575 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:48:55,576 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-23 23:48:55,577 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:48:55,577 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:48:55,577 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-23 23:48:55,577 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:48:55,578 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:48:55,578 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-23 23:52:43,325 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:52:43,326 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:52:43,327 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:52:43,328 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:52:43,328 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:52:43,329 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:53:43,332 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:53:43,333 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:53:43,333 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:53:43,333 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:53:43,334 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:53:43,334 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:54:43,338 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:54:43,338 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:54:43,340 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:54:43,340 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:54:43,340 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:54:43,340 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:55:43,343 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:55:43,345 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:55:43,345 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:55:43,346 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:55:43,346 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:55:43,346 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:56:43,349 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:56:43,350 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:56:43,351 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:56:43,351 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:56:43,351 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:56:43,351 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:57:43,355 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:57:43,356 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:57:43,357 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:57:43,357 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:57:43,357 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:57:43,358 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:58:43,362 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:58:43,362 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:58:43,363 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:58:43,363 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:58:43,363 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:58:43,363 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-23 23:59:43,364 - Trading System - INFO - Trading Bot is alive: True
+2025-03-23 23:59:43,366 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-23 23:59:43,366 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-23 23:59:43,367 - Trading Bot - INFO - Starting trading cycle
+2025-03-23 23:59:43,367 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-23 23:59:43,367 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 00:00:43,371 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 00:00:43,371 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 00:00:43,372 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 00:00:43,373 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 00:00:43,373 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 00:00:43,373 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 00:01:43,374 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 00:01:43,376 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 00:01:43,376 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 00:01:43,377 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 00:01:43,377 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 00:01:43,377 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 00:02:43,380 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 00:02:43,380 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 00:02:43,381 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 00:02:43,382 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 00:02:43,382 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 00:02:43,382 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 00:03:43,384 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 00:03:43,385 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 00:03:43,386 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 00:03:43,386 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 00:03:43,386 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 00:03:43,387 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 00:04:43,390 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 00:04:43,392 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 00:04:43,393 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 00:04:43,394 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 00:04:43,394 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 00:04:43,394 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 00:05:43,394 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 00:05:43,396 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 00:05:43,396 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 00:05:43,398 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 00:05:43,398 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 00:05:43,398 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 00:06:43,396 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 00:06:43,396 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 00:06:43,397 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 00:06:43,402 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 00:06:43,402 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 00:06:43,402 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 00:07:43,400 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 00:07:43,402 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 00:07:43,402 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 00:07:43,406 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 00:07:43,406 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 00:07:43,406 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 00:08:43,408 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 00:08:43,411 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 00:08:43,411 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 00:08:43,412 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 00:08:43,412 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 00:08:43,413 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 00:08:56,010 - Trading System - INFO - Main process interrupted, shutting down...
+2025-03-24 00:08:56,010 - Trading System - INFO - Trading system shutdown complete

@@ -1,0 +1,97 @@
+2025-03-22 15:21:17,361 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 15:21:17,361 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 15:21:17,362 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 15:24:16,254 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 15:24:16,254 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 15:24:16,254 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 15:26:29,349 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 15:26:29,349 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 15:26:29,349 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 15:27:35,669 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 15:27:35,669 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 15:27:35,669 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 15:47:03,313 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 15:47:03,314 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 15:47:03,314 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 15:54:17,546 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 15:54:17,546 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 15:54:17,546 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 16:02:18,401 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 16:02:18,401 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 16:02:18,401 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 16:05:54,340 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 16:05:54,340 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 16:05:54,341 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 16:14:58,632 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 16:14:58,633 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 16:14:58,633 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 16:29:20,324 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 16:29:20,324 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 16:29:20,324 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 16:37:27,497 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 16:37:27,497 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 16:37:27,497 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 16:42:33,058 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 16:42:33,058 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 16:42:33,058 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 16:46:37,092 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 16:46:37,093 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 16:46:37,093 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 16:54:46,501 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 16:54:46,501 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 16:54:46,501 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 17:15:57,212 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 17:15:57,212 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 17:15:57,212 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 17:20:46,822 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 17:20:46,823 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 17:20:46,823 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 22:19:22,514 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 22:19:22,514 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 22:19:22,514 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 22:22:34,372 - Trading System - INFO - Trading bot module created successfully
+2025-03-22 22:22:34,373 - Trading System - INFO - Monitor bot module created successfully
+2025-03-22 22:22:34,373 - Trading System - INFO - Improvement bot module created successfully
+2025-03-22 23:32:59,441 - Trading System - INFO - Configuration loaded successfully
+2025-03-22 23:32:59,442 - Trading System - INFO - Environment variables loaded
+2025-03-22 23:32:59,450 - Trading System - INFO - Generating new encryption keys
+2025-03-22 23:32:59,494 - Trading System - INFO - New encryption keys generated and saved
+2025-03-22 23:32:59,494 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-22 23:32:59,762 - Trading System - ERROR - Missing required packages: scikit-learn
+2025-03-22 23:32:59,762 - Trading System - INFO - Please install missing packages with: pip install scikit-learn
+2025-03-22 23:32:59,762 - Trading System - ERROR - Missing required dependencies. Exiting.
+2025-03-22 23:33:09,516 - Trading System - INFO - Configuration loaded successfully
+2025-03-22 23:33:09,516 - Trading System - INFO - Environment variables loaded
+2025-03-22 23:33:09,520 - Trading System - INFO - Encryption key loaded
+2025-03-22 23:33:09,521 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-22 23:33:09,725 - Trading System - ERROR - Missing required packages: scikit-learn
+2025-03-22 23:33:09,725 - Trading System - INFO - Please install missing packages with: pip install scikit-learn
+2025-03-22 23:33:09,725 - Trading System - ERROR - Missing required dependencies. Exiting.
+2025-03-22 23:34:09,442 - Trading System - INFO - Configuration loaded successfully
+2025-03-22 23:34:09,442 - Trading System - INFO - Environment variables loaded
+2025-03-22 23:34:09,450 - Trading System - INFO - Encryption key loaded
+2025-03-22 23:34:09,450 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-22 23:34:09,698 - Trading System - ERROR - Missing required packages: scikit-learn
+2025-03-22 23:34:09,698 - Trading System - INFO - Please install missing packages with: pip install scikit-learn
+2025-03-22 23:34:09,698 - Trading System - ERROR - Missing required dependencies. Exiting.
+2025-03-22 23:34:52,134 - Trading System - INFO - Configuration loaded successfully
+2025-03-22 23:34:52,135 - Trading System - INFO - Environment variables loaded
+2025-03-22 23:34:52,142 - Trading System - INFO - Encryption key loaded
+2025-03-22 23:34:52,142 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-22 23:34:52,372 - Trading System - ERROR - Missing required packages: scikit-learn
+2025-03-22 23:34:52,372 - Trading System - INFO - Please install missing packages with: pip install scikit-learn
+2025-03-22 23:34:52,372 - Trading System - ERROR - Missing required dependencies. Exiting.
+2025-03-22 23:37:08,641 - Trading System - INFO - Configuration loaded successfully
+2025-03-22 23:37:08,642 - Trading System - INFO - Environment variables loaded
+2025-03-22 23:37:08,650 - Trading System - INFO - Encryption key loaded
+2025-03-22 23:37:08,650 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-22 23:37:08,846 - Trading System - ERROR - Missing required packages: scikit-learn
+2025-03-22 23:37:08,846 - Trading System - INFO - Please install missing packages with: pip install scikit-learn
+2025-03-22 23:37:08,846 - Trading System - ERROR - Missing required dependencies. Exiting.
+2025-03-22 23:59:07,572 - Trading System - INFO - Configuration loaded successfully
+2025-03-22 23:59:07,572 - Trading System - INFO - Environment variables loaded
+2025-03-22 23:59:07,583 - Trading System - INFO - Encryption key loaded
+2025-03-22 23:59:07,583 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-22 23:59:07,850 - Trading System - ERROR - Missing required packages: scikit-learn
+2025-03-22 23:59:07,850 - Trading System - INFO - Please install missing packages with: pip install scikit-learn
+2025-03-22 23:59:07,850 - Trading System - ERROR - Missing required dependencies. Exiting.

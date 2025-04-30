@@ -1,0 +1,20 @@
+{
+  "AAPL": {
+    "timestamp": "2025-04-12T23:08:33.132585",
+    "symbol": "AAPL",
+    "integrated_signal": 0.5,
+    "error": "'NoneType' object is not subscriptable"
+  },
+  "MSFT": {
+    "timestamp": "2025-04-12T23:08:33.133875",
+    "symbol": "MSFT",
+    "integrated_signal": 0.5,
+    "error": "'NoneType' object is not subscriptable"
+  },
+  "NVDA": {
+    "timestamp": "2025-04-12T23:08:33.135040",
+    "symbol": "NVDA",
+    "integrated_signal": 0.5,
+    "error": "'NoneType' object is not subscriptable"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-04-12T23:08:33.133071",
+  "symbol": "MSFT",
+  "news_sentiment": 0,
+  "social_sentiment": 0.11845133334601665,
+  "fear_greed_sentiment": -0.1,
+  "fear_greed_score": 45,
+  "fear_greed_classification": "Fear",
+  "market_regime": "Neutral - Range Bound",
+  "combined_sentiment": 0.015535400003804989,
+  "sentiment_signal": 0.5077677000019025
+}

@@ -1,0 +1,8 @@
+{
+  "NVDA": {
+    "events_detected": 0,
+    "risk_score": 0,
+    "events": [],
+    "error": "'FinancialNewsCollector' object has no attribute '_get_original_news_items'"
+  }
+}

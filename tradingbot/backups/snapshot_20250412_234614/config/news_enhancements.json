@@ -1,0 +1,30 @@
+{
+  "news_sentiment": {
+    "enabled": true,
+    "advanced_nlp": true,
+    "verification_required": true,
+    "min_verification_score": 0.6,
+    "cache_duration": 3600
+  },
+  "integration_weights": {
+    "use_adaptive_weights": true,
+    "min_news_weight": 0.15,
+    "max_news_weight": 0.40,
+    "default_weights": {
+      "technical": 0.40,
+      "quantum": 0.25,
+      "news": 0.25,
+      "market_risk": 0.10
+    }
+  },
+  "resilience": {
+    "fallback_enabled": true,
+    "max_cache_age": 1800,
+    "error_threshold": 0.30
+  },
+  "backtesting": {
+    "default_period_days": 90,
+    "min_signals_required": 10,
+    "accuracy_threshold": 0.55
+  }
+}

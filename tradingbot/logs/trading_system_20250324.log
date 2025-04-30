@@ -1,0 +1,2016 @@
+2025-03-24 09:06:12,171 - Trading System - INFO - Configuration loaded successfully
+2025-03-24 09:06:12,171 - Trading System - INFO - Environment variables loaded
+2025-03-24 09:06:12,192 - Trading System - INFO - Encryption key loaded
+2025-03-24 09:06:12,192 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-03-24 09:06:13,592 - Trading System - INFO - scikit-learn is available (version 1.6.1)
+2025-03-24 09:06:13,592 - Trading Bot - INFO - Mock adapter initialized
+2025-03-24 09:06:13,750 - Trading Bot - INFO - Trading bot starting
+2025-03-24 09:06:13,750 - Trading System - INFO - Started Trading Bot
+2025-03-24 09:06:13,750 - Trading Bot - INFO - No trade history found, using empty
+2025-03-24 09:06:13,750 - Monitor Bot - INFO - Starting monitoring loop
+2025-03-24 09:06:13,750 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:06:13,750 - Trading System - INFO - Started Monitor Bot
+2025-03-24 09:06:13,750 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:06:13,751 - Improvement Bot - INFO - Starting improvement bot
+2025-03-24 09:06:13,751 - Trading Bot - INFO - BUY signal for AAPL (score: 0.9073)
+2025-03-24 09:06:13,751 - Trading System - INFO - Started Improvement Bot
+2025-03-24 09:06:13,751 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $177.67
+2025-03-24 09:06:13,751 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:06:13,751 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:06:13,751 - Trading System - INFO - All bots started. Press Ctrl+C to exit.
+2025-03-24 09:06:13,751 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:06:13,751 - Improvement Bot - INFO - Configuration loaded successfully
+2025-03-24 09:06:13,751 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:06:13,751 - Improvement Bot - INFO - Running scheduled task: System Backup
+2025-03-24 09:06:13,751 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:06:13,751 - Trading Bot - INFO - BUY signal for MSFT (score: 0.8959)
+2025-03-24 09:06:13,751 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $348.60
+2025-03-24 09:06:13,751 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:06:13,751 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:06:13,751 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.7717)
+2025-03-24 09:06:13,751 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $139.98
+2025-03-24 09:06:13,751 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:06:13,751 - Trading Bot - INFO - No completed trades to analyze
+2025-03-24 09:06:13,752 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:06:13,827 - Monitor Bot - INFO - Running scheduled task: Initial Performance Metrics
+2025-03-24 09:06:13,827 - Monitor Bot - WARNING - No performance metrics file found
+2025-03-24 09:06:13,827 - Monitor Bot - WARNING - Task Initial Performance Metrics completed with warnings
+2025-03-24 09:06:13,827 - Monitor Bot - INFO - Running scheduled task: Initial API Health Check
+2025-03-24 09:06:13,829 - Improvement Bot - INFO - System snapshot created at backups/snapshot_20250324_090613
+2025-03-24 09:06:13,829 - Improvement Bot - INFO - Task System Backup completed successfully
+2025-03-24 09:06:13,829 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Trading Bot
+2025-03-24 09:06:13,829 - Improvement Bot - INFO - No issues found in trading_bot
+2025-03-24 09:06:13,829 - Improvement Bot - WARNING - Task Code Quality Check - Trading Bot completed with warnings
+2025-03-24 09:06:13,829 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Monitor Bot
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - Found 2 issues in monitor_bot
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - Task Code Quality Check - Monitor Bot completed successfully
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Improvement Bot
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - Found 6 issues in improvement_bot
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - Task Code Quality Check - Improvement Bot completed successfully
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - Running scheduled task: ML Model Optimization
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - No ML models found to optimize
+2025-03-24 09:06:13,830 - Improvement Bot - WARNING - Task ML Model Optimization completed with warnings
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - Running scheduled task: Quantum Weight Optimization
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - Generated new quantum-optimized weights
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - Task Quantum Weight Optimization completed successfully
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-03-24 09:06:13,830 - Improvement Bot - INFO - No performance metrics found for analysis
+2025-03-24 09:06:13,830 - Improvement Bot - WARNING - Task System Health Analysis completed with warnings
+2025-03-24 09:06:13,958 - Monitor Bot - INFO - === API Health Status ===
+2025-03-24 09:06:13,958 - Monitor Bot - INFO - WebUll API: Unavailable
+2025-03-24 09:06:13,958 - Monitor Bot - INFO - Zoya API: Error: 204
+2025-03-24 09:06:13,958 - Monitor Bot - INFO - =======================
+2025-03-24 09:06:13,958 - Monitor Bot - INFO - Task Initial API Health Check completed successfully
+2025-03-24 09:06:13,958 - Monitor Bot - INFO - Running scheduled task: Initial Legal Compliance Report
+2025-03-24 09:06:13,958 - Monitor Bot - INFO - Legal compliance report generated at legal/compliance_reports/compliance_report_20250324.json
+2025-03-24 09:06:13,958 - Monitor Bot - INFO - Task Initial Legal Compliance Report completed successfully
+2025-03-24 09:07:13,756 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:07:13,757 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:07:13,757 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:07:13,757 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:07:13,757 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:07:13,757 - Trading Bot - INFO - SELL signal for AAPL (score: 0.2328)
+2025-03-24 09:07:13,758 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $177.08
+2025-03-24 09:07:13,758 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:07:13,759 - Trading Bot - INFO - SELL completed: P&L $-0.25 (-0.14%)
+2025-03-24 09:07:13,759 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:07:13,759 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.4594)
+2025-03-24 09:07:13,759 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:07:13,759 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.9529)
+2025-03-24 09:07:13,761 - Trading Bot - INFO - Performance metrics saved: 0/1 winning trades
+2025-03-24 09:07:13,761 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:08:13,761 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:08:13,761 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:08:13,761 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:08:13,766 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:08:13,766 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:08:13,766 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.3494)
+2025-03-24 09:08:13,766 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:08:13,766 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6828)
+2025-03-24 09:08:13,767 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:08:13,767 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4855)
+2025-03-24 09:08:13,768 - Trading Bot - INFO - Performance metrics saved: 0/1 winning trades
+2025-03-24 09:08:13,768 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:09:13,766 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:09:13,768 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:09:13,768 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:09:13,771 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:09:13,771 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:09:13,771 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.3546)
+2025-03-24 09:09:13,771 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:09:13,771 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.5157)
+2025-03-24 09:09:13,772 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:09:13,772 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.7777)
+2025-03-24 09:09:13,774 - Trading Bot - INFO - Performance metrics saved: 0/1 winning trades
+2025-03-24 09:09:13,774 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:10:13,773 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:10:13,774 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:10:13,774 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:10:13,775 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:10:13,775 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:10:13,775 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.3523)
+2025-03-24 09:10:13,775 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:10:13,775 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3250)
+2025-03-24 09:10:13,775 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:10:13,776 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.1502)
+2025-03-24 09:10:13,776 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $141.37
+2025-03-24 09:10:13,777 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:10:13,777 - Trading Bot - INFO - SELL completed: P&L $0.64 (0.46%)
+2025-03-24 09:10:13,779 - Trading Bot - INFO - Performance metrics saved: 1/2 winning trades
+2025-03-24 09:10:13,779 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:11:13,779 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:11:13,781 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:11:13,781 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:11:13,781 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:11:13,781 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:11:13,781 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.0973)
+2025-03-24 09:11:13,782 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:11:13,782 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3394)
+2025-03-24 09:11:13,782 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:11:13,782 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.5199)
+2025-03-24 09:11:13,783 - Trading Bot - INFO - Performance metrics saved: 1/2 winning trades
+2025-03-24 09:11:13,783 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:12:13,787 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:12:13,787 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:12:13,787 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:12:13,788 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:12:13,789 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:12:13,789 - Trading Bot - INFO - BUY signal for AAPL (score: 0.9046)
+2025-03-24 09:12:13,789 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $177.85
+2025-03-24 09:12:13,790 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:12:13,790 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:12:13,790 - Trading Bot - INFO - SELL signal for MSFT (score: 0.1837)
+2025-03-24 09:12:13,790 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $350.78
+2025-03-24 09:12:13,791 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:12:13,791 - Trading Bot - INFO - SELL completed: P&L $1.96 (0.56%)
+2025-03-24 09:12:13,791 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:12:13,791 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.5138)
+2025-03-24 09:12:13,792 - Trading Bot - INFO - Performance metrics saved: 2/3 winning trades
+2025-03-24 09:12:13,792 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:13:13,793 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:13:13,793 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:13:13,793 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:13:13,797 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:13:13,797 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:13:13,797 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.4901)
+2025-03-24 09:13:13,797 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:13:13,797 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.5690)
+2025-03-24 09:13:13,797 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:13:13,797 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.8704)
+2025-03-24 09:13:13,797 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $143.08
+2025-03-24 09:13:13,798 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:13:13,799 - Trading Bot - INFO - Performance metrics saved: 2/3 winning trades
+2025-03-24 09:13:13,800 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:14:13,798 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:14:13,800 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:14:13,800 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:14:13,805 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:14:13,805 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:14:13,805 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6439)
+2025-03-24 09:14:13,805 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:14:13,805 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6149)
+2025-03-24 09:14:13,805 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:14:13,805 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.7137)
+2025-03-24 09:14:13,807 - Trading Bot - INFO - Performance metrics saved: 2/3 winning trades
+2025-03-24 09:14:13,807 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:15:13,801 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:15:13,801 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:15:13,801 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:15:13,811 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:15:13,812 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:15:13,812 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.3612)
+2025-03-24 09:15:13,812 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:15:13,812 - Trading Bot - INFO - BUY signal for MSFT (score: 0.8442)
+2025-03-24 09:15:13,812 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $351.77
+2025-03-24 09:15:13,813 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:15:13,813 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:15:13,813 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6405)
+2025-03-24 09:15:13,815 - Trading Bot - INFO - Performance metrics saved: 2/3 winning trades
+2025-03-24 09:15:13,815 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:16:13,806 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:16:13,807 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:16:13,807 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:16:13,818 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:16:13,819 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:16:13,819 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.7012)
+2025-03-24 09:16:13,819 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:16:13,819 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6097)
+2025-03-24 09:16:13,819 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:16:13,819 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.9045)
+2025-03-24 09:16:13,821 - Trading Bot - INFO - Performance metrics saved: 2/3 winning trades
+2025-03-24 09:16:13,821 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:17:13,812 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:17:13,812 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:17:13,812 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:17:13,826 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:17:13,826 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:17:13,827 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.7352)
+2025-03-24 09:17:13,827 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:17:13,827 - Trading Bot - INFO - SELL signal for MSFT (score: 0.1437)
+2025-03-24 09:17:13,827 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $352.98
+2025-03-24 09:17:13,828 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:17:13,828 - Trading Bot - INFO - SELL completed: P&L $-1.85 (-0.52%)
+2025-03-24 09:17:13,829 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:17:13,829 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.9966)
+2025-03-24 09:17:13,830 - Trading Bot - INFO - Performance metrics saved: 2/4 winning trades
+2025-03-24 09:17:13,830 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:18:13,818 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:18:13,818 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:18:13,819 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:18:13,835 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:18:13,836 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:18:13,836 - Trading Bot - INFO - SELL signal for AAPL (score: 0.1584)
+2025-03-24 09:18:13,836 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $178.75
+2025-03-24 09:18:13,854 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:18:13,854 - Trading Bot - INFO - SELL completed: P&L $2.10 (1.19%)
+2025-03-24 09:18:13,855 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:18:13,855 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.1507)
+2025-03-24 09:18:13,855 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:18:13,855 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.8106)
+2025-03-24 09:18:13,856 - Trading Bot - INFO - Performance metrics saved: 3/5 winning trades
+2025-03-24 09:18:13,856 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:19:13,823 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:19:13,823 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:19:13,823 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:19:13,866 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:19:13,867 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:19:13,867 - Trading Bot - INFO - BUY signal for AAPL (score: 0.7463)
+2025-03-24 09:19:13,867 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $179.21
+2025-03-24 09:19:13,868 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:19:13,868 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:19:13,869 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3136)
+2025-03-24 09:19:13,869 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:19:13,869 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.5515)
+2025-03-24 09:19:13,871 - Trading Bot - INFO - Performance metrics saved: 3/5 winning trades
+2025-03-24 09:19:13,871 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:20:13,834 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:20:13,834 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:20:13,834 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:20:13,881 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:20:13,881 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:20:13,881 - Trading Bot - INFO - SELL signal for AAPL (score: 0.2046)
+2025-03-24 09:20:13,882 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $181.47
+2025-03-24 09:20:13,883 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:20:13,883 - Trading Bot - INFO - SELL completed: P&L $2.66 (1.49%)
+2025-03-24 09:20:13,883 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:20:13,883 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.5838)
+2025-03-24 09:20:13,883 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:20:13,883 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.2348)
+2025-03-24 09:20:13,883 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $142.67
+2025-03-24 09:20:13,884 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:20:13,884 - Trading Bot - INFO - SELL completed: P&L $-0.46 (-0.32%)
+2025-03-24 09:20:13,885 - Trading Bot - INFO - Performance metrics saved: 4/7 winning trades
+2025-03-24 09:20:13,886 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:21:13,835 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:21:13,836 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:21:13,836 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:21:13,896 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:21:13,896 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:21:13,896 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.1667)
+2025-03-24 09:21:13,896 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:21:13,896 - Trading Bot - INFO - BUY signal for MSFT (score: 0.7975)
+2025-03-24 09:21:13,897 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $356.59
+2025-03-24 09:21:13,898 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:21:13,898 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:21:13,898 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.2614)
+2025-03-24 09:21:13,900 - Trading Bot - INFO - Performance metrics saved: 4/7 winning trades
+2025-03-24 09:21:13,900 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:22:13,839 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:22:13,841 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:22:13,841 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:22:13,910 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:22:13,911 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:22:13,911 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.1079)
+2025-03-24 09:22:13,911 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:22:13,911 - Trading Bot - INFO - SELL signal for MSFT (score: 0.0458)
+2025-03-24 09:22:13,911 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $359.68
+2025-03-24 09:22:13,912 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:22:13,913 - Trading Bot - INFO - SELL completed: P&L $1.93 (0.54%)
+2025-03-24 09:22:13,913 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:22:13,913 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3592)
+2025-03-24 09:22:13,914 - Trading Bot - INFO - Performance metrics saved: 5/8 winning trades
+2025-03-24 09:22:13,914 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:39:03,470 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:39:03,471 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:39:03,471 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:39:03,544 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:39:03,544 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:39:03,544 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.0135)
+2025-03-24 09:39:03,544 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:39:03,544 - Trading Bot - INFO - BUY signal for MSFT (score: 0.8136)
+2025-03-24 09:39:03,545 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $354.37
+2025-03-24 09:39:03,546 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:39:03,547 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:39:03,547 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3350)
+2025-03-24 09:39:03,548 - Trading Bot - INFO - Performance metrics saved: 5/8 winning trades
+2025-03-24 09:39:03,548 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:55:14,529 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:55:14,530 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:55:14,530 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:55:14,606 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:55:14,606 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:55:14,606 - Trading Bot - INFO - BUY signal for AAPL (score: 0.9895)
+2025-03-24 09:55:14,606 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $178.50
+2025-03-24 09:55:14,608 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:55:14,608 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:55:14,608 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6312)
+2025-03-24 09:55:14,608 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:55:14,609 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.2079)
+2025-03-24 09:55:14,611 - Trading Bot - INFO - Performance metrics saved: 5/8 winning trades
+2025-03-24 09:55:14,611 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:56:14,541 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:56:14,542 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:56:14,542 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:56:14,622 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:56:14,622 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:56:14,623 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5298)
+2025-03-24 09:56:14,623 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:56:14,623 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3785)
+2025-03-24 09:56:14,623 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:56:14,623 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.7416)
+2025-03-24 09:56:14,623 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $142.30
+2025-03-24 09:56:14,625 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:56:14,627 - Trading Bot - INFO - Performance metrics saved: 5/8 winning trades
+2025-03-24 09:56:14,627 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:57:14,543 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:57:14,543 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:57:14,544 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:57:14,637 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:57:14,637 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:57:14,637 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5618)
+2025-03-24 09:57:14,638 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:57:14,638 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.9741)
+2025-03-24 09:57:14,638 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:57:14,638 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.1745)
+2025-03-24 09:57:14,638 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $140.29
+2025-03-24 09:57:14,639 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:57:14,640 - Trading Bot - INFO - SELL completed: P&L $-0.72 (-0.50%)
+2025-03-24 09:57:14,641 - Trading Bot - INFO - Performance metrics saved: 5/9 winning trades
+2025-03-24 09:57:14,641 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:58:14,552 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:58:14,553 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:58:14,553 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:58:14,651 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:58:14,651 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:58:14,651 - Trading Bot - INFO - SELL signal for AAPL (score: 0.0018)
+2025-03-24 09:58:14,651 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $178.51
+2025-03-24 09:58:14,653 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:58:14,653 - Trading Bot - INFO - SELL completed: P&L $-1.43 (-0.80%)
+2025-03-24 09:58:14,654 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:58:14,654 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.4867)
+2025-03-24 09:58:14,654 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:58:14,654 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.0521)
+2025-03-24 09:58:14,656 - Trading Bot - INFO - Performance metrics saved: 5/10 winning trades
+2025-03-24 09:58:14,656 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 09:59:14,563 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 09:59:14,565 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 09:59:14,565 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 09:59:14,666 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 09:59:14,666 - Trading Bot - INFO - Processing AAPL
+2025-03-24 09:59:14,666 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.0674)
+2025-03-24 09:59:14,666 - Trading Bot - INFO - Processing MSFT
+2025-03-24 09:59:14,666 - Trading Bot - INFO - SELL signal for MSFT (score: 0.2800)
+2025-03-24 09:59:14,667 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $355.35
+2025-03-24 09:59:14,668 - Trading Bot - INFO - Trade history saved
+2025-03-24 09:59:14,669 - Trading Bot - INFO - SELL completed: P&L $-2.32 (-0.65%)
+2025-03-24 09:59:14,669 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 09:59:14,669 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4929)
+2025-03-24 09:59:14,671 - Trading Bot - INFO - Performance metrics saved: 5/11 winning trades
+2025-03-24 09:59:14,671 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:00:14,575 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:00:14,576 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:00:14,577 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:00:14,681 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:00:14,681 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:00:14,682 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.4466)
+2025-03-24 10:00:14,682 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:00:14,682 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.5516)
+2025-03-24 10:00:14,682 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:00:14,682 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4479)
+2025-03-24 10:00:14,685 - Trading Bot - INFO - Performance metrics saved: 5/11 winning trades
+2025-03-24 10:00:14,685 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:01:14,586 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:01:14,586 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:01:14,586 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:01:14,689 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:01:14,690 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:01:14,690 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.1466)
+2025-03-24 10:01:14,690 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:01:14,690 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6588)
+2025-03-24 10:01:14,690 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:01:14,690 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4332)
+2025-03-24 10:01:14,692 - Trading Bot - INFO - Performance metrics saved: 5/11 winning trades
+2025-03-24 10:01:14,693 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:02:14,590 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:02:14,590 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:02:14,590 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:02:14,696 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:02:14,696 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:02:14,696 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.0488)
+2025-03-24 10:02:14,696 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:02:14,696 - Trading Bot - INFO - BUY signal for MSFT (score: 0.7310)
+2025-03-24 10:02:14,697 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $359.45
+2025-03-24 10:02:14,698 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:02:14,698 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:02:14,698 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4673)
+2025-03-24 10:02:14,700 - Trading Bot - INFO - Performance metrics saved: 5/11 winning trades
+2025-03-24 10:02:14,700 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:03:14,596 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:03:14,597 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:03:14,597 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:03:14,710 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:03:14,711 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:03:14,711 - Trading Bot - INFO - BUY signal for AAPL (score: 0.8846)
+2025-03-24 10:03:14,711 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $178.79
+2025-03-24 10:03:14,712 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:03:14,713 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:03:14,713 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.7168)
+2025-03-24 10:03:14,713 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:03:14,713 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4713)
+2025-03-24 10:03:14,715 - Trading Bot - INFO - Performance metrics saved: 5/11 winning trades
+2025-03-24 10:03:14,715 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:04:14,607 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:04:14,607 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:04:14,608 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:04:14,725 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:04:14,726 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:04:14,726 - Trading Bot - INFO - SELL signal for AAPL (score: 0.0324)
+2025-03-24 10:04:14,726 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $178.44
+2025-03-24 10:04:14,728 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:04:14,728 - Trading Bot - INFO - SELL completed: P&L $2.32 (1.31%)
+2025-03-24 10:04:14,728 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:04:14,728 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.4612)
+2025-03-24 10:04:14,729 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:04:14,729 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6477)
+2025-03-24 10:04:14,730 - Trading Bot - INFO - Performance metrics saved: 6/12 winning trades
+2025-03-24 10:04:14,730 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:05:14,612 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:05:14,612 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:05:14,612 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:05:14,731 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:05:14,732 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:05:14,732 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.1199)
+2025-03-24 10:05:14,732 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:05:14,732 - Trading Bot - INFO - SELL signal for MSFT (score: 0.0431)
+2025-03-24 10:05:14,732 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $365.37
+2025-03-24 10:05:14,734 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:05:14,734 - Trading Bot - INFO - SELL completed: P&L $6.11 (1.71%)
+2025-03-24 10:05:14,735 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:05:14,735 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.5076)
+2025-03-24 10:05:14,737 - Trading Bot - INFO - Performance metrics saved: 7/13 winning trades
+2025-03-24 10:05:14,737 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:06:14,617 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:06:14,618 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:06:14,618 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:06:14,746 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:06:14,746 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:06:14,746 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.4913)
+2025-03-24 10:06:14,746 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:06:14,746 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.2985)
+2025-03-24 10:06:14,746 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:06:14,746 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.5779)
+2025-03-24 10:06:14,749 - Trading Bot - INFO - Performance metrics saved: 7/13 winning trades
+2025-03-24 10:06:14,749 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:06:14,811 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-24 10:06:14,812 - Monitor Bot - INFO - === Performance Metrics ===
+2025-03-24 10:06:14,812 - Monitor Bot - INFO - Date: 2025-03-24T10:06:14.746826
+2025-03-24 10:06:14,812 - Monitor Bot - INFO - Total Trades: 13
+2025-03-24 10:06:14,812 - Monitor Bot - INFO - Win Rate: 53.85%
+2025-03-24 10:06:14,812 - Monitor Bot - INFO - Total Profit: $10.70
+2025-03-24 10:06:14,812 - Monitor Bot - INFO - Average Profit per Trade: $0.82
+2025-03-24 10:06:14,812 - Monitor Bot - ERROR - Error extracting performance metrics: 'avg_profit_pct'
+2025-03-24 10:06:14,812 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-24 10:07:14,627 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:07:14,628 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:07:14,628 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:07:14,759 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:07:14,759 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:07:14,759 - Trading Bot - INFO - BUY signal for AAPL (score: 0.7974)
+2025-03-24 10:07:14,759 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $177.54
+2025-03-24 10:07:14,761 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:07:14,762 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:07:14,762 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.1367)
+2025-03-24 10:07:14,762 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:07:14,762 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6894)
+2025-03-24 10:07:14,764 - Trading Bot - INFO - Performance metrics saved: 7/13 winning trades
+2025-03-24 10:07:14,764 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:08:14,633 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:08:14,633 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:08:14,633 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:08:14,773 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:08:14,773 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:08:14,773 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.9308)
+2025-03-24 10:08:14,773 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:08:14,773 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3457)
+2025-03-24 10:08:14,773 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:08:14,774 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.8387)
+2025-03-24 10:08:14,774 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $140.51
+2025-03-24 10:08:14,775 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:08:14,778 - Trading Bot - INFO - Performance metrics saved: 7/13 winning trades
+2025-03-24 10:08:14,778 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:09:14,638 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:09:14,638 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:09:14,638 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:09:14,788 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:09:14,788 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:09:14,789 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5598)
+2025-03-24 10:09:14,789 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:09:14,789 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6099)
+2025-03-24 10:09:14,789 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:09:14,789 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.1230)
+2025-03-24 10:09:14,789 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $141.38
+2025-03-24 10:09:14,791 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:09:14,791 - Trading Bot - INFO - SELL completed: P&L $-0.89 (-0.63%)
+2025-03-24 10:09:14,794 - Trading Bot - INFO - Performance metrics saved: 7/14 winning trades
+2025-03-24 10:09:14,794 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:10:14,639 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:10:14,640 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:10:14,640 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:10:14,798 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:10:14,798 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:10:14,798 - Trading Bot - INFO - SELL signal for AAPL (score: 0.0226)
+2025-03-24 10:10:14,798 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $175.63
+2025-03-24 10:10:14,800 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:10:14,801 - Trading Bot - INFO - SELL completed: P&L $-0.58 (-0.33%)
+2025-03-24 10:10:14,801 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:10:14,801 - Trading Bot - INFO - BUY signal for MSFT (score: 0.9416)
+2025-03-24 10:10:14,801 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $364.23
+2025-03-24 10:10:14,802 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:10:14,803 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:10:14,803 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3122)
+2025-03-24 10:10:14,804 - Trading Bot - INFO - Performance metrics saved: 7/15 winning trades
+2025-03-24 10:10:14,804 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:11:14,650 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:11:14,651 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:11:14,651 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:11:14,814 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:11:14,814 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:11:14,814 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.2331)
+2025-03-24 10:11:14,814 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:11:14,814 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.5518)
+2025-03-24 10:11:14,815 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:11:14,815 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.1209)
+2025-03-24 10:11:14,817 - Trading Bot - INFO - Performance metrics saved: 7/15 winning trades
+2025-03-24 10:11:14,817 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:12:14,661 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:12:14,662 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:12:14,662 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:12:14,823 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:12:14,824 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:12:14,824 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6136)
+2025-03-24 10:12:14,824 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:12:14,824 - Trading Bot - INFO - SELL signal for MSFT (score: 0.1685)
+2025-03-24 10:12:14,824 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $362.14
+2025-03-24 10:12:14,826 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:12:14,826 - Trading Bot - INFO - SELL completed: P&L $-1.53 (-0.42%)
+2025-03-24 10:12:14,826 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:12:14,826 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.9381)
+2025-03-24 10:12:14,826 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $141.52
+2025-03-24 10:12:14,828 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:12:14,829 - Trading Bot - INFO - Performance metrics saved: 7/16 winning trades
+2025-03-24 10:12:14,829 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:13:14,671 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:13:14,671 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:13:14,671 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:13:14,839 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:13:14,840 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:13:14,840 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6838)
+2025-03-24 10:13:14,840 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:13:14,840 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6991)
+2025-03-24 10:13:14,840 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:13:14,840 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.1361)
+2025-03-24 10:13:14,840 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $141.98
+2025-03-24 10:13:14,842 - Trading Bot - INFO - Trade history saved
+2025-03-24 10:13:14,843 - Trading Bot - INFO - SELL completed: P&L $1.11 (0.79%)
+2025-03-24 10:13:14,845 - Trading Bot - INFO - Performance metrics saved: 8/17 winning trades
+2025-03-24 10:13:14,845 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 10:44:39,093 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 10:44:39,095 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 10:44:39,095 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 10:44:39,267 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 10:44:39,267 - Trading Bot - INFO - Processing AAPL
+2025-03-24 10:44:39,267 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5253)
+2025-03-24 10:44:39,267 - Trading Bot - INFO - Processing MSFT
+2025-03-24 10:44:39,268 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.1482)
+2025-03-24 10:44:39,268 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 10:44:39,268 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3252)
+2025-03-24 10:44:39,271 - Trading Bot - INFO - Performance metrics saved: 8/17 winning trades
+2025-03-24 10:44:39,271 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:01:27,438 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:01:27,438 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:01:27,439 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:01:27,612 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:01:27,612 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:01:27,612 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5019)
+2025-03-24 11:01:27,612 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:01:27,612 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3020)
+2025-03-24 11:01:27,613 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:01:27,613 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.5875)
+2025-03-24 11:01:27,615 - Trading Bot - INFO - Performance metrics saved: 8/17 winning trades
+2025-03-24 11:01:27,615 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:18:39,356 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:18:39,357 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:18:39,357 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:18:39,531 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:18:39,531 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:18:39,531 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5246)
+2025-03-24 11:18:39,531 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:18:39,531 - Trading Bot - INFO - BUY signal for MSFT (score: 0.7980)
+2025-03-24 11:18:39,531 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $362.81
+2025-03-24 11:18:39,532 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-24 11:18:39,533 - Trading Bot - INFO - Trade history saved
+2025-03-24 11:18:39,534 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:18:39,534 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.0600)
+2025-03-24 11:18:39,534 - Monitor Bot - INFO - === Performance Metrics ===
+2025-03-24 11:18:39,535 - Monitor Bot - INFO - Date: 2025-03-24T11:01:27.613407
+2025-03-24 11:18:39,535 - Monitor Bot - INFO - Total Trades: 17
+2025-03-24 11:18:39,535 - Monitor Bot - INFO - Win Rate: 47.06%
+2025-03-24 11:18:39,535 - Monitor Bot - INFO - Total Profit: $8.80
+2025-03-24 11:18:39,535 - Monitor Bot - INFO - Average Profit per Trade: $0.52
+2025-03-24 11:18:39,535 - Monitor Bot - ERROR - Error extracting performance metrics: 'avg_profit_pct'
+2025-03-24 11:18:39,535 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-24 11:18:39,536 - Trading Bot - INFO - Performance metrics saved: 8/17 winning trades
+2025-03-24 11:18:39,536 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:35:29,262 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:35:29,262 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:35:29,263 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:35:29,440 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:35:29,440 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:35:29,440 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5337)
+2025-03-24 11:35:29,440 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:35:29,441 - Trading Bot - INFO - SELL signal for MSFT (score: 0.0125)
+2025-03-24 11:35:29,441 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $359.94
+2025-03-24 11:35:29,443 - Trading Bot - INFO - Trade history saved
+2025-03-24 11:35:29,443 - Trading Bot - INFO - SELL completed: P&L $0.05 (0.01%)
+2025-03-24 11:35:29,443 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:35:29,443 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.8402)
+2025-03-24 11:35:29,444 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $141.49
+2025-03-24 11:35:29,445 - Trading Bot - INFO - Trade history saved
+2025-03-24 11:35:29,447 - Trading Bot - INFO - Performance metrics saved: 9/18 winning trades
+2025-03-24 11:35:29,447 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:50:28,867 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:50:28,868 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:50:28,869 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:50:29,046 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:50:29,046 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:50:29,046 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5853)
+2025-03-24 11:50:29,047 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:50:29,047 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6184)
+2025-03-24 11:50:29,047 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:50:29,047 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.8273)
+2025-03-24 11:50:29,051 - Trading Bot - INFO - Performance metrics saved: 9/18 winning trades
+2025-03-24 11:50:29,051 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:51:28,871 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:51:28,872 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:51:28,872 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:51:29,056 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:51:29,056 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:51:29,057 - Trading Bot - INFO - BUY signal for AAPL (score: 0.8435)
+2025-03-24 11:51:29,057 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $177.18
+2025-03-24 11:51:29,059 - Trading Bot - INFO - Trade history saved
+2025-03-24 11:51:29,060 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:51:29,060 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.2465)
+2025-03-24 11:51:29,060 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:51:29,060 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.2675)
+2025-03-24 11:51:29,060 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $144.12
+2025-03-24 11:51:29,061 - Trading Bot - INFO - Trade history saved
+2025-03-24 11:51:29,062 - Trading Bot - INFO - SELL completed: P&L $1.40 (0.99%)
+2025-03-24 11:51:29,064 - Trading Bot - INFO - Performance metrics saved: 10/19 winning trades
+2025-03-24 11:51:29,064 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:52:28,878 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:52:28,879 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:52:28,880 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:52:29,068 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:52:29,068 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:52:29,068 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.9883)
+2025-03-24 11:52:29,068 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:52:29,068 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.5607)
+2025-03-24 11:52:29,068 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:52:29,069 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6853)
+2025-03-24 11:52:29,072 - Trading Bot - INFO - Performance metrics saved: 10/19 winning trades
+2025-03-24 11:52:29,072 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:53:28,882 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:53:28,883 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:53:28,883 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:53:29,074 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:53:29,075 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:53:29,075 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.7442)
+2025-03-24 11:53:29,075 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:53:29,075 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.0590)
+2025-03-24 11:53:29,075 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:53:29,075 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.7088)
+2025-03-24 11:53:29,075 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $143.08
+2025-03-24 11:53:29,077 - Trading Bot - INFO - Trade history saved
+2025-03-24 11:53:29,149 - Trading Bot - INFO - Performance metrics saved: 10/19 winning trades
+2025-03-24 11:53:29,149 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:54:28,884 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:54:28,885 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:54:28,885 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:54:29,152 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:54:29,153 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:54:29,153 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.7777)
+2025-03-24 11:54:29,153 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:54:29,153 - Trading Bot - INFO - BUY signal for MSFT (score: 0.9157)
+2025-03-24 11:54:29,153 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $357.38
+2025-03-24 11:54:29,154 - Trading Bot - INFO - Trade history saved
+2025-03-24 11:54:29,155 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:54:29,155 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3179)
+2025-03-24 11:54:29,158 - Trading Bot - INFO - Performance metrics saved: 10/19 winning trades
+2025-03-24 11:54:29,158 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:55:28,890 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:55:28,891 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:55:28,891 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:55:29,162 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:55:29,162 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:55:29,162 - Trading Bot - INFO - SELL signal for AAPL (score: 0.2182)
+2025-03-24 11:55:29,163 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $175.14
+2025-03-24 11:55:29,165 - Trading Bot - INFO - Trade history saved
+2025-03-24 11:55:29,165 - Trading Bot - INFO - SELL completed: P&L $-0.33 (-0.19%)
+2025-03-24 11:55:29,165 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:55:29,166 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.7293)
+2025-03-24 11:55:29,166 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:55:29,166 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6761)
+2025-03-24 11:55:29,168 - Trading Bot - INFO - Performance metrics saved: 10/20 winning trades
+2025-03-24 11:55:29,168 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:56:28,896 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:56:28,897 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:56:28,897 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:56:29,173 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:56:29,174 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:56:29,174 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.1987)
+2025-03-24 11:56:29,174 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:56:29,174 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.8526)
+2025-03-24 11:56:29,174 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:56:29,174 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.5247)
+2025-03-24 11:56:29,177 - Trading Bot - INFO - Performance metrics saved: 10/20 winning trades
+2025-03-24 11:56:29,177 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:57:28,900 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:57:28,901 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:57:28,901 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:57:29,181 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:57:29,181 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:57:29,181 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.1492)
+2025-03-24 11:57:29,182 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:57:29,182 - Trading Bot - INFO - SELL signal for MSFT (score: 0.2618)
+2025-03-24 11:57:29,182 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $358.59
+2025-03-24 11:57:29,184 - Trading Bot - INFO - Trade history saved
+2025-03-24 11:57:29,185 - Trading Bot - INFO - SELL completed: P&L $2.19 (0.62%)
+2025-03-24 11:57:29,185 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:57:29,185 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3478)
+2025-03-24 11:57:29,188 - Trading Bot - INFO - Performance metrics saved: 11/21 winning trades
+2025-03-24 11:57:29,188 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:58:28,906 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:58:28,907 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:58:28,907 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:58:29,193 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:58:29,193 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:58:29,194 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.3479)
+2025-03-24 11:58:29,194 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:58:29,194 - Trading Bot - INFO - BUY signal for MSFT (score: 0.9390)
+2025-03-24 11:58:29,194 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $358.37
+2025-03-24 11:58:29,196 - Trading Bot - INFO - Trade history saved
+2025-03-24 11:58:29,197 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:58:29,197 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3713)
+2025-03-24 11:58:29,199 - Trading Bot - INFO - Performance metrics saved: 11/21 winning trades
+2025-03-24 11:58:29,199 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 11:59:28,910 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 11:59:28,912 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 11:59:28,912 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 11:59:29,202 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 11:59:29,203 - Trading Bot - INFO - Processing AAPL
+2025-03-24 11:59:29,203 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.0756)
+2025-03-24 11:59:29,203 - Trading Bot - INFO - Processing MSFT
+2025-03-24 11:59:29,203 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.7078)
+2025-03-24 11:59:29,203 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 11:59:29,204 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.8562)
+2025-03-24 11:59:29,207 - Trading Bot - INFO - Performance metrics saved: 11/21 winning trades
+2025-03-24 11:59:29,207 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:00:28,912 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:00:28,914 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:00:28,914 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:00:29,209 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:00:29,209 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:00:29,209 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.0015)
+2025-03-24 12:00:29,209 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:00:29,209 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6276)
+2025-03-24 12:00:29,210 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:00:29,210 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4787)
+2025-03-24 12:00:29,213 - Trading Bot - INFO - Performance metrics saved: 11/21 winning trades
+2025-03-24 12:00:29,213 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:01:28,919 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:01:28,920 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:01:28,920 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:01:29,216 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:01:29,216 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:01:29,216 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.0784)
+2025-03-24 12:01:29,217 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:01:29,217 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3682)
+2025-03-24 12:01:29,217 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:01:29,217 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.8631)
+2025-03-24 12:01:29,220 - Trading Bot - INFO - Performance metrics saved: 11/21 winning trades
+2025-03-24 12:01:29,221 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:02:28,923 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:02:28,924 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:02:28,924 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:02:29,224 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:02:29,224 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:02:29,224 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6697)
+2025-03-24 12:02:29,225 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:02:29,225 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.7941)
+2025-03-24 12:02:29,225 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:02:29,225 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6701)
+2025-03-24 12:02:29,228 - Trading Bot - INFO - Performance metrics saved: 11/21 winning trades
+2025-03-24 12:02:29,228 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:03:28,928 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:03:28,928 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:03:28,928 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:03:29,233 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:03:29,233 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:03:29,233 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.2277)
+2025-03-24 12:03:29,234 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:03:29,234 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.9167)
+2025-03-24 12:03:29,234 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:03:29,234 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6017)
+2025-03-24 12:03:29,237 - Trading Bot - INFO - Performance metrics saved: 11/21 winning trades
+2025-03-24 12:03:29,238 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:04:28,934 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:04:28,934 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:04:28,934 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:04:29,243 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:04:29,243 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:04:29,243 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6581)
+2025-03-24 12:04:29,243 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:04:29,243 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6383)
+2025-03-24 12:04:29,244 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:04:29,244 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4505)
+2025-03-24 12:04:29,247 - Trading Bot - INFO - Performance metrics saved: 11/21 winning trades
+2025-03-24 12:04:29,247 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:05:28,939 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:05:28,940 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:05:28,940 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:05:29,251 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:05:29,252 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:05:29,252 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6939)
+2025-03-24 12:05:29,252 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:05:29,252 - Trading Bot - INFO - SELL signal for MSFT (score: 0.1088)
+2025-03-24 12:05:29,252 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $361.88
+2025-03-24 12:05:29,254 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:05:29,255 - Trading Bot - INFO - SELL completed: P&L $-2.47 (-0.69%)
+2025-03-24 12:05:29,255 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:05:29,255 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.0741)
+2025-03-24 12:05:29,255 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $143.11
+2025-03-24 12:05:29,257 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:05:29,257 - Trading Bot - INFO - SELL completed: P&L $0.64 (0.45%)
+2025-03-24 12:05:29,260 - Trading Bot - INFO - Performance metrics saved: 12/23 winning trades
+2025-03-24 12:05:29,260 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:06:28,953 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:06:28,954 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:06:28,954 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:06:29,272 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:06:29,273 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:06:29,273 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5967)
+2025-03-24 12:06:29,273 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:06:29,273 - Trading Bot - INFO - BUY signal for MSFT (score: 0.9606)
+2025-03-24 12:06:29,273 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $363.55
+2025-03-24 12:06:29,276 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:06:29,276 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:06:29,276 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.5525)
+2025-03-24 12:06:29,279 - Trading Bot - INFO - Performance metrics saved: 12/23 winning trades
+2025-03-24 12:06:29,280 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:07:28,960 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:07:28,962 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:07:28,962 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:07:29,284 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:07:29,285 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:07:29,285 - Trading Bot - INFO - BUY signal for AAPL (score: 0.9614)
+2025-03-24 12:07:29,285 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $175.43
+2025-03-24 12:07:29,288 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:07:29,288 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:07:29,288 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.8324)
+2025-03-24 12:07:29,288 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:07:29,289 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.1713)
+2025-03-24 12:07:29,291 - Trading Bot - INFO - Performance metrics saved: 12/23 winning trades
+2025-03-24 12:07:29,291 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:08:28,966 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:08:28,968 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:08:28,968 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:08:29,296 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:08:29,296 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:08:29,296 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.8668)
+2025-03-24 12:08:29,296 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:08:29,296 - Trading Bot - INFO - SELL signal for MSFT (score: 0.2577)
+2025-03-24 12:08:29,297 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $359.79
+2025-03-24 12:08:29,299 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:08:29,299 - Trading Bot - INFO - SELL completed: P&L $-1.28 (-0.35%)
+2025-03-24 12:08:29,299 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:08:29,299 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4731)
+2025-03-24 12:08:29,301 - Trading Bot - INFO - Performance metrics saved: 12/24 winning trades
+2025-03-24 12:08:29,301 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:09:28,652 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-03-24 12:09:28,654 - Improvement Bot - INFO - Win rate trend: -1.15%
+2025-03-24 12:09:28,655 - Improvement Bot - INFO - Profit trend: -20.51%
+2025-03-24 12:09:28,656 - Improvement Bot - INFO - System health analysis completed: healthy
+2025-03-24 12:09:28,656 - Improvement Bot - INFO - Task System Health Analysis completed successfully
+2025-03-24 12:09:28,973 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:09:28,974 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:09:28,974 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:09:29,306 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:09:29,306 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:09:29,306 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5476)
+2025-03-24 12:09:29,307 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:09:29,307 - Trading Bot - INFO - BUY signal for MSFT (score: 0.7730)
+2025-03-24 12:09:29,307 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $364.24
+2025-03-24 12:09:29,309 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:09:29,310 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:09:29,310 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.8117)
+2025-03-24 12:09:29,310 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $141.20
+2025-03-24 12:09:29,312 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:09:29,314 - Trading Bot - INFO - Performance metrics saved: 12/24 winning trades
+2025-03-24 12:09:29,314 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:10:28,983 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:10:28,983 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:10:28,983 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:10:29,323 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:10:29,323 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:10:29,323 - Trading Bot - INFO - SELL signal for AAPL (score: 0.0272)
+2025-03-24 12:10:29,323 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $172.43
+2025-03-24 12:10:29,326 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:10:29,327 - Trading Bot - INFO - SELL completed: P&L $-2.19 (-1.24%)
+2025-03-24 12:10:29,327 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:10:29,327 - Trading Bot - INFO - SELL signal for MSFT (score: 0.0866)
+2025-03-24 12:10:29,327 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $363.81
+2025-03-24 12:10:29,329 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:10:29,329 - Trading Bot - INFO - SELL completed: P&L $-0.26 (-0.07%)
+2025-03-24 12:10:29,329 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:10:29,329 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4944)
+2025-03-24 12:10:29,331 - Trading Bot - INFO - Performance metrics saved: 12/26 winning trades
+2025-03-24 12:10:29,331 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:11:28,989 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:11:28,990 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:11:28,990 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:11:29,336 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:11:29,336 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:11:29,337 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.0991)
+2025-03-24 12:11:29,337 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:11:29,337 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.1602)
+2025-03-24 12:11:29,337 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:11:29,337 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.5042)
+2025-03-24 12:11:29,340 - Trading Bot - INFO - Performance metrics saved: 12/26 winning trades
+2025-03-24 12:11:29,340 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:12:28,999 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:12:28,999 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:12:28,999 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:12:29,345 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:12:29,346 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:12:29,346 - Trading Bot - INFO - BUY signal for AAPL (score: 0.7316)
+2025-03-24 12:12:29,346 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $173.99
+2025-03-24 12:12:29,349 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:12:29,349 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:12:29,349 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.2877)
+2025-03-24 12:12:29,350 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:12:29,350 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.0825)
+2025-03-24 12:12:29,350 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $141.12
+2025-03-24 12:12:29,351 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:12:29,351 - Trading Bot - INFO - SELL completed: P&L $0.27 (0.19%)
+2025-03-24 12:12:29,352 - Trading Bot - INFO - Performance metrics saved: 13/27 winning trades
+2025-03-24 12:12:29,352 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:13:29,005 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:13:29,006 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:13:29,006 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:13:29,362 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:13:29,363 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:13:29,363 - Trading Bot - INFO - SELL signal for AAPL (score: 0.2477)
+2025-03-24 12:13:29,363 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $173.59
+2025-03-24 12:13:29,366 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:13:29,366 - Trading Bot - INFO - SELL completed: P&L $1.44 (0.84%)
+2025-03-24 12:13:29,367 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:13:29,367 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.1701)
+2025-03-24 12:13:29,367 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:13:29,367 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.2359)
+2025-03-24 12:13:29,369 - Trading Bot - INFO - Performance metrics saved: 14/28 winning trades
+2025-03-24 12:13:29,369 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:14:51,935 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:14:51,938 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:14:51,938 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:14:52,298 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:14:52,299 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:14:52,299 - Trading Bot - INFO - BUY signal for AAPL (score: 0.8249)
+2025-03-24 12:14:52,299 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $174.51
+2025-03-24 12:14:52,302 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:14:52,302 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:14:52,303 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.1747)
+2025-03-24 12:14:52,303 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:14:52,303 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6504)
+2025-03-24 12:14:52,305 - Trading Bot - INFO - Performance metrics saved: 14/28 winning trades
+2025-03-24 12:14:52,305 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:15:51,943 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:15:51,943 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:15:51,944 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:15:52,311 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:15:52,311 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:15:52,311 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.8593)
+2025-03-24 12:15:52,311 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:15:52,311 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3378)
+2025-03-24 12:15:52,311 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:15:52,312 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.8447)
+2025-03-24 12:15:52,312 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $140.37
+2025-03-24 12:15:52,314 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:15:52,317 - Trading Bot - INFO - Performance metrics saved: 14/28 winning trades
+2025-03-24 12:15:52,317 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:16:51,947 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:16:51,948 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:16:51,948 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:16:52,321 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:16:52,321 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:16:52,321 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6405)
+2025-03-24 12:16:52,321 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:16:52,321 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.1773)
+2025-03-24 12:16:52,322 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:16:52,322 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.8697)
+2025-03-24 12:16:52,326 - Trading Bot - INFO - Performance metrics saved: 14/28 winning trades
+2025-03-24 12:16:52,327 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:17:51,952 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:17:51,953 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:17:51,953 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:17:52,331 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:17:52,332 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:17:52,332 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6825)
+2025-03-24 12:17:52,332 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:17:52,332 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6132)
+2025-03-24 12:17:52,333 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:17:52,333 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6611)
+2025-03-24 12:17:52,336 - Trading Bot - INFO - Performance metrics saved: 14/28 winning trades
+2025-03-24 12:17:52,336 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:18:51,957 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:18:51,957 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:18:51,957 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:18:52,108 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-24 12:18:52,109 - Monitor Bot - INFO - === Performance Metrics ===
+2025-03-24 12:18:52,109 - Monitor Bot - INFO - Date: 2025-03-24T12:17:52.333271
+2025-03-24 12:18:52,109 - Monitor Bot - INFO - Total Trades: 28
+2025-03-24 12:18:52,109 - Monitor Bot - INFO - Win Rate: 50.00%
+2025-03-24 12:18:52,109 - Monitor Bot - INFO - Total Profit: $8.25
+2025-03-24 12:18:52,109 - Monitor Bot - INFO - Average Profit per Trade: $0.29
+2025-03-24 12:18:52,110 - Monitor Bot - ERROR - Error extracting performance metrics: 'avg_profit_pct'
+2025-03-24 12:18:52,110 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-24 12:18:52,338 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:18:52,338 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:18:52,339 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6086)
+2025-03-24 12:18:52,339 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:18:52,339 - Trading Bot - INFO - BUY signal for MSFT (score: 0.7757)
+2025-03-24 12:18:52,339 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $359.81
+2025-03-24 12:18:52,341 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:18:52,342 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:18:52,342 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.5862)
+2025-03-24 12:18:52,345 - Trading Bot - INFO - Performance metrics saved: 14/28 winning trades
+2025-03-24 12:18:52,345 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:19:51,961 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:19:51,962 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:19:51,962 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:19:52,347 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:19:52,348 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:19:52,348 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5113)
+2025-03-24 12:19:52,348 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:19:52,348 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3145)
+2025-03-24 12:19:52,348 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:19:52,348 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.2650)
+2025-03-24 12:19:52,349 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $138.78
+2025-03-24 12:19:52,352 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:19:52,352 - Trading Bot - INFO - SELL completed: P&L $-1.38 (-0.98%)
+2025-03-24 12:19:52,355 - Trading Bot - INFO - Performance metrics saved: 14/29 winning trades
+2025-03-24 12:19:52,355 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:20:51,967 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:20:51,968 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:20:51,968 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:20:52,359 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:20:52,359 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:20:52,359 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.8907)
+2025-03-24 12:20:52,360 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:20:52,360 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3545)
+2025-03-24 12:20:52,360 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:20:52,360 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.0396)
+2025-03-24 12:20:52,363 - Trading Bot - INFO - Performance metrics saved: 14/29 winning trades
+2025-03-24 12:20:52,363 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:21:51,973 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:21:51,974 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:21:51,974 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:21:52,365 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:21:52,366 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:21:52,366 - Trading Bot - INFO - SELL signal for AAPL (score: 0.1413)
+2025-03-24 12:21:52,366 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $176.61
+2025-03-24 12:21:52,368 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:21:52,368 - Trading Bot - INFO - SELL completed: P&L $1.59 (0.91%)
+2025-03-24 12:21:52,369 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:21:52,369 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6346)
+2025-03-24 12:21:52,369 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:21:52,369 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.0216)
+2025-03-24 12:21:52,371 - Trading Bot - INFO - Performance metrics saved: 15/30 winning trades
+2025-03-24 12:21:52,371 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:22:51,979 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:22:51,979 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:22:51,979 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:22:52,372 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:22:52,373 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:22:52,373 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.0904)
+2025-03-24 12:22:52,373 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:22:52,373 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.5584)
+2025-03-24 12:22:52,373 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:22:52,373 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4839)
+2025-03-24 12:22:52,377 - Trading Bot - INFO - Performance metrics saved: 15/30 winning trades
+2025-03-24 12:22:52,377 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:23:51,985 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:23:51,986 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:23:51,986 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:23:52,381 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:23:52,381 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:23:52,381 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5390)
+2025-03-24 12:23:52,381 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:23:52,382 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3979)
+2025-03-24 12:23:52,382 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:23:52,382 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.9383)
+2025-03-24 12:23:52,382 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $138.67
+2025-03-24 12:23:52,384 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:23:52,387 - Trading Bot - INFO - Performance metrics saved: 15/30 winning trades
+2025-03-24 12:23:52,387 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:24:51,993 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:24:51,994 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:24:51,994 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:24:52,396 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:24:52,396 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:24:52,397 - Trading Bot - INFO - BUY signal for AAPL (score: 0.9341)
+2025-03-24 12:24:52,397 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $176.61
+2025-03-24 12:24:52,399 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:24:52,400 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:24:52,400 - Trading Bot - INFO - SELL signal for MSFT (score: 0.2873)
+2025-03-24 12:24:52,400 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $356.46
+2025-03-24 12:24:52,402 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:24:52,402 - Trading Bot - INFO - SELL completed: P&L $-6.11 (-1.68%)
+2025-03-24 12:24:52,402 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:24:52,403 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.0515)
+2025-03-24 12:24:52,403 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $139.87
+2025-03-24 12:24:52,404 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:24:52,405 - Trading Bot - INFO - SELL completed: P&L $0.65 (0.47%)
+2025-03-24 12:24:52,407 - Trading Bot - INFO - Performance metrics saved: 16/32 winning trades
+2025-03-24 12:24:52,407 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:25:52,000 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:25:52,000 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:25:52,000 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:25:52,408 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:25:52,409 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:25:52,409 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6623)
+2025-03-24 12:25:52,409 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:25:52,409 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6814)
+2025-03-24 12:25:52,409 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:25:52,410 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.2685)
+2025-03-24 12:25:52,413 - Trading Bot - INFO - Performance metrics saved: 16/32 winning trades
+2025-03-24 12:25:52,413 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:26:52,006 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:26:52,006 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:26:52,006 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:26:52,414 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:26:52,415 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:26:52,415 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.4274)
+2025-03-24 12:26:52,415 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:26:52,415 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.0901)
+2025-03-24 12:26:52,416 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:26:52,416 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.9708)
+2025-03-24 12:26:52,416 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $137.40
+2025-03-24 12:26:52,419 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:26:52,422 - Trading Bot - INFO - Performance metrics saved: 16/32 winning trades
+2025-03-24 12:26:52,422 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:27:52,009 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:27:52,010 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:27:52,010 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:27:52,423 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:27:52,424 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:27:52,424 - Trading Bot - INFO - SELL signal for AAPL (score: 0.1813)
+2025-03-24 12:27:52,424 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $177.88
+2025-03-24 12:27:52,426 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:27:52,427 - Trading Bot - INFO - SELL completed: P&L $1.54 (0.87%)
+2025-03-24 12:27:52,427 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:27:52,427 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.4322)
+2025-03-24 12:27:52,427 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:27:52,427 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.1371)
+2025-03-24 12:27:52,427 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $137.29
+2025-03-24 12:27:52,429 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:27:52,430 - Trading Bot - INFO - SELL completed: P&L $-0.12 (-0.09%)
+2025-03-24 12:27:52,432 - Trading Bot - INFO - Performance metrics saved: 17/34 winning trades
+2025-03-24 12:27:52,432 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:28:52,014 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:28:52,015 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:28:52,015 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:28:52,438 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:28:52,438 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:28:52,438 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.0471)
+2025-03-24 12:28:52,438 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:28:52,438 - Trading Bot - INFO - BUY signal for MSFT (score: 0.8445)
+2025-03-24 12:28:52,439 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $362.72
+2025-03-24 12:28:52,441 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:28:52,442 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:28:52,442 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.1707)
+2025-03-24 12:28:52,444 - Trading Bot - INFO - Performance metrics saved: 17/34 winning trades
+2025-03-24 12:28:52,445 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:29:52,018 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:29:52,019 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:29:52,019 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:29:52,450 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:29:52,450 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:29:52,450 - Trading Bot - INFO - BUY signal for AAPL (score: 0.8963)
+2025-03-24 12:29:52,451 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $175.86
+2025-03-24 12:29:52,454 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:29:52,454 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:29:52,454 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.5195)
+2025-03-24 12:29:52,454 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:29:52,454 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.1321)
+2025-03-24 12:29:52,457 - Trading Bot - INFO - Performance metrics saved: 17/34 winning trades
+2025-03-24 12:29:52,457 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:30:52,023 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:30:52,024 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:30:52,024 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:30:52,461 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:30:52,461 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:30:52,461 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.3879)
+2025-03-24 12:30:52,461 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:30:52,461 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.8612)
+2025-03-24 12:30:52,462 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:30:52,462 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.9784)
+2025-03-24 12:30:52,462 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $135.43
+2025-03-24 12:30:52,464 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:30:52,466 - Trading Bot - INFO - Performance metrics saved: 17/34 winning trades
+2025-03-24 12:30:52,467 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:31:52,025 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:31:52,025 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:31:52,025 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:31:52,469 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:31:52,470 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:31:52,470 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6912)
+2025-03-24 12:31:52,470 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:31:52,470 - Trading Bot - INFO - SELL signal for MSFT (score: 0.1749)
+2025-03-24 12:31:52,470 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $365.63
+2025-03-24 12:31:52,474 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:31:52,474 - Trading Bot - INFO - SELL completed: P&L $6.44 (1.79%)
+2025-03-24 12:31:52,474 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:31:52,474 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.2527)
+2025-03-24 12:31:52,475 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $136.44
+2025-03-24 12:31:52,476 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:31:52,476 - Trading Bot - INFO - SELL completed: P&L $-0.59 (-0.43%)
+2025-03-24 12:31:52,479 - Trading Bot - INFO - Performance metrics saved: 18/36 winning trades
+2025-03-24 12:31:52,479 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:32:52,030 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:32:52,031 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:32:52,031 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:32:52,484 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:32:52,484 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:32:52,484 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.7793)
+2025-03-24 12:32:52,484 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:32:52,484 - Trading Bot - INFO - BUY signal for MSFT (score: 0.8912)
+2025-03-24 12:32:52,485 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $364.50
+2025-03-24 12:32:52,488 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:32:52,488 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:32:52,488 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.0609)
+2025-03-24 12:32:52,491 - Trading Bot - INFO - Performance metrics saved: 18/36 winning trades
+2025-03-24 12:32:52,491 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:33:52,036 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:33:52,037 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:33:52,037 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:33:52,493 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:33:52,494 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:33:52,494 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.7639)
+2025-03-24 12:33:52,494 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:33:52,494 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6088)
+2025-03-24 12:33:52,494 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:33:52,495 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4856)
+2025-03-24 12:33:52,499 - Trading Bot - INFO - Performance metrics saved: 18/36 winning trades
+2025-03-24 12:33:52,499 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:34:52,047 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:34:52,048 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:34:52,048 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:34:52,504 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:34:52,504 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:34:52,505 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.3865)
+2025-03-24 12:34:52,505 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:34:52,505 - Trading Bot - INFO - SELL signal for MSFT (score: 0.2883)
+2025-03-24 12:34:52,505 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $366.52
+2025-03-24 12:34:52,507 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:34:52,508 - Trading Bot - INFO - SELL completed: P&L $-1.31 (-0.36%)
+2025-03-24 12:34:52,508 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:34:52,508 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.1780)
+2025-03-24 12:34:52,510 - Trading Bot - INFO - Performance metrics saved: 18/37 winning trades
+2025-03-24 12:34:52,510 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:35:52,058 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:35:52,058 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:35:52,058 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:35:52,517 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:35:52,518 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:35:52,518 - Trading Bot - INFO - SELL signal for AAPL (score: 0.2997)
+2025-03-24 12:35:52,518 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $175.84
+2025-03-24 12:35:52,518 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:35:52,518 - Trading Bot - INFO - SELL completed: P&L $0.16 (0.09%)
+2025-03-24 12:35:52,518 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:35:52,518 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.4795)
+2025-03-24 12:35:52,518 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:35:52,519 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3268)
+2025-03-24 12:35:52,519 - Trading Bot - INFO - Performance metrics saved: 19/38 winning trades
+2025-03-24 12:35:52,519 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:36:52,069 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:36:52,069 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:36:52,069 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:36:52,520 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:36:52,520 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:36:52,520 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5046)
+2025-03-24 12:36:52,520 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:36:52,520 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.0628)
+2025-03-24 12:36:52,520 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:36:52,520 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.0806)
+2025-03-24 12:36:52,522 - Trading Bot - INFO - Performance metrics saved: 19/38 winning trades
+2025-03-24 12:36:52,522 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:37:52,079 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:37:52,080 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:37:52,081 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:37:52,532 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:37:52,533 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:37:52,533 - Trading Bot - INFO - BUY signal for AAPL (score: 0.9188)
+2025-03-24 12:37:52,533 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $173.52
+2025-03-24 12:37:52,536 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:37:52,537 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:37:52,537 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.4080)
+2025-03-24 12:37:52,537 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:37:52,537 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.8448)
+2025-03-24 12:37:52,537 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $135.09
+2025-03-24 12:37:52,539 - Trading Bot - INFO - Trade history saved
+2025-03-24 12:37:52,542 - Trading Bot - INFO - Performance metrics saved: 19/38 winning trades
+2025-03-24 12:37:52,542 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 12:54:29,394 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 12:54:29,396 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 12:54:29,396 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 12:54:29,856 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 12:54:29,856 - Trading Bot - INFO - Processing AAPL
+2025-03-24 12:54:29,856 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.4167)
+2025-03-24 12:54:29,856 - Trading Bot - INFO - Processing MSFT
+2025-03-24 12:54:29,856 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.4001)
+2025-03-24 12:54:29,856 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 12:54:29,856 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4557)
+2025-03-24 12:54:29,861 - Trading Bot - INFO - Performance metrics saved: 19/38 winning trades
+2025-03-24 12:54:29,861 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:01:51,110 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:01:51,112 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:01:51,112 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:01:51,577 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:01:51,578 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:01:51,578 - Trading Bot - INFO - SELL signal for AAPL (score: 0.1270)
+2025-03-24 13:01:51,578 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $171.32
+2025-03-24 13:01:51,582 - Trading Bot - INFO - Trade history saved
+2025-03-24 13:01:51,583 - Trading Bot - INFO - SELL completed: P&L $-2.07 (-1.19%)
+2025-03-24 13:01:51,583 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:01:51,583 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.1053)
+2025-03-24 13:01:51,583 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:01:51,583 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3759)
+2025-03-24 13:01:51,587 - Trading Bot - INFO - Performance metrics saved: 19/39 winning trades
+2025-03-24 13:01:51,587 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:02:51,116 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:02:51,117 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:02:51,117 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:02:51,592 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:02:51,593 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:02:51,593 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.4911)
+2025-03-24 13:02:51,593 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:02:51,593 - Trading Bot - INFO - BUY signal for MSFT (score: 0.9394)
+2025-03-24 13:02:51,593 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $369.03
+2025-03-24 13:02:51,597 - Trading Bot - INFO - Trade history saved
+2025-03-24 13:02:51,597 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:02:51,597 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6785)
+2025-03-24 13:02:51,601 - Trading Bot - INFO - Performance metrics saved: 19/39 winning trades
+2025-03-24 13:02:51,601 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:03:51,122 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:03:51,122 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:03:51,123 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:03:51,604 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:03:51,605 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:03:51,605 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.0998)
+2025-03-24 13:03:51,605 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:03:51,605 - Trading Bot - INFO - SELL signal for MSFT (score: 0.1961)
+2025-03-24 13:03:51,605 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $367.22
+2025-03-24 13:03:51,609 - Trading Bot - INFO - Trade history saved
+2025-03-24 13:03:51,609 - Trading Bot - INFO - SELL completed: P&L $0.00 (0.00%)
+2025-03-24 13:03:51,609 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:03:51,609 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.7798)
+2025-03-24 13:03:51,611 - Trading Bot - INFO - Performance metrics saved: 20/40 winning trades
+2025-03-24 13:03:51,611 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:04:51,127 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:04:51,128 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:04:51,128 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:04:51,616 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:04:51,617 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:04:51,617 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6470)
+2025-03-24 13:04:51,617 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:04:51,617 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.1025)
+2025-03-24 13:04:51,617 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:04:51,617 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6176)
+2025-03-24 13:04:51,621 - Trading Bot - INFO - Performance metrics saved: 20/40 winning trades
+2025-03-24 13:04:51,621 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:05:51,130 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:05:51,130 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:05:51,130 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:05:51,627 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:05:51,627 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:05:51,627 - Trading Bot - INFO - BUY signal for AAPL (score: 0.7608)
+2025-03-24 13:05:51,627 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $170.33
+2025-03-24 13:05:51,630 - Trading Bot - INFO - Trade history saved
+2025-03-24 13:05:51,631 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:05:51,631 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.4298)
+2025-03-24 13:05:51,631 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:05:51,631 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3262)
+2025-03-24 13:05:51,633 - Trading Bot - INFO - Performance metrics saved: 20/40 winning trades
+2025-03-24 13:05:51,633 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:06:51,133 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:06:51,133 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:06:51,133 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:06:51,638 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:06:51,639 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:06:51,639 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6890)
+2025-03-24 13:06:51,639 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:06:51,639 - Trading Bot - INFO - BUY signal for MSFT (score: 0.9344)
+2025-03-24 13:06:51,639 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $360.23
+2025-03-24 13:06:51,643 - Trading Bot - INFO - Trade history saved
+2025-03-24 13:06:51,643 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:06:51,643 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.6817)
+2025-03-24 13:06:51,646 - Trading Bot - INFO - Performance metrics saved: 20/40 winning trades
+2025-03-24 13:06:51,646 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:07:51,138 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:07:51,139 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:07:51,139 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:07:51,649 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:07:51,649 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:07:51,650 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6373)
+2025-03-24 13:07:51,650 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:07:51,650 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.5286)
+2025-03-24 13:07:51,650 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:07:51,650 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4978)
+2025-03-24 13:07:51,655 - Trading Bot - INFO - Performance metrics saved: 20/40 winning trades
+2025-03-24 13:07:51,655 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:08:51,141 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:08:51,142 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:08:51,142 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:08:51,664 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:08:51,664 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:08:51,664 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.4964)
+2025-03-24 13:08:51,664 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:08:51,664 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.4914)
+2025-03-24 13:08:51,665 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:08:51,665 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.8165)
+2025-03-24 13:08:51,669 - Trading Bot - INFO - Performance metrics saved: 20/40 winning trades
+2025-03-24 13:08:51,669 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:09:51,145 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:09:51,146 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:09:51,146 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:09:51,672 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:09:51,673 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:09:51,673 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.9276)
+2025-03-24 13:09:51,673 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:09:51,673 - Trading Bot - INFO - SELL signal for MSFT (score: 0.0159)
+2025-03-24 13:09:51,673 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $367.23
+2025-03-24 13:09:51,676 - Trading Bot - INFO - Trade history saved
+2025-03-24 13:09:51,676 - Trading Bot - INFO - SELL completed: P&L $0.10 (0.03%)
+2025-03-24 13:09:51,676 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:09:51,676 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.8554)
+2025-03-24 13:09:51,679 - Trading Bot - INFO - Performance metrics saved: 21/41 winning trades
+2025-03-24 13:09:51,679 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:10:51,150 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:10:51,150 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:10:51,150 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:10:51,683 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:10:51,683 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:10:51,684 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.4463)
+2025-03-24 13:10:51,684 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:10:51,684 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.1235)
+2025-03-24 13:10:51,684 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:10:51,684 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3997)
+2025-03-24 13:10:51,689 - Trading Bot - INFO - Performance metrics saved: 21/41 winning trades
+2025-03-24 13:10:51,689 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:11:51,152 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:11:51,153 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:11:51,153 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:11:51,699 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:11:51,699 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:11:51,699 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5381)
+2025-03-24 13:11:51,699 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:11:51,699 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.6863)
+2025-03-24 13:11:51,700 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:11:51,700 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.4737)
+2025-03-24 13:11:51,704 - Trading Bot - INFO - Performance metrics saved: 21/41 winning trades
+2025-03-24 13:11:51,704 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:12:51,158 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:12:51,158 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:12:51,158 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:12:51,718 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:12:51,723 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:12:51,723 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.6454)
+2025-03-24 13:12:51,723 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:12:51,723 - Trading Bot - INFO - BUY signal for MSFT (score: 0.9789)
+2025-03-24 13:12:51,723 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $364.46
+2025-03-24 13:12:51,724 - Trading Bot - INFO - Trade history saved
+2025-03-24 13:12:51,724 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:12:51,724 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.2824)
+2025-03-24 13:12:51,724 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $136.03
+2025-03-24 13:12:51,725 - Trading Bot - INFO - Trade history saved
+2025-03-24 13:12:51,725 - Trading Bot - INFO - SELL completed: P&L $-1.03 (-0.75%)
+2025-03-24 13:12:51,726 - Trading Bot - INFO - Performance metrics saved: 21/42 winning trades
+2025-03-24 13:12:51,726 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 13:46:45,946 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 13:46:45,947 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 13:46:45,947 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 13:46:46,092 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-24 13:46:46,094 - Monitor Bot - INFO - === Performance Metrics ===
+2025-03-24 13:46:46,094 - Monitor Bot - INFO - Date: 2025-03-24T13:12:51.725326
+2025-03-24 13:46:46,094 - Monitor Bot - INFO - Total Trades: 42
+2025-03-24 13:46:46,094 - Monitor Bot - INFO - Win Rate: 50.00%
+2025-03-24 13:46:46,094 - Monitor Bot - INFO - Total Profit: $6.13
+2025-03-24 13:46:46,094 - Monitor Bot - INFO - Average Profit per Trade: $0.15
+2025-03-24 13:46:46,094 - Monitor Bot - ERROR - Error extracting performance metrics: 'avg_profit_pct'
+2025-03-24 13:46:46,095 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-24 13:46:46,512 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 13:46:46,513 - Trading Bot - INFO - Processing AAPL
+2025-03-24 13:46:46,513 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.9155)
+2025-03-24 13:46:46,513 - Trading Bot - INFO - Processing MSFT
+2025-03-24 13:46:46,513 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.7615)
+2025-03-24 13:46:46,513 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 13:46:46,513 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.0629)
+2025-03-24 13:46:46,518 - Trading Bot - INFO - Performance metrics saved: 21/42 winning trades
+2025-03-24 13:46:46,518 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 14:04:35,517 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 14:04:35,518 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 14:04:35,518 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 14:04:36,089 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 14:04:36,090 - Trading Bot - INFO - Processing AAPL
+2025-03-24 14:04:36,090 - Trading Bot - INFO - SELL signal for AAPL (score: 0.1443)
+2025-03-24 14:04:36,090 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $168.57
+2025-03-24 14:04:36,093 - Trading Bot - INFO - Trade history saved
+2025-03-24 14:04:36,093 - Trading Bot - INFO - SELL completed: P&L $-3.10 (-1.80%)
+2025-03-24 14:04:36,093 - Trading Bot - INFO - Processing MSFT
+2025-03-24 14:04:36,093 - Trading Bot - INFO - SELL signal for MSFT (score: 0.2925)
+2025-03-24 14:04:36,093 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $366.38
+2025-03-24 14:04:36,094 - Trading Bot - INFO - Trade history saved
+2025-03-24 14:04:36,095 - Trading Bot - INFO - SELL completed: P&L $3.75 (1.03%)
+2025-03-24 14:04:36,095 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 14:04:36,095 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.7982)
+2025-03-24 14:04:36,095 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $134.30
+2025-03-24 14:04:36,096 - Trading Bot - INFO - Trade history saved
+2025-03-24 14:04:36,099 - Trading Bot - INFO - Performance metrics saved: 22/44 winning trades
+2025-03-24 14:04:36,099 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 14:13:46,448 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 14:13:46,449 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 14:13:46,450 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 14:13:47,028 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 14:13:47,028 - Trading Bot - INFO - Processing AAPL
+2025-03-24 14:13:47,028 - Trading Bot - INFO - BUY signal for AAPL (score: 0.8312)
+2025-03-24 14:13:47,029 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $170.48
+2025-03-24 14:13:47,032 - Trading Bot - INFO - Trade history saved
+2025-03-24 14:13:47,033 - Trading Bot - INFO - Processing MSFT
+2025-03-24 14:13:47,033 - Trading Bot - INFO - BUY signal for MSFT (score: 0.7085)
+2025-03-24 14:13:47,033 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $369.61
+2025-03-24 14:13:47,035 - Trading Bot - INFO - Trade history saved
+2025-03-24 14:13:47,036 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 14:13:47,036 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.8720)
+2025-03-24 14:13:47,039 - Trading Bot - INFO - Performance metrics saved: 22/44 winning trades
+2025-03-24 14:13:47,039 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 14:30:25,451 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 14:30:25,452 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 14:30:25,452 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 14:30:26,040 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 14:30:26,041 - Trading Bot - INFO - Processing AAPL
+2025-03-24 14:30:26,041 - Trading Bot - INFO - SELL signal for AAPL (score: 0.0745)
+2025-03-24 14:30:26,041 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $171.87
+2025-03-24 14:30:26,045 - Trading Bot - INFO - Trade history saved
+2025-03-24 14:30:26,045 - Trading Bot - INFO - SELL completed: P&L $1.74 (1.03%)
+2025-03-24 14:30:26,045 - Trading Bot - INFO - Processing MSFT
+2025-03-24 14:30:26,046 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.9122)
+2025-03-24 14:30:26,046 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 14:30:26,046 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.2889)
+2025-03-24 14:30:26,046 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $133.49
+2025-03-24 14:30:26,047 - Trading Bot - INFO - Trade history saved
+2025-03-24 14:30:26,047 - Trading Bot - INFO - SELL completed: P&L $-1.03 (-0.76%)
+2025-03-24 14:30:26,049 - Trading Bot - INFO - Performance metrics saved: 23/46 winning trades
+2025-03-24 14:30:26,049 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 14:47:08,348 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 14:47:08,349 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 14:47:08,350 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 14:47:08,495 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-24 14:47:08,497 - Monitor Bot - INFO - === Performance Metrics ===
+2025-03-24 14:47:08,497 - Monitor Bot - INFO - Date: 2025-03-24T14:30:26.047929
+2025-03-24 14:47:08,497 - Monitor Bot - INFO - Total Trades: 46
+2025-03-24 14:47:08,497 - Monitor Bot - INFO - Win Rate: 50.00%
+2025-03-24 14:47:08,498 - Monitor Bot - INFO - Total Profit: $7.50
+2025-03-24 14:47:08,498 - Monitor Bot - INFO - Average Profit per Trade: $0.16
+2025-03-24 14:47:08,498 - Monitor Bot - ERROR - Error extracting performance metrics: 'avg_profit_pct'
+2025-03-24 14:47:08,498 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-24 14:47:08,945 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 14:47:08,945 - Trading Bot - INFO - Processing AAPL
+2025-03-24 14:47:08,946 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.3103)
+2025-03-24 14:47:08,946 - Trading Bot - INFO - Processing MSFT
+2025-03-24 14:47:08,946 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.5679)
+2025-03-24 14:47:08,946 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 14:47:08,946 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.1924)
+2025-03-24 14:47:08,951 - Trading Bot - INFO - Performance metrics saved: 23/46 winning trades
+2025-03-24 14:47:08,951 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 14:53:39,902 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 14:53:39,903 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 14:53:39,903 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 14:53:40,504 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 14:53:40,504 - Trading Bot - INFO - Processing AAPL
+2025-03-24 14:53:40,504 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.4306)
+2025-03-24 14:53:40,504 - Trading Bot - INFO - Processing MSFT
+2025-03-24 14:53:40,504 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.9989)
+2025-03-24 14:53:40,504 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 14:53:40,505 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.8554)
+2025-03-24 14:53:40,505 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $132.76
+2025-03-24 14:53:40,508 - Trading Bot - INFO - Trade history saved
+2025-03-24 14:53:40,511 - Trading Bot - INFO - Performance metrics saved: 23/46 winning trades
+2025-03-24 14:53:40,511 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:25:39,915 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:25:39,915 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:25:39,916 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:25:40,524 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:25:40,525 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:25:40,525 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5022)
+2025-03-24 15:25:40,525 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:25:40,525 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.8388)
+2025-03-24 15:25:40,525 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:25:40,525 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.0598)
+2025-03-24 15:25:40,525 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $133.67
+2025-03-24 15:25:40,529 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:25:40,530 - Trading Bot - INFO - SELL completed: P&L $-1.01 (-0.75%)
+2025-03-24 15:25:40,533 - Trading Bot - INFO - Performance metrics saved: 23/47 winning trades
+2025-03-24 15:25:40,533 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:42:37,840 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:42:37,841 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:42:37,841 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:42:38,456 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:42:38,456 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:42:38,457 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.2673)
+2025-03-24 15:42:38,457 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:42:38,457 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.3789)
+2025-03-24 15:42:38,457 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:42:38,457 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.3719)
+2025-03-24 15:42:38,462 - Trading Bot - INFO - Performance metrics saved: 23/47 winning trades
+2025-03-24 15:42:38,462 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:50:51,687 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:50:51,688 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:50:51,688 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:50:51,838 - Monitor Bot - INFO - Running scheduled task: Performance Metrics
+2025-03-24 15:50:51,839 - Monitor Bot - INFO - === Performance Metrics ===
+2025-03-24 15:50:51,839 - Monitor Bot - INFO - Date: 2025-03-24T15:42:38.457830
+2025-03-24 15:50:51,839 - Monitor Bot - INFO - Total Trades: 47
+2025-03-24 15:50:51,839 - Monitor Bot - INFO - Win Rate: 48.94%
+2025-03-24 15:50:51,839 - Monitor Bot - INFO - Total Profit: $6.49
+2025-03-24 15:50:51,840 - Monitor Bot - INFO - Average Profit per Trade: $0.14
+2025-03-24 15:50:51,840 - Monitor Bot - ERROR - Error extracting performance metrics: 'avg_profit_pct'
+2025-03-24 15:50:51,840 - Monitor Bot - WARNING - Task Performance Metrics completed with warnings
+2025-03-24 15:50:52,314 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:50:52,315 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:50:52,315 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.3598)
+2025-03-24 15:50:52,315 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:50:52,315 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.4175)
+2025-03-24 15:50:52,315 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:50:52,315 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.0639)
+2025-03-24 15:50:52,318 - Trading Bot - INFO - Performance metrics saved: 23/47 winning trades
+2025-03-24 15:50:52,318 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:51:51,689 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:51:51,691 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:51:51,691 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:51:52,323 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:51:52,323 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:51:52,323 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.2910)
+2025-03-24 15:51:52,323 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:51:52,323 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.8238)
+2025-03-24 15:51:52,324 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:51:52,324 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.0530)
+2025-03-24 15:51:52,330 - Trading Bot - INFO - Performance metrics saved: 23/47 winning trades
+2025-03-24 15:51:52,330 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:52:51,696 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:52:51,696 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:52:51,696 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:52:52,330 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:52:52,330 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:52:52,330 - Trading Bot - INFO - BUY signal for AAPL (score: 0.9854)
+2025-03-24 15:52:52,331 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $173.63
+2025-03-24 15:52:52,335 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:52:52,335 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:52:52,335 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.9119)
+2025-03-24 15:52:52,335 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:52:52,335 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.9678)
+2025-03-24 15:52:52,335 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $135.31
+2025-03-24 15:52:52,338 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:52:52,341 - Trading Bot - INFO - Performance metrics saved: 23/47 winning trades
+2025-03-24 15:52:52,341 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:53:51,700 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:53:51,701 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:53:51,701 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:53:52,343 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:53:52,344 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:53:52,344 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.8541)
+2025-03-24 15:53:52,344 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:53:52,344 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.7552)
+2025-03-24 15:53:52,344 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:53:52,344 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.1214)
+2025-03-24 15:53:52,344 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $136.24
+2025-03-24 15:53:52,348 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:53:52,348 - Trading Bot - INFO - SELL completed: P&L $1.42 (1.05%)
+2025-03-24 15:53:52,352 - Trading Bot - INFO - Performance metrics saved: 24/48 winning trades
+2025-03-24 15:53:52,352 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:54:51,704 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:54:51,705 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:54:51,706 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:54:52,357 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:54:52,357 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:54:52,357 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.4842)
+2025-03-24 15:54:52,358 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:54:52,358 - Trading Bot - INFO - SELL signal for MSFT (score: 0.2958)
+2025-03-24 15:54:52,358 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $366.25
+2025-03-24 15:54:52,361 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:54:52,362 - Trading Bot - INFO - SELL completed: P&L $1.22 (0.33%)
+2025-03-24 15:54:52,362 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:54:52,362 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.9781)
+2025-03-24 15:54:52,362 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $134.29
+2025-03-24 15:54:52,364 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:54:52,367 - Trading Bot - INFO - Performance metrics saved: 25/49 winning trades
+2025-03-24 15:54:52,368 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:55:51,710 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:55:51,712 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:55:51,712 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:55:52,369 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:55:52,369 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:55:52,369 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.9431)
+2025-03-24 15:55:52,369 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:55:52,370 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.2824)
+2025-03-24 15:55:52,370 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:55:52,370 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.0015)
+2025-03-24 15:55:52,370 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $132.06
+2025-03-24 15:55:52,372 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:55:52,373 - Trading Bot - INFO - SELL completed: P&L $-2.35 (-1.73%)
+2025-03-24 15:55:52,376 - Trading Bot - INFO - Performance metrics saved: 25/50 winning trades
+2025-03-24 15:55:52,376 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:56:51,716 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:56:51,717 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:56:51,717 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:56:52,381 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:56:52,381 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:56:52,381 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.5814)
+2025-03-24 15:56:52,382 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:56:52,382 - Trading Bot - INFO - BUY signal for MSFT (score: 0.7636)
+2025-03-24 15:56:52,382 - Trading Bot - INFO - BUY order for 1 shares of MSFT at $364.69
+2025-03-24 15:56:52,385 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:56:52,385 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:56:52,385 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.2482)
+2025-03-24 15:56:52,388 - Trading Bot - INFO - Performance metrics saved: 25/50 winning trades
+2025-03-24 15:56:52,388 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:57:51,721 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:57:51,722 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:57:51,722 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:57:52,390 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:57:52,391 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:57:52,391 - Trading Bot - INFO - HOLD signal for AAPL (score: 0.9006)
+2025-03-24 15:57:52,391 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:57:52,391 - Trading Bot - INFO - SELL signal for MSFT (score: 0.2315)
+2025-03-24 15:57:52,391 - Trading Bot - INFO - SELL order for 1 shares of MSFT at $368.41
+2025-03-24 15:57:52,394 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:57:52,394 - Trading Bot - INFO - SELL completed: P&L $-1.38 (-0.38%)
+2025-03-24 15:57:52,394 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:57:52,394 - Trading Bot - INFO - BUY signal for GOOGL (score: 0.9624)
+2025-03-24 15:57:52,395 - Trading Bot - INFO - BUY order for 1 shares of GOOGL at $133.46
+2025-03-24 15:57:52,396 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:57:52,399 - Trading Bot - INFO - Performance metrics saved: 25/51 winning trades
+2025-03-24 15:57:52,399 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:58:51,725 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:58:51,726 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:58:51,726 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:58:52,400 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:58:52,401 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:58:52,401 - Trading Bot - INFO - SELL signal for AAPL (score: 0.1818)
+2025-03-24 15:58:52,401 - Trading Bot - INFO - SELL order for 1 shares of AAPL at $171.40
+2025-03-24 15:58:52,405 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:58:52,405 - Trading Bot - INFO - SELL completed: P&L $-0.12 (-0.07%)
+2025-03-24 15:58:52,405 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:58:52,405 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.0872)
+2025-03-24 15:58:52,405 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:58:52,405 - Trading Bot - INFO - HOLD signal for GOOGL (score: 0.8064)
+2025-03-24 15:58:52,408 - Trading Bot - INFO - Performance metrics saved: 25/52 winning trades
+2025-03-24 15:58:52,409 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 15:59:51,728 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 15:59:51,730 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 15:59:51,730 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 15:59:52,413 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 15:59:52,414 - Trading Bot - INFO - Processing AAPL
+2025-03-24 15:59:52,414 - Trading Bot - INFO - BUY signal for AAPL (score: 0.9144)
+2025-03-24 15:59:52,414 - Trading Bot - INFO - BUY order for 1 shares of AAPL at $170.71
+2025-03-24 15:59:52,418 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:59:52,419 - Trading Bot - INFO - Processing MSFT
+2025-03-24 15:59:52,419 - Trading Bot - INFO - HOLD signal for MSFT (score: 0.2276)
+2025-03-24 15:59:52,419 - Trading Bot - INFO - Processing GOOGL
+2025-03-24 15:59:52,419 - Trading Bot - INFO - SELL signal for GOOGL (score: 0.0319)
+2025-03-24 15:59:52,419 - Trading Bot - INFO - SELL order for 1 shares of GOOGL at $135.50
+2025-03-24 15:59:52,421 - Trading Bot - INFO - Trade history saved
+2025-03-24 15:59:52,422 - Trading Bot - INFO - SELL completed: P&L $1.12 (0.84%)
+2025-03-24 15:59:52,425 - Trading Bot - INFO - Performance metrics saved: 26/53 winning trades
+2025-03-24 15:59:52,426 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:00:51,017 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Trading Bot
+2025-03-24 16:00:51,021 - Improvement Bot - INFO - No issues found in trading_bot
+2025-03-24 16:00:51,022 - Improvement Bot - WARNING - Task Code Quality Check - Trading Bot completed with warnings
+2025-03-24 16:00:51,022 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Monitor Bot
+2025-03-24 16:00:51,025 - Improvement Bot - INFO - Found 2 issues in monitor_bot
+2025-03-24 16:00:51,025 - Improvement Bot - INFO - Task Code Quality Check - Monitor Bot completed successfully
+2025-03-24 16:00:51,025 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Improvement Bot
+2025-03-24 16:00:51,027 - Improvement Bot - INFO - Found 6 issues in improvement_bot
+2025-03-24 16:00:51,027 - Improvement Bot - INFO - Task Code Quality Check - Improvement Bot completed successfully
+2025-03-24 16:00:51,028 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-03-24 16:00:51,030 - Improvement Bot - INFO - Win rate trend: -0.68%
+2025-03-24 16:00:51,030 - Improvement Bot - INFO - Profit trend: -21.60%
+2025-03-24 16:00:51,031 - Improvement Bot - INFO - System health analysis completed: needs_improvement
+2025-03-24 16:00:51,031 - Improvement Bot - INFO - Task System Health Analysis completed successfully
+2025-03-24 16:00:51,734 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:00:51,734 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:00:51,735 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:00:52,429 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:00:52,429 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:00:52,429 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:01:51,739 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:01:51,741 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:01:51,741 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:01:52,433 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:01:52,434 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:01:52,434 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:02:51,746 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:02:51,746 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:02:51,747 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:02:52,436 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:02:52,436 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:02:52,436 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:03:51,750 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:03:51,751 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:03:51,751 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:03:52,440 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:03:52,440 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:03:52,440 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:04:51,756 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:04:51,757 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:04:51,757 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:04:52,443 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:04:52,444 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:04:52,444 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:05:51,762 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:05:51,762 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:05:51,763 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:05:52,449 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:05:52,449 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:05:52,449 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:06:51,767 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:06:51,768 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:06:51,768 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:06:52,454 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:06:52,455 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:06:52,455 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:07:51,773 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:07:51,773 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:07:51,773 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:07:52,456 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:07:52,456 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:07:52,456 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:08:51,778 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:08:51,780 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:08:51,780 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:08:52,459 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:08:52,459 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:08:52,459 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:09:51,782 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:09:51,782 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:09:51,782 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:09:52,463 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:09:52,463 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:09:52,463 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:10:51,787 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:10:51,787 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:10:51,788 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:10:52,464 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:10:52,464 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:10:52,464 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:11:51,788 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:11:51,789 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:11:51,789 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:11:52,467 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:11:52,467 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:11:52,467 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:12:51,786 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:12:51,787 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:12:51,787 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:12:52,467 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:12:52,468 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:12:52,468 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:13:51,779 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:13:51,779 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:13:51,779 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:13:52,464 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:13:52,464 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:13:52,465 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:14:51,783 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:14:51,784 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:14:51,784 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:14:52,469 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:14:52,469 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:14:52,469 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:15:51,788 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:15:51,789 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:15:51,789 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:15:52,474 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:15:52,474 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:15:52,474 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:16:51,793 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:16:51,794 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:16:51,794 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:16:52,474 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:16:52,475 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:16:52,475 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:17:51,795 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:17:51,795 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:17:51,795 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:17:52,479 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:17:52,480 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:17:52,480 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:18:51,798 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:18:51,799 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:18:51,799 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:18:52,484 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:18:52,485 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:18:52,485 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:19:51,800 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:19:51,800 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:19:51,800 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:19:52,494 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:19:52,495 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:19:52,495 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:20:51,803 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:20:51,804 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:20:51,804 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:20:52,498 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:20:52,499 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:20:52,499 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:21:51,814 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:21:51,814 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:21:51,814 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:21:52,508 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:21:52,509 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:21:52,509 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:22:51,823 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:22:51,824 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:22:51,824 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:22:52,518 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:22:52,519 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:22:52,519 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:29:00,256 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:29:00,258 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:29:00,258 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:29:00,958 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:29:00,958 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:29:00,958 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:32:25,465 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:32:25,467 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:32:25,467 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:32:26,161 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:32:26,161 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:32:26,161 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:33:25,470 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:33:25,471 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:33:25,471 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:33:26,164 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:33:26,164 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:33:26,164 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:34:25,475 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:34:25,476 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:34:25,476 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:34:26,168 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:34:26,169 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:34:26,169 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:35:25,478 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:35:25,479 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:35:25,479 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:35:26,173 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:35:26,174 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:35:26,174 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:36:25,484 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:36:25,484 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:36:25,484 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:36:26,178 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:36:26,179 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:36:26,179 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:37:25,489 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:37:25,489 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:37:25,489 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:37:26,183 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:37:26,183 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:37:26,183 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:38:25,491 - Trading System - INFO - Trading Bot is alive: True
+2025-03-24 16:38:25,492 - Trading System - INFO - Monitor Bot is alive: True
+2025-03-24 16:38:25,492 - Trading System - INFO - Improvement Bot is alive: True
+2025-03-24 16:38:26,188 - Trading Bot - INFO - Starting trading cycle
+2025-03-24 16:38:26,188 - Trading Bot - INFO - Market is closed, waiting...
+2025-03-24 16:38:26,188 - Trading Bot - INFO - Sleeping for 60 seconds
+2025-03-24 16:38:34,100 - Trading System - INFO - Main process interrupted, shutting down...
+2025-03-24 16:38:34,100 - Trading System - INFO - Trading system shutdown complete

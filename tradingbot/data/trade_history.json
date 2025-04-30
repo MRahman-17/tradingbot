@@ -1,0 +1,1358 @@
+{
+  "positions": {
+    "AAPL": {
+      "entry_price": 171.64626202115633,
+      "quantity": 1,
+      "entry_time": 1742846392.414966,
+      "order_id": 1106
+    },
+    "GOOGL": {
+      "entry_price": 146.93265431913326,
+      "quantity": 1,
+      "entry_time": 1742927312.404554,
+      "order_id": 1056
+    },
+    "MSFT": {
+      "entry_price": 364.77478551145407,
+      "quantity": 1,
+      "entry_time": 1742931419.451336,
+      "order_id": 1058
+    },
+    "NVDA": {
+      "entry_price": 126.72708114677647,
+      "quantity": 1,
+      "entry_time": 1743428357.113528,
+      "order_id": 1002
+    }
+  },
+  "trades": [
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 176.6406413217674,
+      "timestamp": "2025-03-24T09:06:13.751171",
+      "order_id": 1001
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 350.02452000000335,
+      "timestamp": "2025-03-24T09:06:13.751612",
+      "order_id": 1002
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 139.89697270435954,
+      "timestamp": "2025-03-24T09:06:13.751792",
+      "order_id": 1003
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 176.39508561812463,
+      "profit_loss": -0.2455557036427649,
+      "profit_loss_pct": -0.13901427316235226,
+      "timestamp": "2025-03-24T09:07:13.758100",
+      "order_id": 1004
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 140.53979799902038,
+      "profit_loss": 0.6428252946608382,
+      "profit_loss_pct": 0.459499074379055,
+      "timestamp": "2025-03-24T09:10:13.776441",
+      "order_id": 1005
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 177.36111820245893,
+      "timestamp": "2025-03-24T09:12:13.789330",
+      "order_id": 1006
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 351.9813549971578,
+      "profit_loss": 1.9568349971544308,
+      "profit_loss_pct": 0.5590565475682707,
+      "timestamp": "2025-03-24T09:12:13.790718",
+      "order_id": 1007
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 142.4344674740425,
+      "timestamp": "2025-03-24T09:13:13.797974",
+      "order_id": 1008
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 353.734718445554,
+      "timestamp": "2025-03-24T09:15:13.812506",
+      "order_id": 1009
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 351.88226850478407,
+      "profit_loss": -1.8524499407699295,
+      "profit_loss_pct": -0.5236833831042342,
+      "timestamp": "2025-03-24T09:17:13.827454",
+      "order_id": 1010
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 179.4629469203479,
+      "profit_loss": 2.1018287178889636,
+      "profit_loss_pct": 1.1850560817336042,
+      "timestamp": "2025-03-24T09:18:13.836784",
+      "order_id": 1011
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 178.23863875126824,
+      "timestamp": "2025-03-24T09:19:13.867483",
+      "order_id": 1012
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 180.894051771978,
+      "profit_loss": 2.655413020709773,
+      "profit_loss_pct": 1.4898077315409708,
+      "timestamp": "2025-03-24T09:20:13.882121",
+      "order_id": 1013
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 141.97350352114174,
+      "profit_loss": -0.4609639529007552,
+      "profit_loss_pct": -0.32363230689563816,
+      "timestamp": "2025-03-24T09:20:13.883896",
+      "order_id": 1014
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 356.2986279014693,
+      "timestamp": "2025-03-24T09:21:13.897111",
+      "order_id": 1015
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 358.2313544626191,
+      "profit_loss": 1.9327265611498206,
+      "profit_loss_pct": 0.5424456929663757,
+      "timestamp": "2025-03-24T09:22:13.911533",
+      "order_id": 1016
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 357.3598843442254,
+      "timestamp": "2025-03-24T09:39:03.545171",
+      "order_id": 1017
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 179.94058288304524,
+      "timestamp": "2025-03-24T09:55:14.606866",
+      "order_id": 1018
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 142.39858343729105,
+      "timestamp": "2025-03-24T09:56:14.623787",
+      "order_id": 1019
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 141.67969509444478,
+      "profit_loss": -0.7188883428462702,
+      "profit_loss_pct": -0.5048423414709347,
+      "timestamp": "2025-03-24T09:57:14.638411",
+      "order_id": 1020
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 178.5100207243878,
+      "profit_loss": -1.4305621586574375,
+      "profit_loss_pct": -0.7950191867430179,
+      "timestamp": "2025-03-24T09:58:14.651893",
+      "order_id": 1021
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 355.04364376452344,
+      "profit_loss": -2.3162405797019687,
+      "profit_loss_pct": -0.6481534948872048,
+      "timestamp": "2025-03-24T09:59:14.667186",
+      "order_id": 1022
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 356.8432005977866,
+      "timestamp": "2025-03-24T10:02:14.697159",
+      "order_id": 1023
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 177.76358472634595,
+      "timestamp": "2025-03-24T10:03:14.711558",
+      "order_id": 1024
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 180.0858196811159,
+      "profit_loss": 2.3222349547699537,
+      "profit_loss_pct": 1.3063614566193982,
+      "timestamp": "2025-03-24T10:04:14.726714",
+      "order_id": 1025
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 362.95569716796234,
+      "profit_loss": 6.112496570175722,
+      "profit_loss_pct": 1.7129362588206964,
+      "timestamp": "2025-03-24T10:05:14.732854",
+      "order_id": 1026
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 177.08789025094495,
+      "timestamp": "2025-03-24T10:07:14.760045",
+      "order_id": 1027
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 141.64655457698885,
+      "timestamp": "2025-03-24T10:08:14.774242",
+      "order_id": 1028
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 140.7517542911083,
+      "profit_loss": -0.8948002858805353,
+      "profit_loss_pct": -0.6317134141050951,
+      "timestamp": "2025-03-24T10:09:14.789664",
+      "order_id": 1029
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 176.50353363673293,
+      "profit_loss": -0.5843566142120267,
+      "profit_loss_pct": -0.3299811259730778,
+      "timestamp": "2025-03-24T10:10:14.798816",
+      "order_id": 1030
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 362.7657015423613,
+      "timestamp": "2025-03-24T10:10:14.801466",
+      "order_id": 1031
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 361.23342561664316,
+      "profit_loss": -1.5322759257181247,
+      "profit_loss_pct": -0.42238721003760027,
+      "timestamp": "2025-03-24T10:12:14.824579",
+      "order_id": 1032
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 140.7563026854872,
+      "timestamp": "2025-03-24T10:12:14.826776",
+      "order_id": 1033
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 141.86389215054493,
+      "profit_loss": 1.107589465057714,
+      "profit_loss_pct": 0.7868844548528431,
+      "timestamp": "2025-03-24T10:13:14.840951",
+      "order_id": 1034
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 361.414763966159,
+      "timestamp": "2025-03-24T11:18:39.531932",
+      "order_id": 1035
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 361.46416512445757,
+      "profit_loss": 0.04940115829856495,
+      "profit_loss_pct": 0.01366882685047699,
+      "timestamp": "2025-03-24T11:35:29.441518",
+      "order_id": 1036
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 141.4802592717329,
+      "timestamp": "2025-03-24T11:35:29.444162",
+      "order_id": 1037
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 175.83658924515447,
+      "timestamp": "2025-03-24T11:51:29.057533",
+      "order_id": 1038
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 142.8823413373377,
+      "profit_loss": 1.4020820656047874,
+      "profit_loss_pct": 0.9910089738469408,
+      "timestamp": "2025-03-24T11:51:29.060604",
+      "order_id": 1039
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 142.85477012841838,
+      "timestamp": "2025-03-24T11:53:29.076067",
+      "order_id": 1040
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 356.35508069202183,
+      "timestamp": "2025-03-24T11:54:29.153371",
+      "order_id": 1041
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 175.50914296151333,
+      "profit_loss": -0.32744628364113737,
+      "profit_loss_pct": -0.18622192630488588,
+      "timestamp": "2025-03-24T11:55:29.163176",
+      "order_id": 1042
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 358.5478673506281,
+      "profit_loss": 2.1927866586062805,
+      "profit_loss_pct": 0.6153375600392863,
+      "timestamp": "2025-03-24T11:57:29.182378",
+      "order_id": 1043
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 360.92804175669335,
+      "timestamp": "2025-03-24T11:58:29.194998",
+      "order_id": 1044
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 358.45501630250163,
+      "profit_loss": -2.4730254541917134,
+      "profit_loss_pct": -0.6851851804462461,
+      "timestamp": "2025-03-24T12:05:29.252776",
+      "order_id": 1045
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 143.4935707257939,
+      "profit_loss": 0.6388005973755071,
+      "profit_loss_pct": 0.4471678452187877,
+      "timestamp": "2025-03-24T12:05:29.255961",
+      "order_id": 1046
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 364.0398143947013,
+      "timestamp": "2025-03-24T12:06:29.274058",
+      "order_id": 1047
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 176.1987179823619,
+      "timestamp": "2025-03-24T12:07:29.285933",
+      "order_id": 1048
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 362.7580579947895,
+      "profit_loss": -1.2817563999117851,
+      "profit_loss_pct": -0.3520923671612719,
+      "timestamp": "2025-03-24T12:08:29.297102",
+      "order_id": 1049
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 362.3263624863633,
+      "timestamp": "2025-03-24T12:09:29.307354",
+      "order_id": 1050
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 141.69415827581938,
+      "timestamp": "2025-03-24T12:09:29.310574",
+      "order_id": 1051
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 174.0072058457521,
+      "profit_loss": -2.191512136609788,
+      "profit_loss_pct": -1.2437730317817475,
+      "timestamp": "2025-03-24T12:10:29.324056",
+      "order_id": 1052
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 362.06701938301967,
+      "profit_loss": -0.25934310334361044,
+      "profit_loss_pct": -0.07157721054684707,
+      "timestamp": "2025-03-24T12:10:29.327455",
+      "order_id": 1053
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 172.60546786892067,
+      "timestamp": "2025-03-24T12:12:29.346638",
+      "order_id": 1054
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 141.96144086580546,
+      "profit_loss": 0.2672825899860811,
+      "profit_loss_pct": 0.18863345760931072,
+      "timestamp": "2025-03-24T12:12:29.350161",
+      "order_id": 1055
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 174.04707619376083,
+      "profit_loss": 1.4416083248401605,
+      "profit_loss_pct": 0.8352043203723625,
+      "timestamp": "2025-03-24T12:13:29.363790",
+      "order_id": 1056
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 174.11055987763896,
+      "timestamp": "2025-03-24T12:14:52.299682",
+      "order_id": 1057
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 141.22668167407463,
+      "timestamp": "2025-03-24T12:15:52.312236",
+      "order_id": 1058
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 363.1712118707452,
+      "timestamp": "2025-03-24T12:18:52.339662",
+      "order_id": 1059
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 139.84567485144893,
+      "profit_loss": -1.381006822625693,
+      "profit_loss_pct": -0.9778653766097878,
+      "timestamp": "2025-03-24T12:19:52.349214",
+      "order_id": 1060
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 175.70105893487272,
+      "profit_loss": 1.5904990572337567,
+      "profit_loss_pct": 0.9134994789239181,
+      "timestamp": "2025-03-24T12:21:52.366609",
+      "order_id": 1061
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 138.80401133298332,
+      "timestamp": "2025-03-24T12:23:52.382482",
+      "order_id": 1062
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 176.34941208523443,
+      "timestamp": "2025-03-24T12:24:52.397371",
+      "order_id": 1063
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 357.0594333853645,
+      "profit_loss": -6.1117784853806825,
+      "profit_loss_pct": -1.6828917837121704,
+      "timestamp": "2025-03-24T12:24:52.400733",
+      "order_id": 1064
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 139.45828372204858,
+      "profit_loss": 0.6542723890652553,
+      "profit_loss_pct": 0.4713641794513279,
+      "timestamp": "2025-03-24T12:24:52.403196",
+      "order_id": 1065
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 138.6406718101237,
+      "timestamp": "2025-03-24T12:26:52.416346",
+      "order_id": 1066
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 177.89022627138488,
+      "profit_loss": 1.5408141861504419,
+      "profit_loss_pct": 0.873727997122975,
+      "timestamp": "2025-03-24T12:27:52.424351",
+      "order_id": 1067
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 138.5159348526407,
+      "profit_loss": -0.12473695748300884,
+      "profit_loss_pct": -0.08997140294720873,
+      "timestamp": "2025-03-24T12:27:52.427794",
+      "order_id": 1068
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 359.8438081063349,
+      "timestamp": "2025-03-24T12:28:52.439234",
+      "order_id": 1069
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 176.2526819681919,
+      "timestamp": "2025-03-24T12:29:52.451230",
+      "order_id": 1070
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 136.46399531347575,
+      "timestamp": "2025-03-24T12:30:52.462396",
+      "order_id": 1071
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 366.2835862940077,
+      "profit_loss": 6.4397781876728,
+      "profit_loss_pct": 1.7896037232270068,
+      "timestamp": "2025-03-24T12:31:52.471065",
+      "order_id": 1072
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 135.87492096589204,
+      "profit_loss": -0.5890743475837041,
+      "profit_loss_pct": -0.4316701604921702,
+      "timestamp": "2025-03-24T12:31:52.475087",
+      "order_id": 1073
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 367.6210826160896,
+      "timestamp": "2025-03-24T12:32:52.485132",
+      "order_id": 1074
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 366.3128156533134,
+      "profit_loss": -1.3082669627762016,
+      "profit_loss_pct": -0.3558737582366689,
+      "timestamp": "2025-03-24T12:34:52.505711",
+      "order_id": 1075
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 176.40885911685947,
+      "profit_loss": 0.15617714866758092,
+      "profit_loss_pct": 0.08860979981897277,
+      "timestamp": "2025-03-24T12:35:52.518127",
+      "order_id": 1076
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 174.20421702457514,
+      "timestamp": "2025-03-24T12:37:52.533602",
+      "order_id": 1077
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 136.12174850993185,
+      "timestamp": "2025-03-24T12:37:52.537550",
+      "order_id": 1078
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 172.13299583549568,
+      "profit_loss": -2.0712211890794663,
+      "profit_loss_pct": -1.1889615673237541,
+      "timestamp": "2025-03-24T13:01:51.578716",
+      "order_id": 1079
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 365.625425452461,
+      "timestamp": "2025-03-24T13:02:51.593850",
+      "order_id": 1080
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 365.62834243793725,
+      "profit_loss": 0.0029169854762471914,
+      "profit_loss_pct": 0.0007978070651448732,
+      "timestamp": "2025-03-24T13:03:51.605842",
+      "order_id": 1081
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 171.99141396572216,
+      "timestamp": "2025-03-24T13:05:51.627912",
+      "order_id": 1082
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 363.70549993560775,
+      "timestamp": "2025-03-24T13:06:51.639696",
+      "order_id": 1083
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 363.8094105651721,
+      "profit_loss": 0.10391062956432506,
+      "profit_loss_pct": 0.028569991265658956,
+      "timestamp": "2025-03-24T13:09:51.673697",
+      "order_id": 1084
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 363.76445099455475,
+      "timestamp": "2025-03-24T13:12:51.723885",
+      "order_id": 1085
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 135.09583605438542,
+      "profit_loss": -1.0259124555464325,
+      "profit_loss_pct": -0.7536726987249831,
+      "timestamp": "2025-03-24T13:12:51.724724",
+      "order_id": 1086
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 168.8893394911737,
+      "profit_loss": -3.102074474548459,
+      "profit_loss_pct": -1.803621705887426,
+      "timestamp": "2025-03-24T14:04:36.090432",
+      "order_id": 1087
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 367.5150079639006,
+      "profit_loss": 3.750556969345837,
+      "profit_loss_pct": 1.0310399928007197,
+      "timestamp": "2025-03-24T14:04:36.093713",
+      "order_id": 1088
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 134.9495688620543,
+      "timestamp": "2025-03-24T14:04:36.095298",
+      "order_id": 1089
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 169.93852704732973,
+      "timestamp": "2025-03-24T14:13:47.029238",
+      "order_id": 1090
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 366.47090403413426,
+      "timestamp": "2025-03-24T14:13:47.033635",
+      "order_id": 1091
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 171.68271966797278,
+      "profit_loss": 1.744192620643048,
+      "profit_loss_pct": 1.0263667991880832,
+      "timestamp": "2025-03-24T14:30:26.041688",
+      "order_id": 1092
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 133.92288340511192,
+      "profit_loss": -1.0266854569423742,
+      "profit_loss_pct": -0.7607919503558103,
+      "timestamp": "2025-03-24T14:30:26.046496",
+      "order_id": 1093
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 133.94628479365983,
+      "timestamp": "2025-03-24T14:53:40.505256",
+      "order_id": 1094
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 132.93648385918718,
+      "profit_loss": -1.0098009344726506,
+      "profit_loss_pct": -0.7538849890672328,
+      "timestamp": "2025-03-24T15:25:40.525899",
+      "order_id": 1095
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 172.56858553976483,
+      "timestamp": "2025-03-24T15:52:52.331293",
+      "order_id": 1096
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 134.8468913392579,
+      "timestamp": "2025-03-24T15:52:52.336039",
+      "order_id": 1097
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 136.26758563274444,
+      "profit_loss": 1.420694293486548,
+      "profit_loss_pct": 1.0535610271594997,
+      "timestamp": "2025-03-24T15:53:52.344866",
+      "order_id": 1098
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 367.69555551144333,
+      "profit_loss": 1.2246514773090666,
+      "profit_loss_pct": 0.33417427245328035,
+      "timestamp": "2025-03-24T15:54:52.358384",
+      "order_id": 1099
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 135.40031200787323,
+      "timestamp": "2025-03-24T15:54:52.362561",
+      "order_id": 1100
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 133.0552961858775,
+      "profit_loss": -2.34501582199573,
+      "profit_loss_pct": -1.731913159741738,
+      "timestamp": "2025-03-24T15:55:52.370382",
+      "order_id": 1101
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 366.22568048809075,
+      "timestamp": "2025-03-24T15:56:52.382375",
+      "order_id": 1102
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 364.84163072720264,
+      "profit_loss": -1.3840497608881037,
+      "profit_loss_pct": -0.37792264022651345,
+      "timestamp": "2025-03-24T15:57:52.391788",
+      "order_id": 1103
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 133.31571928559762,
+      "timestamp": "2025-03-24T15:57:52.395062",
+      "order_id": 1104
+    },
+    {
+      "symbol": "AAPL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 172.44687447718857,
+      "profit_loss": -0.12171106257625297,
+      "profit_loss_pct": -0.07052909554514653,
+      "timestamp": "2025-03-24T15:58:52.401632",
+      "order_id": 1105
+    },
+    {
+      "symbol": "AAPL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 171.64626202115633,
+      "timestamp": "2025-03-24T15:59:52.415000",
+      "order_id": 1106
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 134.43994021523608,
+      "profit_loss": 1.1242209296384544,
+      "profit_loss_pct": 0.8432770986518623,
+      "timestamp": "2025-03-24T15:59:52.419761",
+      "order_id": 1107
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 141.6287895882773,
+      "timestamp": "2025-03-25T09:21:13.617956",
+      "order_id": 1002
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 353.1993377268943,
+      "timestamp": "2025-03-25T09:23:13.634726",
+      "order_id": 1004
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 141.69715951451155,
+      "profit_loss": 0.06836992623425431,
+      "profit_loss_pct": 0.04827403131313357,
+      "timestamp": "2025-03-25T09:23:13.639650",
+      "order_id": 1005
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 141.32064892333995,
+      "timestamp": "2025-03-25T09:25:13.662732",
+      "order_id": 1006
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 140.95098020172537,
+      "profit_loss": -0.3696687216145733,
+      "profit_loss_pct": -0.26158153421380614,
+      "timestamp": "2025-03-25T09:45:07.740310",
+      "order_id": 1009
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 141.01924189680943,
+      "timestamp": "2025-03-25T10:03:10.339517",
+      "order_id": 1010
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 356.55249566557853,
+      "profit_loss": 3.3531579386842054,
+      "profit_loss_pct": 0.9493669949282246,
+      "timestamp": "2025-03-25T10:37:51.155972",
+      "order_id": 1011
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 140.02479422102667,
+      "profit_loss": -0.9944476757827658,
+      "profit_loss_pct": -0.7051858047219195,
+      "timestamp": "2025-03-25T10:55:28.456238",
+      "order_id": 1012
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 354.80569831521177,
+      "timestamp": "2025-03-25T11:17:01.438670",
+      "order_id": 1013
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 358.9175200608876,
+      "profit_loss": 4.111821745675854,
+      "profit_loss_pct": 1.158893942572159,
+      "timestamp": "2025-03-25T12:14:29.414493",
+      "order_id": 1015
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 359.18265423659847,
+      "timestamp": "2025-03-25T12:23:48.024249",
+      "order_id": 1016
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 137.99802511946785,
+      "timestamp": "2025-03-25T12:23:48.029177",
+      "order_id": 1017
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 360.32468756464885,
+      "profit_loss": 1.1420333280503883,
+      "profit_loss_pct": 0.3179533628865361,
+      "timestamp": "2025-03-25T12:24:48.040172",
+      "order_id": 1019
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 356.4859663049937,
+      "timestamp": "2025-03-25T12:25:48.052977",
+      "order_id": 1020
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 357.214106343174,
+      "profit_loss": 0.7281400381802996,
+      "profit_loss_pct": 0.20425489556503695,
+      "timestamp": "2025-03-25T12:27:48.075251",
+      "order_id": 1021
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 138.2279193069231,
+      "profit_loss": 0.22989418745524404,
+      "profit_loss_pct": 0.1665923749678555,
+      "timestamp": "2025-03-25T12:27:48.079963",
+      "order_id": 1022
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 360.4391076720058,
+      "timestamp": "2025-03-25T12:28:48.089715",
+      "order_id": 1024
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 138.7224219646336,
+      "timestamp": "2025-03-25T12:28:48.094305",
+      "order_id": 1025
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 139.26959417432835,
+      "profit_loss": 0.547172209694736,
+      "profit_loss_pct": 0.39443674782020377,
+      "timestamp": "2025-03-25T12:29:48.104963",
+      "order_id": 1026
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 141.3592181837602,
+      "timestamp": "2025-03-25T12:33:48.156856",
+      "order_id": 1029
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 362.3963956095159,
+      "profit_loss": 1.9572879375101024,
+      "profit_loss_pct": 0.5430287379612597,
+      "timestamp": "2025-03-25T12:52:39.377058",
+      "order_id": 1031
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 142.1530882294019,
+      "profit_loss": 0.7938700456417109,
+      "profit_loss_pct": 0.5615976487714613,
+      "timestamp": "2025-03-25T13:09:29.352188",
+      "order_id": 1033
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 364.0246686515002,
+      "timestamp": "2025-03-25T13:27:04.166255",
+      "order_id": 1034
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 368.28144601705185,
+      "profit_loss": 4.25677736555167,
+      "profit_loss_pct": 1.1693650821304358,
+      "timestamp": "2025-03-25T13:29:04.189116",
+      "order_id": 1036
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 143.01540685319605,
+      "timestamp": "2025-03-25T13:30:04.198894",
+      "order_id": 1037
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 364.0922440694311,
+      "timestamp": "2025-03-25T13:31:04.208866",
+      "order_id": 1039
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 365.7578031111565,
+      "profit_loss": 1.6655590417253734,
+      "profit_loss_pct": 0.4574552380214314,
+      "timestamp": "2025-03-25T13:32:04.221438",
+      "order_id": 1040
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 371.8910322044442,
+      "timestamp": "2025-03-25T13:34:04.251063",
+      "order_id": 1041
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 144.17712118047527,
+      "profit_loss": 1.1617143272792134,
+      "profit_loss_pct": 0.8123001240500693,
+      "timestamp": "2025-03-25T13:35:04.282357",
+      "order_id": 1042
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 144.9784354545396,
+      "timestamp": "2025-03-25T13:36:04.295857",
+      "order_id": 1043
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 369.7155103081999,
+      "profit_loss": -2.175521896244277,
+      "profit_loss_pct": -0.5849890714891726,
+      "timestamp": "2025-03-25T13:39:04.328346",
+      "order_id": 1045
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 370.18357932172586,
+      "timestamp": "2025-03-25T13:40:04.340452",
+      "order_id": 1046
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 370.7290186020353,
+      "profit_loss": 0.5454392803094379,
+      "profit_loss_pct": 0.14734291599558524,
+      "timestamp": "2025-03-25T13:42:04.361010",
+      "order_id": 1047
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 373.6883592605409,
+      "timestamp": "2025-03-25T13:43:04.373767",
+      "order_id": 1049
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 369.57287564965634,
+      "profit_loss": -4.115483610884553,
+      "profit_loss_pct": -1.1013143730322028,
+      "timestamp": "2025-03-25T13:44:04.391253",
+      "order_id": 1050
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 367.7325074675466,
+      "timestamp": "2025-03-25T13:45:04.400649",
+      "order_id": 1052
+    },
+    {
+      "symbol": "MSFT",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 364.1731616087309,
+      "profit_loss": -3.559345858815732,
+      "profit_loss_pct": -0.9679171100014483,
+      "timestamp": "2025-03-25T13:47:04.429334",
+      "order_id": 1053
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "SELL",
+      "quantity": 1,
+      "price": 147.49429741077196,
+      "profit_loss": 2.5158619562323565,
+      "profit_loss_pct": 1.7353352920002063,
+      "timestamp": "2025-03-25T13:47:04.433296",
+      "order_id": 1054
+    },
+    {
+      "symbol": "GOOGL",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 146.93265431913326,
+      "timestamp": "2025-03-25T14:28:32.404558",
+      "order_id": 1056
+    },
+    {
+      "symbol": "MSFT",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 364.77478551145407,
+      "timestamp": "2025-03-25T15:36:59.451346",
+      "order_id": 1058
+    },
+    {
+      "symbol": "NVDA",
+      "action": "BUY",
+      "quantity": 1,
+      "price": 126.72708114677647,
+      "timestamp": "2025-03-31T09:39:17.113529",
+      "order_id": 1002
+    }
+  ]
+}

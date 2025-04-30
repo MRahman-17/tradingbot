@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>run_news_backtest.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #8c8c8c; font-style: italic;}
+.s1 { color: #080808;}
+.s2 { color: #0033b3;}
+.s3 { color: #067d17;}
+.s4 { color: #1750eb;}
+.s5 { color: #0037a6;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+run_news_backtest.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#!/usr/bin/env python3</span>
+<span class="s0">&quot;&quot;&quot; 
+Backtest the news sentiment strategy to evaluate its effectiveness 
+&quot;&quot;&quot;</span>
+<span class="s2">import </span><span class="s1">os</span>
+<span class="s2">import </span><span class="s1">logging</span>
+<span class="s2">import </span><span class="s1">json</span>
+<span class="s2">import </span><span class="s1">argparse</span>
+<span class="s2">from </span><span class="s1">datetime </span><span class="s2">import </span><span class="s1">datetime, timedelta</span>
+<span class="s2">from </span><span class="s1">news_backtest </span><span class="s2">import </span><span class="s1">NewsSentimentBacktester</span>
+
+<span class="s0"># Configure logging</span>
+<span class="s1">logging.basicConfig(</span>
+    <span class="s1">level=logging.INFO,</span>
+    <span class="s1">format=</span><span class="s3">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>
+<span class="s1">)</span>
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;News Backtest Runner&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">parse_args():</span>
+    <span class="s0">&quot;&quot;&quot;Parse command line arguments&quot;&quot;&quot;</span>
+    <span class="s1">parser = argparse.ArgumentParser(description=</span><span class="s3">'Backtest news sentiment trading strategy'</span><span class="s1">)</span>
+    <span class="s1">parser.add_argument(</span><span class="s3">'--symbols'</span><span class="s1">, type=str, default=</span><span class="s3">&quot;AAPL,MSFT,NVDA&quot;</span><span class="s1">,</span>
+                        <span class="s1">help=</span><span class="s3">'Comma-separated list of symbols'</span><span class="s1">)</span>
+    <span class="s1">parser.add_argument(</span><span class="s3">'--days'</span><span class="s1">, type=int, default=</span><span class="s4">90</span><span class="s1">,</span>
+                        <span class="s1">help=</span><span class="s3">'Number of days to backtest'</span><span class="s1">)</span>
+    <span class="s1">parser.add_argument(</span><span class="s3">'--output'</span><span class="s1">, type=str, default=</span><span class="s2">None</span><span class="s1">,</span>
+                        <span class="s1">help=</span><span class="s3">'Output file for results (default: auto-generated)'</span><span class="s1">)</span>
+    <span class="s2">return </span><span class="s1">parser.parse_args()</span>
+
+
+<span class="s2">def </span><span class="s1">main():</span>
+    <span class="s0">&quot;&quot;&quot;Run the backtest&quot;&quot;&quot;</span>
+    <span class="s1">args = parse_args()</span>
+
+    <span class="s0"># Parse symbols</span>
+    <span class="s1">symbols = [s.strip() </span><span class="s2">for </span><span class="s1">s </span><span class="s2">in </span><span class="s1">args.symbols.split(</span><span class="s3">','</span><span class="s1">)]</span>
+
+    <span class="s0"># Set date range</span>
+    <span class="s1">end_date = datetime.now().strftime(</span><span class="s3">&quot;%Y-%m-%d&quot;</span><span class="s1">)</span>
+    <span class="s1">start_date = (datetime.now() - timedelta(days=args.days)).strftime(</span><span class="s3">&quot;%Y-%m-%d&quot;</span><span class="s1">)</span>
+
+    <span class="s1">logger.info(</span><span class="s3">f&quot;Starting backtest for </span><span class="s5">{</span><span class="s1">len(symbols)</span><span class="s5">} </span><span class="s3">symbols from </span><span class="s5">{</span><span class="s1">start_date</span><span class="s5">} </span><span class="s3">to </span><span class="s5">{</span><span class="s1">end_date</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Create backtester</span>
+    <span class="s1">backtester = NewsSentimentBacktester()</span>
+
+    <span class="s0"># Run backtest</span>
+    <span class="s1">results = backtester.backtest_news_sentiment(symbols, start_date, end_date)</span>
+
+    <span class="s0"># Display summary</span>
+    <span class="s2">if </span><span class="s1">results:</span>
+        <span class="s1">overall = results[</span><span class="s3">&quot;overall&quot;</span><span class="s1">]</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;====== Backtest Results Summary ======&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Symbols tested: </span><span class="s5">{</span><span class="s1">len(symbols)</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Total signals: </span><span class="s5">{</span><span class="s1">overall[</span><span class="s3">'total_signals'</span><span class="s1">]</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Overall accuracy: </span><span class="s5">{</span><span class="s1">overall.get(</span><span class="s3">'accuracy'</span><span class="s1">, </span><span class="s4">0</span><span class="s1">)</span><span class="s5">:</span><span class="s3">.4f</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Average return: </span><span class="s5">{</span><span class="s1">overall.get(</span><span class="s3">'avg_return'</span><span class="s1">, </span><span class="s4">0</span><span class="s1">)</span><span class="s5">:</span><span class="s3">.4%</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Profitable symbols: </span><span class="s5">{</span><span class="s1">overall.get(</span><span class="s3">'profitable_symbols'</span><span class="s1">, </span><span class="s4">0</span><span class="s1">)</span><span class="s5">}</span><span class="s3">/</span><span class="s5">{</span><span class="s1">len(symbols)</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;====================================&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Show individual symbol results</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Symbol Results:&quot;</span><span class="s1">)</span>
+        <span class="s2">for </span><span class="s1">symbol, data </span><span class="s2">in </span><span class="s1">results[</span><span class="s3">&quot;symbols&quot;</span><span class="s1">].items():</span>
+            <span class="s2">if </span><span class="s3">&quot;error&quot; </span><span class="s2">in </span><span class="s1">data:</span>
+                <span class="s1">logger.info(</span><span class="s3">f&quot;  </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: Error - </span><span class="s5">{</span><span class="s1">data[</span><span class="s3">'error'</span><span class="s1">]</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s1">logger.info(</span><span class="s3">f&quot;  </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: Accuracy </span><span class="s5">{</span><span class="s1">data.get(</span><span class="s3">'accuracy'</span><span class="s1">, </span><span class="s4">0</span><span class="s1">)</span><span class="s5">:</span><span class="s3">.4f</span><span class="s5">}</span><span class="s3">, &quot;</span>
+                            <span class="s3">f&quot;Avg Return </span><span class="s5">{</span><span class="s1">data.get(</span><span class="s3">'avg_return'</span><span class="s1">, </span><span class="s4">0</span><span class="s1">)</span><span class="s5">:</span><span class="s3">.4%</span><span class="s5">}</span><span class="s3">, &quot;</span>
+                            <span class="s3">f&quot;Signals: </span><span class="s5">{</span><span class="s1">data.get(</span><span class="s3">'signal_count'</span><span class="s1">, </span><span class="s4">0</span><span class="s1">)</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Save custom output if specified</span>
+    <span class="s2">if </span><span class="s1">args.output:</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s1">os.makedirs(os.path.dirname(args.output), exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+            <span class="s2">with </span><span class="s1">open(args.output, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                <span class="s1">json.dump(results, f, indent=</span><span class="s4">4</span><span class="s1">)</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Results saved to </span><span class="s5">{</span><span class="s1">args.output</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error saving results to </span><span class="s5">{</span><span class="s1">args.output</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">if </span><span class="s1">__name__ == </span><span class="s3">&quot;__main__&quot;</span><span class="s1">:</span>
+    <span class="s1">main()</span>
+</pre>
+</body>
+</html>

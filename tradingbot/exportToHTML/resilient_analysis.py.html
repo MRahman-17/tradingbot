@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>resilient_analysis.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #067d17;}
+.s3 { color: #8c8c8c; font-style: italic;}
+.s4 { color: #0037a6;}
+.s5 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+resilient_analysis.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">logging</span>
+<span class="s0">import </span><span class="s1">json</span>
+<span class="s0">import </span><span class="s1">os</span>
+<span class="s0">import </span><span class="s1">random</span>
+<span class="s0">from </span><span class="s1">datetime </span><span class="s0">import </span><span class="s1">datetime</span>
+
+<span class="s1">logger = logging.getLogger(</span><span class="s2">&quot;Resilient Analysis&quot;</span><span class="s1">)</span>
+
+
+<span class="s0">class </span><span class="s1">ResilientNewsAnalyzer:</span>
+    <span class="s0">def </span><span class="s1">__init__(self, news_collector=</span><span class="s0">None</span><span class="s1">):</span>
+        <span class="s1">self.news_collector = news_collector</span>
+        <span class="s1">self.fallback_enabled = </span><span class="s0">True</span>
+        <span class="s1">self.cache = {}</span>
+
+    <span class="s0">def </span><span class="s1">get_sentiment_with_fallback(self, symbol):</span>
+        <span class="s3">&quot;&quot;&quot;Get sentiment with fallback mechanisms&quot;&quot;&quot;</span>
+        <span class="s0">try</span><span class="s1">:</span>
+            <span class="s3"># Try primary sentiment analysis method via news collector</span>
+            <span class="s0">if </span><span class="s1">self.news_collector:</span>
+                <span class="s1">sentiment = self.news_collector.get_finance_sentiment_factors(symbol)</span>
+                <span class="s0">if </span><span class="s1">sentiment:</span>
+                    <span class="s1">logger.info(</span><span class="s2">f&quot;Successfully got primary sentiment for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+                    <span class="s3"># Cache the sentiment for future fallback</span>
+                    <span class="s1">self.cache[symbol] = sentiment</span>
+                    <span class="s0">return </span><span class="s1">sentiment</span>
+        <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s2">f&quot;Primary sentiment analysis failed for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+
+        <span class="s0">try</span><span class="s1">:</span>
+            <span class="s3"># Fall back to cached sentiment if recent</span>
+            <span class="s0">if </span><span class="s1">symbol </span><span class="s0">in </span><span class="s1">self.cache:</span>
+                <span class="s1">cache_time = self.cache[symbol].get(</span><span class="s2">&quot;timestamp&quot;</span><span class="s1">)</span>
+                <span class="s0">if </span><span class="s1">cache_time:</span>
+                    <span class="s0">try</span><span class="s1">:</span>
+                        <span class="s1">cache_dt = datetime.fromisoformat(cache_time)</span>
+                        <span class="s3"># If cached data is less than 30 minutes old, use it</span>
+                        <span class="s0">if </span><span class="s1">(datetime.now() - cache_dt).total_seconds() &lt; </span><span class="s5">1800</span><span class="s1">:</span>
+                            <span class="s1">logger.info(</span><span class="s2">f&quot;Using cached sentiment for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+                            <span class="s0">return </span><span class="s1">self.cache[symbol]</span>
+                    <span class="s0">except </span><span class="s1">(ValueError, TypeError) </span><span class="s0">as </span><span class="s1">e:</span>
+                        <span class="s1">logger.error(</span><span class="s2">f&quot;Error parsing cached timestamp for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+        <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s2">f&quot;Error checking sentiment cache: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+
+        <span class="s0">try</span><span class="s1">:</span>
+            <span class="s3"># Fall back to saved sentiment data</span>
+            <span class="s1">sentiment_path = </span><span class="s2">f&quot;data/sentiment/</span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">_factors.json&quot;</span>
+            <span class="s0">if </span><span class="s1">os.path.exists(sentiment_path):</span>
+                <span class="s0">try</span><span class="s1">:</span>
+                    <span class="s0">with </span><span class="s1">open(sentiment_path, </span><span class="s2">'r'</span><span class="s1">) </span><span class="s0">as </span><span class="s1">f:</span>
+                        <span class="s1">saved_sentiment = json.load(f)</span>
+                    <span class="s1">logger.info(</span><span class="s2">f&quot;Using saved sentiment data for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+                    <span class="s0">return </span><span class="s1">saved_sentiment</span>
+                <span class="s0">except </span><span class="s1">json.JSONDecodeError </span><span class="s0">as </span><span class="s1">e:</span>
+                    <span class="s1">logger.error(</span><span class="s2">f&quot;Error decoding JSON for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+        <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s2">f&quot;Error loading saved sentiment: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+
+        <span class="s0">try</span><span class="s1">:</span>
+            <span class="s3"># Fall back to alternative news sources</span>
+            <span class="s1">sentiment = self.get_alternative_sentiment(symbol)</span>
+            <span class="s0">if </span><span class="s1">sentiment:</span>
+                <span class="s1">logger.info(</span><span class="s2">f&quot;Used alternative sentiment source for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+                <span class="s0">return </span><span class="s1">sentiment</span>
+        <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s2">f&quot;Alternative sentiment analysis failed: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+
+        <span class="s3"># Return neutral sentiment as last resort</span>
+        <span class="s1">neutral_sentiment = {</span>
+            <span class="s2">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+            <span class="s2">&quot;combined_sentiment&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+            <span class="s2">&quot;sentiment_signal&quot;</span><span class="s1">: </span><span class="s5">0.5</span><span class="s1">,</span>
+            <span class="s2">&quot;news_sentiment&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+            <span class="s2">&quot;social_sentiment&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+            <span class="s2">&quot;fear_greed_sentiment&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+            <span class="s2">&quot;fear_greed_score&quot;</span><span class="s1">: </span><span class="s5">50</span><span class="s1">,</span>
+            <span class="s2">&quot;fear_greed_classification&quot;</span><span class="s1">: </span><span class="s2">&quot;Neutral&quot;</span><span class="s1">,</span>
+            <span class="s2">&quot;market_regime&quot;</span><span class="s1">: </span><span class="s2">&quot;Neutral&quot;</span><span class="s1">,</span>
+            <span class="s2">&quot;verification_score&quot;</span><span class="s1">: </span><span class="s5">0.5  </span><span class="s3"># Added for compatibility with NewsVerifier</span>
+        <span class="s1">}</span>
+
+        <span class="s1">logger.warning(</span><span class="s2">f&quot;Using neutral fallback sentiment for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+        <span class="s1">self.cache[symbol] = neutral_sentiment</span>
+        <span class="s0">return </span><span class="s1">neutral_sentiment</span>
+
+    <span class="s0">def </span><span class="s1">get_alternative_sentiment(self, symbol):</span>
+        <span class="s3">&quot;&quot;&quot;Get sentiment from alternative sources&quot;&quot;&quot;</span>
+        <span class="s3"># This could be implemented with a different API or method</span>
+        <span class="s3"># For now, return a slightly randomized neutral sentiment</span>
+        <span class="s1">sentiment_variation = random.uniform(-</span><span class="s5">0.1</span><span class="s1">, </span><span class="s5">0.1</span><span class="s1">)</span>
+
+        <span class="s3"># Ensure the sentiment_signal stays in the valid range [0, 1]</span>
+        <span class="s1">sentiment_signal = max(</span><span class="s5">0</span><span class="s1">, min(</span><span class="s5">1</span><span class="s1">, </span><span class="s5">0.5 </span><span class="s1">+ (sentiment_variation / </span><span class="s5">2</span><span class="s1">)))</span>
+
+        <span class="s3"># Ensure fear_greed_score stays in the valid range [0, 100]</span>
+        <span class="s1">fear_greed_score = max(</span><span class="s5">0</span><span class="s1">, min(</span><span class="s5">100</span><span class="s1">, </span><span class="s5">50 </span><span class="s1">+ int(sentiment_variation * </span><span class="s5">10</span><span class="s1">)))</span>
+
+        <span class="s1">sentiment = {</span>
+            <span class="s2">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+            <span class="s2">&quot;combined_sentiment&quot;</span><span class="s1">: sentiment_variation,</span>
+            <span class="s2">&quot;sentiment_signal&quot;</span><span class="s1">: sentiment_signal,</span>
+            <span class="s2">&quot;news_sentiment&quot;</span><span class="s1">: sentiment_variation,</span>
+            <span class="s2">&quot;social_sentiment&quot;</span><span class="s1">: sentiment_variation * </span><span class="s5">0.8</span><span class="s1">,</span>
+            <span class="s2">&quot;fear_greed_sentiment&quot;</span><span class="s1">: sentiment_variation * </span><span class="s5">0.5</span><span class="s1">,</span>
+            <span class="s2">&quot;fear_greed_score&quot;</span><span class="s1">: fear_greed_score,</span>
+            <span class="s2">&quot;fear_greed_classification&quot;</span><span class="s1">: </span><span class="s2">&quot;Neutral&quot;</span><span class="s1">,</span>
+            <span class="s2">&quot;market_regime&quot;</span><span class="s1">: </span><span class="s2">&quot;Neutral&quot;</span><span class="s1">,</span>
+            <span class="s2">&quot;source&quot;</span><span class="s1">: </span><span class="s2">&quot;alternative&quot;</span><span class="s1">,</span>
+            <span class="s2">&quot;verification_score&quot;</span><span class="s1">: </span><span class="s5">0.5  </span><span class="s3"># Added for compatibility with NewsVerifier</span>
+        <span class="s1">}</span>
+
+        <span class="s0">return </span><span class="s1">sentiment</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,53 @@
+{
+  "news_sources": {
+    "alpha_vantage_news": {
+      "enabled": true,
+      "api_key": "YOUR_ALPHA_VANTAGE_API_KEY",
+      "topics": [
+        "economy_macro",
+        "forex",
+        "merger_acquisition",
+        "earnings",
+        "ipo",
+        "financial_markets"
+      ],
+      "update_interval": 3600
+    },
+    "news_api": {
+      "enabled": true,
+      "api_key": "YOUR_NEWS_API_KEY",
+      "update_interval": 3600,
+      "sources": "bloomberg,financial-times,business-insider,cnbc,the-wall-street-journal,reuters"
+    },
+    "finnhub": {
+      "enabled": true,
+      "api_key": "YOUR_FINNHUB_API_KEY",
+      "update_interval": 1800
+    }
+  },
+  "fear_greed_index": {
+    "enabled": true,
+    "source": "cnn",
+    "update_interval": 14400,
+    "weight": 0.2
+  },
+  "sentiment_analysis": {
+    "method": "ensemble",
+    "news_weight": 0.15,
+    "social_sentiment_weight": 0.10,
+    "min_articles_required": 3
+  },
+  "social_sentiment": {
+    "enabled": false,
+    "sources": [
+      "twitter",
+      "reddit",
+      "stocktwits"
+    ],
+    "update_interval": 7200
+  },
+  "max_new
+  _age
+  ": 48,
+  "articles_per_symbol": 10
+}

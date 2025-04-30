@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-04-08T00:43:32.263493",
+  "symbol": "META",
+  "news_sentiment": 0,
+  "social_sentiment": -0.12657943785309347,
+  "fear_greed_sentiment": -0.52,
+  "fear_greed_score": 24,
+  "fear_greed_classification": "Extreme Fear",
+  "market_regime": "Extreme Fear - Potential Bottom",
+  "combined_sentiment": -0.14197383135592806,
+  "sentiment_signal": 0.429013084322036
+}

@@ -1,0 +1,523 @@
+2025-04-13 00:48:08,547 - Trading System - INFO - Configuration loaded successfully
+2025-04-13 00:48:08,772 - Platform Factory - INFO - Platform factory initialized with trading mode: paper
+2025-04-13 00:48:08,772 - Trading System - INFO - Initialized platform factory with new adapters
+2025-04-13 00:48:08,772 - Trading System - INFO - Environment variables loaded
+2025-04-13 00:48:08,781 - Trading System - INFO - Encryption key loaded
+2025-04-13 00:48:08,782 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-04-13 00:48:09,153 - Trading System - INFO - scikit-learn is available (version 1.6.1)
+2025-04-13 00:48:09,805 - Financial News - INFO - Financial News Collector initialized
+2025-04-13 00:48:09,806 - Financial News - ERROR - Error loading news configuration: Expecting value: line 1 column 1 (char 0)
+2025-04-13 00:48:09,806 - News Trading Integration - INFO - News integrator initialized
+2025-04-13 00:48:09,806 - Financial News - INFO - Financial News Collector initialized
+2025-04-13 00:48:09,806 - Financial News - ERROR - Error loading news configuration: Expecting value: line 1 column 1 (char 0)
+2025-04-13 00:48:09,806 - News Trading Integration - INFO - News integrator initialized
+2025-04-13 00:48:09,806 - Quantum Trading Bot - INFO - Attempting to import quantum libraries...
+2025-04-13 00:48:10,380 - qiskit.passmanager.base_tasks - INFO - Pass: UnrollCustomDefinitions - 0.15903 (ms)
+2025-04-13 00:48:10,380 - qiskit.transpiler.passes.basis.basis_translator - INFO - Begin BasisTranslator from source basis {('u3', 1)} to target basis {'x', 'reset', 'ry', 'measure', 'delay', 'rx', 'p', 'snapshot', 'barrier', 'u', 'z', 'rz', 'store', 'cx'}.
+2025-04-13 00:48:10,380 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation path search completed in 0.000s.
+2025-04-13 00:48:10,380 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation paths composed in 0.000s.
+2025-04-13 00:48:10,381 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation instructions replaced in 0.000s.
+2025-04-13 00:48:10,381 - qiskit.passmanager.base_tasks - INFO - Pass: BasisTranslator - 0.53716 (ms)
+2025-04-13 00:48:10,384 - Quantum Trading Bot - INFO - Quantum libraries successfully imported: PennyLane 0.40.0, Qiskit 1.2.4
+2025-04-13 00:48:10,388 - Quantum Trading Bot - INFO - ========== TRADING LOOP FUNCTION ENTERED ==========
+2025-04-13 00:48:10,388 - Trading System - INFO - Started Trading Bot
+2025-04-13 00:48:10,388 - Monitor Bot - INFO - Starting monitoring loop
+2025-04-13 00:48:10,388 - Trading System - INFO - Started Monitor Bot
+2025-04-13 00:48:10,388 - Quantum Trading Bot - INFO - Configuration loaded successfully
+2025-04-13 00:48:10,388 - Improvement Bot - INFO - Starting improvement bot
+2025-04-13 00:48:10,388 - Trading System - INFO - Started Improvement Bot
+2025-04-13 00:48:10,388 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 00:48:10,388 - Trading System - INFO - All bots started. Press Ctrl+C to exit.
+2025-04-13 00:48:10,388 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 00:48:10,388 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 00:48:10,388 - Improvement Bot - INFO - Configuration loaded successfully
+2025-04-13 00:48:10,389 - Quantum Trading Bot - INFO - Trade history loaded
+2025-04-13 00:48:10,389 - Quantum Trading Bot - INFO - Signal handlers not installed - not in main thread
+2025-04-13 00:48:10,389 - Quantum Trading Bot - INFO - Initialized PennyLane quantum device: default.qubit
+2025-04-13 00:48:10,389 - Quantum Trading Bot - INFO - Mock adapter initialized
+2025-04-13 00:48:10,390 - Improvement Bot - INFO - Running scheduled task: System Backup
+2025-04-13 00:48:10,390 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 00:48:10,390 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 00:48:10,390 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 00:48:10,392 - Monitor Bot - INFO - Running scheduled task: Initial Performance Metrics
+2025-04-13 00:48:10,394 - Monitor Bot - INFO - === Performance Metrics ===
+2025-04-13 00:48:10,394 - Monitor Bot - INFO - Date: 2025-04-12T23:46:06.133112
+2025-04-13 00:48:10,394 - Monitor Bot - INFO - Total Trades: 72
+2025-04-13 00:48:10,394 - Monitor Bot - INFO - Win Rate: 55.56%
+2025-04-13 00:48:10,394 - Monitor Bot - INFO - Total Profit: $18.27
+2025-04-13 00:48:10,394 - Monitor Bot - INFO - Average Profit per Trade: $0.25
+2025-04-13 00:48:10,394 - Monitor Bot - INFO - Average Profit Percentage: 0.09%
+2025-04-13 00:48:10,394 - Monitor Bot - INFO - Maximum Drawdown: 0.10%
+2025-04-13 00:48:10,395 - Monitor Bot - INFO - ============================
+2025-04-13 00:48:10,397 - Monitor Bot - INFO - Task Initial Performance Metrics completed successfully
+2025-04-13 00:48:10,397 - Monitor Bot - INFO - Running scheduled task: Initial API Health Check
+2025-04-13 00:48:10,397 - WebUll Adapter - INFO - Generated device ID for WebUll: TradingBot-05e9fc221408
+2025-04-13 00:48:10,397 - WebUll Adapter - INFO - WebUll Adapter initialized in paper trading mode
+2025-04-13 00:48:10,397 - Platform Factory - INFO - Created WebUll adapter in paper mode
+2025-04-13 00:48:10,400 - Improvement Bot - INFO - System snapshot created at backups/snapshot_20250413_004810
+2025-04-13 00:48:10,400 - Improvement Bot - INFO - Task System Backup completed successfully
+2025-04-13 00:48:10,400 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Trading Bot
+2025-04-13 00:48:10,401 - Improvement Bot - INFO - Found 2 issues in trading_bot
+2025-04-13 00:48:10,401 - Improvement Bot - INFO - Task Code Quality Check - Trading Bot completed successfully
+2025-04-13 00:48:10,401 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Monitor Bot
+2025-04-13 00:48:10,401 - Improvement Bot - INFO - No issues found in monitor_bot
+2025-04-13 00:48:10,401 - Improvement Bot - WARNING - Task Code Quality Check - Monitor Bot completed with warnings
+2025-04-13 00:48:10,401 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Improvement Bot
+2025-04-13 00:48:10,401 - Improvement Bot - INFO - Found 6 issues in improvement_bot
+2025-04-13 00:48:10,401 - Improvement Bot - INFO - Task Code Quality Check - Improvement Bot completed successfully
+2025-04-13 00:48:10,401 - Improvement Bot - INFO - Running scheduled task: ML Model Optimization
+2025-04-13 00:48:10,401 - Improvement Bot - INFO - No ML models found to optimize
+2025-04-13 00:48:10,401 - Improvement Bot - WARNING - Task ML Model Optimization completed with warnings
+2025-04-13 00:48:10,401 - Improvement Bot - INFO - Running scheduled task: Quantum Circuit Optimization
+2025-04-13 00:48:10,401 - Improvement Bot - INFO - Starting quantum circuit optimization
+2025-04-13 00:48:10,402 - Improvement Bot - INFO - No quantum model files found to optimize
+2025-04-13 00:48:10,402 - Improvement Bot - WARNING - Task Quantum Circuit Optimization completed with warnings
+2025-04-13 00:48:10,402 - Improvement Bot - INFO - Running scheduled task: Quantum Error Analysis
+2025-04-13 00:48:10,402 - Improvement Bot - INFO - Analyzing quantum error rates
+2025-04-13 00:48:10,402 - Improvement Bot - INFO - Quantum error analysis completed: avg error 0.0431, trend +0.0105
+2025-04-13 00:48:10,402 - Improvement Bot - INFO - Task Quantum Error Analysis completed successfully
+2025-04-13 00:48:10,402 - Improvement Bot - INFO - Running scheduled task: Quantum Prediction Analysis
+2025-04-13 00:48:10,402 - Improvement Bot - INFO - Evaluating quantum prediction accuracy
+2025-04-13 00:48:10,403 - Improvement Bot - INFO - No completed quantum predictions found
+2025-04-13 00:48:10,403 - Improvement Bot - WARNING - Task Quantum Prediction Analysis completed with warnings
+2025-04-13 00:48:10,403 - Improvement Bot - INFO - Running scheduled task: Quantum Weight Optimization
+2025-04-13 00:48:10,403 - Improvement Bot - INFO - Generated new quantum-optimized weights
+2025-04-13 00:48:10,403 - Improvement Bot - INFO - Task Quantum Weight Optimization completed successfully
+2025-04-13 00:48:10,403 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-04-13 00:48:10,405 - Improvement Bot - INFO - Win rate trend: +0.00%
+2025-04-13 00:48:10,405 - Improvement Bot - INFO - Profit trend: +0.00%
+2025-04-13 00:48:10,405 - Improvement Bot - INFO - System health analysis completed: healthy
+2025-04-13 00:48:10,405 - Improvement Bot - INFO - Task System Health Analysis completed successfully
+2025-04-13 00:48:10,930 - WebUll Adapter - INFO - Authentication successful
+2025-04-13 00:48:11,854 - Zoya Adapter - INFO - Zoya Adapter initialized in sandbox mode
+2025-04-13 00:48:11,854 - Platform Factory - INFO - Created Zoya adapter in sandbox mode
+2025-04-13 00:48:13,128 - Monitor Bot - INFO - === API Health Status ===
+2025-04-13 00:48:13,128 - Monitor Bot - INFO - WebUll API: OK
+2025-04-13 00:48:13,128 - Monitor Bot - INFO - Zoya API: OK
+2025-04-13 00:48:13,128 - Monitor Bot - INFO - =======================
+2025-04-13 00:48:13,129 - Monitor Bot - INFO - Task Initial API Health Check completed successfully
+2025-04-13 00:48:13,129 - Monitor Bot - INFO - Running scheduled task: Initial Legal Compliance Report
+2025-04-13 00:48:13,131 - Monitor Bot - INFO - Legal compliance report generated at legal/compliance_reports/compliance_report_20250413.json
+2025-04-13 00:48:13,131 - Monitor Bot - INFO - Task Initial Legal Compliance Report completed successfully
+2025-04-13 00:48:13,131 - Monitor Bot - INFO - Running scheduled task: Initial Quantum System Health Check
+2025-04-13 00:48:13,131 - Monitor Bot - INFO - Monitoring quantum system health
+2025-04-13 00:48:13,133 - Monitor Bot - INFO - Average quantum error rate: 0.0482
+2025-04-13 00:48:13,135 - Monitor Bot - INFO - Task Initial Quantum System Health Check completed successfully
+2025-04-13 00:48:13,335 - Trading System - INFO - Main process interrupted, shutting down...
+2025-04-13 00:48:13,335 - Trading System - INFO - Trading system shutdown complete
+2025-04-13 00:58:07,552 - Trading System - INFO - Configuration loaded successfully
+2025-04-13 00:58:07,770 - Platform Factory - INFO - Platform factory initialized with trading mode: paper
+2025-04-13 00:58:07,770 - Trading System - INFO - Initialized platform factory with new adapters
+2025-04-13 00:58:07,771 - Trading System - INFO - Environment variables loaded
+2025-04-13 00:58:07,779 - Trading System - INFO - Encryption key loaded
+2025-04-13 00:58:07,780 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-04-13 00:58:08,130 - Trading System - INFO - scikit-learn is available (version 1.6.1)
+2025-04-13 00:58:08,780 - Financial News - INFO - Financial News Collector initialized
+2025-04-13 00:58:08,780 - Financial News - ERROR - Error loading news configuration: Expecting value: line 1 column 1 (char 0)
+2025-04-13 00:58:08,780 - News Trading Integration - INFO - News integrator initialized
+2025-04-13 00:58:08,780 - Financial News - INFO - Financial News Collector initialized
+2025-04-13 00:58:08,780 - Financial News - ERROR - Error loading news configuration: Expecting value: line 1 column 1 (char 0)
+2025-04-13 00:58:08,780 - News Trading Integration - INFO - News integrator initialized
+2025-04-13 00:58:08,780 - Quantum Trading Bot - INFO - Attempting to import quantum libraries...
+2025-04-13 00:58:09,312 - qiskit.passmanager.base_tasks - INFO - Pass: UnrollCustomDefinitions - 0.12589 (ms)
+2025-04-13 00:58:09,312 - qiskit.transpiler.passes.basis.basis_translator - INFO - Begin BasisTranslator from source basis {('u3', 1)} to target basis {'barrier', 'u', 'rx', 'store', 'cx', 'ry', 'x', 'snapshot', 'measure', 'reset', 'z', 'p', 'delay', 'rz'}.
+2025-04-13 00:58:09,312 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation path search completed in 0.000s.
+2025-04-13 00:58:09,313 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation paths composed in 0.000s.
+2025-04-13 00:58:09,313 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation instructions replaced in 0.000s.
+2025-04-13 00:58:09,313 - qiskit.passmanager.base_tasks - INFO - Pass: BasisTranslator - 0.56815 (ms)
+2025-04-13 00:58:09,316 - Quantum Trading Bot - INFO - Quantum libraries successfully imported: PennyLane 0.40.0, Qiskit 1.2.4
+2025-04-13 00:58:09,320 - Quantum Trading Bot - INFO - ========== TRADING LOOP FUNCTION ENTERED ==========
+2025-04-13 00:58:09,320 - Trading System - INFO - Started Trading Bot
+2025-04-13 00:58:09,320 - Monitor Bot - INFO - Starting monitoring loop
+2025-04-13 00:58:09,320 - Trading System - INFO - Started Monitor Bot
+2025-04-13 00:58:09,320 - Quantum Trading Bot - INFO - Configuration loaded successfully
+2025-04-13 00:58:09,320 - Improvement Bot - INFO - Starting improvement bot
+2025-04-13 00:58:09,320 - Trading System - INFO - Started Improvement Bot
+2025-04-13 00:58:09,320 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 00:58:09,320 - Trading System - INFO - All bots started. Press Ctrl+C to exit.
+2025-04-13 00:58:09,320 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 00:58:09,320 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 00:58:09,321 - Quantum Trading Bot - INFO - Trade history loaded
+2025-04-13 00:58:09,321 - Improvement Bot - INFO - Configuration loaded successfully
+2025-04-13 00:58:09,321 - Quantum Trading Bot - INFO - Signal handlers not installed - not in main thread
+2025-04-13 00:58:09,321 - Quantum Trading Bot - INFO - Initialized PennyLane quantum device: default.qubit
+2025-04-13 00:58:09,321 - Quantum Trading Bot - INFO - Mock adapter initialized
+2025-04-13 00:58:09,322 - Improvement Bot - INFO - Running scheduled task: System Backup
+2025-04-13 00:58:09,322 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 00:58:09,322 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 00:58:09,323 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 00:58:09,324 - Monitor Bot - INFO - Running scheduled task: Initial Performance Metrics
+2025-04-13 00:58:09,327 - Monitor Bot - INFO - === Performance Metrics ===
+2025-04-13 00:58:09,327 - Monitor Bot - INFO - Date: 2025-04-12T23:46:06.133112
+2025-04-13 00:58:09,327 - Monitor Bot - INFO - Total Trades: 72
+2025-04-13 00:58:09,327 - Monitor Bot - INFO - Win Rate: 55.56%
+2025-04-13 00:58:09,327 - Monitor Bot - INFO - Total Profit: $18.27
+2025-04-13 00:58:09,327 - Monitor Bot - INFO - Average Profit per Trade: $0.25
+2025-04-13 00:58:09,327 - Monitor Bot - INFO - Average Profit Percentage: 0.09%
+2025-04-13 00:58:09,327 - Monitor Bot - INFO - Maximum Drawdown: 0.10%
+2025-04-13 00:58:09,327 - Monitor Bot - INFO - ============================
+2025-04-13 00:58:09,329 - Monitor Bot - INFO - Task Initial Performance Metrics completed successfully
+2025-04-13 00:58:09,329 - Monitor Bot - INFO - Running scheduled task: Initial API Health Check
+2025-04-13 00:58:09,329 - WebUll Adapter - INFO - Generated device ID for WebUll: TradingBot-05e9fc221408
+2025-04-13 00:58:09,330 - WebUll Adapter - INFO - WebUll Adapter initialized in paper trading mode
+2025-04-13 00:58:09,330 - Platform Factory - INFO - Created WebUll adapter in paper mode
+2025-04-13 00:58:09,332 - Improvement Bot - INFO - System snapshot created at backups/snapshot_20250413_005809
+2025-04-13 00:58:09,332 - Improvement Bot - INFO - Task System Backup completed successfully
+2025-04-13 00:58:09,332 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Trading Bot
+2025-04-13 00:58:09,333 - Improvement Bot - INFO - Found 2 issues in trading_bot
+2025-04-13 00:58:09,333 - Improvement Bot - INFO - Task Code Quality Check - Trading Bot completed successfully
+2025-04-13 00:58:09,333 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Monitor Bot
+2025-04-13 00:58:09,333 - Improvement Bot - INFO - No issues found in monitor_bot
+2025-04-13 00:58:09,333 - Improvement Bot - WARNING - Task Code Quality Check - Monitor Bot completed with warnings
+2025-04-13 00:58:09,333 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Improvement Bot
+2025-04-13 00:58:09,334 - Improvement Bot - INFO - Found 6 issues in improvement_bot
+2025-04-13 00:58:09,334 - Improvement Bot - INFO - Task Code Quality Check - Improvement Bot completed successfully
+2025-04-13 00:58:09,334 - Improvement Bot - INFO - Running scheduled task: ML Model Optimization
+2025-04-13 00:58:09,334 - Improvement Bot - INFO - No ML models found to optimize
+2025-04-13 00:58:09,334 - Improvement Bot - WARNING - Task ML Model Optimization completed with warnings
+2025-04-13 00:58:09,334 - Improvement Bot - INFO - Running scheduled task: Quantum Circuit Optimization
+2025-04-13 00:58:09,334 - Improvement Bot - INFO - Starting quantum circuit optimization
+2025-04-13 00:58:09,334 - Improvement Bot - INFO - No quantum model files found to optimize
+2025-04-13 00:58:09,334 - Improvement Bot - WARNING - Task Quantum Circuit Optimization completed with warnings
+2025-04-13 00:58:09,334 - Improvement Bot - INFO - Running scheduled task: Quantum Error Analysis
+2025-04-13 00:58:09,334 - Improvement Bot - INFO - Analyzing quantum error rates
+2025-04-13 00:58:09,335 - Improvement Bot - INFO - Quantum error analysis completed: avg error 0.0431, trend +0.0105
+2025-04-13 00:58:09,335 - Improvement Bot - INFO - Task Quantum Error Analysis completed successfully
+2025-04-13 00:58:09,335 - Improvement Bot - INFO - Running scheduled task: Quantum Prediction Analysis
+2025-04-13 00:58:09,335 - Improvement Bot - INFO - Evaluating quantum prediction accuracy
+2025-04-13 00:58:09,335 - Improvement Bot - INFO - No completed quantum predictions found
+2025-04-13 00:58:09,335 - Improvement Bot - WARNING - Task Quantum Prediction Analysis completed with warnings
+2025-04-13 00:58:09,335 - Improvement Bot - INFO - Running scheduled task: Quantum Weight Optimization
+2025-04-13 00:58:09,336 - Improvement Bot - INFO - Generated new quantum-optimized weights
+2025-04-13 00:58:09,336 - Improvement Bot - INFO - Task Quantum Weight Optimization completed successfully
+2025-04-13 00:58:09,336 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-04-13 00:58:09,337 - Improvement Bot - INFO - Win rate trend: +0.00%
+2025-04-13 00:58:09,337 - Improvement Bot - INFO - Profit trend: +0.00%
+2025-04-13 00:58:09,338 - Improvement Bot - INFO - System health analysis completed: healthy
+2025-04-13 00:58:09,338 - Improvement Bot - INFO - Task System Health Analysis completed successfully
+2025-04-13 00:58:09,684 - WebUll Adapter - INFO - Authentication successful
+2025-04-13 00:58:10,312 - Zoya Adapter - INFO - Zoya Adapter initialized in sandbox mode
+2025-04-13 00:58:10,312 - Platform Factory - INFO - Created Zoya adapter in sandbox mode
+2025-04-13 00:58:10,539 - Monitor Bot - INFO - === API Health Status ===
+2025-04-13 00:58:10,539 - Monitor Bot - INFO - WebUll API: OK
+2025-04-13 00:58:10,539 - Monitor Bot - INFO - Zoya API: OK
+2025-04-13 00:58:10,539 - Monitor Bot - INFO - =======================
+2025-04-13 00:58:10,540 - Monitor Bot - INFO - Task Initial API Health Check completed successfully
+2025-04-13 00:58:10,540 - Monitor Bot - INFO - Running scheduled task: Initial Legal Compliance Report
+2025-04-13 00:58:10,541 - Monitor Bot - INFO - Legal compliance report generated at legal/compliance_reports/compliance_report_20250413.json
+2025-04-13 00:58:10,541 - Monitor Bot - INFO - Task Initial Legal Compliance Report completed successfully
+2025-04-13 00:58:10,541 - Monitor Bot - INFO - Running scheduled task: Initial Quantum System Health Check
+2025-04-13 00:58:10,541 - Monitor Bot - INFO - Monitoring quantum system health
+2025-04-13 00:58:10,543 - Monitor Bot - INFO - Average quantum error rate: 0.0482
+2025-04-13 00:58:10,545 - Monitor Bot - INFO - Task Initial Quantum System Health Check completed successfully
+2025-04-13 00:59:09,326 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 00:59:09,328 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 00:59:09,329 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 00:59:09,329 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 00:59:09,330 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 00:59:09,330 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:00:09,332 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:00:09,334 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:00:09,334 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:00:09,335 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:00:09,335 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:00:09,335 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:01:09,336 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:01:09,336 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:01:09,336 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:01:09,337 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:01:09,337 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:01:09,337 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:02:09,358 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:02:09,359 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:02:09,359 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:02:09,360 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:02:09,360 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:02:09,360 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:03:09,362 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:03:09,364 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:03:09,364 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:03:09,366 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:03:09,366 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:03:09,366 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:04:09,368 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:04:09,369 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:04:09,370 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:04:09,370 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:04:09,370 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:04:09,370 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:05:09,372 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:05:09,374 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:05:09,374 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:05:09,375 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:05:09,375 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:05:09,375 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:06:09,380 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:06:09,382 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:06:09,385 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:06:09,385 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:06:09,385 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:06:09,385 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:07:09,390 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:07:09,392 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:07:09,393 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:07:09,393 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:07:09,393 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:07:09,393 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:08:09,398 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:08:09,400 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:08:09,401 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:08:09,401 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:08:09,401 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:08:09,401 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:09:09,406 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:09:09,407 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:09:09,408 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:09:09,408 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:09:09,408 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:09:09,408 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:09:18,016 - Trading System - INFO - Main process interrupted, shutting down...
+2025-04-13 01:09:18,017 - Trading System - INFO - Trading system shutdown complete
+2025-04-13 01:09:25,133 - Trading System - INFO - Configuration loaded successfully
+2025-04-13 01:09:25,360 - Platform Factory - INFO - Platform factory initialized with trading mode: paper
+2025-04-13 01:09:25,360 - Trading System - INFO - Initialized platform factory with new adapters
+2025-04-13 01:09:25,361 - Trading System - INFO - Environment variables loaded
+2025-04-13 01:09:25,369 - Trading System - INFO - Encryption key loaded
+2025-04-13 01:09:25,370 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-04-13 01:09:25,744 - Trading System - INFO - scikit-learn is available (version 1.6.1)
+2025-04-13 01:09:26,417 - Financial News - INFO - Financial News Collector initialized
+2025-04-13 01:09:26,418 - Financial News - ERROR - Error loading news configuration: Expecting value: line 1 column 1 (char 0)
+2025-04-13 01:09:26,418 - News Trading Integration - INFO - News integrator initialized
+2025-04-13 01:09:26,418 - Financial News - INFO - Financial News Collector initialized
+2025-04-13 01:09:26,418 - Financial News - ERROR - Error loading news configuration: Expecting value: line 1 column 1 (char 0)
+2025-04-13 01:09:26,418 - News Trading Integration - INFO - News integrator initialized
+2025-04-13 01:09:26,418 - Quantum Trading Bot - INFO - Attempting to import quantum libraries...
+2025-04-13 01:09:27,006 - qiskit.passmanager.base_tasks - INFO - Pass: UnrollCustomDefinitions - 0.13995 (ms)
+2025-04-13 01:09:27,006 - qiskit.transpiler.passes.basis.basis_translator - INFO - Begin BasisTranslator from source basis {('u3', 1)} to target basis {'measure', 'cx', 'store', 'barrier', 'x', 'rz', 'u', 'z', 'delay', 'rx', 'reset', 'ry', 'snapshot', 'p'}.
+2025-04-13 01:09:27,006 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation path search completed in 0.000s.
+2025-04-13 01:09:27,006 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation paths composed in 0.000s.
+2025-04-13 01:09:27,006 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation instructions replaced in 0.000s.
+2025-04-13 01:09:27,006 - qiskit.passmanager.base_tasks - INFO - Pass: BasisTranslator - 0.55909 (ms)
+2025-04-13 01:09:27,010 - Quantum Trading Bot - INFO - Quantum libraries successfully imported: PennyLane 0.40.0, Qiskit 1.2.4
+2025-04-13 01:09:27,015 - Quantum Trading Bot - INFO - ========== TRADING LOOP FUNCTION ENTERED ==========
+2025-04-13 01:09:27,015 - Trading System - INFO - Started Trading Bot
+2025-04-13 01:09:27,015 - Monitor Bot - INFO - Starting monitoring loop
+2025-04-13 01:09:27,015 - Quantum Trading Bot - INFO - Configuration loaded successfully
+2025-04-13 01:09:27,015 - Trading System - INFO - Started Monitor Bot
+2025-04-13 01:09:27,015 - Improvement Bot - INFO - Starting improvement bot
+2025-04-13 01:09:27,015 - Trading System - INFO - Started Improvement Bot
+2025-04-13 01:09:27,015 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:09:27,015 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:09:27,015 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:09:27,015 - Trading System - INFO - All bots started. Press Ctrl+C to exit.
+2025-04-13 01:09:27,015 - Improvement Bot - INFO - Configuration loaded successfully
+2025-04-13 01:09:27,016 - Quantum Trading Bot - INFO - Trade history loaded
+2025-04-13 01:09:27,016 - Quantum Trading Bot - INFO - Signal handlers not installed - not in main thread
+2025-04-13 01:09:27,016 - Quantum Trading Bot - INFO - Initialized PennyLane quantum device: default.qubit
+2025-04-13 01:09:27,016 - Quantum Trading Bot - INFO - Mock adapter initialized
+2025-04-13 01:09:27,017 - Improvement Bot - INFO - Running scheduled task: System Backup
+2025-04-13 01:09:27,017 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:09:27,017 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:09:27,017 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:09:27,019 - Monitor Bot - INFO - Running scheduled task: Initial Performance Metrics
+2025-04-13 01:09:27,022 - Monitor Bot - INFO - === Performance Metrics ===
+2025-04-13 01:09:27,022 - Monitor Bot - INFO - Date: 2025-04-12T23:46:06.133112
+2025-04-13 01:09:27,022 - Monitor Bot - INFO - Total Trades: 72
+2025-04-13 01:09:27,022 - Monitor Bot - INFO - Win Rate: 55.56%
+2025-04-13 01:09:27,022 - Monitor Bot - INFO - Total Profit: $18.27
+2025-04-13 01:09:27,022 - Monitor Bot - INFO - Average Profit per Trade: $0.25
+2025-04-13 01:09:27,022 - Monitor Bot - INFO - Average Profit Percentage: 0.09%
+2025-04-13 01:09:27,022 - Monitor Bot - INFO - Maximum Drawdown: 0.10%
+2025-04-13 01:09:27,022 - Monitor Bot - INFO - ============================
+2025-04-13 01:09:27,024 - Monitor Bot - INFO - Task Initial Performance Metrics completed successfully
+2025-04-13 01:09:27,024 - Monitor Bot - INFO - Running scheduled task: Initial API Health Check
+2025-04-13 01:09:27,024 - WebUll Adapter - INFO - Generated device ID for WebUll: TradingBot-05e9fc221408
+2025-04-13 01:09:27,024 - WebUll Adapter - INFO - WebUll Adapter initialized in paper trading mode
+2025-04-13 01:09:27,024 - Platform Factory - INFO - Created WebUll adapter in paper mode
+2025-04-13 01:09:27,026 - Improvement Bot - INFO - System snapshot created at backups/snapshot_20250413_010927
+2025-04-13 01:09:27,027 - Improvement Bot - INFO - Task System Backup completed successfully
+2025-04-13 01:09:27,027 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Trading Bot
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - Found 2 issues in trading_bot
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - Task Code Quality Check - Trading Bot completed successfully
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Monitor Bot
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - No issues found in monitor_bot
+2025-04-13 01:09:27,028 - Improvement Bot - WARNING - Task Code Quality Check - Monitor Bot completed with warnings
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Improvement Bot
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - Found 6 issues in improvement_bot
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - Task Code Quality Check - Improvement Bot completed successfully
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - Running scheduled task: ML Model Optimization
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - No ML models found to optimize
+2025-04-13 01:09:27,028 - Improvement Bot - WARNING - Task ML Model Optimization completed with warnings
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - Running scheduled task: Quantum Circuit Optimization
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - Starting quantum circuit optimization
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - No quantum model files found to optimize
+2025-04-13 01:09:27,028 - Improvement Bot - WARNING - Task Quantum Circuit Optimization completed with warnings
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - Running scheduled task: Quantum Error Analysis
+2025-04-13 01:09:27,028 - Improvement Bot - INFO - Analyzing quantum error rates
+2025-04-13 01:09:27,029 - Improvement Bot - INFO - Quantum error analysis completed: avg error 0.0431, trend +0.0105
+2025-04-13 01:09:27,029 - Improvement Bot - INFO - Task Quantum Error Analysis completed successfully
+2025-04-13 01:09:27,029 - Improvement Bot - INFO - Running scheduled task: Quantum Prediction Analysis
+2025-04-13 01:09:27,029 - Improvement Bot - INFO - Evaluating quantum prediction accuracy
+2025-04-13 01:09:27,030 - Improvement Bot - INFO - No completed quantum predictions found
+2025-04-13 01:09:27,030 - Improvement Bot - WARNING - Task Quantum Prediction Analysis completed with warnings
+2025-04-13 01:09:27,030 - Improvement Bot - INFO - Running scheduled task: Quantum Weight Optimization
+2025-04-13 01:09:27,030 - Improvement Bot - INFO - Generated new quantum-optimized weights
+2025-04-13 01:09:27,030 - Improvement Bot - INFO - Task Quantum Weight Optimization completed successfully
+2025-04-13 01:09:27,030 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-04-13 01:09:27,032 - Improvement Bot - INFO - Win rate trend: +0.00%
+2025-04-13 01:09:27,032 - Improvement Bot - INFO - Profit trend: +0.00%
+2025-04-13 01:09:27,032 - Improvement Bot - INFO - System health analysis completed: healthy
+2025-04-13 01:09:27,032 - Improvement Bot - INFO - Task System Health Analysis completed successfully
+2025-04-13 01:09:27,338 - WebUll Adapter - INFO - Authentication successful
+2025-04-13 01:09:28,262 - Zoya Adapter - INFO - Zoya Adapter initialized in sandbox mode
+2025-04-13 01:09:28,262 - Platform Factory - INFO - Created Zoya adapter in sandbox mode
+2025-04-13 01:09:29,508 - Monitor Bot - INFO - === API Health Status ===
+2025-04-13 01:09:29,508 - Monitor Bot - INFO - WebUll API: OK
+2025-04-13 01:09:29,509 - Monitor Bot - INFO - Zoya API: OK
+2025-04-13 01:09:29,509 - Monitor Bot - INFO - =======================
+2025-04-13 01:09:29,509 - Monitor Bot - INFO - Task Initial API Health Check completed successfully
+2025-04-13 01:09:29,509 - Monitor Bot - INFO - Running scheduled task: Initial Legal Compliance Report
+2025-04-13 01:09:29,511 - Monitor Bot - INFO - Legal compliance report generated at legal/compliance_reports/compliance_report_20250413.json
+2025-04-13 01:09:29,511 - Monitor Bot - INFO - Task Initial Legal Compliance Report completed successfully
+2025-04-13 01:09:29,511 - Monitor Bot - INFO - Running scheduled task: Initial Quantum System Health Check
+2025-04-13 01:09:29,511 - Monitor Bot - INFO - Monitoring quantum system health
+2025-04-13 01:09:29,513 - Monitor Bot - INFO - Average quantum error rate: 0.0482
+2025-04-13 01:09:29,515 - Monitor Bot - INFO - Task Initial Quantum System Health Check completed successfully
+2025-04-13 01:10:27,021 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:10:27,021 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:10:27,022 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:10:27,022 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:10:27,022 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:10:27,022 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:11:27,025 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:11:27,027 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:11:27,028 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:11:27,029 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:11:27,029 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:11:27,029 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:12:27,032 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:12:27,033 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:12:27,033 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:12:27,034 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:12:27,034 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:12:27,034 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:13:27,038 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:13:27,040 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:13:27,041 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:13:27,042 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:13:27,042 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:13:27,042 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:14:27,047 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 01:14:27,048 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 01:14:27,049 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 01:14:27,049 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 01:14:27,050 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 01:14:27,050 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 01:14:46,945 - Trading System - INFO - Main process interrupted, shutting down...
+2025-04-13 01:14:46,945 - Trading System - INFO - Trading system shutdown complete
+2025-04-13 13:39:41,081 - Trading System - INFO - Configuration loaded successfully
+2025-04-13 13:39:41,299 - Platform Factory - INFO - Platform factory initialized with trading mode: paper
+2025-04-13 13:39:41,299 - Trading System - INFO - Initialized platform factory with new adapters
+2025-04-13 13:39:41,299 - Trading System - INFO - Environment variables loaded
+2025-04-13 13:39:41,308 - Trading System - INFO - Encryption key loaded
+2025-04-13 13:39:41,309 - Trading System - INFO - Fixed syntax error in improvement_bot.py
+2025-04-13 13:39:41,754 - Trading System - INFO - scikit-learn is available (version 1.6.1)
+2025-04-13 13:39:42,545 - Financial News - INFO - Financial News Collector initialized
+2025-04-13 13:39:42,546 - Financial News - ERROR - Error loading news configuration: Expecting value: line 1 column 1 (char 0)
+2025-04-13 13:39:42,546 - News Trading Integration - INFO - News integrator initialized
+2025-04-13 13:39:42,546 - Financial News - INFO - Financial News Collector initialized
+2025-04-13 13:39:42,546 - Financial News - ERROR - Error loading news configuration: Expecting value: line 1 column 1 (char 0)
+2025-04-13 13:39:42,546 - News Trading Integration - INFO - News integrator initialized
+2025-04-13 13:39:42,546 - Quantum Trading Bot - INFO - Attempting to import quantum libraries...
+2025-04-13 13:39:43,126 - qiskit.passmanager.base_tasks - INFO - Pass: UnrollCustomDefinitions - 0.40698 (ms)
+2025-04-13 13:39:43,126 - qiskit.transpiler.passes.basis.basis_translator - INFO - Begin BasisTranslator from source basis {('u3', 1)} to target basis {'store', 'delay', 'u', 'ry', 'rz', 'measure', 'z', 'reset', 'cx', 'barrier', 'snapshot', 'p', 'x', 'rx'}.
+2025-04-13 13:39:43,127 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation path search completed in 0.001s.
+2025-04-13 13:39:43,128 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation paths composed in 0.001s.
+2025-04-13 13:39:43,129 - qiskit.transpiler.passes.basis.basis_translator - INFO - Basis translation instructions replaced in 0.001s.
+2025-04-13 13:39:43,129 - qiskit.passmanager.base_tasks - INFO - Pass: BasisTranslator - 2.99335 (ms)
+2025-04-13 13:39:43,134 - Quantum Trading Bot - INFO - Quantum libraries successfully imported: PennyLane 0.40.0, Qiskit 1.2.4
+2025-04-13 13:39:43,138 - Quantum Trading Bot - INFO - ========== TRADING LOOP FUNCTION ENTERED ==========
+2025-04-13 13:39:43,138 - Trading System - INFO - Started Trading Bot
+2025-04-13 13:39:43,138 - Monitor Bot - INFO - Starting monitoring loop
+2025-04-13 13:39:43,138 - Trading System - INFO - Started Monitor Bot
+2025-04-13 13:39:43,139 - Quantum Trading Bot - INFO - Configuration loaded successfully
+2025-04-13 13:39:43,139 - Improvement Bot - INFO - Starting improvement bot
+2025-04-13 13:39:43,139 - Trading System - INFO - Started Improvement Bot
+2025-04-13 13:39:43,139 - Trading System - INFO - Trading Bot is alive: True
+2025-04-13 13:39:43,139 - Trading System - INFO - All bots started. Press Ctrl+C to exit.
+2025-04-13 13:39:43,139 - Trading System - INFO - Monitor Bot is alive: True
+2025-04-13 13:39:43,139 - Quantum Trading Bot - INFO - Trade history loaded
+2025-04-13 13:39:43,139 - Improvement Bot - INFO - Configuration loaded successfully
+2025-04-13 13:39:43,139 - Trading System - INFO - Improvement Bot is alive: True
+2025-04-13 13:39:43,139 - Quantum Trading Bot - INFO - Signal handlers not installed - not in main thread
+2025-04-13 13:39:43,141 - Quantum Trading Bot - INFO - Initialized PennyLane quantum device: default.qubit
+2025-04-13 13:39:43,141 - Quantum Trading Bot - INFO - Mock adapter initialized
+2025-04-13 13:39:43,145 - Improvement Bot - INFO - Running scheduled task: System Backup
+2025-04-13 13:39:43,145 - Quantum Trading Bot - INFO - Starting trading cycle
+2025-04-13 13:39:43,145 - Quantum Trading Bot - INFO - Market is closed, waiting...
+2025-04-13 13:39:43,145 - Quantum Trading Bot - INFO - Sleeping for 60 seconds
+2025-04-13 13:39:43,147 - Monitor Bot - INFO - Running scheduled task: Initial Performance Metrics
+2025-04-13 13:39:43,149 - Monitor Bot - INFO - === Performance Metrics ===
+2025-04-13 13:39:43,150 - Monitor Bot - INFO - Date: 2025-04-12T23:46:06.133112
+2025-04-13 13:39:43,150 - Monitor Bot - INFO - Total Trades: 72
+2025-04-13 13:39:43,150 - Monitor Bot - INFO - Win Rate: 55.56%
+2025-04-13 13:39:43,150 - Monitor Bot - INFO - Total Profit: $18.27
+2025-04-13 13:39:43,150 - Monitor Bot - INFO - Average Profit per Trade: $0.25
+2025-04-13 13:39:43,150 - Monitor Bot - INFO - Average Profit Percentage: 0.09%
+2025-04-13 13:39:43,150 - Monitor Bot - INFO - Maximum Drawdown: 0.10%
+2025-04-13 13:39:43,150 - Monitor Bot - INFO - ============================
+2025-04-13 13:39:43,153 - Monitor Bot - INFO - Task Initial Performance Metrics completed successfully
+2025-04-13 13:39:43,153 - Monitor Bot - INFO - Running scheduled task: Initial API Health Check
+2025-04-13 13:39:43,153 - WebUll Adapter - INFO - Generated random device ID for WebUll: TradingBot-5bddb97810a7
+2025-04-13 13:39:43,153 - WebUll Adapter - WARNING - Missing WebUll credentials: username, password, trading_pin
+2025-04-13 13:39:43,153 - WebUll Adapter - INFO - WebUll Adapter initialized in paper trading mode
+2025-04-13 13:39:43,153 - Platform Factory - INFO - Created WebUll adapter in paper mode
+2025-04-13 13:39:43,153 - WebUll Adapter - ERROR - Authentication failed: Missing username or password
+2025-04-13 13:39:43,154 - Zoya Adapter - INFO - Zoya Adapter initialized in sandbox mode
+2025-04-13 13:39:43,154 - Platform Factory - INFO - Created Zoya adapter in sandbox mode
+2025-04-13 13:39:43,156 - Improvement Bot - INFO - System snapshot created at backups/snapshot_20250413_133943
+2025-04-13 13:39:43,156 - Improvement Bot - INFO - Task System Backup completed successfully
+2025-04-13 13:39:43,156 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Trading Bot
+2025-04-13 13:39:43,156 - Improvement Bot - INFO - Found 2 issues in trading_bot
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - Task Code Quality Check - Trading Bot completed successfully
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Monitor Bot
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - No issues found in monitor_bot
+2025-04-13 13:39:43,157 - Improvement Bot - WARNING - Task Code Quality Check - Monitor Bot completed with warnings
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - Running scheduled task: Code Quality Check - Improvement Bot
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - Found 6 issues in improvement_bot
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - Task Code Quality Check - Improvement Bot completed successfully
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - Running scheduled task: ML Model Optimization
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - No ML models found to optimize
+2025-04-13 13:39:43,157 - Improvement Bot - WARNING - Task ML Model Optimization completed with warnings
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - Running scheduled task: Quantum Circuit Optimization
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - Starting quantum circuit optimization
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - No quantum model files found to optimize
+2025-04-13 13:39:43,157 - Improvement Bot - WARNING - Task Quantum Circuit Optimization completed with warnings
+2025-04-13 13:39:43,157 - Improvement Bot - INFO - Running scheduled task: Quantum Error Analysis
+2025-04-13 13:39:43,158 - Improvement Bot - INFO - Analyzing quantum error rates
+2025-04-13 13:39:43,158 - Improvement Bot - INFO - Quantum error analysis completed: avg error 0.0431, trend +0.0105
+2025-04-13 13:39:43,158 - Improvement Bot - INFO - Task Quantum Error Analysis completed successfully
+2025-04-13 13:39:43,158 - Improvement Bot - INFO - Running scheduled task: Quantum Prediction Analysis
+2025-04-13 13:39:43,158 - Improvement Bot - INFO - Evaluating quantum prediction accuracy
+2025-04-13 13:39:43,159 - Improvement Bot - INFO - No completed quantum predictions found
+2025-04-13 13:39:43,160 - Improvement Bot - WARNING - Task Quantum Prediction Analysis completed with warnings
+2025-04-13 13:39:43,160 - Improvement Bot - INFO - Running scheduled task: Quantum Weight Optimization
+2025-04-13 13:39:43,160 - Improvement Bot - INFO - Generated new quantum-optimized weights
+2025-04-13 13:39:43,160 - Improvement Bot - INFO - Task Quantum Weight Optimization completed successfully
+2025-04-13 13:39:43,160 - Improvement Bot - INFO - Running scheduled task: System Health Analysis
+2025-04-13 13:39:43,162 - Improvement Bot - INFO - Win rate trend: +0.00%
+2025-04-13 13:39:43,162 - Improvement Bot - INFO - Profit trend: +0.00%
+2025-04-13 13:39:43,163 - Improvement Bot - INFO - System health analysis completed: healthy
+2025-04-13 13:39:43,163 - Improvement Bot - INFO - Task System Health Analysis completed successfully
+2025-04-13 13:39:43,356 - Monitor Bot - INFO - === API Health Status ===
+2025-04-13 13:39:43,357 - Monitor Bot - INFO - WebUll API: Unavailable
+2025-04-13 13:39:43,357 - Monitor Bot - INFO - Zoya API: OK
+2025-04-13 13:39:43,357 - Monitor Bot - INFO - =======================
+2025-04-13 13:39:43,357 - Monitor Bot - INFO - Task Initial API Health Check completed successfully
+2025-04-13 13:39:43,357 - Monitor Bot - INFO - Running scheduled task: Initial Legal Compliance Report
+2025-04-13 13:39:43,358 - Monitor Bot - INFO - Legal compliance report generated at legal/compliance_reports/compliance_report_20250413.json
+2025-04-13 13:39:43,358 - Monitor Bot - INFO - Task Initial Legal Compliance Report completed successfully
+2025-04-13 13:39:43,358 - Monitor Bot - INFO - Running scheduled task: Initial Quantum System Health Check
+2025-04-13 13:39:43,358 - Monitor Bot - INFO - Monitoring quantum system health
+2025-04-13 13:39:43,358 - Monitor Bot - INFO - Average quantum error rate: 0.0482
+2025-04-13 13:39:43,360 - Monitor Bot - INFO - Task Initial Quantum System Health Check completed successfully

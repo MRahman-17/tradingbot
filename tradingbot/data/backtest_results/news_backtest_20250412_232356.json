@@ -1,0 +1,52 @@
+{
+  "symbols": {
+    "AAPL": {
+      "accuracy": 0,
+      "avg_return": 0,
+      "avg_5day_return": 0,
+      "signal_count": 0,
+      "signals": []
+    },
+    "MSFT": {
+      "accuracy": 0,
+      "avg_return": 0,
+      "avg_5day_return": 0,
+      "signal_count": 0,
+      "signals": []
+    },
+    "NVDA": {
+      "accuracy": 0,
+      "avg_return": 0,
+      "avg_5day_return": 0,
+      "signal_count": 0,
+      "signals": []
+    },
+    "GOOGL": {
+      "accuracy": 0,
+      "avg_return": 0,
+      "avg_5day_return": 0,
+      "signal_count": 0,
+      "signals": []
+    },
+    "META": {
+      "accuracy": 0,
+      "avg_return": 0,
+      "avg_5day_return": 0,
+      "signal_count": 0,
+      "signals": []
+    }
+  },
+  "overall": {
+    "total_signals": 0,
+    "correct_signals": 0,
+    "avg_return": 0,
+    "profitable_symbols": 0,
+    "accuracy": 0,
+    "symbol_profitability": 0
+  },
+  "backtest_period": {
+    "start": "2025-01-12",
+    "end": "2025-04-12"
+  },
+  "timestamp": "2025-04-12T23:23:56.708481"
+}

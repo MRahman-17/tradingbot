@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-04-08T00:43:32.267238",
+  "symbol": "JPM",
+  "news_sentiment": 0,
+  "social_sentiment": -0.06660639707510282,
+  "fear_greed_sentiment": -0.52,
+  "fear_greed_score": 24,
+  "fear_greed_classification": "Extreme Fear",
+  "market_regime": "Extreme Fear - Potential Bottom",
+  "combined_sentiment": -0.12398191912253086,
+  "sentiment_signal": 0.43800904043873456
+}

@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-04-08T00:43:32.264650",
+  "symbol": "UNH",
+  "news_sentiment": 0,
+  "social_sentiment": -0.20587596499965818,
+  "fear_greed_sentiment": -0.52,
+  "fear_greed_score": 24,
+  "fear_greed_classification": "Extreme Fear",
+  "market_regime": "Extreme Fear - Potential Bottom",
+  "combined_sentiment": -0.16576278949989748,
+  "sentiment_signal": 0.4171186052500513
+}

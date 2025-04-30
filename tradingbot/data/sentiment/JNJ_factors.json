@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-04-08T00:43:32.264104",
+  "symbol": "JNJ",
+  "news_sentiment": 0,
+  "social_sentiment": 0.06872226193820458,
+  "fear_greed_sentiment": -0.52,
+  "fear_greed_score": 24,
+  "fear_greed_classification": "Extreme Fear",
+  "market_regime": "Extreme Fear - Potential Bottom",
+  "combined_sentiment": -0.08338332141853863,
+  "sentiment_signal": 0.45830833929073067
+}

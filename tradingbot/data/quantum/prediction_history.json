@@ -1,0 +1,6347 @@
+[
+  {
+    "timestamp": "2025-04-11T10:39:27.014031",
+    "symbol": "AAPL",
+    "signal": 0.64211526,
+    "confidence": 0.9487,
+    "error_rate": 0.0513,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:39:27.027799",
+    "symbol": "MSFT",
+    "signal": 0.246,
+    "confidence": 0.9673,
+    "error_rate": 0.03269999999999999,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:39:27.037141",
+    "symbol": "NVDA",
+    "signal": 0.891,
+    "confidence": 0.964,
+    "error_rate": 0.036,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:40:27.090335",
+    "symbol": "AAPL",
+    "signal": 0.363,
+    "confidence": 0.9652,
+    "error_rate": 0.03480000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:40:27.103352",
+    "symbol": "MSFT",
+    "signal": 0.302,
+    "confidence": 0.9505,
+    "error_rate": 0.0495,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:40:27.115850",
+    "symbol": "NVDA",
+    "signal": 0.198,
+    "confidence": 0.9721,
+    "error_rate": 0.0279,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:41:27.165557",
+    "symbol": "AAPL",
+    "signal": 0.609,
+    "confidence": 0.9625,
+    "error_rate": 0.037500000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:41:27.178710",
+    "symbol": "MSFT",
+    "signal": 0.657,
+    "confidence": 0.9652,
+    "error_rate": 0.034800000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:41:27.194869",
+    "symbol": "NVDA",
+    "signal": 0.45503162,
+    "confidence": 0.7589600000000001,
+    "error_rate": 0.05130000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:42:27.244107",
+    "symbol": "AAPL",
+    "signal": 0.08200000000000002,
+    "confidence": 0.9676,
+    "error_rate": 0.032400000000000005,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:42:27.257234",
+    "symbol": "MSFT",
+    "signal": 0.52,
+    "confidence": 0.7750400000000001,
+    "error_rate": 0.031200000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:42:27.268786",
+    "symbol": "NVDA",
+    "signal": 0.16399999999999998,
+    "confidence": 0.9688,
+    "error_rate": 0.0312,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:43:27.312036",
+    "symbol": "AAPL",
+    "signal": 0.486,
+    "confidence": 0.76544,
+    "error_rate": 0.0432,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:43:27.323126",
+    "symbol": "MSFT",
+    "signal": 0.472,
+    "confidence": 0.7786400000000001,
+    "error_rate": 0.0267,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:43:27.332811",
+    "symbol": "NVDA",
+    "signal": 0.37,
+    "confidence": 0.9568,
+    "error_rate": 0.0432,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:44:27.367329",
+    "symbol": "AAPL",
+    "signal": 0.524,
+    "confidence": 0.7748,
+    "error_rate": 0.03150000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:44:27.380351",
+    "symbol": "MSFT",
+    "signal": 0.484,
+    "confidence": 0.7796000000000001,
+    "error_rate": 0.025500000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:44:27.391232",
+    "symbol": "NVDA",
+    "signal": 0.397,
+    "confidence": 0.9535,
+    "error_rate": 0.0465,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:45:27.454788",
+    "symbol": "AAPL",
+    "signal": 0.523,
+    "confidence": 0.7784,
+    "error_rate": 0.027000000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:45:27.467673",
+    "symbol": "MSFT",
+    "signal": 0.562,
+    "confidence": 0.76712,
+    "error_rate": 0.041100000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:45:27.478588",
+    "symbol": "NVDA",
+    "signal": 0.395,
+    "confidence": 0.955,
+    "error_rate": 0.045,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:46:27.538261",
+    "symbol": "AAPL",
+    "signal": 0.241,
+    "confidence": 0.9682,
+    "error_rate": 0.0318,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:46:27.550808",
+    "symbol": "MSFT",
+    "signal": 0.441,
+    "confidence": 0.7664,
+    "error_rate": 0.042,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:46:27.566416",
+    "symbol": "NVDA",
+    "signal": 0.754934,
+    "confidence": 0.9442,
+    "error_rate": 0.0558,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:47:27.606037",
+    "symbol": "AAPL",
+    "signal": 0.585,
+    "confidence": 0.7676000000000001,
+    "error_rate": 0.0405,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:47:27.619163",
+    "symbol": "MSFT",
+    "signal": 0.883,
+    "confidence": 0.9682,
+    "error_rate": 0.03180000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:47:27.630048",
+    "symbol": "NVDA",
+    "signal": 0.391,
+    "confidence": 0.9559,
+    "error_rate": 0.0441,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:48:27.681783",
+    "symbol": "AAPL",
+    "signal": 0.847,
+    "confidence": 0.9583,
+    "error_rate": 0.041699999999999994,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:48:27.694306",
+    "symbol": "MSFT",
+    "signal": 0.456,
+    "confidence": 0.7688,
+    "error_rate": 0.039,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:48:27.704574",
+    "symbol": "NVDA",
+    "signal": 0.525,
+    "confidence": 0.76688,
+    "error_rate": 0.041400000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:49:27.743307",
+    "symbol": "AAPL",
+    "signal": 0.488,
+    "confidence": 0.76712,
+    "error_rate": 0.041100000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:49:27.761499",
+    "symbol": "MSFT",
+    "signal": 0.38504634000000004,
+    "confidence": 0.9469,
+    "error_rate": 0.0531,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:49:27.771483",
+    "symbol": "NVDA",
+    "signal": 0.348,
+    "confidence": 0.9628,
+    "error_rate": 0.0372,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:50:27.838579",
+    "symbol": "AAPL",
+    "signal": 0.2699503200000001,
+    "confidence": 0.9436,
+    "error_rate": 0.056400000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:50:27.850832",
+    "symbol": "MSFT",
+    "signal": 0.777,
+    "confidence": 0.9559,
+    "error_rate": 0.04410000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:50:27.866555",
+    "symbol": "NVDA",
+    "signal": 0.58202752,
+    "confidence": 0.7577600000000001,
+    "error_rate": 0.0528,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:51:27.920824",
+    "symbol": "AAPL",
+    "signal": 0.15000000000000002,
+    "confidence": 0.9727,
+    "error_rate": 0.0273,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:51:27.942022",
+    "symbol": "MSFT",
+    "signal": 0.8892992,
+    "confidence": 0.9472,
+    "error_rate": 0.0528,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:51:27.953042",
+    "symbol": "NVDA",
+    "signal": 0.669,
+    "confidence": 0.9553,
+    "error_rate": 0.044700000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:52:28.009835",
+    "symbol": "AAPL",
+    "signal": 0.72,
+    "confidence": 0.9619,
+    "error_rate": 0.03810000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:52:28.024066",
+    "symbol": "MSFT",
+    "signal": 0.747,
+    "confidence": 0.9561999999999999,
+    "error_rate": 0.043800000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:52:28.036130",
+    "symbol": "NVDA",
+    "signal": 0.38,
+    "confidence": 0.9544,
+    "error_rate": 0.0456,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:53:28.086471",
+    "symbol": "AAPL",
+    "signal": 0.472,
+    "confidence": 0.7740800000000001,
+    "error_rate": 0.0324,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:53:28.107449",
+    "symbol": "MSFT",
+    "signal": 0.5294283,
+    "confidence": 0.7594400000000001,
+    "error_rate": 0.05069999999999999,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:53:28.117921",
+    "symbol": "NVDA",
+    "signal": 0.58,
+    "confidence": 0.76952,
+    "error_rate": 0.03810000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:54:28.170554",
+    "symbol": "AAPL",
+    "signal": 0.10999999999999999,
+    "confidence": 0.9613,
+    "error_rate": 0.0387,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:54:28.215210",
+    "symbol": "MSFT",
+    "signal": 0.236,
+    "confidence": 0.9637,
+    "error_rate": 0.03629999999999999,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:54:28.226325",
+    "symbol": "NVDA",
+    "signal": 0.653,
+    "confidence": 0.9748,
+    "error_rate": 0.0252,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:55:28.269803",
+    "symbol": "AAPL",
+    "signal": 0.739,
+    "confidence": 0.9571000000000001,
+    "error_rate": 0.042899999999999994,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:55:28.281710",
+    "symbol": "MSFT",
+    "signal": 0.6779999999999999,
+    "confidence": 0.9694,
+    "error_rate": 0.030600000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:55:28.292024",
+    "symbol": "NVDA",
+    "signal": 0.314,
+    "confidence": 0.9736,
+    "error_rate": 0.026400000000000007,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:56:28.349561",
+    "symbol": "AAPL",
+    "signal": 0.75549752,
+    "confidence": 0.9421,
+    "error_rate": 0.05789999999999999,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:56:28.362660",
+    "symbol": "MSFT",
+    "signal": 0.41000000000000003,
+    "confidence": 0.78224,
+    "error_rate": 0.022200000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:56:28.374404",
+    "symbol": "NVDA",
+    "signal": 0.533,
+    "confidence": 0.7707200000000001,
+    "error_rate": 0.03660000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:57:28.434736",
+    "symbol": "AAPL",
+    "signal": 0.265,
+    "confidence": 0.9643,
+    "error_rate": 0.035699999999999996,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:57:28.448238",
+    "symbol": "MSFT",
+    "signal": 0.469,
+    "confidence": 0.77312,
+    "error_rate": 0.033600000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:57:28.464380",
+    "symbol": "NVDA",
+    "signal": 0.41254527999999996,
+    "confidence": 0.75392,
+    "error_rate": 0.057600000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:58:28.534022",
+    "symbol": "AAPL",
+    "signal": 0.84462372,
+    "confidence": 0.9499,
+    "error_rate": 0.0501,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:58:28.547466",
+    "symbol": "MSFT",
+    "signal": 0.269,
+    "confidence": 0.9529,
+    "error_rate": 0.047099999999999996,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:58:28.557935",
+    "symbol": "NVDA",
+    "signal": 0.445,
+    "confidence": 0.7678400000000001,
+    "error_rate": 0.0402,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:59:28.635227",
+    "symbol": "AAPL",
+    "signal": 0.5640000000000001,
+    "confidence": 0.7683200000000001,
+    "error_rate": 0.03960000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:59:28.649039",
+    "symbol": "MSFT",
+    "signal": 0.21899999999999997,
+    "confidence": 0.9619,
+    "error_rate": 0.0381,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T10:59:28.660201",
+    "symbol": "NVDA",
+    "signal": 0.178,
+    "confidence": 0.9562,
+    "error_rate": 0.0438,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:00:28.708621",
+    "symbol": "AAPL",
+    "signal": 0.29000000000000004,
+    "confidence": 0.9691,
+    "error_rate": 0.0309,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:00:28.723889",
+    "symbol": "MSFT",
+    "signal": 0.485,
+    "confidence": 0.7690400000000001,
+    "error_rate": 0.0387,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:00:28.735782",
+    "symbol": "NVDA",
+    "signal": 0.619,
+    "confidence": 0.9643,
+    "error_rate": 0.0357,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:01:28.780196",
+    "symbol": "AAPL",
+    "signal": 0.915,
+    "confidence": 0.9561999999999999,
+    "error_rate": 0.043800000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:01:28.800350",
+    "symbol": "MSFT",
+    "signal": 0.57032542,
+    "confidence": 0.75416,
+    "error_rate": 0.057300000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:01:28.811179",
+    "symbol": "NVDA",
+    "signal": 0.637,
+    "confidence": 0.9652000000000001,
+    "error_rate": 0.0348,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:02:28.851043",
+    "symbol": "AAPL",
+    "signal": 0.653,
+    "confidence": 0.9613,
+    "error_rate": 0.0387,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:02:28.871364",
+    "symbol": "MSFT",
+    "signal": 0.12136986,
+    "confidence": 0.9499,
+    "error_rate": 0.05010000000000001,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:02:28.881623",
+    "symbol": "NVDA",
+    "signal": 0.387,
+    "confidence": 0.9598,
+    "error_rate": 0.0402,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:03:28.940244",
+    "symbol": "AAPL",
+    "signal": 0.16599999999999998,
+    "confidence": 0.9661,
+    "error_rate": 0.033900000000000007,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:03:28.953689",
+    "symbol": "MSFT",
+    "signal": 0.66,
+    "confidence": 0.9631,
+    "error_rate": 0.03690000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:03:28.964737",
+    "symbol": "NVDA",
+    "signal": 0.397,
+    "confidence": 0.9694,
+    "error_rate": 0.0306,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:04:29.030647",
+    "symbol": "AAPL",
+    "signal": 0.32001096000000007,
+    "confidence": 0.9394,
+    "error_rate": 0.06060000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:04:29.044941",
+    "symbol": "MSFT",
+    "signal": 0.247,
+    "confidence": 0.9514,
+    "error_rate": 0.048600000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:04:29.055511",
+    "symbol": "NVDA",
+    "signal": 0.10699999999999998,
+    "confidence": 0.9691,
+    "error_rate": 0.0309,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:05:29.089061",
+    "symbol": "AAPL",
+    "signal": 0.439,
+    "confidence": 0.7616,
+    "error_rate": 0.04800000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:05:29.101556",
+    "symbol": "MSFT",
+    "signal": 0.6839999999999999,
+    "confidence": 0.9787,
+    "error_rate": 0.0213,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:05:29.111928",
+    "symbol": "NVDA",
+    "signal": 0.9159999999999999,
+    "confidence": 0.9679,
+    "error_rate": 0.032100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:06:29.157407",
+    "symbol": "AAPL",
+    "signal": 0.612,
+    "confidence": 0.958,
+    "error_rate": 0.042,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:06:29.174736",
+    "symbol": "MSFT",
+    "signal": 0.241,
+    "confidence": 0.9616,
+    "error_rate": 0.038400000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:06:29.186867",
+    "symbol": "NVDA",
+    "signal": 0.415,
+    "confidence": 0.76112,
+    "error_rate": 0.048600000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:07:29.242981",
+    "symbol": "AAPL",
+    "signal": 0.28604096,
+    "confidence": 0.9484,
+    "error_rate": 0.05159999999999999,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:07:29.257689",
+    "symbol": "MSFT",
+    "signal": 0.28200000000000003,
+    "confidence": 0.9607,
+    "error_rate": 0.0393,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:07:29.268796",
+    "symbol": "NVDA",
+    "signal": 0.657,
+    "confidence": 0.9724,
+    "error_rate": 0.027600000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:08:29.310376",
+    "symbol": "AAPL",
+    "signal": 0.33299999999999996,
+    "confidence": 0.958,
+    "error_rate": 0.042,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:08:29.325166",
+    "symbol": "MSFT",
+    "signal": 0.63,
+    "confidence": 0.9526,
+    "error_rate": 0.0474,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:08:29.336679",
+    "symbol": "NVDA",
+    "signal": 0.548,
+    "confidence": 0.7709600000000001,
+    "error_rate": 0.036300000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:09:29.391282",
+    "symbol": "AAPL",
+    "signal": 0.56069468,
+    "confidence": 0.7563200000000001,
+    "error_rate": 0.0546,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:09:29.405596",
+    "symbol": "MSFT",
+    "signal": 0.248,
+    "confidence": 0.9649,
+    "error_rate": 0.035100000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:09:29.416874",
+    "symbol": "NVDA",
+    "signal": 0.673,
+    "confidence": 0.9745,
+    "error_rate": 0.025500000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:10:29.457156",
+    "symbol": "AAPL",
+    "signal": 0.735,
+    "confidence": 0.9631,
+    "error_rate": 0.0369,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:10:29.470396",
+    "symbol": "MSFT",
+    "signal": 0.986,
+    "confidence": 0.9637,
+    "error_rate": 0.03629999999999999,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:10:29.481567",
+    "symbol": "NVDA",
+    "signal": 0.714,
+    "confidence": 0.9793,
+    "error_rate": 0.020700000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:11:29.522044",
+    "symbol": "AAPL",
+    "signal": 0.311,
+    "confidence": 0.9607,
+    "error_rate": 0.03930000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:11:29.534288",
+    "symbol": "MSFT",
+    "signal": 0.853,
+    "confidence": 0.9621999999999999,
+    "error_rate": 0.03780000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:11:29.550176",
+    "symbol": "NVDA",
+    "signal": 0.706988,
+    "confidence": 0.94,
+    "error_rate": 0.06000000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:12:29.590686",
+    "symbol": "AAPL",
+    "signal": 0.452,
+    "confidence": 0.7690400000000001,
+    "error_rate": 0.0387,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:12:29.603833",
+    "symbol": "MSFT",
+    "signal": 0.434,
+    "confidence": 0.77288,
+    "error_rate": 0.033900000000000007,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:12:29.615501",
+    "symbol": "NVDA",
+    "signal": 0.829,
+    "confidence": 0.9694,
+    "error_rate": 0.030600000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:13:29.660963",
+    "symbol": "AAPL",
+    "signal": 0.3,
+    "confidence": 0.9592,
+    "error_rate": 0.0408,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:13:29.676326",
+    "symbol": "MSFT",
+    "signal": 0.378,
+    "confidence": 0.9673,
+    "error_rate": 0.0327,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:13:29.688502",
+    "symbol": "NVDA",
+    "signal": 0.636,
+    "confidence": 0.9571,
+    "error_rate": 0.04290000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:14:29.737391",
+    "symbol": "AAPL",
+    "signal": 0.771,
+    "confidence": 0.9547,
+    "error_rate": 0.04530000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:14:29.758143",
+    "symbol": "MSFT",
+    "signal": 0.61056288,
+    "confidence": 0.9466,
+    "error_rate": 0.0534,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:14:29.771143",
+    "symbol": "NVDA",
+    "signal": 0.05099999999999999,
+    "confidence": 0.9526,
+    "error_rate": 0.0474,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:15:29.819900",
+    "symbol": "AAPL",
+    "signal": 0.8069999999999999,
+    "confidence": 0.9655,
+    "error_rate": 0.03450000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:15:29.836305",
+    "symbol": "MSFT",
+    "signal": 0.802,
+    "confidence": 0.9712,
+    "error_rate": 0.0288,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:15:29.848879",
+    "symbol": "NVDA",
+    "signal": 0.473,
+    "confidence": 0.77432,
+    "error_rate": 0.032100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:16:29.905042",
+    "symbol": "AAPL",
+    "signal": 0.23399999999999999,
+    "confidence": 0.9679,
+    "error_rate": 0.032100000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:16:29.919160",
+    "symbol": "MSFT",
+    "signal": 0.318,
+    "confidence": 0.9529,
+    "error_rate": 0.0471,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:16:29.930646",
+    "symbol": "NVDA",
+    "signal": 0.366,
+    "confidence": 0.9847,
+    "error_rate": 0.015300000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:17:29.976949",
+    "symbol": "AAPL",
+    "signal": 0.516,
+    "confidence": 0.7604000000000001,
+    "error_rate": 0.0495,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:17:29.992812",
+    "symbol": "MSFT",
+    "signal": 0.321,
+    "confidence": 0.9715,
+    "error_rate": 0.028500000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:17:30.005385",
+    "symbol": "NVDA",
+    "signal": 0.589,
+    "confidence": 0.76592,
+    "error_rate": 0.042600000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:18:30.056012",
+    "symbol": "AAPL",
+    "signal": 0.498,
+    "confidence": 0.7601600000000001,
+    "error_rate": 0.0498,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:18:30.069545",
+    "symbol": "MSFT",
+    "signal": 0.752,
+    "confidence": 0.9571,
+    "error_rate": 0.04290000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:18:30.081973",
+    "symbol": "NVDA",
+    "signal": 0.19,
+    "confidence": 0.9637,
+    "error_rate": 0.036300000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:19:30.141040",
+    "symbol": "AAPL",
+    "signal": 0.555,
+    "confidence": 0.76448,
+    "error_rate": 0.04440000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:19:30.156827",
+    "symbol": "MSFT",
+    "signal": 0.251,
+    "confidence": 0.967,
+    "error_rate": 0.03300000000000001,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:19:30.168681",
+    "symbol": "NVDA",
+    "signal": 0.886,
+    "confidence": 0.9682,
+    "error_rate": 0.03180000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:20:30.211487",
+    "symbol": "AAPL",
+    "signal": 0.487,
+    "confidence": 0.77576,
+    "error_rate": 0.030300000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:20:30.224896",
+    "symbol": "MSFT",
+    "signal": 0.763,
+    "confidence": 0.9628,
+    "error_rate": 0.037200000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:20:30.236157",
+    "symbol": "NVDA",
+    "signal": 0.385,
+    "confidence": 0.9652,
+    "error_rate": 0.03480000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:21:30.278098",
+    "symbol": "AAPL",
+    "signal": 0.528,
+    "confidence": 0.7688,
+    "error_rate": 0.03900000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:21:30.293841",
+    "symbol": "MSFT",
+    "signal": 0.687,
+    "confidence": 0.9613,
+    "error_rate": 0.038700000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:21:30.305705",
+    "symbol": "NVDA",
+    "signal": 0.46,
+    "confidence": 0.77696,
+    "error_rate": 0.028800000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:22:30.347521",
+    "symbol": "AAPL",
+    "signal": 0.748,
+    "confidence": 0.9688,
+    "error_rate": 0.031199999999999995,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:22:30.361592",
+    "symbol": "MSFT",
+    "signal": 0.202,
+    "confidence": 0.9595,
+    "error_rate": 0.04050000000000001,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:22:30.372658",
+    "symbol": "NVDA",
+    "signal": 0.516,
+    "confidence": 0.7779200000000001,
+    "error_rate": 0.027600000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:23:30.435069",
+    "symbol": "AAPL",
+    "signal": 0.248,
+    "confidence": 0.955,
+    "error_rate": 0.045,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:23:30.449308",
+    "symbol": "MSFT",
+    "signal": 0.8320000000000001,
+    "confidence": 0.9583,
+    "error_rate": 0.0417,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:23:30.461676",
+    "symbol": "NVDA",
+    "signal": 0.547,
+    "confidence": 0.77624,
+    "error_rate": 0.029700000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:24:30.513124",
+    "symbol": "AAPL",
+    "signal": 0.64,
+    "confidence": 0.9667,
+    "error_rate": 0.03330000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:24:30.529370",
+    "symbol": "MSFT",
+    "signal": 0.16699999999999998,
+    "confidence": 0.9702999999999999,
+    "error_rate": 0.029700000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:24:30.546965",
+    "symbol": "NVDA",
+    "signal": 0.7716217599999999,
+    "confidence": 0.9484,
+    "error_rate": 0.0516,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:25:30.601466",
+    "symbol": "AAPL",
+    "signal": 0.54,
+    "confidence": 0.7661600000000001,
+    "error_rate": 0.042300000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:25:30.617960",
+    "symbol": "MSFT",
+    "signal": 0.263,
+    "confidence": 0.9526,
+    "error_rate": 0.04740000000000001,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:25:30.629939",
+    "symbol": "NVDA",
+    "signal": 0.632,
+    "confidence": 0.9679,
+    "error_rate": 0.032100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:26:30.692390",
+    "symbol": "AAPL",
+    "signal": 0.23967237999999996,
+    "confidence": 0.9439,
+    "error_rate": 0.05610000000000002,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:26:30.706600",
+    "symbol": "MSFT",
+    "signal": 0.641,
+    "confidence": 0.9775,
+    "error_rate": 0.022500000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:26:30.718408",
+    "symbol": "NVDA",
+    "signal": 0.389,
+    "confidence": 0.9631,
+    "error_rate": 0.0369,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:27:30.774824",
+    "symbol": "AAPL",
+    "signal": 0.59763264,
+    "confidence": 0.75392,
+    "error_rate": 0.0576,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:27:30.794145",
+    "symbol": "MSFT",
+    "signal": 0.51474356,
+    "confidence": 0.7560800000000001,
+    "error_rate": 0.054900000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:27:30.805131",
+    "symbol": "NVDA",
+    "signal": 0.539,
+    "confidence": 0.76304,
+    "error_rate": 0.0462,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:28:30.851819",
+    "symbol": "AAPL",
+    "signal": 0.5700000000000001,
+    "confidence": 0.7786400000000001,
+    "error_rate": 0.0267,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:28:30.868308",
+    "symbol": "MSFT",
+    "signal": 0.271,
+    "confidence": 0.9586,
+    "error_rate": 0.0414,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:28:30.881070",
+    "symbol": "NVDA",
+    "signal": 0.442,
+    "confidence": 0.7772000000000001,
+    "error_rate": 0.028500000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:29:30.923040",
+    "symbol": "AAPL",
+    "signal": 0.304,
+    "confidence": 0.9727,
+    "error_rate": 0.0273,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:29:30.942968",
+    "symbol": "MSFT",
+    "signal": 0.6135004,
+    "confidence": 0.949,
+    "error_rate": 0.051000000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:29:30.953829",
+    "symbol": "NVDA",
+    "signal": 0.477,
+    "confidence": 0.77168,
+    "error_rate": 0.0354,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:30:31.010176",
+    "symbol": "AAPL",
+    "signal": 0.185,
+    "confidence": 0.9721,
+    "error_rate": 0.0279,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:30:31.022978",
+    "symbol": "MSFT",
+    "signal": 0.858,
+    "confidence": 0.9694,
+    "error_rate": 0.030600000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:30:31.034808",
+    "symbol": "NVDA",
+    "signal": 0.571,
+    "confidence": 0.7690400000000001,
+    "error_rate": 0.0387,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:31:31.009263",
+    "symbol": "AAPL",
+    "signal": 0.788,
+    "confidence": 0.9694,
+    "error_rate": 0.030600000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:31:31.026241",
+    "symbol": "MSFT",
+    "signal": 0.22199999999999998,
+    "confidence": 0.964,
+    "error_rate": 0.036000000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:31:31.039279",
+    "symbol": "NVDA",
+    "signal": 0.398,
+    "confidence": 0.9547,
+    "error_rate": 0.04530000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:32:31.088490",
+    "symbol": "AAPL",
+    "signal": 0.21800000000000003,
+    "confidence": 0.9661,
+    "error_rate": 0.033900000000000007,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:32:31.103744",
+    "symbol": "MSFT",
+    "signal": 0.352,
+    "confidence": 0.9541,
+    "error_rate": 0.0459,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:32:31.115971",
+    "symbol": "NVDA",
+    "signal": 0.681,
+    "confidence": 0.97,
+    "error_rate": 0.030000000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:33:31.176336",
+    "symbol": "AAPL",
+    "signal": 0.39708992,
+    "confidence": 0.9424,
+    "error_rate": 0.057600000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:33:31.190729",
+    "symbol": "MSFT",
+    "signal": 0.423,
+    "confidence": 0.7709600000000001,
+    "error_rate": 0.0363,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:33:31.203191",
+    "symbol": "NVDA",
+    "signal": 0.5700000000000001,
+    "confidence": 0.76952,
+    "error_rate": 0.038099999999999995,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:34:31.254137",
+    "symbol": "AAPL",
+    "signal": 0.567,
+    "confidence": 0.76112,
+    "error_rate": 0.04860000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:34:31.273508",
+    "symbol": "MSFT",
+    "signal": 0.67732076,
+    "confidence": 0.9442,
+    "error_rate": 0.0558,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:34:31.284244",
+    "symbol": "NVDA",
+    "signal": 0.455,
+    "confidence": 0.77432,
+    "error_rate": 0.032100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:35:31.332871",
+    "symbol": "AAPL",
+    "signal": 0.474,
+    "confidence": 0.7709600000000001,
+    "error_rate": 0.0363,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:35:31.346911",
+    "symbol": "MSFT",
+    "signal": 0.764,
+    "confidence": 0.9664,
+    "error_rate": 0.033600000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:35:31.358478",
+    "symbol": "NVDA",
+    "signal": 0.507,
+    "confidence": 0.7688,
+    "error_rate": 0.039,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:36:31.413277",
+    "symbol": "AAPL",
+    "signal": 0.4865668,
+    "confidence": 0.7568,
+    "error_rate": 0.054000000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:36:31.428899",
+    "symbol": "MSFT",
+    "signal": 0.876,
+    "confidence": 0.9715,
+    "error_rate": 0.028500000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:36:31.444523",
+    "symbol": "NVDA",
+    "signal": 0.22299999999999998,
+    "confidence": 0.9694,
+    "error_rate": 0.030600000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:37:31.493860",
+    "symbol": "AAPL",
+    "signal": 0.577,
+    "confidence": 0.7678400000000001,
+    "error_rate": 0.0402,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:37:31.510048",
+    "symbol": "MSFT",
+    "signal": 0.14500000000000002,
+    "confidence": 0.961,
+    "error_rate": 0.03900000000000001,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:37:31.522317",
+    "symbol": "NVDA",
+    "signal": 0.581,
+    "confidence": 0.77576,
+    "error_rate": 0.0303,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:38:31.569996",
+    "symbol": "AAPL",
+    "signal": 0.07300000000000001,
+    "confidence": 0.9739,
+    "error_rate": 0.0261,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:38:31.585454",
+    "symbol": "MSFT",
+    "signal": 0.631,
+    "confidence": 0.9685,
+    "error_rate": 0.03150000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:38:31.597869",
+    "symbol": "NVDA",
+    "signal": 0.432,
+    "confidence": 0.7688,
+    "error_rate": 0.039,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:39:31.666179",
+    "symbol": "AAPL",
+    "signal": 0.7949999999999999,
+    "confidence": 0.9676,
+    "error_rate": 0.0324,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:39:31.680956",
+    "symbol": "MSFT",
+    "signal": 0.706,
+    "confidence": 0.9649,
+    "error_rate": 0.0351,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:39:31.693100",
+    "symbol": "NVDA",
+    "signal": 0.8109999999999999,
+    "confidence": 0.9538,
+    "error_rate": 0.046200000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:40:31.742542",
+    "symbol": "AAPL",
+    "signal": 0.8029999999999999,
+    "confidence": 0.9565,
+    "error_rate": 0.043500000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:40:31.758707",
+    "symbol": "MSFT",
+    "signal": 0.529,
+    "confidence": 0.7721600000000001,
+    "error_rate": 0.0348,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:40:31.776673",
+    "symbol": "NVDA",
+    "signal": 0.48463592,
+    "confidence": 0.7587200000000001,
+    "error_rate": 0.0516,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:41:31.837114",
+    "symbol": "AAPL",
+    "signal": 0.194,
+    "confidence": 0.9505,
+    "error_rate": 0.04950000000000001,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:41:31.852055",
+    "symbol": "MSFT",
+    "signal": 0.417,
+    "confidence": 0.77168,
+    "error_rate": 0.0354,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:41:31.863951",
+    "symbol": "NVDA",
+    "signal": 0.645,
+    "confidence": 0.9628,
+    "error_rate": 0.0372,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:42:31.911828",
+    "symbol": "AAPL",
+    "signal": 0.9570000000000001,
+    "confidence": 0.9643,
+    "error_rate": 0.0357,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:42:31.934774",
+    "symbol": "MSFT",
+    "signal": 0.07750851999999997,
+    "confidence": 0.9418,
+    "error_rate": 0.058199999999999995,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:42:31.947793",
+    "symbol": "NVDA",
+    "signal": 0.29400000000000004,
+    "confidence": 0.9685,
+    "error_rate": 0.0315,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:43:32.001922",
+    "symbol": "AAPL",
+    "signal": 0.504,
+    "confidence": 0.7678400000000001,
+    "error_rate": 0.0402,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:43:32.018359",
+    "symbol": "MSFT",
+    "signal": 0.313,
+    "confidence": 0.9532,
+    "error_rate": 0.04680000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:43:32.031150",
+    "symbol": "NVDA",
+    "signal": 0.856,
+    "confidence": 0.9673,
+    "error_rate": 0.0327,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:44:32.077749",
+    "symbol": "AAPL",
+    "signal": 0.6910000000000001,
+    "confidence": 0.961,
+    "error_rate": 0.039,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:44:32.094494",
+    "symbol": "MSFT",
+    "signal": 0.08500000000000002,
+    "confidence": 0.9667,
+    "error_rate": 0.03330000000000001,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:44:32.106850",
+    "symbol": "NVDA",
+    "signal": 0.386,
+    "confidence": 0.9502,
+    "error_rate": 0.0498,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:45:32.151116",
+    "symbol": "AAPL",
+    "signal": 0.33799999999999997,
+    "confidence": 0.9673,
+    "error_rate": 0.03270000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:45:32.167236",
+    "symbol": "MSFT",
+    "signal": 0.355,
+    "confidence": 0.9706,
+    "error_rate": 0.029400000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:45:32.179450",
+    "symbol": "NVDA",
+    "signal": 0.742,
+    "confidence": 0.9601,
+    "error_rate": 0.0399,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:46:32.221709",
+    "symbol": "AAPL",
+    "signal": 0.601,
+    "confidence": 0.955,
+    "error_rate": 0.045,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:46:32.235962",
+    "symbol": "MSFT",
+    "signal": 0.8340000000000001,
+    "confidence": 0.9589,
+    "error_rate": 0.041100000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:46:32.247633",
+    "symbol": "NVDA",
+    "signal": 0.664,
+    "confidence": 0.9736,
+    "error_rate": 0.0264,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:47:32.305437",
+    "symbol": "AAPL",
+    "signal": 0.7030000000000001,
+    "confidence": 0.9642999999999999,
+    "error_rate": 0.03570000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:47:32.321241",
+    "symbol": "MSFT",
+    "signal": 0.278,
+    "confidence": 0.9766,
+    "error_rate": 0.0234,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:47:32.333614",
+    "symbol": "NVDA",
+    "signal": 0.251,
+    "confidence": 0.9622,
+    "error_rate": 0.03779999999999999,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:48:32.372909",
+    "symbol": "AAPL",
+    "signal": 0.861,
+    "confidence": 0.9601,
+    "error_rate": 0.039900000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:48:32.387615",
+    "symbol": "MSFT",
+    "signal": 0.397,
+    "confidence": 0.9568,
+    "error_rate": 0.0432,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:48:32.400440",
+    "symbol": "NVDA",
+    "signal": 0.556,
+    "confidence": 0.77768,
+    "error_rate": 0.0279,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:49:32.444682",
+    "symbol": "AAPL",
+    "signal": 0.433,
+    "confidence": 0.7661600000000001,
+    "error_rate": 0.042300000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:49:32.459857",
+    "symbol": "MSFT",
+    "signal": 0.738,
+    "confidence": 0.9685,
+    "error_rate": 0.03150000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:49:32.471740",
+    "symbol": "NVDA",
+    "signal": 0.589,
+    "confidence": 0.77024,
+    "error_rate": 0.0372,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:50:32.524092",
+    "symbol": "AAPL",
+    "signal": 0.531,
+    "confidence": 0.7676000000000001,
+    "error_rate": 0.0405,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:50:32.539969",
+    "symbol": "MSFT",
+    "signal": 0.542,
+    "confidence": 0.76424,
+    "error_rate": 0.044700000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:50:32.552236",
+    "symbol": "NVDA",
+    "signal": 0.9199999999999999,
+    "confidence": 0.9694,
+    "error_rate": 0.0306,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:51:32.608203",
+    "symbol": "AAPL",
+    "signal": 0.741,
+    "confidence": 0.9667,
+    "error_rate": 0.0333,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:51:32.624392",
+    "symbol": "MSFT",
+    "signal": 0.479,
+    "confidence": 0.7688,
+    "error_rate": 0.039,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:51:32.636887",
+    "symbol": "NVDA",
+    "signal": 0.485,
+    "confidence": 0.77192,
+    "error_rate": 0.035100000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:52:32.698858",
+    "symbol": "AAPL",
+    "signal": 0.51119112,
+    "confidence": 0.7587200000000001,
+    "error_rate": 0.0516,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:52:32.713471",
+    "symbol": "MSFT",
+    "signal": 0.431,
+    "confidence": 0.77192,
+    "error_rate": 0.035100000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:52:32.725240",
+    "symbol": "NVDA",
+    "signal": 0.933,
+    "confidence": 0.9736,
+    "error_rate": 0.026400000000000007,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:53:32.780332",
+    "symbol": "AAPL",
+    "signal": 0.27221671999999997,
+    "confidence": 0.9397,
+    "error_rate": 0.060300000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:53:32.793433",
+    "symbol": "MSFT",
+    "signal": 0.174,
+    "confidence": 0.9634,
+    "error_rate": 0.03660000000000001,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:53:32.804237",
+    "symbol": "NVDA",
+    "signal": 0.599,
+    "confidence": 0.76952,
+    "error_rate": 0.0381,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:54:32.856624",
+    "symbol": "AAPL",
+    "signal": 0.401,
+    "confidence": 0.77336,
+    "error_rate": 0.03330000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:54:32.874245",
+    "symbol": "MSFT",
+    "signal": 0.372,
+    "confidence": 0.967,
+    "error_rate": 0.03300000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:54:32.887033",
+    "symbol": "NVDA",
+    "signal": 0.696,
+    "confidence": 0.9652,
+    "error_rate": 0.034800000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:55:32.936939",
+    "symbol": "AAPL",
+    "signal": 0.588,
+    "confidence": 0.77336,
+    "error_rate": 0.03330000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:55:32.950389",
+    "symbol": "MSFT",
+    "signal": 0.521,
+    "confidence": 0.76688,
+    "error_rate": 0.041400000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:55:32.961910",
+    "symbol": "NVDA",
+    "signal": 0.391,
+    "confidence": 0.9613,
+    "error_rate": 0.03870000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:56:33.013310",
+    "symbol": "AAPL",
+    "signal": 0.737,
+    "confidence": 0.9652000000000001,
+    "error_rate": 0.0348,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:56:33.029013",
+    "symbol": "MSFT",
+    "signal": 0.11199999999999999,
+    "confidence": 0.9634,
+    "error_rate": 0.0366,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:56:33.041121",
+    "symbol": "NVDA",
+    "signal": 0.886,
+    "confidence": 0.9748,
+    "error_rate": 0.0252,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:57:33.093402",
+    "symbol": "AAPL",
+    "signal": 0.255,
+    "confidence": 0.9715,
+    "error_rate": 0.028500000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:57:33.108294",
+    "symbol": "MSFT",
+    "signal": 0.531,
+    "confidence": 0.7709600000000001,
+    "error_rate": 0.036300000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:57:33.120026",
+    "symbol": "NVDA",
+    "signal": 0.301,
+    "confidence": 0.9766,
+    "error_rate": 0.0234,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:58:33.158694",
+    "symbol": "AAPL",
+    "signal": 0.532,
+    "confidence": 0.76544,
+    "error_rate": 0.0432,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:58:33.172536",
+    "symbol": "MSFT",
+    "signal": 0.48,
+    "confidence": 0.77312,
+    "error_rate": 0.033600000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:58:33.186295",
+    "symbol": "NVDA",
+    "signal": 0.582,
+    "confidence": 0.7676000000000001,
+    "error_rate": 0.04050000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:59:33.260544",
+    "symbol": "AAPL",
+    "signal": 0.652,
+    "confidence": 0.958,
+    "error_rate": 0.041999999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:59:33.284024",
+    "symbol": "MSFT",
+    "signal": 0.6972645399999999,
+    "confidence": 0.9493,
+    "error_rate": 0.0507,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T11:59:33.297666",
+    "symbol": "NVDA",
+    "signal": 0.687,
+    "confidence": 0.9589,
+    "error_rate": 0.041100000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:00:33.350664",
+    "symbol": "AAPL",
+    "signal": 0.455,
+    "confidence": 0.7688,
+    "error_rate": 0.03900000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:00:33.365444",
+    "symbol": "MSFT",
+    "signal": 0.21500000000000002,
+    "confidence": 0.9751,
+    "error_rate": 0.0249,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:00:33.378451",
+    "symbol": "NVDA",
+    "signal": 0.764,
+    "confidence": 0.9592,
+    "error_rate": 0.0408,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:01:33.424647",
+    "symbol": "AAPL",
+    "signal": 0.475,
+    "confidence": 0.7712,
+    "error_rate": 0.036000000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:01:33.438343",
+    "symbol": "MSFT",
+    "signal": 0.641,
+    "confidence": 0.9658,
+    "error_rate": 0.03420000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:01:33.454830",
+    "symbol": "NVDA",
+    "signal": 0.83644544,
+    "confidence": 0.9472,
+    "error_rate": 0.0528,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:02:33.500283",
+    "symbol": "AAPL",
+    "signal": 0.605,
+    "confidence": 0.9628,
+    "error_rate": 0.03720000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:02:33.514539",
+    "symbol": "MSFT",
+    "signal": 0.386,
+    "confidence": 0.9643,
+    "error_rate": 0.0357,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:02:33.526100",
+    "symbol": "NVDA",
+    "signal": 0.539,
+    "confidence": 0.77312,
+    "error_rate": 0.033600000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:03:33.575196",
+    "symbol": "AAPL",
+    "signal": 0.595,
+    "confidence": 0.7714400000000001,
+    "error_rate": 0.0357,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:03:33.588822",
+    "symbol": "MSFT",
+    "signal": 0.565,
+    "confidence": 0.77336,
+    "error_rate": 0.03330000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:03:33.601547",
+    "symbol": "NVDA",
+    "signal": 0.535,
+    "confidence": 0.76976,
+    "error_rate": 0.0378,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:04:33.650151",
+    "symbol": "AAPL",
+    "signal": 0.61,
+    "confidence": 0.9565,
+    "error_rate": 0.0435,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:04:33.667164",
+    "symbol": "MSFT",
+    "signal": 0.618,
+    "confidence": 0.9646,
+    "error_rate": 0.0354,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:04:33.680373",
+    "symbol": "NVDA",
+    "signal": 0.58,
+    "confidence": 0.776,
+    "error_rate": 0.03,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:05:33.731153",
+    "symbol": "AAPL",
+    "signal": 0.5609999999999999,
+    "confidence": 0.76232,
+    "error_rate": 0.04710000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:05:33.747749",
+    "symbol": "MSFT",
+    "signal": 0.873,
+    "confidence": 0.9589,
+    "error_rate": 0.041100000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:05:33.761255",
+    "symbol": "NVDA",
+    "signal": 0.47,
+    "confidence": 0.7625600000000001,
+    "error_rate": 0.04680000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:06:33.803866",
+    "symbol": "AAPL",
+    "signal": 0.863,
+    "confidence": 0.9649,
+    "error_rate": 0.0351,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:06:33.818143",
+    "symbol": "MSFT",
+    "signal": 0.687,
+    "confidence": 0.9526,
+    "error_rate": 0.04739999999999999,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:06:33.835490",
+    "symbol": "NVDA",
+    "signal": 0.58511244,
+    "confidence": 0.75824,
+    "error_rate": 0.0522,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:07:33.873935",
+    "symbol": "AAPL",
+    "signal": 0.865,
+    "confidence": 0.9685,
+    "error_rate": 0.03150000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:07:33.887570",
+    "symbol": "MSFT",
+    "signal": 0.625,
+    "confidence": 0.9634,
+    "error_rate": 0.03660000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:07:33.900205",
+    "symbol": "NVDA",
+    "signal": 0.8069999999999999,
+    "confidence": 0.9514,
+    "error_rate": 0.04860000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:08:33.941243",
+    "symbol": "AAPL",
+    "signal": 0.614,
+    "confidence": 0.9628,
+    "error_rate": 0.037200000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:08:33.961906",
+    "symbol": "MSFT",
+    "signal": 0.8258023999999999,
+    "confidence": 0.946,
+    "error_rate": 0.054000000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:08:33.974633",
+    "symbol": "NVDA",
+    "signal": 0.28700000000000003,
+    "confidence": 0.9502,
+    "error_rate": 0.049800000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:09:34.029844",
+    "symbol": "AAPL",
+    "signal": 0.57809872,
+    "confidence": 0.75824,
+    "error_rate": 0.05219999999999999,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:09:34.043521",
+    "symbol": "MSFT",
+    "signal": 0.33099999999999996,
+    "confidence": 0.9715,
+    "error_rate": 0.028500000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:09:34.055291",
+    "symbol": "NVDA",
+    "signal": 0.523,
+    "confidence": 0.7786400000000001,
+    "error_rate": 0.0267,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:10:34.099300",
+    "symbol": "AAPL",
+    "signal": 0.929,
+    "confidence": 0.9661,
+    "error_rate": 0.0339,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:10:34.114219",
+    "symbol": "MSFT",
+    "signal": 0.784,
+    "confidence": 0.9541,
+    "error_rate": 0.0459,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:10:34.126637",
+    "symbol": "NVDA",
+    "signal": 0.5660000000000001,
+    "confidence": 0.7709600000000001,
+    "error_rate": 0.036300000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:11:34.174236",
+    "symbol": "AAPL",
+    "signal": 0.10299999999999998,
+    "confidence": 0.9667,
+    "error_rate": 0.0333,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:11:34.187650",
+    "symbol": "MSFT",
+    "signal": 0.8029999999999999,
+    "confidence": 0.9751,
+    "error_rate": 0.0249,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:11:34.199787",
+    "symbol": "NVDA",
+    "signal": 0.239,
+    "confidence": 0.9712,
+    "error_rate": 0.028800000000000003,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:12:34.248238",
+    "symbol": "AAPL",
+    "signal": 0.424,
+    "confidence": 0.77624,
+    "error_rate": 0.029700000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:12:34.263986",
+    "symbol": "MSFT",
+    "signal": 0.567,
+    "confidence": 0.7740800000000001,
+    "error_rate": 0.0324,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:12:34.276686",
+    "symbol": "NVDA",
+    "signal": 0.59,
+    "confidence": 0.7796000000000001,
+    "error_rate": 0.025500000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:14:02.749258",
+    "symbol": "AAPL",
+    "signal": 0.9419044599999999,
+    "confidence": 0.9487,
+    "error_rate": 0.0513,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:14:02.763934",
+    "symbol": "MSFT",
+    "signal": 0.265,
+    "confidence": 0.9586,
+    "error_rate": 0.041400000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:14:02.776744",
+    "symbol": "NVDA",
+    "signal": 0.742,
+    "confidence": 0.9642999999999999,
+    "error_rate": 0.03570000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:16:17.965564",
+    "symbol": "AAPL",
+    "signal": 0.706,
+    "confidence": 0.9781,
+    "error_rate": 0.02190000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:16:17.981230",
+    "symbol": "MSFT",
+    "signal": 0.279,
+    "confidence": 0.9565,
+    "error_rate": 0.043500000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:16:17.993477",
+    "symbol": "NVDA",
+    "signal": 0.37,
+    "confidence": 0.9556,
+    "error_rate": 0.0444,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:17:18.042009",
+    "symbol": "AAPL",
+    "signal": 0.307,
+    "confidence": 0.9559,
+    "error_rate": 0.04410000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:17:18.058699",
+    "symbol": "MSFT",
+    "signal": 0.573,
+    "confidence": 0.76688,
+    "error_rate": 0.041400000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:17:18.072263",
+    "symbol": "NVDA",
+    "signal": 0.063,
+    "confidence": 0.97,
+    "error_rate": 0.03,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:18:18.131284",
+    "symbol": "AAPL",
+    "signal": 0.64,
+    "confidence": 0.9607,
+    "error_rate": 0.0393,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:18:18.148181",
+    "symbol": "MSFT",
+    "signal": 0.14900000000000002,
+    "confidence": 0.9601,
+    "error_rate": 0.039900000000000005,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:18:18.160832",
+    "symbol": "NVDA",
+    "signal": 0.495,
+    "confidence": 0.7683200000000001,
+    "error_rate": 0.0396,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:19:18.203996",
+    "symbol": "AAPL",
+    "signal": 0.317,
+    "confidence": 0.9712,
+    "error_rate": 0.0288,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:19:18.222169",
+    "symbol": "MSFT",
+    "signal": 0.318,
+    "confidence": 0.9718,
+    "error_rate": 0.028200000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:19:18.236407",
+    "symbol": "NVDA",
+    "signal": 0.33999999999999997,
+    "confidence": 0.9598,
+    "error_rate": 0.0402,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:20:18.278929",
+    "symbol": "AAPL",
+    "signal": 0.604,
+    "confidence": 0.9667,
+    "error_rate": 0.03330000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:20:18.300739",
+    "symbol": "MSFT",
+    "signal": 0.64268592,
+    "confidence": 0.9412,
+    "error_rate": 0.058800000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:20:18.312764",
+    "symbol": "NVDA",
+    "signal": 0.388,
+    "confidence": 0.9724,
+    "error_rate": 0.027600000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:21:18.376489",
+    "symbol": "AAPL",
+    "signal": 0.629,
+    "confidence": 0.9526,
+    "error_rate": 0.0474,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:21:18.394453",
+    "symbol": "MSFT",
+    "signal": 0.739,
+    "confidence": 0.9568,
+    "error_rate": 0.0432,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:21:18.407868",
+    "symbol": "NVDA",
+    "signal": 0.726,
+    "confidence": 0.9621999999999999,
+    "error_rate": 0.03780000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:22:18.450920",
+    "symbol": "AAPL",
+    "signal": 0.67,
+    "confidence": 0.9742,
+    "error_rate": 0.025800000000000007,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:22:18.466641",
+    "symbol": "MSFT",
+    "signal": 0.872,
+    "confidence": 0.9616,
+    "error_rate": 0.038400000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:22:18.480170",
+    "symbol": "NVDA",
+    "signal": 0.966,
+    "confidence": 0.967,
+    "error_rate": 0.03300000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:23:18.528632",
+    "symbol": "AAPL",
+    "signal": 0.46763304,
+    "confidence": 0.7527200000000001,
+    "error_rate": 0.05910000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:23:18.542734",
+    "symbol": "MSFT",
+    "signal": 0.63,
+    "confidence": 0.967,
+    "error_rate": 0.033,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:23:18.554845",
+    "symbol": "NVDA",
+    "signal": 0.636,
+    "confidence": 0.9733,
+    "error_rate": 0.0267,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:24:18.603269",
+    "symbol": "AAPL",
+    "signal": 0.786,
+    "confidence": 0.9616,
+    "error_rate": 0.038400000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:24:18.626244",
+    "symbol": "MSFT",
+    "signal": 0.85561954,
+    "confidence": 0.9463,
+    "error_rate": 0.053700000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:24:18.639599",
+    "symbol": "NVDA",
+    "signal": 0.244,
+    "confidence": 0.9673,
+    "error_rate": 0.0327,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:25:18.689550",
+    "symbol": "AAPL",
+    "signal": 0.36,
+    "confidence": 0.9625,
+    "error_rate": 0.037500000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:25:18.707098",
+    "symbol": "MSFT",
+    "signal": 0.6719999999999999,
+    "confidence": 0.9643,
+    "error_rate": 0.0357,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:25:18.721048",
+    "symbol": "NVDA",
+    "signal": 0.493,
+    "confidence": 0.76976,
+    "error_rate": 0.037800000000000014,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:26:18.770948",
+    "symbol": "AAPL",
+    "signal": 0.679,
+    "confidence": 0.9561999999999999,
+    "error_rate": 0.043800000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:26:18.788612",
+    "symbol": "MSFT",
+    "signal": 0.454,
+    "confidence": 0.7652000000000001,
+    "error_rate": 0.043500000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:26:18.801854",
+    "symbol": "NVDA",
+    "signal": 0.5609999999999999,
+    "confidence": 0.77312,
+    "error_rate": 0.033600000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:27:18.863782",
+    "symbol": "AAPL",
+    "signal": 0.70071544,
+    "confidence": 0.9388,
+    "error_rate": 0.06120000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:27:18.878090",
+    "symbol": "MSFT",
+    "signal": 0.423,
+    "confidence": 0.77048,
+    "error_rate": 0.0369,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:27:18.890554",
+    "symbol": "NVDA",
+    "signal": 0.804,
+    "confidence": 0.9718,
+    "error_rate": 0.028199999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:28:18.944241",
+    "symbol": "AAPL",
+    "signal": 0.483,
+    "confidence": 0.7824800000000001,
+    "error_rate": 0.021900000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:28:18.961303",
+    "symbol": "MSFT",
+    "signal": 0.541,
+    "confidence": 0.77288,
+    "error_rate": 0.0339,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:28:18.975045",
+    "symbol": "NVDA",
+    "signal": 0.522,
+    "confidence": 0.7635200000000001,
+    "error_rate": 0.0456,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:29:19.105253",
+    "symbol": "AAPL",
+    "signal": 0.439,
+    "confidence": 0.76592,
+    "error_rate": 0.042600000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:29:19.123684",
+    "symbol": "MSFT",
+    "signal": 0.278,
+    "confidence": 0.958,
+    "error_rate": 0.042,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:29:19.137003",
+    "symbol": "NVDA",
+    "signal": 0.631,
+    "confidence": 0.9538,
+    "error_rate": 0.046200000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:30:19.185077",
+    "symbol": "AAPL",
+    "signal": 0.383,
+    "confidence": 0.9571,
+    "error_rate": 0.0429,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:30:19.206068",
+    "symbol": "MSFT",
+    "signal": 0.56737656,
+    "confidence": 0.75704,
+    "error_rate": 0.053700000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:30:19.219210",
+    "symbol": "NVDA",
+    "signal": 0.15899999999999997,
+    "confidence": 0.9622,
+    "error_rate": 0.03779999999999999,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:31:19.282204",
+    "symbol": "AAPL",
+    "signal": 0.614,
+    "confidence": 0.9685,
+    "error_rate": 0.03150000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:31:19.305171",
+    "symbol": "MSFT",
+    "signal": 0.6335947200000001,
+    "confidence": 0.9448,
+    "error_rate": 0.055200000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:31:19.319546",
+    "symbol": "NVDA",
+    "signal": 0.12,
+    "confidence": 0.9559,
+    "error_rate": 0.0441,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:32:19.373580",
+    "symbol": "AAPL",
+    "signal": 0.04199999999999998,
+    "confidence": 0.9694,
+    "error_rate": 0.0306,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:32:19.387980",
+    "symbol": "MSFT",
+    "signal": 0.55,
+    "confidence": 0.776,
+    "error_rate": 0.030000000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:32:19.400467",
+    "symbol": "NVDA",
+    "signal": 0.528,
+    "confidence": 0.7767200000000001,
+    "error_rate": 0.029100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:33:19.458053",
+    "symbol": "AAPL",
+    "signal": 0.38695672000000003,
+    "confidence": 0.9436,
+    "error_rate": 0.056400000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:33:19.477541",
+    "symbol": "MSFT",
+    "signal": 0.9158208,
+    "confidence": 0.9472,
+    "error_rate": 0.052800000000000014,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:33:19.493934",
+    "symbol": "NVDA",
+    "signal": 0.91364576,
+    "confidence": 0.9496,
+    "error_rate": 0.0504,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:34:19.551551",
+    "symbol": "AAPL",
+    "signal": 0.751,
+    "confidence": 0.9682,
+    "error_rate": 0.03180000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:34:19.564373",
+    "symbol": "MSFT",
+    "signal": 0.40700000000000003,
+    "confidence": 0.7779200000000001,
+    "error_rate": 0.027600000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:34:19.575445",
+    "symbol": "NVDA",
+    "signal": 0.647,
+    "confidence": 0.9511,
+    "error_rate": 0.04890000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:35:19.631069",
+    "symbol": "AAPL",
+    "signal": 0.432,
+    "confidence": 0.76856,
+    "error_rate": 0.0393,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:35:19.653213",
+    "symbol": "MSFT",
+    "signal": 0.5169956,
+    "confidence": 0.75536,
+    "error_rate": 0.0558,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:35:19.670134",
+    "symbol": "NVDA",
+    "signal": 0.44256332,
+    "confidence": 0.75824,
+    "error_rate": 0.0522,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:36:19.719695",
+    "symbol": "AAPL",
+    "signal": 0.597,
+    "confidence": 0.77288,
+    "error_rate": 0.0339,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:36:19.733611",
+    "symbol": "MSFT",
+    "signal": 0.33999999999999997,
+    "confidence": 0.9808,
+    "error_rate": 0.019200000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:36:19.749337",
+    "symbol": "NVDA",
+    "signal": 0.02400000000000002,
+    "confidence": 0.9655,
+    "error_rate": 0.034499999999999996,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:37:19.803074",
+    "symbol": "AAPL",
+    "signal": 0.819,
+    "confidence": 0.9706,
+    "error_rate": 0.029400000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:37:19.817483",
+    "symbol": "MSFT",
+    "signal": 0.78,
+    "confidence": 0.9592,
+    "error_rate": 0.040799999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:37:19.829910",
+    "symbol": "NVDA",
+    "signal": 0.734,
+    "confidence": 0.9694,
+    "error_rate": 0.030600000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:38:19.881712",
+    "symbol": "AAPL",
+    "signal": 0.8160000000000001,
+    "confidence": 0.9661,
+    "error_rate": 0.033900000000000007,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:38:19.896022",
+    "symbol": "MSFT",
+    "signal": 0.902,
+    "confidence": 0.9661,
+    "error_rate": 0.033900000000000007,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:38:19.908653",
+    "symbol": "NVDA",
+    "signal": 0.63,
+    "confidence": 0.9625,
+    "error_rate": 0.0375,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:39:19.951240",
+    "symbol": "AAPL",
+    "signal": 0.6930000000000001,
+    "confidence": 0.9694,
+    "error_rate": 0.0306,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:39:19.965814",
+    "symbol": "MSFT",
+    "signal": 0.9339999999999999,
+    "confidence": 0.9649,
+    "error_rate": 0.035100000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:39:19.978156",
+    "symbol": "NVDA",
+    "signal": 0.614,
+    "confidence": 0.9679,
+    "error_rate": 0.032100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:40:20.028030",
+    "symbol": "AAPL",
+    "signal": 0.489,
+    "confidence": 0.77312,
+    "error_rate": 0.033600000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:40:20.043841",
+    "symbol": "MSFT",
+    "signal": 0.665,
+    "confidence": 0.9706,
+    "error_rate": 0.029400000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:40:20.057703",
+    "symbol": "NVDA",
+    "signal": 0.201,
+    "confidence": 0.9628,
+    "error_rate": 0.0372,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:41:20.114675",
+    "symbol": "AAPL",
+    "signal": 0.6719999999999999,
+    "confidence": 0.9754,
+    "error_rate": 0.0246,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:41:20.137927",
+    "symbol": "MSFT",
+    "signal": 0.6873077599999999,
+    "confidence": 0.9403,
+    "error_rate": 0.059699999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:41:20.151275",
+    "symbol": "NVDA",
+    "signal": 0.359,
+    "confidence": 0.9637,
+    "error_rate": 0.036300000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:42:20.187565",
+    "symbol": "AAPL",
+    "signal": 0.819,
+    "confidence": 0.9646,
+    "error_rate": 0.0354,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:42:20.203755",
+    "symbol": "MSFT",
+    "signal": 0.5589999999999999,
+    "confidence": 0.78008,
+    "error_rate": 0.0249,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:42:20.217138",
+    "symbol": "NVDA",
+    "signal": 0.681,
+    "confidence": 0.9607,
+    "error_rate": 0.039299999999999995,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:43:20.259359",
+    "symbol": "AAPL",
+    "signal": 0.48,
+    "confidence": 0.76376,
+    "error_rate": 0.0453,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:43:20.272805",
+    "symbol": "MSFT",
+    "signal": 0.6819999999999999,
+    "confidence": 0.9544,
+    "error_rate": 0.0456,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:43:20.284747",
+    "symbol": "NVDA",
+    "signal": 0.574,
+    "confidence": 0.7714400000000001,
+    "error_rate": 0.035699999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:44:20.322158",
+    "symbol": "AAPL",
+    "signal": 0.41100000000000003,
+    "confidence": 0.77696,
+    "error_rate": 0.028800000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:44:20.338721",
+    "symbol": "MSFT",
+    "signal": 0.177,
+    "confidence": 0.9631,
+    "error_rate": 0.0369,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:44:20.352164",
+    "symbol": "NVDA",
+    "signal": 0.187,
+    "confidence": 0.9676,
+    "error_rate": 0.0324,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:45:20.390695",
+    "symbol": "AAPL",
+    "signal": 0.41000000000000003,
+    "confidence": 0.7740800000000001,
+    "error_rate": 0.032400000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:45:20.411424",
+    "symbol": "MSFT",
+    "signal": 0.8947189400000001,
+    "confidence": 0.9493,
+    "error_rate": 0.05069999999999999,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:45:20.424634",
+    "symbol": "NVDA",
+    "signal": 0.08500000000000002,
+    "confidence": 0.9679,
+    "error_rate": 0.032100000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:46:20.482759",
+    "symbol": "AAPL",
+    "signal": 0.595,
+    "confidence": 0.76976,
+    "error_rate": 0.0378,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:46:20.495463",
+    "symbol": "MSFT",
+    "signal": 0.554,
+    "confidence": 0.7767200000000001,
+    "error_rate": 0.029100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:46:20.506460",
+    "symbol": "NVDA",
+    "signal": 0.754,
+    "confidence": 0.9838,
+    "error_rate": 0.0162,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:47:20.551238",
+    "symbol": "AAPL",
+    "signal": 0.175,
+    "confidence": 0.9745,
+    "error_rate": 0.025500000000000002,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:47:20.567418",
+    "symbol": "MSFT",
+    "signal": 0.515,
+    "confidence": 0.77288,
+    "error_rate": 0.0339,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:47:20.580885",
+    "symbol": "NVDA",
+    "signal": 0.05499999999999999,
+    "confidence": 0.9703,
+    "error_rate": 0.029699999999999997,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:48:20.630648",
+    "symbol": "AAPL",
+    "signal": 0.8522985000000001,
+    "confidence": 0.9445,
+    "error_rate": 0.055499999999999994,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:48:20.644656",
+    "symbol": "MSFT",
+    "signal": 0.404,
+    "confidence": 0.78152,
+    "error_rate": 0.023100000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:48:20.656466",
+    "symbol": "NVDA",
+    "signal": 0.574,
+    "confidence": 0.77912,
+    "error_rate": 0.0261,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:49:20.695947",
+    "symbol": "AAPL",
+    "signal": 0.534,
+    "confidence": 0.77168,
+    "error_rate": 0.0354,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:49:20.711444",
+    "symbol": "MSFT",
+    "signal": 0.565,
+    "confidence": 0.76952,
+    "error_rate": 0.0381,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:49:20.730447",
+    "symbol": "NVDA",
+    "signal": 0.60512848,
+    "confidence": 0.9454,
+    "error_rate": 0.0546,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:50:20.791405",
+    "symbol": "AAPL",
+    "signal": 0.521,
+    "confidence": 0.77264,
+    "error_rate": 0.03420000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:50:20.806903",
+    "symbol": "MSFT",
+    "signal": 0.503,
+    "confidence": 0.7692800000000001,
+    "error_rate": 0.038400000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T12:50:20.826627",
+    "symbol": "NVDA",
+    "signal": 0.19414699999999996,
+    "confidence": 0.9475,
+    "error_rate": 0.052500000000000005,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:08:55.286153",
+    "symbol": "AAPL",
+    "signal": 0.44898696,
+    "confidence": 0.7529600000000001,
+    "error_rate": 0.058800000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:08:55.301617",
+    "symbol": "MSFT",
+    "signal": 0.265,
+    "confidence": 0.9586,
+    "error_rate": 0.041400000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:08:55.319309",
+    "symbol": "NVDA",
+    "signal": 0.27811695999999997,
+    "confidence": 0.9466,
+    "error_rate": 0.0534,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:09:55.493572",
+    "symbol": "AAPL",
+    "signal": 0.624,
+    "confidence": 0.973,
+    "error_rate": 0.027000000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:09:55.509739",
+    "symbol": "MSFT",
+    "signal": 0.385,
+    "confidence": 0.961,
+    "error_rate": 0.03900000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:09:55.522913",
+    "symbol": "NVDA",
+    "signal": 0.66,
+    "confidence": 0.9556,
+    "error_rate": 0.0444,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:14:14.517006",
+    "symbol": "AAPL",
+    "signal": 0.671,
+    "confidence": 0.9658,
+    "error_rate": 0.0342,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:14:14.533275",
+    "symbol": "MSFT",
+    "signal": 0.451,
+    "confidence": 0.7784,
+    "error_rate": 0.027000000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:14:14.547640",
+    "symbol": "NVDA",
+    "signal": 0.28,
+    "confidence": 0.9727,
+    "error_rate": 0.0273,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:19:26.971681",
+    "symbol": "AAPL",
+    "signal": 0.925,
+    "confidence": 0.9664,
+    "error_rate": 0.0336,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:19:26.988719",
+    "symbol": "MSFT",
+    "signal": 0.743,
+    "confidence": 0.9586,
+    "error_rate": 0.041400000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:19:27.002080",
+    "symbol": "NVDA",
+    "signal": 0.673,
+    "confidence": 0.9646,
+    "error_rate": 0.03540000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:28:53.213166",
+    "symbol": "AAPL",
+    "signal": 0.376,
+    "confidence": 0.9679,
+    "error_rate": 0.032100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:28:53.227406",
+    "symbol": "MSFT",
+    "signal": 0.78,
+    "confidence": 0.9544,
+    "error_rate": 0.0456,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:28:53.244460",
+    "symbol": "NVDA",
+    "signal": 0.447,
+    "confidence": 0.7664,
+    "error_rate": 0.042,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:34:06.301561",
+    "symbol": "AAPL",
+    "signal": 0.358,
+    "confidence": 0.9688,
+    "error_rate": 0.031200000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:34:06.317765",
+    "symbol": "MSFT",
+    "signal": 0.885,
+    "confidence": 0.9685,
+    "error_rate": 0.03150000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:34:06.331082",
+    "symbol": "NVDA",
+    "signal": 0.911,
+    "confidence": 0.9601,
+    "error_rate": 0.0399,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:39:03.411974",
+    "symbol": "AAPL",
+    "signal": 0.594,
+    "confidence": 0.77336,
+    "error_rate": 0.0333,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:39:03.428713",
+    "symbol": "MSFT",
+    "signal": 0.706,
+    "confidence": 0.9619,
+    "error_rate": 0.0381,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:39:03.442186",
+    "symbol": "NVDA",
+    "signal": 0.644,
+    "confidence": 0.9721,
+    "error_rate": 0.0279,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:44:16.473383",
+    "symbol": "AAPL",
+    "signal": 0.484,
+    "confidence": 0.7676000000000001,
+    "error_rate": 0.0405,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:44:16.488809",
+    "symbol": "MSFT",
+    "signal": 0.33399999999999996,
+    "confidence": 0.952,
+    "error_rate": 0.048,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:44:16.501818",
+    "symbol": "NVDA",
+    "signal": 0.486,
+    "confidence": 0.7755200000000001,
+    "error_rate": 0.0306,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:49:29.528418",
+    "symbol": "AAPL",
+    "signal": 0.5589999999999999,
+    "confidence": 0.7803200000000001,
+    "error_rate": 0.0246,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:49:29.544219",
+    "symbol": "MSFT",
+    "signal": 0.281,
+    "confidence": 0.961,
+    "error_rate": 0.039,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:49:29.556907",
+    "symbol": "NVDA",
+    "signal": 0.5,
+    "confidence": 0.76712,
+    "error_rate": 0.041100000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:58:55.677246",
+    "symbol": "AAPL",
+    "signal": 0.259,
+    "confidence": 0.9694,
+    "error_rate": 0.030600000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:58:55.691830",
+    "symbol": "MSFT",
+    "signal": 0.769,
+    "confidence": 0.9619,
+    "error_rate": 0.03810000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T13:58:55.704322",
+    "symbol": "NVDA",
+    "signal": 0.43,
+    "confidence": 0.764,
+    "error_rate": 0.045000000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:04:08.761222",
+    "symbol": "AAPL",
+    "signal": 0.736,
+    "confidence": 0.9574,
+    "error_rate": 0.042600000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:04:08.776410",
+    "symbol": "MSFT",
+    "signal": 0.6990000000000001,
+    "confidence": 0.9742,
+    "error_rate": 0.0258,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:04:08.793782",
+    "symbol": "NVDA",
+    "signal": 0.75419996,
+    "confidence": 0.9478,
+    "error_rate": 0.05219999999999999,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:09:21.819762",
+    "symbol": "AAPL",
+    "signal": 0.85,
+    "confidence": 0.9643,
+    "error_rate": 0.035699999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:09:21.838155",
+    "symbol": "MSFT",
+    "signal": 0.34299999999999997,
+    "confidence": 0.9589,
+    "error_rate": 0.04110000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:09:21.852908",
+    "symbol": "NVDA",
+    "signal": 0.433,
+    "confidence": 0.76808,
+    "error_rate": 0.039900000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:14:35.900684",
+    "symbol": "AAPL",
+    "signal": 0.064,
+    "confidence": 0.967,
+    "error_rate": 0.033,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:14:35.915637",
+    "symbol": "MSFT",
+    "signal": 0.307,
+    "confidence": 0.9697,
+    "error_rate": 0.0303,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:14:35.929225",
+    "symbol": "NVDA",
+    "signal": 0.657,
+    "confidence": 0.9646,
+    "error_rate": 0.0354,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:24:04.051940",
+    "symbol": "AAPL",
+    "signal": 0.662,
+    "confidence": 0.9634,
+    "error_rate": 0.03660000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:24:04.073984",
+    "symbol": "MSFT",
+    "signal": 0.69632484,
+    "confidence": 0.9466,
+    "error_rate": 0.0534,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:24:04.087585",
+    "symbol": "NVDA",
+    "signal": 0.28600000000000003,
+    "confidence": 0.9661,
+    "error_rate": 0.0339,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:29:17.132702",
+    "symbol": "AAPL",
+    "signal": 0.584,
+    "confidence": 0.7750400000000001,
+    "error_rate": 0.0312,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:29:17.154703",
+    "symbol": "MSFT",
+    "signal": 0.53759228,
+    "confidence": 0.7594400000000001,
+    "error_rate": 0.0507,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:29:17.168786",
+    "symbol": "NVDA",
+    "signal": 0.15100000000000002,
+    "confidence": 0.9598,
+    "error_rate": 0.0402,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:30:17.218883",
+    "symbol": "AAPL",
+    "signal": 0.752,
+    "confidence": 0.9691,
+    "error_rate": 0.030900000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:30:17.237725",
+    "symbol": "MSFT",
+    "signal": 0.40854452,
+    "confidence": 0.7527200000000001,
+    "error_rate": 0.0591,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:30:17.249691",
+    "symbol": "NVDA",
+    "signal": 0.41100000000000003,
+    "confidence": 0.7721600000000001,
+    "error_rate": 0.0348,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:31:17.300028",
+    "symbol": "AAPL",
+    "signal": 0.8044228,
+    "confidence": 0.946,
+    "error_rate": 0.054000000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:31:17.315167",
+    "symbol": "MSFT",
+    "signal": 0.258,
+    "confidence": 0.9514,
+    "error_rate": 0.0486,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:31:17.333040",
+    "symbol": "NVDA",
+    "signal": 0.15472544,
+    "confidence": 0.9496,
+    "error_rate": 0.050400000000000014,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:32:17.378513",
+    "symbol": "AAPL",
+    "signal": 0.301,
+    "confidence": 0.9652,
+    "error_rate": 0.034800000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:32:17.394014",
+    "symbol": "MSFT",
+    "signal": 0.603,
+    "confidence": 0.9604,
+    "error_rate": 0.0396,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:32:17.406051",
+    "symbol": "NVDA",
+    "signal": 0.492,
+    "confidence": 0.7688,
+    "error_rate": 0.03900000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:33:17.468792",
+    "symbol": "AAPL",
+    "signal": 0.25306152000000004,
+    "confidence": 0.9454,
+    "error_rate": 0.0546,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:33:17.485355",
+    "symbol": "MSFT",
+    "signal": 0.445,
+    "confidence": 0.77528,
+    "error_rate": 0.030900000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:33:17.498851",
+    "symbol": "NVDA",
+    "signal": 0.855,
+    "confidence": 0.9595,
+    "error_rate": 0.0405,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:34:17.559586",
+    "symbol": "AAPL",
+    "signal": 0.5778672,
+    "confidence": 0.75968,
+    "error_rate": 0.0504,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:34:17.579957",
+    "symbol": "MSFT",
+    "signal": 0.9361235,
+    "confidence": 0.9379,
+    "error_rate": 0.06210000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:34:17.592248",
+    "symbol": "NVDA",
+    "signal": 0.545,
+    "confidence": 0.7764800000000001,
+    "error_rate": 0.029400000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:35:17.634720",
+    "symbol": "AAPL",
+    "signal": 0.863,
+    "confidence": 0.9559,
+    "error_rate": 0.04409999999999999,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:35:17.648726",
+    "symbol": "MSFT",
+    "signal": 0.706,
+    "confidence": 0.9541,
+    "error_rate": 0.04590000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:35:17.661949",
+    "symbol": "NVDA",
+    "signal": 0.22999999999999998,
+    "confidence": 0.9702999999999999,
+    "error_rate": 0.029700000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:36:17.703045",
+    "symbol": "AAPL",
+    "signal": 0.853,
+    "confidence": 0.9742,
+    "error_rate": 0.0258,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:36:17.719230",
+    "symbol": "MSFT",
+    "signal": 0.21899999999999997,
+    "confidence": 0.9643,
+    "error_rate": 0.0357,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:36:17.736674",
+    "symbol": "NVDA",
+    "signal": 0.4411568,
+    "confidence": 0.7544,
+    "error_rate": 0.05700000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:37:17.777196",
+    "symbol": "AAPL",
+    "signal": 0.712,
+    "confidence": 0.9664,
+    "error_rate": 0.033600000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:37:17.791929",
+    "symbol": "MSFT",
+    "signal": 0.396,
+    "confidence": 0.9688,
+    "error_rate": 0.031200000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:37:17.805441",
+    "symbol": "NVDA",
+    "signal": 0.12,
+    "confidence": 0.9604,
+    "error_rate": 0.0396,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:38:17.851803",
+    "symbol": "AAPL",
+    "signal": 0.32,
+    "confidence": 0.97,
+    "error_rate": 0.030000000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:38:17.867982",
+    "symbol": "MSFT",
+    "signal": 0.574,
+    "confidence": 0.7870400000000001,
+    "error_rate": 0.016200000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:38:17.883521",
+    "symbol": "NVDA",
+    "signal": 0.324,
+    "confidence": 0.9625,
+    "error_rate": 0.0375,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:39:17.922872",
+    "symbol": "AAPL",
+    "signal": 0.546,
+    "confidence": 0.7676000000000001,
+    "error_rate": 0.0405,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:39:17.939619",
+    "symbol": "MSFT",
+    "signal": 0.358,
+    "confidence": 0.9571,
+    "error_rate": 0.04290000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:39:17.954062",
+    "symbol": "NVDA",
+    "signal": 0.262,
+    "confidence": 0.967,
+    "error_rate": 0.033,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:40:18.019399",
+    "symbol": "AAPL",
+    "signal": 0.51242384,
+    "confidence": 0.7529600000000001,
+    "error_rate": 0.058800000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:40:18.034283",
+    "symbol": "MSFT",
+    "signal": 0.618,
+    "confidence": 0.964,
+    "error_rate": 0.036,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:40:18.047077",
+    "symbol": "NVDA",
+    "signal": 0.865,
+    "confidence": 0.961,
+    "error_rate": 0.039,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:41:18.089871",
+    "symbol": "AAPL",
+    "signal": 0.457,
+    "confidence": 0.7796000000000001,
+    "error_rate": 0.025500000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:41:18.106921",
+    "symbol": "MSFT",
+    "signal": 0.40700000000000003,
+    "confidence": 0.7772000000000001,
+    "error_rate": 0.028500000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:41:18.126112",
+    "symbol": "NVDA",
+    "signal": 0.39931368,
+    "confidence": 0.9463,
+    "error_rate": 0.053700000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:42:18.178610",
+    "symbol": "AAPL",
+    "signal": 0.51444828,
+    "confidence": 0.7505600000000001,
+    "error_rate": 0.06180000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:42:18.193821",
+    "symbol": "MSFT",
+    "signal": 0.32,
+    "confidence": 0.9655,
+    "error_rate": 0.034499999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:42:18.207200",
+    "symbol": "NVDA",
+    "signal": 0.806,
+    "confidence": 0.9709,
+    "error_rate": 0.029100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:43:18.256032",
+    "symbol": "AAPL",
+    "signal": 0.458,
+    "confidence": 0.7738400000000001,
+    "error_rate": 0.03270000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:43:18.272288",
+    "symbol": "MSFT",
+    "signal": 0.616,
+    "confidence": 0.9514,
+    "error_rate": 0.0486,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:43:18.285363",
+    "symbol": "NVDA",
+    "signal": 0.78,
+    "confidence": 0.9661,
+    "error_rate": 0.0339,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:44:18.331728",
+    "symbol": "AAPL",
+    "signal": 0.795631,
+    "confidence": 0.9415,
+    "error_rate": 0.05850000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:44:18.352281",
+    "symbol": "MSFT",
+    "signal": 0.5154898,
+    "confidence": 0.7556,
+    "error_rate": 0.05550000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:44:18.366211",
+    "symbol": "NVDA",
+    "signal": 0.15100000000000002,
+    "confidence": 0.9706,
+    "error_rate": 0.029400000000000003,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:45:18.428947",
+    "symbol": "AAPL",
+    "signal": 0.544,
+    "confidence": 0.77192,
+    "error_rate": 0.035100000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:45:18.447421",
+    "symbol": "MSFT",
+    "signal": 0.384,
+    "confidence": 0.9778,
+    "error_rate": 0.022200000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:45:18.462318",
+    "symbol": "NVDA",
+    "signal": 0.09799999999999998,
+    "confidence": 0.9628,
+    "error_rate": 0.0372,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:46:18.524237",
+    "symbol": "AAPL",
+    "signal": 0.4044237,
+    "confidence": 0.75704,
+    "error_rate": 0.053700000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:46:18.540270",
+    "symbol": "MSFT",
+    "signal": 0.66,
+    "confidence": 0.9583,
+    "error_rate": 0.0417,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:46:18.553313",
+    "symbol": "NVDA",
+    "signal": 0.602,
+    "confidence": 0.9631,
+    "error_rate": 0.0369,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:47:18.617182",
+    "symbol": "AAPL",
+    "signal": 0.32690668,
+    "confidence": 0.9469,
+    "error_rate": 0.053100000000000015,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:47:18.633484",
+    "symbol": "MSFT",
+    "signal": 0.21800000000000003,
+    "confidence": 0.9676,
+    "error_rate": 0.032400000000000005,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:47:18.647319",
+    "symbol": "NVDA",
+    "signal": 0.673,
+    "confidence": 0.9517,
+    "error_rate": 0.048299999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:48:18.695358",
+    "symbol": "AAPL",
+    "signal": 0.404,
+    "confidence": 0.76496,
+    "error_rate": 0.043800000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:48:18.713647",
+    "symbol": "MSFT",
+    "signal": 0.126,
+    "confidence": 0.9613,
+    "error_rate": 0.0387,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:48:18.728622",
+    "symbol": "NVDA",
+    "signal": 0.569,
+    "confidence": 0.7721600000000001,
+    "error_rate": 0.0348,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:49:18.781872",
+    "symbol": "AAPL",
+    "signal": 0.08800000000000002,
+    "confidence": 0.9601,
+    "error_rate": 0.039900000000000005,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:49:18.799724",
+    "symbol": "MSFT",
+    "signal": 0.597,
+    "confidence": 0.76688,
+    "error_rate": 0.041400000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:49:18.813966",
+    "symbol": "NVDA",
+    "signal": 0.892,
+    "confidence": 0.9661,
+    "error_rate": 0.033900000000000007,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:50:18.858279",
+    "symbol": "AAPL",
+    "signal": 0.502,
+    "confidence": 0.76544,
+    "error_rate": 0.0432,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:50:18.876127",
+    "symbol": "MSFT",
+    "signal": 0.21400000000000002,
+    "confidence": 0.9526,
+    "error_rate": 0.047400000000000005,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:50:18.889781",
+    "symbol": "NVDA",
+    "signal": 0.6739999999999999,
+    "confidence": 0.958,
+    "error_rate": 0.041999999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:51:18.951285",
+    "symbol": "AAPL",
+    "signal": 0.669,
+    "confidence": 0.9688,
+    "error_rate": 0.031200000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:51:18.969215",
+    "symbol": "MSFT",
+    "signal": 0.714,
+    "confidence": 0.9667,
+    "error_rate": 0.0333,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:51:18.988781",
+    "symbol": "NVDA",
+    "signal": 0.8752819199999999,
+    "confidence": 0.9496,
+    "error_rate": 0.0504,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:52:19.064211",
+    "symbol": "AAPL",
+    "signal": 0.707,
+    "confidence": 0.9769,
+    "error_rate": 0.023100000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:52:19.082164",
+    "symbol": "MSFT",
+    "signal": 0.16299999999999998,
+    "confidence": 0.973,
+    "error_rate": 0.027000000000000003,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:52:19.110694",
+    "symbol": "NVDA",
+    "signal": 0.04742352,
+    "confidence": 0.9484,
+    "error_rate": 0.0516,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:53:19.180749",
+    "symbol": "AAPL",
+    "signal": 0.898,
+    "confidence": 0.9607,
+    "error_rate": 0.0393,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:53:19.201530",
+    "symbol": "MSFT",
+    "signal": 0.495,
+    "confidence": 0.78104,
+    "error_rate": 0.023700000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:53:19.220646",
+    "symbol": "NVDA",
+    "signal": 0.23199999999999998,
+    "confidence": 0.9754,
+    "error_rate": 0.0246,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:54:19.269447",
+    "symbol": "AAPL",
+    "signal": 0.32,
+    "confidence": 0.9604,
+    "error_rate": 0.0396,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:54:19.287375",
+    "symbol": "MSFT",
+    "signal": 0.587,
+    "confidence": 0.77912,
+    "error_rate": 0.0261,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:54:19.301784",
+    "symbol": "NVDA",
+    "signal": 0.41000000000000003,
+    "confidence": 0.76328,
+    "error_rate": 0.0459,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:55:19.349280",
+    "symbol": "AAPL",
+    "signal": 0.378,
+    "confidence": 0.9643,
+    "error_rate": 0.035699999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:55:19.366926",
+    "symbol": "MSFT",
+    "signal": 0.22699999999999998,
+    "confidence": 0.9577,
+    "error_rate": 0.042300000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:55:19.387033",
+    "symbol": "NVDA",
+    "signal": 0.50814592,
+    "confidence": 0.7577600000000001,
+    "error_rate": 0.0528,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:56:19.421720",
+    "symbol": "AAPL",
+    "signal": 0.706,
+    "confidence": 0.9751,
+    "error_rate": 0.0249,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:56:19.437652",
+    "symbol": "MSFT",
+    "signal": 0.22899999999999998,
+    "confidence": 0.9811,
+    "error_rate": 0.0189,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:56:19.451571",
+    "symbol": "NVDA",
+    "signal": 0.505,
+    "confidence": 0.78056,
+    "error_rate": 0.024300000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:57:19.490420",
+    "symbol": "AAPL",
+    "signal": 0.59,
+    "confidence": 0.7786400000000001,
+    "error_rate": 0.0267,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:57:19.504141",
+    "symbol": "MSFT",
+    "signal": 0.5640000000000001,
+    "confidence": 0.77576,
+    "error_rate": 0.030300000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:57:19.517174",
+    "symbol": "NVDA",
+    "signal": 0.537,
+    "confidence": 0.7666400000000001,
+    "error_rate": 0.041699999999999994,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:58:19.573482",
+    "symbol": "AAPL",
+    "signal": 0.22199999999999998,
+    "confidence": 0.9643,
+    "error_rate": 0.035699999999999996,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:58:19.594309",
+    "symbol": "MSFT",
+    "signal": 0.27655912000000005,
+    "confidence": 0.9412,
+    "error_rate": 0.058800000000000005,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:58:19.608872",
+    "symbol": "NVDA",
+    "signal": 0.474,
+    "confidence": 0.7738400000000001,
+    "error_rate": 0.03270000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:59:19.642688",
+    "symbol": "AAPL",
+    "signal": 0.317,
+    "confidence": 0.9631,
+    "error_rate": 0.0369,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:59:19.657139",
+    "symbol": "MSFT",
+    "signal": 0.38,
+    "confidence": 0.967,
+    "error_rate": 0.033,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T14:59:19.678069",
+    "symbol": "NVDA",
+    "signal": 0.765,
+    "confidence": 0.9718,
+    "error_rate": 0.028200000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:00:19.710047",
+    "symbol": "AAPL",
+    "signal": 0.7869999999999999,
+    "confidence": 0.9505,
+    "error_rate": 0.0495,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:00:19.724800",
+    "symbol": "MSFT",
+    "signal": 0.764,
+    "confidence": 0.961,
+    "error_rate": 0.039,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:00:19.739281",
+    "symbol": "NVDA",
+    "signal": 0.604,
+    "confidence": 0.9625,
+    "error_rate": 0.037500000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:01:19.776662",
+    "symbol": "AAPL",
+    "signal": 0.614,
+    "confidence": 0.9544,
+    "error_rate": 0.0456,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:01:19.790840",
+    "symbol": "MSFT",
+    "signal": 0.45,
+    "confidence": 0.7796000000000001,
+    "error_rate": 0.025500000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:01:19.804787",
+    "symbol": "NVDA",
+    "signal": 0.768,
+    "confidence": 0.9643,
+    "error_rate": 0.035699999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:02:19.857852",
+    "symbol": "AAPL",
+    "signal": 0.46499999999999997,
+    "confidence": 0.76304,
+    "error_rate": 0.0462,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:02:19.872966",
+    "symbol": "MSFT",
+    "signal": 0.469,
+    "confidence": 0.76808,
+    "error_rate": 0.039900000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:02:19.901151",
+    "symbol": "NVDA",
+    "signal": 0.833,
+    "confidence": 0.9598,
+    "error_rate": 0.0402,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:03:19.973578",
+    "symbol": "AAPL",
+    "signal": 0.675,
+    "confidence": 0.9742,
+    "error_rate": 0.0258,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:03:19.991855",
+    "symbol": "MSFT",
+    "signal": 0.567,
+    "confidence": 0.77048,
+    "error_rate": 0.0369,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:03:20.018792",
+    "symbol": "NVDA",
+    "signal": 0.44095224,
+    "confidence": 0.7474400000000001,
+    "error_rate": 0.0657,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:04:20.061882",
+    "symbol": "AAPL",
+    "signal": 0.639,
+    "confidence": 0.958,
+    "error_rate": 0.042,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:04:20.075408",
+    "symbol": "MSFT",
+    "signal": 0.418,
+    "confidence": 0.7764800000000001,
+    "error_rate": 0.029400000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:04:20.097928",
+    "symbol": "NVDA",
+    "signal": 0.08200000000000002,
+    "confidence": 0.9628,
+    "error_rate": 0.037200000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:05:20.148627",
+    "symbol": "AAPL",
+    "signal": 0.309,
+    "confidence": 0.9685,
+    "error_rate": 0.0315,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:05:20.163788",
+    "symbol": "MSFT",
+    "signal": 0.658,
+    "confidence": 0.9501999999999999,
+    "error_rate": 0.04980000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:05:20.183802",
+    "symbol": "NVDA",
+    "signal": 0.7770022000000001,
+    "confidence": 0.9454,
+    "error_rate": 0.0546,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:06:20.220039",
+    "symbol": "AAPL",
+    "signal": 0.766,
+    "confidence": 0.9667,
+    "error_rate": 0.03330000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:06:20.233821",
+    "symbol": "MSFT",
+    "signal": 0.608,
+    "confidence": 0.9544,
+    "error_rate": 0.0456,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:06:20.247343",
+    "symbol": "NVDA",
+    "signal": 0.667,
+    "confidence": 0.9541,
+    "error_rate": 0.0459,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:07:20.295288",
+    "symbol": "AAPL",
+    "signal": 0.249,
+    "confidence": 0.9655,
+    "error_rate": 0.0345,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:07:20.312795",
+    "symbol": "MSFT",
+    "signal": 0.20700000000000002,
+    "confidence": 0.9586,
+    "error_rate": 0.041400000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:07:20.326983",
+    "symbol": "NVDA",
+    "signal": 0.6799999999999999,
+    "confidence": 0.9661,
+    "error_rate": 0.033900000000000007,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:08:20.360520",
+    "symbol": "AAPL",
+    "signal": 0.43,
+    "confidence": 0.7625600000000001,
+    "error_rate": 0.046799999999999994,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:08:20.378395",
+    "symbol": "MSFT",
+    "signal": 0.192,
+    "confidence": 0.9637,
+    "error_rate": 0.036300000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:08:20.399628",
+    "symbol": "NVDA",
+    "signal": 0.94310016,
+    "confidence": 0.9472,
+    "error_rate": 0.0528,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:09:20.447118",
+    "symbol": "AAPL",
+    "signal": 0.432,
+    "confidence": 0.78104,
+    "error_rate": 0.023700000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:09:20.463123",
+    "symbol": "MSFT",
+    "signal": 0.78,
+    "confidence": 0.9571000000000001,
+    "error_rate": 0.042899999999999994,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:09:20.477991",
+    "symbol": "NVDA",
+    "signal": 0.328,
+    "confidence": 0.9673,
+    "error_rate": 0.0327,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:10:20.537803",
+    "symbol": "AAPL",
+    "signal": 0.547,
+    "confidence": 0.7661600000000001,
+    "error_rate": 0.0423,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:10:20.555304",
+    "symbol": "MSFT",
+    "signal": 0.48,
+    "confidence": 0.78464,
+    "error_rate": 0.019200000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:10:20.578390",
+    "symbol": "NVDA",
+    "signal": 0.54693752,
+    "confidence": 0.74504,
+    "error_rate": 0.06870000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:11:20.630052",
+    "symbol": "AAPL",
+    "signal": 0.869,
+    "confidence": 0.9691,
+    "error_rate": 0.0309,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:11:20.650437",
+    "symbol": "MSFT",
+    "signal": 0.045999999999999985,
+    "confidence": 0.9616,
+    "error_rate": 0.038400000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:11:20.669132",
+    "symbol": "NVDA",
+    "signal": 0.348,
+    "confidence": 0.958,
+    "error_rate": 0.041999999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:12:20.712284",
+    "symbol": "AAPL",
+    "signal": 0.563,
+    "confidence": 0.76688,
+    "error_rate": 0.041400000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:12:20.727498",
+    "symbol": "MSFT",
+    "signal": 0.534,
+    "confidence": 0.7709600000000001,
+    "error_rate": 0.03630000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:12:20.742310",
+    "symbol": "NVDA",
+    "signal": 0.063,
+    "confidence": 0.9697,
+    "error_rate": 0.030300000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:13:20.780314",
+    "symbol": "AAPL",
+    "signal": 0.425,
+    "confidence": 0.7692800000000001,
+    "error_rate": 0.038400000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:13:20.797414",
+    "symbol": "MSFT",
+    "signal": 0.134,
+    "confidence": 0.9631,
+    "error_rate": 0.0369,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:13:20.812504",
+    "symbol": "NVDA",
+    "signal": 0.41100000000000003,
+    "confidence": 0.7798400000000001,
+    "error_rate": 0.0252,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:14:20.848507",
+    "symbol": "AAPL",
+    "signal": 0.708,
+    "confidence": 0.9685,
+    "error_rate": 0.0315,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:14:20.862261",
+    "symbol": "MSFT",
+    "signal": 0.506,
+    "confidence": 0.77,
+    "error_rate": 0.0375,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:14:20.876285",
+    "symbol": "NVDA",
+    "signal": 0.40700000000000003,
+    "confidence": 0.76424,
+    "error_rate": 0.044700000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:15:20.908242",
+    "symbol": "AAPL",
+    "signal": 0.423,
+    "confidence": 0.78152,
+    "error_rate": 0.023100000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:15:20.922041",
+    "symbol": "MSFT",
+    "signal": 0.802,
+    "confidence": 0.9787,
+    "error_rate": 0.0213,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:15:20.934847",
+    "symbol": "NVDA",
+    "signal": 0.616,
+    "confidence": 0.9667,
+    "error_rate": 0.0333,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:16:20.971797",
+    "symbol": "AAPL",
+    "signal": 0.355,
+    "confidence": 0.9637,
+    "error_rate": 0.036300000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:16:20.994227",
+    "symbol": "MSFT",
+    "signal": 0.12071670000000012,
+    "confidence": 0.9319,
+    "error_rate": 0.0681,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:16:21.009813",
+    "symbol": "NVDA",
+    "signal": 0.6739999999999999,
+    "confidence": 0.9661,
+    "error_rate": 0.0339,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:17:21.041135",
+    "symbol": "AAPL",
+    "signal": 0.555,
+    "confidence": 0.7740800000000001,
+    "error_rate": 0.0324,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:17:21.056584",
+    "symbol": "MSFT",
+    "signal": 0.8340000000000001,
+    "confidence": 0.9625,
+    "error_rate": 0.0375,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:17:21.071374",
+    "symbol": "NVDA",
+    "signal": 0.34099999999999997,
+    "confidence": 0.9616,
+    "error_rate": 0.038400000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:18:21.137630",
+    "symbol": "AAPL",
+    "signal": 0.271,
+    "confidence": 0.9595,
+    "error_rate": 0.040499999999999994,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:18:21.161040",
+    "symbol": "MSFT",
+    "signal": 0.27,
+    "confidence": 0.9703,
+    "error_rate": 0.029699999999999997,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:18:21.182943",
+    "symbol": "NVDA",
+    "signal": 0.05499999999999999,
+    "confidence": 0.9621999999999999,
+    "error_rate": 0.037800000000000014,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:19:21.231037",
+    "symbol": "AAPL",
+    "signal": 0.46499999999999997,
+    "confidence": 0.77432,
+    "error_rate": 0.032100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:19:21.244652",
+    "symbol": "MSFT",
+    "signal": 0.69,
+    "confidence": 0.9616,
+    "error_rate": 0.038400000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:19:21.261432",
+    "symbol": "NVDA",
+    "signal": 0.44246496,
+    "confidence": 0.75704,
+    "error_rate": 0.05370000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:20:21.291421",
+    "symbol": "AAPL",
+    "signal": 0.34099999999999997,
+    "confidence": 0.9733,
+    "error_rate": 0.0267,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:20:21.305567",
+    "symbol": "MSFT",
+    "signal": 0.439,
+    "confidence": 0.76592,
+    "error_rate": 0.042600000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:20:21.319591",
+    "symbol": "NVDA",
+    "signal": 0.33599999999999997,
+    "confidence": 0.9538,
+    "error_rate": 0.046200000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:21:21.354859",
+    "symbol": "AAPL",
+    "signal": 0.368,
+    "confidence": 0.9688,
+    "error_rate": 0.0312,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:21:21.370344",
+    "symbol": "MSFT",
+    "signal": 0.696,
+    "confidence": 0.9601,
+    "error_rate": 0.039900000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:21:21.384922",
+    "symbol": "NVDA",
+    "signal": 0.847,
+    "confidence": 0.9631,
+    "error_rate": 0.0369,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:22:21.434734",
+    "symbol": "AAPL",
+    "signal": 0.21100000000000002,
+    "confidence": 0.9613,
+    "error_rate": 0.038700000000000005,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:22:21.450479",
+    "symbol": "MSFT",
+    "signal": 0.10399999999999998,
+    "confidence": 0.9613,
+    "error_rate": 0.0387,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:22:21.465446",
+    "symbol": "NVDA",
+    "signal": 0.4,
+    "confidence": 0.78464,
+    "error_rate": 0.019200000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:23:21.497959",
+    "symbol": "AAPL",
+    "signal": 0.577,
+    "confidence": 0.77456,
+    "error_rate": 0.0318,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:23:21.513776",
+    "symbol": "MSFT",
+    "signal": 0.884,
+    "confidence": 0.9538,
+    "error_rate": 0.046200000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:23:21.528441",
+    "symbol": "NVDA",
+    "signal": 0.606,
+    "confidence": 0.9655,
+    "error_rate": 0.0345,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:24:21.558026",
+    "symbol": "AAPL",
+    "signal": 0.61,
+    "confidence": 0.9598,
+    "error_rate": 0.04020000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:24:21.575217",
+    "symbol": "MSFT",
+    "signal": 0.474,
+    "confidence": 0.78176,
+    "error_rate": 0.022800000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:24:21.593247",
+    "symbol": "NVDA",
+    "signal": 0.196,
+    "confidence": 0.9601,
+    "error_rate": 0.0399,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:25:21.647356",
+    "symbol": "AAPL",
+    "signal": 0.244,
+    "confidence": 0.9613,
+    "error_rate": 0.0387,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:25:21.662573",
+    "symbol": "MSFT",
+    "signal": 0.269,
+    "confidence": 0.9697,
+    "error_rate": 0.030300000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:25:21.676480",
+    "symbol": "NVDA",
+    "signal": 0.431,
+    "confidence": 0.77264,
+    "error_rate": 0.0342,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:26:21.713187",
+    "symbol": "AAPL",
+    "signal": 0.37,
+    "confidence": 0.9649,
+    "error_rate": 0.035100000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:26:21.734869",
+    "symbol": "MSFT",
+    "signal": 0.518932,
+    "confidence": 0.7572800000000001,
+    "error_rate": 0.05340000000000002,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:26:21.749979",
+    "symbol": "NVDA",
+    "signal": 0.09599999999999997,
+    "confidence": 0.9589,
+    "error_rate": 0.041100000000000005,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:27:21.793322",
+    "symbol": "AAPL",
+    "signal": 0.9299755000000001,
+    "confidence": 0.9475,
+    "error_rate": 0.052500000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:27:21.807317",
+    "symbol": "MSFT",
+    "signal": 0.788,
+    "confidence": 0.9835,
+    "error_rate": 0.016500000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:27:21.820975",
+    "symbol": "NVDA",
+    "signal": 0.455,
+    "confidence": 0.7688,
+    "error_rate": 0.03899999999999999,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:28:21.854202",
+    "symbol": "AAPL",
+    "signal": 0.399,
+    "confidence": 0.9706,
+    "error_rate": 0.029400000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:28:21.868981",
+    "symbol": "MSFT",
+    "signal": 0.539,
+    "confidence": 0.78176,
+    "error_rate": 0.022800000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:28:21.882962",
+    "symbol": "NVDA",
+    "signal": 0.726,
+    "confidence": 0.9574,
+    "error_rate": 0.042600000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:29:21.912961",
+    "symbol": "AAPL",
+    "signal": 0.554,
+    "confidence": 0.77048,
+    "error_rate": 0.0369,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:29:21.930744",
+    "symbol": "MSFT",
+    "signal": 0.907,
+    "confidence": 0.9574,
+    "error_rate": 0.042600000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:29:21.945783",
+    "symbol": "NVDA",
+    "signal": 0.09200000000000003,
+    "confidence": 0.9628,
+    "error_rate": 0.0372,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:30:21.999108",
+    "symbol": "AAPL",
+    "signal": 0.69,
+    "confidence": 0.955,
+    "error_rate": 0.045000000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:30:22.015901",
+    "symbol": "MSFT",
+    "signal": 0.766,
+    "confidence": 0.9591999999999999,
+    "error_rate": 0.04080000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:30:22.039725",
+    "symbol": "NVDA",
+    "signal": 0.05646034,
+    "confidence": 0.9433,
+    "error_rate": 0.05670000000000001,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:31:22.086428",
+    "symbol": "AAPL",
+    "signal": 0.8180000000000001,
+    "confidence": 0.9631,
+    "error_rate": 0.0369,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:31:22.103122",
+    "symbol": "MSFT",
+    "signal": 0.28200000000000003,
+    "confidence": 0.9565,
+    "error_rate": 0.04350000000000001,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:31:22.123846",
+    "symbol": "NVDA",
+    "signal": 0.67703906,
+    "confidence": 0.9427,
+    "error_rate": 0.057300000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:32:22.188485",
+    "symbol": "AAPL",
+    "signal": 0.38791180000000003,
+    "confidence": 0.9499,
+    "error_rate": 0.0501,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:32:22.205165",
+    "symbol": "MSFT",
+    "signal": 0.475,
+    "confidence": 0.7647200000000001,
+    "error_rate": 0.04410000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:32:22.222815",
+    "symbol": "NVDA",
+    "signal": 0.031000000000000028,
+    "confidence": 0.9646,
+    "error_rate": 0.0354,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:33:22.274775",
+    "symbol": "AAPL",
+    "signal": 0.875,
+    "confidence": 0.9577,
+    "error_rate": 0.042300000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:33:22.296295",
+    "symbol": "MSFT",
+    "signal": 0.61892976,
+    "confidence": 0.9409,
+    "error_rate": 0.05910000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:33:22.316832",
+    "symbol": "NVDA",
+    "signal": 0.241,
+    "confidence": 0.9547,
+    "error_rate": 0.04530000000000001,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:34:22.375886",
+    "symbol": "AAPL",
+    "signal": 0.605,
+    "confidence": 0.964,
+    "error_rate": 0.036000000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:34:22.393999",
+    "symbol": "MSFT",
+    "signal": 0.304,
+    "confidence": 0.9649,
+    "error_rate": 0.035100000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:34:22.415310",
+    "symbol": "NVDA",
+    "signal": 0.536,
+    "confidence": 0.76496,
+    "error_rate": 0.043800000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:35:22.470825",
+    "symbol": "AAPL",
+    "signal": 0.545,
+    "confidence": 0.7688,
+    "error_rate": 0.03900000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:35:22.491632",
+    "symbol": "MSFT",
+    "signal": 0.763,
+    "confidence": 0.9679,
+    "error_rate": 0.032100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:35:22.510436",
+    "symbol": "NVDA",
+    "signal": 0.29500000000000004,
+    "confidence": 0.9571,
+    "error_rate": 0.0429,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:36:22.539965",
+    "symbol": "AAPL",
+    "signal": 0.589,
+    "confidence": 0.77048,
+    "error_rate": 0.0369,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:36:22.553610",
+    "symbol": "MSFT",
+    "signal": 0.7010000000000001,
+    "confidence": 0.9621999999999999,
+    "error_rate": 0.03780000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:36:22.567203",
+    "symbol": "NVDA",
+    "signal": 0.369,
+    "confidence": 0.9682,
+    "error_rate": 0.0318,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:37:22.599758",
+    "symbol": "AAPL",
+    "signal": 0.263,
+    "confidence": 0.9586,
+    "error_rate": 0.041400000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:37:22.616337",
+    "symbol": "MSFT",
+    "signal": 0.648,
+    "confidence": 0.9535,
+    "error_rate": 0.0465,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:37:22.631378",
+    "symbol": "NVDA",
+    "signal": 0.555,
+    "confidence": 0.7666400000000001,
+    "error_rate": 0.0417,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:38:22.664149",
+    "symbol": "AAPL",
+    "signal": 0.597,
+    "confidence": 0.7740800000000001,
+    "error_rate": 0.0324,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:38:22.676838",
+    "symbol": "MSFT",
+    "signal": 0.311,
+    "confidence": 0.9673,
+    "error_rate": 0.0327,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:38:22.688828",
+    "symbol": "NVDA",
+    "signal": 0.307,
+    "confidence": 0.9532,
+    "error_rate": 0.0468,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:39:22.719463",
+    "symbol": "AAPL",
+    "signal": 0.593,
+    "confidence": 0.76064,
+    "error_rate": 0.0492,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:39:22.733693",
+    "symbol": "MSFT",
+    "signal": 0.5640000000000001,
+    "confidence": 0.76376,
+    "error_rate": 0.0453,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:39:22.748808",
+    "symbol": "NVDA",
+    "signal": 0.21200000000000002,
+    "confidence": 0.961,
+    "error_rate": 0.039,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:40:22.796624",
+    "symbol": "AAPL",
+    "signal": 0.551,
+    "confidence": 0.7784,
+    "error_rate": 0.027000000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:40:22.816535",
+    "symbol": "MSFT",
+    "signal": 0.594,
+    "confidence": 0.7616,
+    "error_rate": 0.048,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:40:22.838186",
+    "symbol": "NVDA",
+    "signal": 0.22299999999999998,
+    "confidence": 0.9621999999999999,
+    "error_rate": 0.0378,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:41:22.891773",
+    "symbol": "AAPL",
+    "signal": 0.745,
+    "confidence": 0.9778,
+    "error_rate": 0.022200000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:41:22.912270",
+    "symbol": "MSFT",
+    "signal": 0.901,
+    "confidence": 0.9517,
+    "error_rate": 0.048299999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:41:22.929892",
+    "symbol": "NVDA",
+    "signal": 0.644,
+    "confidence": 0.9691,
+    "error_rate": 0.030900000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:42:22.963850",
+    "symbol": "AAPL",
+    "signal": 0.043999999999999984,
+    "confidence": 0.9508,
+    "error_rate": 0.0492,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:42:22.977837",
+    "symbol": "MSFT",
+    "signal": 0.45,
+    "confidence": 0.76112,
+    "error_rate": 0.048600000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:42:22.991482",
+    "symbol": "NVDA",
+    "signal": 0.425,
+    "confidence": 0.7678400000000001,
+    "error_rate": 0.0402,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:43:23.049638",
+    "symbol": "AAPL",
+    "signal": 0.28500000000000003,
+    "confidence": 0.9817,
+    "error_rate": 0.018300000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:43:23.069339",
+    "symbol": "MSFT",
+    "signal": 0.556,
+    "confidence": 0.7625600000000001,
+    "error_rate": 0.0468,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:43:23.085627",
+    "symbol": "NVDA",
+    "signal": 0.641,
+    "confidence": 0.9709,
+    "error_rate": 0.029100000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:44:23.126869",
+    "symbol": "AAPL",
+    "signal": 0.688,
+    "confidence": 0.9688,
+    "error_rate": 0.031200000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:44:23.141178",
+    "symbol": "MSFT",
+    "signal": 0.315,
+    "confidence": 0.9805,
+    "error_rate": 0.019500000000000003,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:44:23.154922",
+    "symbol": "NVDA",
+    "signal": 0.477,
+    "confidence": 0.77288,
+    "error_rate": 0.0339,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:45:23.232418",
+    "symbol": "AAPL",
+    "signal": 0.28500000000000003,
+    "confidence": 0.9643,
+    "error_rate": 0.035699999999999996,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:45:23.258600",
+    "symbol": "MSFT",
+    "signal": 0.812,
+    "confidence": 0.9646,
+    "error_rate": 0.0354,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:45:23.276067",
+    "symbol": "NVDA",
+    "signal": 0.899,
+    "confidence": 0.967,
+    "error_rate": 0.033,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:46:23.338977",
+    "symbol": "AAPL",
+    "signal": 0.555,
+    "confidence": 0.7664,
+    "error_rate": 0.042,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:46:23.365704",
+    "symbol": "MSFT",
+    "signal": 0.23231818000000004,
+    "confidence": 0.9499,
+    "error_rate": 0.0501,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:46:23.381607",
+    "symbol": "NVDA",
+    "signal": 0.14400000000000002,
+    "confidence": 0.9658,
+    "error_rate": 0.034199999999999994,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:47:23.437982",
+    "symbol": "AAPL",
+    "signal": 0.8,
+    "confidence": 0.9661,
+    "error_rate": 0.0339,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:47:23.458841",
+    "symbol": "MSFT",
+    "signal": 0.642,
+    "confidence": 0.9727,
+    "error_rate": 0.027299999999999998,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:47:23.477298",
+    "symbol": "NVDA",
+    "signal": 0.439,
+    "confidence": 0.7767200000000001,
+    "error_rate": 0.029099999999999997,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:48:23.528116",
+    "symbol": "AAPL",
+    "signal": 0.962,
+    "confidence": 0.9634,
+    "error_rate": 0.0366,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:48:23.546770",
+    "symbol": "MSFT",
+    "signal": 0.551,
+    "confidence": 0.77336,
+    "error_rate": 0.0333,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:48:23.562016",
+    "symbol": "NVDA",
+    "signal": 0.989,
+    "confidence": 0.976,
+    "error_rate": 0.024,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:49:23.625782",
+    "symbol": "AAPL",
+    "signal": 0.274,
+    "confidence": 0.9715,
+    "error_rate": 0.028500000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:49:23.645732",
+    "symbol": "MSFT",
+    "signal": 0.736,
+    "confidence": 0.9613,
+    "error_rate": 0.0387,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:49:23.662449",
+    "symbol": "NVDA",
+    "signal": 0.15799999999999997,
+    "confidence": 0.9583,
+    "error_rate": 0.0417,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:50:23.722283",
+    "symbol": "AAPL",
+    "signal": 0.379,
+    "confidence": 0.9607,
+    "error_rate": 0.0393,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:50:23.742749",
+    "symbol": "MSFT",
+    "signal": 0.579,
+    "confidence": 0.7620800000000001,
+    "error_rate": 0.047400000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:50:23.759180",
+    "symbol": "NVDA",
+    "signal": 0.6990000000000001,
+    "confidence": 0.952,
+    "error_rate": 0.048,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:51:23.814377",
+    "symbol": "AAPL",
+    "signal": 0.586,
+    "confidence": 0.77576,
+    "error_rate": 0.030300000000000004,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:51:23.835567",
+    "symbol": "MSFT",
+    "signal": 0.615,
+    "confidence": 0.9688,
+    "error_rate": 0.031200000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:51:23.852416",
+    "symbol": "NVDA",
+    "signal": 0.527,
+    "confidence": 0.764,
+    "error_rate": 0.045,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:52:23.913661",
+    "symbol": "AAPL",
+    "signal": 0.911,
+    "confidence": 0.9526,
+    "error_rate": 0.047400000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:52:23.937088",
+    "symbol": "MSFT",
+    "signal": 0.203,
+    "confidence": 0.9757,
+    "error_rate": 0.024300000000000002,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:52:23.953127",
+    "symbol": "NVDA",
+    "signal": 0.49,
+    "confidence": 0.77264,
+    "error_rate": 0.0342,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:53:24.010101",
+    "symbol": "AAPL",
+    "signal": 0.819,
+    "confidence": 0.9538,
+    "error_rate": 0.046200000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:53:24.037958",
+    "symbol": "MSFT",
+    "signal": 0.668876,
+    "confidence": 0.9382,
+    "error_rate": 0.06179999999999999,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:53:24.058577",
+    "symbol": "NVDA",
+    "signal": 0.8328028000000001,
+    "confidence": 0.946,
+    "error_rate": 0.054000000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:54:24.114228",
+    "symbol": "AAPL",
+    "signal": 0.533,
+    "confidence": 0.7740800000000001,
+    "error_rate": 0.032400000000000005,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:54:24.134703",
+    "symbol": "MSFT",
+    "signal": 0.571,
+    "confidence": 0.7724000000000001,
+    "error_rate": 0.034499999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:54:24.151546",
+    "symbol": "NVDA",
+    "signal": 0.438,
+    "confidence": 0.7625600000000001,
+    "error_rate": 0.0468,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:55:24.220688",
+    "symbol": "AAPL",
+    "signal": 0.625,
+    "confidence": 0.9607,
+    "error_rate": 0.0393,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:55:24.241951",
+    "symbol": "MSFT",
+    "signal": 0.505,
+    "confidence": 0.76688,
+    "error_rate": 0.041400000000000006,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:55:24.259773",
+    "symbol": "NVDA",
+    "signal": 0.08700000000000002,
+    "confidence": 0.9532,
+    "error_rate": 0.046799999999999994,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:56:24.312944",
+    "symbol": "AAPL",
+    "signal": 0.673,
+    "confidence": 0.9613,
+    "error_rate": 0.0387,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:56:24.332694",
+    "symbol": "MSFT",
+    "signal": 0.451,
+    "confidence": 0.7683200000000001,
+    "error_rate": 0.039599999999999996,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:56:24.350013",
+    "symbol": "NVDA",
+    "signal": 0.33399999999999996,
+    "confidence": 0.9646,
+    "error_rate": 0.03540000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:57:24.418847",
+    "symbol": "AAPL",
+    "signal": 0.643,
+    "confidence": 0.961,
+    "error_rate": 0.039,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:57:24.440349",
+    "symbol": "MSFT",
+    "signal": 0.257,
+    "confidence": 0.9574,
+    "error_rate": 0.042600000000000006,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:57:24.458688",
+    "symbol": "NVDA",
+    "signal": 0.29100000000000004,
+    "confidence": 0.9691,
+    "error_rate": 0.030900000000000004,
+    "action": "SELL",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:58:24.516612",
+    "symbol": "AAPL",
+    "signal": 0.534,
+    "confidence": 0.76592,
+    "error_rate": 0.0426,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:58:24.543591",
+    "symbol": "MSFT",
+    "signal": 0.4400512,
+    "confidence": 0.74936,
+    "error_rate": 0.0633,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:58:24.559551",
+    "symbol": "NVDA",
+    "signal": 0.737,
+    "confidence": 0.9604,
+    "error_rate": 0.03960000000000001,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:59:24.617127",
+    "symbol": "AAPL",
+    "signal": 0.596,
+    "confidence": 0.7676000000000001,
+    "error_rate": 0.0405,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:59:24.645773",
+    "symbol": "MSFT",
+    "signal": 0.57169904,
+    "confidence": 0.7587200000000001,
+    "error_rate": 0.0516,
+    "action": "HOLD",
+    "correct": null
+  },
+  {
+    "timestamp": "2025-04-11T15:59:24.662339",
+    "symbol": "NVDA",
+    "signal": 0.869,
+    "confidence": 0.9541,
+    "error_rate": 0.04590000000000001,
+    "action": "HOLD",
+    "correct": null
+  }
+]

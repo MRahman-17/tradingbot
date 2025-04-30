@@ -1,0 +1,412 @@
+<html>
+<head>
+<title>main.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #8c8c8c; font-style: italic;}
+.s1 { color: #080808;}
+.s2 { color: #0033b3;}
+.s3 { color: #067d17;}
+.s4 { color: #0037a6;}
+.s5 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#!/usr/bin/env python3</span>
+<span class="s2">import </span><span class="s1">os</span>
+<span class="s2">import </span><span class="s1">sys</span>
+<span class="s2">import </span><span class="s1">time</span>
+<span class="s2">import </span><span class="s1">logging</span>
+<span class="s2">import </span><span class="s1">threading</span>
+<span class="s2">import </span><span class="s1">json</span>
+<span class="s2">import </span><span class="s1">signal</span>
+<span class="s2">import </span><span class="s1">argparse</span>
+<span class="s2">from </span><span class="s1">datetime </span><span class="s2">import </span><span class="s1">datetime, timedelta</span>
+<span class="s2">import </span><span class="s1">requests</span>
+
+<span class="s0"># Define current directory as part of Python path</span>
+<span class="s1">current_dir = os.path.dirname(os.path.abspath(__file__))</span>
+<span class="s1">sys.path.append(current_dir)</span>
+
+<span class="s0"># Configure logging</span>
+<span class="s1">os.makedirs(</span><span class="s3">&quot;logs&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">logging.basicConfig(</span>
+    <span class="s1">level=logging.INFO,</span>
+    <span class="s1">format=</span><span class="s3">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span><span class="s1">,</span>
+    <span class="s1">handlers=[</span>
+        <span class="s1">logging.FileHandler(</span><span class="s3">f&quot;logs/trading_system_</span><span class="s4">{</span><span class="s1">datetime.now().strftime(</span><span class="s3">'%Y%m%d'</span><span class="s1">)</span><span class="s4">}</span><span class="s3">.log&quot;</span><span class="s1">),</span>
+        <span class="s1">logging.StreamHandler()</span>
+    <span class="s1">]</span>
+<span class="s1">)</span>
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;Trading System&quot;</span><span class="s1">)</span>
+
+<span class="s0"># Create required directories</span>
+<span class="s1">os.makedirs(</span><span class="s3">&quot;models&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">os.makedirs(</span><span class="s3">&quot;data&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">os.makedirs(</span><span class="s3">&quot;config&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">os.makedirs(</span><span class="s3">&quot;platform_adapters&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+<span class="s1">os.makedirs(</span><span class="s3">&quot;security/encryption&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+
+<span class="s0"># Create __init__.py if it doesn't exist</span>
+<span class="s2">if not </span><span class="s1">os.path.exists(</span><span class="s3">&quot;platform_adapters/__init__.py&quot;</span><span class="s1">):</span>
+    <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;platform_adapters/__init__.py&quot;</span><span class="s1">, </span><span class="s3">&quot;w&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+        <span class="s1">f.write(</span><span class="s3">&quot;# Module initialization</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+<span class="s0"># Default configuration</span>
+<span class="s1">DEFAULT_CONFIG = {</span>
+    <span class="s3">&quot;trading_bot&quot;</span><span class="s1">: {</span>
+        <span class="s3">&quot;enabled&quot;</span><span class="s1">: </span><span class="s2">True</span><span class="s1">,</span>
+        <span class="s3">&quot;symbols&quot;</span><span class="s1">: [</span><span class="s3">&quot;AAPL&quot;</span><span class="s1">],</span>
+        <span class="s3">&quot;max_drawdown&quot;</span><span class="s1">: </span><span class="s5">0.05</span><span class="s1">,</span>
+        <span class="s3">&quot;kelly_fraction&quot;</span><span class="s1">: </span><span class="s5">0.02</span><span class="s1">,</span>
+        <span class="s3">&quot;quantity&quot;</span><span class="s1">: </span><span class="s5">1</span><span class="s1">,</span>
+        <span class="s3">&quot;min_hold_period&quot;</span><span class="s1">: </span><span class="s5">86400</span><span class="s1">,  </span><span class="s0"># 48 hours in seconds</span>
+        <span class="s3">&quot;sleep_time&quot;</span><span class="s1">: </span><span class="s5">60</span><span class="s1">,</span>
+        <span class="s3">&quot;halal_compliance&quot;</span><span class="s1">: </span><span class="s2">True</span>
+    <span class="s1">},</span>
+    <span class="s3">&quot;monitor_bot&quot;</span><span class="s1">: {</span>
+        <span class="s3">&quot;enabled&quot;</span><span class="s1">: </span><span class="s2">True</span><span class="s1">,</span>
+        <span class="s3">&quot;check_interval&quot;</span><span class="s1">: </span><span class="s5">3600</span><span class="s1">,  </span><span class="s0"># 1 hour in seconds</span>
+        <span class="s3">&quot;quantum_optimizer_interval&quot;</span><span class="s1">: </span><span class="s5">259200</span><span class="s1">,  </span><span class="s0"># 3 days in seconds</span>
+        <span class="s3">&quot;legal_check_interval&quot;</span><span class="s1">: </span><span class="s5">604800</span><span class="s1">,  </span><span class="s0"># 7 days in seconds</span>
+        <span class="s3">&quot;api_check_interval&quot;</span><span class="s1">: </span><span class="s5">86400  </span><span class="s0"># 1 day in seconds</span>
+    <span class="s1">},</span>
+    <span class="s3">&quot;improvement_bot&quot;</span><span class="s1">: {</span>
+        <span class="s3">&quot;enabled&quot;</span><span class="s1">: </span><span class="s2">True</span><span class="s1">,</span>
+        <span class="s3">&quot;check_interval&quot;</span><span class="s1">: </span><span class="s5">3600</span><span class="s1">,  </span><span class="s0"># 1 hour in seconds</span>
+        <span class="s3">&quot;debug_scan_interval&quot;</span><span class="s1">: </span><span class="s5">21600</span><span class="s1">,  </span><span class="s0"># 6 hours in seconds</span>
+        <span class="s3">&quot;ml_update_interval&quot;</span><span class="s1">: </span><span class="s5">604800</span><span class="s1">,  </span><span class="s0"># 7 days in seconds</span>
+        <span class="s3">&quot;quantum_optimization_interval&quot;</span><span class="s1">: </span><span class="s5">1209600</span><span class="s1">,  </span><span class="s0"># 14 days in seconds</span>
+        <span class="s3">&quot;encryption_update_interval&quot;</span><span class="s1">: </span><span class="s5">2592000</span><span class="s1">,  </span><span class="s0"># 30 days in seconds</span>
+        <span class="s3">&quot;legal_compliance_interval&quot;</span><span class="s1">: </span><span class="s5">604800</span><span class="s1">,  </span><span class="s0"># 7 days in seconds</span>
+        <span class="s3">&quot;backup_interval&quot;</span><span class="s1">: </span><span class="s5">86400  </span><span class="s0"># 1 day in seconds</span>
+    <span class="s1">},</span>
+    <span class="s3">&quot;platform&quot;</span><span class="s1">: {</span>
+        <span class="s3">&quot;name&quot;</span><span class="s1">: </span><span class="s3">&quot;mock&quot;</span><span class="s1">,  </span><span class="s0"># Options: &quot;webull&quot;, &quot;robinhood&quot;, &quot;alpaca&quot;, &quot;custom&quot;, &quot;mock&quot;</span>
+        <span class="s3">&quot;use_paper_trading&quot;</span><span class="s1">: </span><span class="s2">True</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+
+<span class="s2">def </span><span class="s1">check_dependencies():</span>
+    <span class="s0">&quot;&quot;&quot;Check if all required packages are installed&quot;&quot;&quot;</span>
+    <span class="s1">required_packages = [</span>
+        <span class="s3">&quot;numpy&quot;</span><span class="s1">, </span><span class="s3">&quot;pandas&quot;</span><span class="s1">, </span><span class="s3">&quot;matplotlib&quot;</span><span class="s1">, </span><span class="s3">&quot;cryptography&quot;</span><span class="s1">, </span><span class="s3">&quot;requests&quot;</span><span class="s1">, </span><span class="s3">&quot;schedule&quot;</span><span class="s1">, </span><span class="s3">&quot;joblib&quot;</span>
+    <span class="s1">]</span>
+
+    <span class="s1">missing_packages = []</span>
+    <span class="s2">for </span><span class="s1">package </span><span class="s2">in </span><span class="s1">required_packages:</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s1">__import__(package.replace(</span><span class="s3">&quot;-&quot;</span><span class="s1">, </span><span class="s3">&quot;_&quot;</span><span class="s1">))</span>
+        <span class="s2">except </span><span class="s1">ImportError:</span>
+            <span class="s1">missing_packages.append(package)</span>
+
+    <span class="s0"># Special check for scikit-learn</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s2">import </span><span class="s1">sklearn</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;scikit-learn is available (version </span><span class="s4">{</span><span class="s1">sklearn.__version__</span><span class="s4">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+    <span class="s2">except </span><span class="s1">ImportError:</span>
+        <span class="s1">missing_packages.append(</span><span class="s3">&quot;scikit-learn&quot;</span><span class="s1">)</span>
+
+    <span class="s2">if </span><span class="s1">missing_packages:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Missing required packages: </span><span class="s4">{</span><span class="s3">', '</span><span class="s1">.join(missing_packages)</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Please install missing packages with: pip install &quot; </span><span class="s1">+ </span><span class="s3">&quot; &quot;</span><span class="s1">.join(missing_packages))</span>
+        <span class="s2">return False</span>
+
+    <span class="s2">return True</span>
+
+
+<span class="s2">def </span><span class="s1">load_or_create_config(config_path=</span><span class="s3">&quot;config/config.json&quot;</span><span class="s1">):</span>
+    <span class="s0">&quot;&quot;&quot;Load or create configuration file&quot;&quot;&quot;</span>
+    <span class="s2">if </span><span class="s1">os.path.exists(config_path):</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">with </span><span class="s1">open(config_path, </span><span class="s3">'r'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">file:</span>
+                <span class="s1">config = json.load(file)</span>
+                <span class="s1">logger.info(</span><span class="s3">&quot;Configuration loaded successfully&quot;</span><span class="s1">)</span>
+                <span class="s2">return </span><span class="s1">config</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error loading configuration: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;Using default configuration&quot;</span><span class="s1">)</span>
+            <span class="s2">return </span><span class="s1">DEFAULT_CONFIG</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;No configuration found, creating default&quot;</span><span class="s1">)</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s1">os.makedirs(os.path.dirname(config_path), exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+            <span class="s2">with </span><span class="s1">open(config_path, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">file:</span>
+                <span class="s1">json.dump(DEFAULT_CONFIG, file, indent=</span><span class="s5">4</span><span class="s1">)</span>
+            <span class="s2">return </span><span class="s1">DEFAULT_CONFIG</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error creating configuration: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return </span><span class="s1">DEFAULT_CONFIG</span>
+
+
+<span class="s2">def </span><span class="s1">load_environment_variables():</span>
+    <span class="s0"># Initialize platform adapters with the new factory</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s2">from </span><span class="s1">platform_adapters.platform_factory </span><span class="s2">import </span><span class="s1">get_factory_instance</span>
+        <span class="s1">platform_factory = get_factory_instance()</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Initialized platform factory with new adapters&quot;</span><span class="s1">)</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error initializing platform factory: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+    <span class="s3">&quot;&quot;&quot;Load environment variables from secrets.env file&quot;&quot;&quot;</span>
+    <span class="s2">if </span><span class="s1">os.path.exists(</span><span class="s3">&quot;config/secrets.env&quot;</span><span class="s1">):</span>
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;config/secrets.env&quot;</span><span class="s1">, </span><span class="s3">&quot;r&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">file:</span>
+            <span class="s2">for </span><span class="s1">line </span><span class="s2">in </span><span class="s1">file:</span>
+                <span class="s2">if </span><span class="s1">line.strip() </span><span class="s2">and not </span><span class="s1">line.startswith(</span><span class="s3">&quot;#&quot;</span><span class="s1">):</span>
+                    <span class="s1">key, value = line.strip().split(</span><span class="s3">&quot;=&quot;</span><span class="s1">, </span><span class="s5">1</span><span class="s1">)</span>
+                    <span class="s1">os.environ[key] = value</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Environment variables loaded&quot;</span><span class="s1">)</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s1">logger.warning(</span><span class="s3">&quot;No secrets.env file found. Please create it with your API credentials.&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Creating template secrets.env file...&quot;</span><span class="s1">)</span>
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;config/secrets.env&quot;</span><span class="s1">, </span><span class="s3">&quot;w&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">file:</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;# WebUll Credentials</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;WEBULL_USERNAME=your_username</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;WEBULL_PASSWORD=your_password</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;WEBULL_DEVICE_ID=your_device_id</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;WEBULL_TRADE_PIN=your_trade_pin</span><span class="s4">\n\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;# Robinhood Credentials (if needed)</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;ROBINHOOD_USERNAME=your_username</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;ROBINHOOD_PASSWORD=your_password</span><span class="s4">\n\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;# Zoya API Key for Halal Compliance</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;ZOYA_API_KEY=your_zoya_api_key</span><span class="s4">\n\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;# Set this to 'paper' for paper trading or 'live' for live trading</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">file.write(</span><span class="s3">&quot;TRADING_MODE=paper</span><span class="s4">\n</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Template created at config/secrets.env - please edit with your credentials&quot;</span><span class="s1">)</span>
+        <span class="s2">return False</span>
+    <span class="s2">return True</span>
+
+
+<span class="s2">def </span><span class="s1">setup_encryption():</span>
+    <span class="s0">&quot;&quot;&quot;Set up encryption for sensitive data&quot;&quot;&quot;</span>
+    <span class="s2">from </span><span class="s1">cryptography.fernet </span><span class="s2">import </span><span class="s1">Fernet</span>
+    <span class="s2">from </span><span class="s1">cryptography.hazmat.primitives </span><span class="s2">import </span><span class="s1">hashes</span>
+    <span class="s2">from </span><span class="s1">cryptography.hazmat.primitives.kdf.pbkdf2 </span><span class="s2">import </span><span class="s1">PBKDF2HMAC</span>
+    <span class="s2">from </span><span class="s1">cryptography.hazmat.backends </span><span class="s2">import </span><span class="s1">default_backend</span>
+    <span class="s2">import </span><span class="s1">base64</span>
+
+    <span class="s1">key_path = </span><span class="s3">&quot;security/encryption/key.bin&quot;</span>
+    <span class="s1">salt_path = </span><span class="s3">&quot;security/encryption/salt.bin&quot;</span>
+
+    <span class="s2">if </span><span class="s1">os.path.exists(key_path) </span><span class="s2">and </span><span class="s1">os.path.exists(salt_path):</span>
+        <span class="s0"># Load existing key and salt</span>
+        <span class="s2">with </span><span class="s1">open(key_path, </span><span class="s3">'rb'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">key = f.read()</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Encryption key loaded&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">Fernet(key)</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s0"># Generate new encryption key and salt</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Generating new encryption keys&quot;</span><span class="s1">)</span>
+        <span class="s1">password = os.urandom(</span><span class="s5">32</span><span class="s1">)</span>
+        <span class="s1">salt = os.urandom(</span><span class="s5">16</span><span class="s1">)</span>
+
+        <span class="s0"># Derive a key from the password</span>
+        <span class="s1">kdf = PBKDF2HMAC(</span>
+            <span class="s1">algorithm=hashes.SHA256(),</span>
+            <span class="s1">length=</span><span class="s5">32</span><span class="s1">,</span>
+            <span class="s1">salt=salt,</span>
+            <span class="s1">iterations=</span><span class="s5">100000</span><span class="s1">,</span>
+            <span class="s1">backend=default_backend()</span>
+        <span class="s1">)</span>
+        <span class="s1">key = base64.urlsafe_b64encode(kdf.derive(password))</span>
+
+        <span class="s0"># Save key and salt</span>
+        <span class="s1">os.makedirs(os.path.dirname(key_path), exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+        <span class="s2">with </span><span class="s1">open(key_path, </span><span class="s3">'wb'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">f.write(key)</span>
+        <span class="s2">with </span><span class="s1">open(salt_path, </span><span class="s3">'wb'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">f.write(salt)</span>
+
+        <span class="s0"># Set secure permissions</span>
+        <span class="s1">os.chmod(key_path, </span><span class="s5">0o600</span><span class="s1">)  </span><span class="s0"># Read/write for owner only</span>
+        <span class="s1">os.chmod(salt_path, </span><span class="s5">0o600</span><span class="s1">)  </span><span class="s0"># Read/write for owner only</span>
+
+        <span class="s1">logger.info(</span><span class="s3">&quot;New encryption keys generated and saved&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">Fernet(key)</span>
+
+
+<span class="s2">def </span><span class="s1">create_platform_factory():</span>
+    <span class="s0">&quot;&quot;&quot;Create the platform factory if it doesn't exist&quot;&quot;&quot;</span>
+    <span class="s1">factory_path = os.path.join(current_dir, </span><span class="s3">&quot;platform_adapters&quot;</span><span class="s1">, </span><span class="s3">&quot;platform_factory.py&quot;</span><span class="s1">)</span>
+    <span class="s1">webull_adapter_path = os.path.join(current_dir, </span><span class="s3">&quot;platform_adapters&quot;</span><span class="s1">, </span><span class="s3">&quot;webull_adapter.py&quot;</span><span class="s1">)</span>
+    <span class="s1">zoya_adapter_path = os.path.join(current_dir, </span><span class="s3">&quot;platform_adapters&quot;</span><span class="s1">, </span><span class="s3">&quot;zoya_adapter.py&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Create factory file with updated code if it doesn't exist</span>
+    <span class="s2">if not </span><span class="s1">os.path.exists(factory_path):</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s0"># Copy the content from the provided platform_factory.py</span>
+            <span class="s2">with </span><span class="s1">open(factory_path, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                <span class="s1">f.write(open(os.path.join(current_dir, </span><span class="s3">&quot;platform_factory.py&quot;</span><span class="s1">)).read())</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;Platform factory created successfully&quot;</span><span class="s1">)</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error creating platform factory: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return False</span>
+
+    <span class="s0"># Create WebUll adapter if it doesn't exist</span>
+    <span class="s2">if not </span><span class="s1">os.path.exists(webull_adapter_path):</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s0"># Copy the content from the provided webull_adapter.py</span>
+            <span class="s2">with </span><span class="s1">open(webull_adapter_path, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                <span class="s1">f.write(open(os.path.join(current_dir, </span><span class="s3">&quot;webull_adapter.py&quot;</span><span class="s1">)).read())</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;WebUll adapter created successfully&quot;</span><span class="s1">)</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error creating WebUll adapter: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Create Zoya adapter if it doesn't exist</span>
+    <span class="s2">if not </span><span class="s1">os.path.exists(zoya_adapter_path):</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s0"># Copy the content from the provided zoya_adapter.py</span>
+            <span class="s2">with </span><span class="s1">open(zoya_adapter_path, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                <span class="s1">f.write(open(os.path.join(current_dir, </span><span class="s3">&quot;zoya_adapter.py&quot;</span><span class="s1">)).read())</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;Zoya adapter created successfully&quot;</span><span class="s1">)</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error creating Zoya adapter: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s2">return True</span>
+
+
+<span class="s2">def </span><span class="s1">fix_improvement_bot():</span>
+    <span class="s0">&quot;&quot;&quot;Fix the syntax error in the improvement bot&quot;&quot;&quot;</span>
+    <span class="s1">improvement_bot_path = os.path.join(current_dir, </span><span class="s3">&quot;improvement_bot.py&quot;</span><span class="s1">)</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s2">with </span><span class="s1">open(improvement_bot_path, </span><span class="s3">'r'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">code = f.read()</span>
+
+        <span class="s0"># Fix the indentation issue</span>
+        <span class="s1">fixed_code = code.replace(</span>
+            <span class="s3">&quot;# Main loop</span><span class="s4">\n     </span><span class="s3">while True:&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;# Main loop</span><span class="s4">\n    </span><span class="s3">while True:&quot;</span>
+        <span class="s1">)</span>
+
+        <span class="s2">with </span><span class="s1">open(improvement_bot_path, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">f.write(fixed_code)</span>
+
+        <span class="s1">logger.info(</span><span class="s3">&quot;Fixed syntax error in improvement_bot.py&quot;</span><span class="s1">)</span>
+        <span class="s2">return True</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error fixing improvement_bot.py: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return False</span>
+
+
+<span class="s2">def </span><span class="s1">check_thread_status(threads):</span>
+    <span class="s0">&quot;&quot;&quot;Check if threads are still running and log their status&quot;&quot;&quot;</span>
+    <span class="s2">while </span><span class="s1">all(thread.is_alive() </span><span class="s2">for </span><span class="s1">thread </span><span class="s2">in </span><span class="s1">threads):</span>
+        <span class="s2">for </span><span class="s1">thread </span><span class="s2">in </span><span class="s1">threads:</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;</span><span class="s4">{</span><span class="s1">thread.name</span><span class="s4">} </span><span class="s3">is alive: </span><span class="s4">{</span><span class="s1">thread.is_alive()</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">time.sleep(</span><span class="s5">60</span><span class="s1">)  </span><span class="s0"># Check every minute</span>
+
+    <span class="s0"># If we get here, at least one thread has died</span>
+    <span class="s2">for </span><span class="s1">thread </span><span class="s2">in </span><span class="s1">threads:</span>
+        <span class="s2">if not </span><span class="s1">thread.is_alive():</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;</span><span class="s4">{</span><span class="s1">thread.name</span><span class="s4">} </span><span class="s3">has exited unexpectedly&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">safe_import(module_name):</span>
+    <span class="s0">&quot;&quot;&quot;Safely import a module with error handling&quot;&quot;&quot;</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s2">return </span><span class="s1">__import__(module_name)</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error importing </span><span class="s4">{</span><span class="s1">module_name</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return None</span>
+
+
+<span class="s2">def </span><span class="s1">main():</span>
+    <span class="s0">&quot;&quot;&quot;Main function to initialize and run the trading system&quot;&quot;&quot;</span>
+    <span class="s0"># Load configuration and environment variables</span>
+    <span class="s1">config = load_or_create_config()</span>
+    <span class="s1">load_environment_variables()</span>
+
+    <span class="s0"># Set up encryption</span>
+    <span class="s1">cipher = setup_encryption()</span>
+
+    <span class="s0"># Make sure platform factory exists</span>
+    <span class="s1">create_platform_factory()</span>
+
+    <span class="s0"># Fix the improvement bot syntax if needed</span>
+    <span class="s1">fix_improvement_bot()</span>
+
+    <span class="s0"># Check dependencies</span>
+    <span class="s2">if not </span><span class="s1">check_dependencies():</span>
+        <span class="s1">logger.error(</span><span class="s3">&quot;Missing required dependencies. Exiting.&quot;</span><span class="s1">)</span>
+        <span class="s1">sys.exit(</span><span class="s5">1</span><span class="s1">)</span>
+
+    <span class="s0"># Import the bot modules</span>
+    <span class="s1">sys.path.append(current_dir)</span>
+    <span class="s1">trading_bot = safe_import(</span><span class="s3">&quot;trading_bot&quot;</span><span class="s1">)</span>
+    <span class="s1">monitor_bot = safe_import(</span><span class="s3">&quot;monitor_bot&quot;</span><span class="s1">)</span>
+    <span class="s1">improvement_bot = safe_import(</span><span class="s3">&quot;improvement_bot&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Check if all modules were imported successfully</span>
+    <span class="s2">if not </span><span class="s1">all([trading_bot, monitor_bot, improvement_bot]):</span>
+        <span class="s1">logger.error(</span><span class="s3">&quot;Failed to import one or more bot modules. Exiting.&quot;</span><span class="s1">)</span>
+        <span class="s1">sys.exit(</span><span class="s5">1</span><span class="s1">)</span>
+
+    <span class="s0"># Start the bot threads</span>
+    <span class="s1">threads = []</span>
+
+    <span class="s0"># Trading Bot thread</span>
+    <span class="s2">if </span><span class="s1">config.get(</span><span class="s3">&quot;trading_bot&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;enabled&quot;</span><span class="s1">, </span><span class="s2">True</span><span class="s1">):</span>
+        <span class="s1">trading_thread = threading.Thread(</span>
+            <span class="s1">target=trading_bot.trading_loop,</span>
+            <span class="s1">name=</span><span class="s3">&quot;Trading Bot&quot;</span><span class="s1">,</span>
+            <span class="s1">daemon=</span><span class="s2">False</span>
+        <span class="s1">)</span>
+        <span class="s1">trading_thread.start()</span>
+        <span class="s1">threads.append(trading_thread)</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Started Trading Bot&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Monitor Bot thread</span>
+    <span class="s2">if </span><span class="s1">config.get(</span><span class="s3">&quot;monitor_bot&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;enabled&quot;</span><span class="s1">, </span><span class="s2">True</span><span class="s1">):</span>
+        <span class="s1">monitor_thread = threading.Thread(</span>
+            <span class="s1">target=monitor_bot.monitoring_loop </span><span class="s2">if </span><span class="s1">hasattr(monitor_bot, </span><span class="s3">'monitoring_loop'</span><span class="s1">) </span><span class="s2">else </span><span class="s1">monitor_bot.monitor_loop,</span>
+            <span class="s1">name=</span><span class="s3">&quot;Monitor Bot&quot;</span><span class="s1">,</span>
+            <span class="s1">daemon=</span><span class="s2">False</span>
+        <span class="s1">)</span>
+        <span class="s1">monitor_thread.start()</span>
+        <span class="s1">threads.append(monitor_thread)</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Started Monitor Bot&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Improvement Bot thread</span>
+    <span class="s2">if </span><span class="s1">config.get(</span><span class="s3">&quot;improvement_bot&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;enabled&quot;</span><span class="s1">, </span><span class="s2">True</span><span class="s1">):</span>
+        <span class="s1">improvement_thread = threading.Thread(</span>
+            <span class="s1">target=improvement_bot.improvement_loop,</span>
+            <span class="s1">name=</span><span class="s3">&quot;Improvement Bot&quot;</span><span class="s1">,</span>
+            <span class="s1">daemon=</span><span class="s2">False</span>
+        <span class="s1">)</span>
+        <span class="s1">improvement_thread.start()</span>
+        <span class="s1">threads.append(improvement_thread)</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Started Improvement Bot&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Thread for status checking</span>
+    <span class="s1">status_thread = threading.Thread(</span>
+        <span class="s1">target=</span><span class="s2">lambda</span><span class="s1">: check_thread_status(threads),</span>
+        <span class="s1">name=</span><span class="s3">&quot;Status Thread&quot;</span><span class="s1">,</span>
+        <span class="s1">daemon=</span><span class="s2">True</span>
+    <span class="s1">)</span>
+    <span class="s1">status_thread.start()</span>
+
+    <span class="s0"># Keep the main process running and properly handle shutdown</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;All bots started. Press Ctrl+C to exit.&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Join threads with timeout to allow keyboard interrupt</span>
+        <span class="s2">while </span><span class="s1">all(thread.is_alive() </span><span class="s2">for </span><span class="s1">thread </span><span class="s2">in </span><span class="s1">threads):</span>
+            <span class="s2">for </span><span class="s1">thread </span><span class="s2">in </span><span class="s1">threads:</span>
+                <span class="s1">thread.join(timeout=</span><span class="s5">1.0</span><span class="s1">)</span>
+
+    <span class="s2">except </span><span class="s1">KeyboardInterrupt:</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Main process interrupted, shutting down...&quot;</span><span class="s1">)</span>
+
+    <span class="s1">logger.info(</span><span class="s3">&quot;Trading system shutdown complete&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">if </span><span class="s1">__name__ == </span><span class="s3">&quot;__main__&quot;</span><span class="s1">:</span>
+    <span class="s1">main()</span>
+</pre>
+</body>
+</html>

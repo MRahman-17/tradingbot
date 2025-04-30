@@ -1,0 +1,36 @@
+# First, let's create a valid config file
+import json
+import os
+
+# Create config directory if it doesn't exist
+os.makedirs("config", exist_ok=True)
+
+# Create a valid news configuration
+news_config = {
+"api_keys": {
+"alphavantage": "",
+"newsapi": "",
+"finnhub": "",
+"twitter_bearer": ""
+},
+"endpoints": {
+"fear_greed": "https://api.alternative.me/fng/",
+"alpha_news": "https://www.alphavantage.co/query",
+"news_api": "https://newsapi.org/v2/everything",
+"finnhub_news": "https://finnhub.io/api/v1/news",
+"twitter": "https://api.twitter.com/2/tweets/search/recent"
+},
+"sentiment_weights": {
+"news": 0.5,
+"social": 0.3,
+"fear_greed": 0.2
+},
+"cache_duration": 3600,
+"news_lookback_days": 3,
+"use_cache": True
+}
+
+# Write to file with proper formatting
+with open("config/news_config.json", "w") as f: json.dump(news_config, f, indent=4)
+
+print("Created valid news configuration file")

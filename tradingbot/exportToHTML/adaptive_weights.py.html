@@ -1,0 +1,187 @@
+<html>
+<head>
+<title>adaptive_weights.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #067d17;}
+.s3 { color: #8c8c8c; font-style: italic;}
+.s4 { color: #0037a6;}
+.s5 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+adaptive_weights.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">logging</span>
+<span class="s0">import </span><span class="s1">json</span>
+<span class="s0">import </span><span class="s1">os</span>
+<span class="s0">import </span><span class="s1">numpy </span><span class="s0">as </span><span class="s1">np</span>
+<span class="s0">from </span><span class="s1">datetime </span><span class="s0">import </span><span class="s1">datetime</span>
+
+<span class="s1">logger = logging.getLogger(</span><span class="s2">&quot;Adaptive Weights&quot;</span><span class="s1">)</span>
+
+
+<span class="s0">class </span><span class="s1">WeightManager:</span>
+    <span class="s0">def </span><span class="s1">__init__(self):</span>
+        <span class="s1">self.weights_history = []</span>
+        <span class="s1">self.load_weights_history()</span>
+
+    <span class="s0">def </span><span class="s1">load_weights_history(self):</span>
+        <span class="s3">&quot;&quot;&quot;Load historical weights data&quot;&quot;&quot;</span>
+        <span class="s1">weights_path = </span><span class="s2">&quot;data/weights/weights_history.json&quot;</span>
+
+        <span class="s0">if </span><span class="s1">os.path.exists(weights_path):</span>
+            <span class="s0">try</span><span class="s1">:</span>
+                <span class="s0">with </span><span class="s1">open(weights_path, </span><span class="s2">'r'</span><span class="s1">) </span><span class="s0">as </span><span class="s1">f:</span>
+                    <span class="s1">self.weights_history = json.load(f)</span>
+                <span class="s1">logger.info(</span><span class="s2">&quot;Weights history loaded&quot;</span><span class="s1">)</span>
+            <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s2">f&quot;Error loading weights history: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+                <span class="s1">self.weights_history = []</span>
+
+    <span class="s0">def </span><span class="s1">save_weights_history(self):</span>
+        <span class="s3">&quot;&quot;&quot;Save weights history to file&quot;&quot;&quot;</span>
+        <span class="s1">weights_path = </span><span class="s2">&quot;data/weights/weights_history.json&quot;</span>
+        <span class="s1">os.makedirs(os.path.dirname(weights_path), exist_ok=</span><span class="s0">True</span><span class="s1">)</span>
+
+        <span class="s0">try</span><span class="s1">:</span>
+            <span class="s0">with </span><span class="s1">open(weights_path, </span><span class="s2">'w'</span><span class="s1">) </span><span class="s0">as </span><span class="s1">f:</span>
+                <span class="s1">json.dump(self.weights_history, f, indent=</span><span class="s5">4</span><span class="s1">)</span>
+            <span class="s1">logger.info(</span><span class="s2">&quot;Weights history saved&quot;</span><span class="s1">)</span>
+        <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s2">f&quot;Error saving weights history: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+
+    <span class="s0">def </span><span class="s1">get_market_regime_weights(self, market_condition):</span>
+        <span class="s3">&quot;&quot;&quot;Adjust weights based on current market regime&quot;&quot;&quot;</span>
+        <span class="s0">if </span><span class="s1">market_condition == </span><span class="s2">&quot;high_volatility&quot;</span><span class="s1">:</span>
+            <span class="s3"># During high volatility, increase news weight</span>
+            <span class="s0">return </span><span class="s1">{</span><span class="s2">&quot;technical&quot;</span><span class="s1">: </span><span class="s5">0.35</span><span class="s1">, </span><span class="s2">&quot;quantum&quot;</span><span class="s1">: </span><span class="s5">0.20</span><span class="s1">, </span><span class="s2">&quot;news&quot;</span><span class="s1">: </span><span class="s5">0.35</span><span class="s1">, </span><span class="s2">&quot;market_risk&quot;</span><span class="s1">: </span><span class="s5">0.10</span><span class="s1">}</span>
+        <span class="s0">elif </span><span class="s1">market_condition == </span><span class="s2">&quot;trending&quot;</span><span class="s1">:</span>
+            <span class="s3"># In trending markets, technical analysis often works better</span>
+            <span class="s0">return </span><span class="s1">{</span><span class="s2">&quot;technical&quot;</span><span class="s1">: </span><span class="s5">0.50</span><span class="s1">, </span><span class="s2">&quot;quantum&quot;</span><span class="s1">: </span><span class="s5">0.25</span><span class="s1">, </span><span class="s2">&quot;news&quot;</span><span class="s1">: </span><span class="s5">0.15</span><span class="s1">, </span><span class="s2">&quot;market_risk&quot;</span><span class="s1">: </span><span class="s5">0.10</span><span class="s1">}</span>
+        <span class="s0">elif </span><span class="s1">market_condition == </span><span class="s2">&quot;low_volatility&quot;</span><span class="s1">:</span>
+            <span class="s3"># In calm markets, balanced approach</span>
+            <span class="s0">return </span><span class="s1">{</span><span class="s2">&quot;technical&quot;</span><span class="s1">: </span><span class="s5">0.40</span><span class="s1">, </span><span class="s2">&quot;quantum&quot;</span><span class="s1">: </span><span class="s5">0.30</span><span class="s1">, </span><span class="s2">&quot;news&quot;</span><span class="s1">: </span><span class="s5">0.20</span><span class="s1">, </span><span class="s2">&quot;market_risk&quot;</span><span class="s1">: </span><span class="s5">0.10</span><span class="s1">}</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s3"># Default weights for normal markets</span>
+            <span class="s0">return </span><span class="s1">{</span><span class="s2">&quot;technical&quot;</span><span class="s1">: </span><span class="s5">0.40</span><span class="s1">, </span><span class="s2">&quot;quantum&quot;</span><span class="s1">: </span><span class="s5">0.25</span><span class="s1">, </span><span class="s2">&quot;news&quot;</span><span class="s1">: </span><span class="s5">0.25</span><span class="s1">, </span><span class="s2">&quot;market_risk&quot;</span><span class="s1">: </span><span class="s5">0.10</span><span class="s1">}</span>
+
+    <span class="s0">def </span><span class="s1">detect_market_regime(self, market_data):</span>
+        <span class="s3">&quot;&quot;&quot;Detect current market regime based on market data&quot;&quot;&quot;</span>
+        <span class="s3"># A simple approach using volatility and trend strength</span>
+
+        <span class="s3"># Calculate recent volatility (standard deviation of returns)</span>
+        <span class="s1">returns = np.diff(market_data[</span><span class="s2">'Close'</span><span class="s1">]) / market_data[</span><span class="s2">'Close'</span><span class="s1">][:-</span><span class="s5">1</span><span class="s1">]</span>
+        <span class="s1">recent_volatility = np.std(returns[-</span><span class="s5">20</span><span class="s1">:])  </span><span class="s3"># 20-day volatility</span>
+
+        <span class="s3"># Calculate trend strength</span>
+        <span class="s1">sma_20 = market_data[</span><span class="s2">'Close'</span><span class="s1">].rolling(</span><span class="s5">20</span><span class="s1">).mean().iloc[-</span><span class="s5">1</span><span class="s1">]</span>
+        <span class="s1">sma_50 = market_data[</span><span class="s2">'Close'</span><span class="s1">].rolling(</span><span class="s5">50</span><span class="s1">).mean().iloc[-</span><span class="s5">1</span><span class="s1">]</span>
+
+        <span class="s1">trend_strength = abs((sma_20 / sma_50) - </span><span class="s5">1</span><span class="s1">)</span>
+
+        <span class="s3"># Determine regime</span>
+        <span class="s0">if </span><span class="s1">recent_volatility &gt; </span><span class="s5">0.025</span><span class="s1">:  </span><span class="s3"># High volatility threshold</span>
+            <span class="s0">return </span><span class="s2">&quot;high_volatility&quot;</span>
+        <span class="s0">elif </span><span class="s1">trend_strength &gt; </span><span class="s5">0.05</span><span class="s1">:  </span><span class="s3"># Strong trend threshold</span>
+            <span class="s0">return </span><span class="s2">&quot;trending&quot;</span>
+        <span class="s0">elif </span><span class="s1">recent_volatility &lt; </span><span class="s5">0.01</span><span class="s1">:  </span><span class="s3"># Low volatility threshold</span>
+            <span class="s0">return </span><span class="s2">&quot;low_volatility&quot;</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s0">return </span><span class="s2">&quot;normal&quot;</span>
+
+    <span class="s0">def </span><span class="s1">adjust_integration_weights(self, symbol, historical_performance):</span>
+        <span class="s3">&quot;&quot;&quot;Dynamically adjust weights based on historical accuracy&quot;&quot;&quot;</span>
+        <span class="s3"># Calculate accuracy for each signal type</span>
+        <span class="s1">technical_accuracy = historical_performance.get(</span><span class="s2">'technical_accuracy'</span><span class="s1">, </span><span class="s5">0.5</span><span class="s1">)</span>
+        <span class="s1">quantum_accuracy = historical_performance.get(</span><span class="s2">'quantum_accuracy'</span><span class="s1">, </span><span class="s5">0.5</span><span class="s1">)</span>
+        <span class="s1">news_accuracy = historical_performance.get(</span><span class="s2">'news_accuracy'</span><span class="s1">, </span><span class="s5">0.5</span><span class="s1">)</span>
+
+        <span class="s3"># Normalize to ensure weights sum to 1</span>
+        <span class="s1">total_accuracy = technical_accuracy + quantum_accuracy + news_accuracy</span>
+
+        <span class="s3"># Set minimum weight threshold to prevent any signal from being ignored</span>
+        <span class="s1">min_weight = </span><span class="s5">0.15</span>
+
+        <span class="s3"># Calculate initial weights based on accuracy</span>
+        <span class="s1">weights = {</span>
+            <span class="s2">&quot;technical&quot;</span><span class="s1">: max(min_weight, technical_accuracy / total_accuracy),</span>
+            <span class="s2">&quot;quantum&quot;</span><span class="s1">: max(min_weight, quantum_accuracy / total_accuracy),</span>
+            <span class="s2">&quot;news&quot;</span><span class="s1">: max(min_weight, news_accuracy / total_accuracy)</span>
+        <span class="s1">}</span>
+
+        <span class="s3"># Renormalize</span>
+        <span class="s1">total = sum(weights.values())</span>
+        <span class="s0">for </span><span class="s1">key </span><span class="s0">in </span><span class="s1">weights:</span>
+            <span class="s1">weights[key] /= total</span>
+
+        <span class="s3"># Add market risk weight</span>
+        <span class="s1">weights[</span><span class="s2">&quot;market_risk&quot;</span><span class="s1">] = </span><span class="s5">0.10</span>
+
+        <span class="s3"># Renormalize again</span>
+        <span class="s1">total = sum(weights.values())</span>
+        <span class="s0">for </span><span class="s1">key </span><span class="s0">in </span><span class="s1">weights:</span>
+            <span class="s1">weights[key] /= total</span>
+
+        <span class="s0">return </span><span class="s1">weights</span>
+
+    <span class="s0">def </span><span class="s1">get_integrated_signal(self, symbol, signals, confidences, market_data, historical_performance=</span><span class="s0">None</span><span class="s1">):</span>
+        <span class="s3">&quot;&quot;&quot;Get integrated signal with dynamic weighting&quot;&quot;&quot;</span>
+        <span class="s3"># Detect current market regime</span>
+        <span class="s1">market_regime = self.detect_market_regime(market_data)</span>
+
+        <span class="s3"># Get regime-based weights</span>
+        <span class="s1">base_weights = self.get_market_regime_weights(market_regime)</span>
+
+        <span class="s3"># Adjust based on historical performance if available</span>
+        <span class="s0">if </span><span class="s1">historical_performance:</span>
+            <span class="s1">performance_weights = self.adjust_integration_weights(symbol, historical_performance)</span>
+
+            <span class="s3"># Average the two weight approaches (50% regime, 50% performance)</span>
+            <span class="s1">adjusted_weights = {}</span>
+            <span class="s0">for </span><span class="s1">key </span><span class="s0">in </span><span class="s1">base_weights:</span>
+                <span class="s1">adjusted_weights[key] = </span><span class="s5">0.5 </span><span class="s1">* base_weights[key] + </span><span class="s5">0.5 </span><span class="s1">* performance_weights.get(key, </span><span class="s5">0</span><span class="s1">)</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s1">adjusted_weights = base_weights</span>
+
+        <span class="s3"># Apply confidence levels</span>
+        <span class="s1">final_weights = {}</span>
+        <span class="s0">for </span><span class="s1">signal_type, weight </span><span class="s0">in </span><span class="s1">adjusted_weights.items():</span>
+            <span class="s1">confidence = confidences.get(signal_type, </span><span class="s5">0.5</span><span class="s1">)</span>
+            <span class="s3"># Scale weight by confidence</span>
+            <span class="s1">final_weights[signal_type] = weight * confidence</span>
+
+        <span class="s3"># Normalize weights</span>
+        <span class="s1">total_weight = sum(final_weights.values())</span>
+        <span class="s0">for </span><span class="s1">key </span><span class="s0">in </span><span class="s1">final_weights:</span>
+            <span class="s1">final_weights[key] /= total_weight</span>
+
+        <span class="s3"># Calculate weighted signal</span>
+        <span class="s1">integrated_signal = sum(signals[key] * final_weights[key] </span><span class="s0">for </span><span class="s1">key </span><span class="s0">in </span><span class="s1">final_weights)</span>
+
+        <span class="s3"># Record the weights used</span>
+        <span class="s1">weight_record = {</span>
+            <span class="s2">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+            <span class="s2">&quot;market_regime&quot;</span><span class="s1">: market_regime,</span>
+            <span class="s2">&quot;weights&quot;</span><span class="s1">: final_weights,</span>
+            <span class="s2">&quot;integrated_signal&quot;</span><span class="s1">: float(integrated_signal)</span>
+        <span class="s1">}</span>
+        <span class="s1">self.weights_history.append(weight_record)</span>
+
+        <span class="s3"># Periodically save weights history (limit history size)</span>
+        <span class="s0">if </span><span class="s1">len(self.weights_history) % </span><span class="s5">10 </span><span class="s1">== </span><span class="s5">0</span><span class="s1">:</span>
+            <span class="s3"># Keep only the last 1000 records</span>
+            <span class="s0">if </span><span class="s1">len(self.weights_history) &gt; </span><span class="s5">1000</span><span class="s1">:</span>
+                <span class="s1">self.weights_history = self.weights_history[-</span><span class="s5">1000</span><span class="s1">:]</span>
+            <span class="s1">self.save_weights_history()</span>
+
+        <span class="s0">return </span><span class="s1">integrated_signal, final_weights</span>
+</pre>
+</body>
+</html>

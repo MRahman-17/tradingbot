@@ -1,0 +1,1310 @@
+<html>
+<head>
+<title>trading_bot.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #8c8c8c; font-style: italic;}
+.s1 { color: #080808;}
+.s2 { color: #0033b3;}
+.s3 { color: #067d17;}
+.s4 { color: #0037a6;}
+.s5 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+trading_bot.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#!/usr/bin/env python3</span>
+<span class="s0">&quot;&quot;&quot; 
+Enhanced Trading Bot with Quantum Computing Market Analysis 
+Integrates quantum computing for market prediction while accounting for error rates 
+&quot;&quot;&quot;</span>
+<span class="s2">import </span><span class="s1">os</span>
+<span class="s2">import </span><span class="s1">sys</span>
+<span class="s2">import </span><span class="s1">time</span>
+<span class="s2">import </span><span class="s1">logging</span>
+<span class="s2">import </span><span class="s1">json</span>
+<span class="s2">import </span><span class="s1">numpy </span><span class="s2">as </span><span class="s1">np</span>
+<span class="s2">import </span><span class="s1">pandas </span><span class="s2">as </span><span class="s1">pd</span>
+<span class="s2">from </span><span class="s1">datetime </span><span class="s2">import </span><span class="s1">datetime</span>
+<span class="s2">import </span><span class="s1">random</span>
+<span class="s2">import </span><span class="s1">requests</span>
+<span class="s2">from </span><span class="s1">cryptography.fernet </span><span class="s2">import </span><span class="s1">Fernet</span>
+<span class="s2">import </span><span class="s1">signal</span>
+<span class="s2">import </span><span class="s1">threading</span>
+<span class="s2">import </span><span class="s1">importlib.util</span>
+<span class="s2">from </span><span class="s1">news_trading_integration </span><span class="s2">import </span><span class="s1">NewsIntegrator</span>
+<span class="s2">from </span><span class="s1">news_verification </span><span class="s2">import </span><span class="s1">NewsVerifier</span>
+<span class="s2">from </span><span class="s1">enhanced_sentiment </span><span class="s2">import </span><span class="s1">EnhancedSentimentAnalyzer</span>
+
+<span class="s0"># Initialize the news integrator with your platform adapter</span>
+<span class="s1">news_integrator = NewsIntegrator()</span>
+<span class="s0"># At the beginning of the script, after imports</span>
+<span class="s2">from </span><span class="s1">news_trading_integration </span><span class="s2">import </span><span class="s1">NewsIntegrator</span>
+<span class="s2">from </span><span class="s1">news_verification </span><span class="s2">import </span><span class="s1">NewsVerifier</span>
+<span class="s2">from </span><span class="s1">enhanced_sentiment </span><span class="s2">import </span><span class="s1">EnhancedSentimentAnalyzer</span>
+
+<span class="s0"># Initialize the news integrator but don't set platform_adapter yet</span>
+<span class="s1">news_integrator = NewsIntegrator()</span>
+
+
+<span class="s0"># Later in the code, after platform_adapter is initialized (likely in the trading_loop function)</span>
+<span class="s2">def </span><span class="s1">trading_loop():</span>
+    <span class="s0">&quot;&quot;&quot;Main trading loop with quantum integration&quot;&quot;&quot;</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;========== TRADING LOOP FUNCTION ENTERED ==========&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Load configuration</span>
+    <span class="s1">config = load_config()</span>
+
+    <span class="s0"># Load trade history</span>
+    <span class="s1">load_trade_history()</span>
+
+    <span class="s0"># Set up signal handling for graceful exit</span>
+    <span class="s2">if </span><span class="s1">threading.current_thread() </span><span class="s2">is </span><span class="s1">threading.main_thread():</span>
+        <span class="s1">signal.signal(signal.SIGINT, handle_exit)</span>
+        <span class="s1">signal.signal(signal.SIGTERM, handle_exit)</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Signal handlers not installed - not in main thread&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Initialize quantum device if enabled</span>
+    <span class="s1">quantum_device = </span><span class="s2">None</span>
+    <span class="s2">if </span><span class="s1">config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;enabled&quot;</span><span class="s1">, </span><span class="s2">True</span><span class="s1">) </span><span class="s2">and </span><span class="s1">QUANTUM_AVAILABLE:</span>
+        <span class="s1">quantum_device = initialize_quantum_device(config)</span>
+
+        <span class="s2">if </span><span class="s1">quantum_device </span><span class="s2">is None</span><span class="s1">:</span>
+            <span class="s1">logger.warning(</span><span class="s3">&quot;Failed to initialize quantum device. Using classical analysis only.&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Initialize platform adapter</span>
+    <span class="s2">global </span><span class="s1">platform_adapter</span>
+    <span class="s1">platform_adapter = MockAdapter()</span>
+
+    <span class="s0"># NOW share the platform adapter with the news integrator</span>
+    <span class="s1">news_integrator.platform_adapter = platform_adapter</span>
+
+
+<span class="s2">def </span><span class="s1">check_halal_compliance(symbol):</span>
+    <span class="s0">&quot;&quot;&quot; 
+    Check if a stock is halal compliant using the Zoya API with GraphQL 
+ 
+    Args: 
+        symbol (str): Stock symbol to check (e.g., 'AAPL') 
+ 
+    Returns: 
+        bool: True if stock is compliant, False if not 
+    &quot;&quot;&quot;</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s1">api_key = os.environ.get(</span><span class="s3">&quot;ZOYA_API_KEY&quot;</span><span class="s1">)</span>
+        <span class="s2">if not </span><span class="s1">api_key:</span>
+            <span class="s1">logger.error(</span><span class="s3">&quot;Zoya API key not found in environment variables&quot;</span><span class="s1">)</span>
+            <span class="s2">return False</span>
+
+        <span class="s0"># Zoya API endpoint for GraphQL</span>
+        <span class="s1">url = </span><span class="s3">&quot;https://api.zoya.finance/graphql&quot;</span>
+
+        <span class="s0"># GraphQL query</span>
+        <span class="s1">query = </span><span class="s3">&quot;&quot;&quot; 
+        query getReport { 
+          basicCompliance { 
+            report(symbol: &quot;%s&quot;) { 
+              exchange 
+              name 
+              reportDate 
+              status 
+              symbol 
+            } 
+          } 
+        } 
+        &quot;&quot;&quot; </span><span class="s1">% symbol</span>
+
+        <span class="s1">headers = {</span>
+            <span class="s3">&quot;Authorization&quot;</span><span class="s1">: </span><span class="s3">f&quot;Bearer </span><span class="s4">{</span><span class="s1">api_key</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;Content-Type&quot;</span><span class="s1">: </span><span class="s3">&quot;application/json&quot;</span>
+        <span class="s1">}</span>
+
+        <span class="s0"># Prepare the GraphQL request</span>
+        <span class="s1">request_data = {</span>
+            <span class="s3">&quot;query&quot;</span><span class="s1">: query</span>
+        <span class="s1">}</span>
+
+        <span class="s1">response = requests.post(url, headers=headers, json=request_data)</span>
+
+        <span class="s2">if </span><span class="s1">response.status_code == </span><span class="s5">200</span><span class="s1">:</span>
+            <span class="s1">data = response.json()</span>
+
+            <span class="s0"># Extract compliance status from GraphQL response</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s1">status = data.get(</span><span class="s3">&quot;data&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;basicCompliance&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;report&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;status&quot;</span><span class="s1">)</span>
+
+                <span class="s1">logger.info(</span><span class="s3">f&quot;Zoya API compliance check for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">status</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+                <span class="s0"># Return True if compliant, False otherwise</span>
+                <span class="s2">return </span><span class="s1">status == </span><span class="s3">&quot;COMPLIANT&quot;</span>
+            <span class="s2">except </span><span class="s1">(KeyError, TypeError) </span><span class="s2">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error parsing Zoya API response: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s1">logger.debug(</span><span class="s3">f&quot;Response data: </span><span class="s4">{</span><span class="s1">data</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s2">return False</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error calling Zoya API: </span><span class="s4">{</span><span class="s1">response.status_code</span><span class="s4">} </span><span class="s3">- </span><span class="s4">{</span><span class="s1">response.text</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return False</span>
+
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error checking halal compliance: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return False</span>
+
+
+<span class="s0"># Configure logging first</span>
+<span class="s1">logging.basicConfig(</span>
+    <span class="s1">level=logging.DEBUG,  </span><span class="s0"># Use DEBUG for more verbose output</span>
+    <span class="s1">format=</span><span class="s3">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>
+<span class="s1">)</span>
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;Quantum Trading Bot&quot;</span><span class="s1">)</span>
+
+<span class="s0"># Quantum computing libraries - add more verbose output</span>
+<span class="s1">QUANTUM_AVAILABLE = </span><span class="s2">False  </span><span class="s0"># Default to False</span>
+<span class="s2">try</span><span class="s1">:</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;Attempting to import quantum libraries...&quot;</span><span class="s1">)</span>
+    <span class="s2">import </span><span class="s1">pennylane </span><span class="s2">as </span><span class="s1">qml</span>
+    <span class="s2">import </span><span class="s1">qiskit</span>
+    <span class="s2">from </span><span class="s1">qiskit </span><span class="s2">import </span><span class="s1">QuantumCircuit</span>
+    <span class="s2">from </span><span class="s1">qiskit_aer </span><span class="s2">import </span><span class="s1">Aer  </span><span class="s0"># Separate import for Aer</span>
+    <span class="s2">from </span><span class="s1">qiskit_aer </span><span class="s2">import </span><span class="s1">AerSimulator</span>
+
+    <span class="s1">QUANTUM_AVAILABLE = </span><span class="s2">True</span>
+    <span class="s1">logger.info(</span><span class="s3">f&quot;Quantum libraries successfully imported: PennyLane </span><span class="s4">{</span><span class="s1">qml.__version__</span><span class="s4">}</span><span class="s3">, Qiskit </span><span class="s4">{</span><span class="s1">qiskit.__version__</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+<span class="s2">except </span><span class="s1">ImportError </span><span class="s2">as </span><span class="s1">e:</span>
+    <span class="s1">logger.warning(</span><span class="s3">f&quot;Quantum libraries not available: </span><span class="s4">{</span><span class="s1">str(e)</span><span class="s4">}</span><span class="s3">. Will use classical analysis only.&quot;</span><span class="s1">)</span>
+
+<span class="s0"># Configure logging</span>
+<span class="s1">logging.basicConfig(</span>
+    <span class="s1">level=logging.INFO,</span>
+    <span class="s1">format=</span><span class="s3">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>
+<span class="s1">)</span>
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;Quantum Trading Bot&quot;</span><span class="s1">)</span>
+
+<span class="s0"># Default configuration</span>
+<span class="s1">DEFAULT_CONFIG = {</span>
+    <span class="s3">&quot;trading_bot&quot;</span><span class="s1">: {</span>
+        <span class="s3">&quot;enabled&quot;</span><span class="s1">: </span><span class="s2">True</span><span class="s1">,</span>
+        <span class="s3">&quot;symbols&quot;</span><span class="s1">: [</span><span class="s3">&quot;AAPL&quot;</span><span class="s1">, </span><span class="s3">&quot;MSFT&quot;</span><span class="s1">, </span><span class="s3">&quot;NVDA&quot;</span><span class="s1">],</span>
+        <span class="s3">&quot;max_drawdown&quot;</span><span class="s1">: </span><span class="s5">0.05</span><span class="s1">,</span>
+        <span class="s3">&quot;kelly_fraction&quot;</span><span class="s1">: </span><span class="s5">0.02</span><span class="s1">,</span>
+        <span class="s3">&quot;quantity&quot;</span><span class="s1">: </span><span class="s5">1</span><span class="s1">,</span>
+        <span class="s3">&quot;min_hold_period&quot;</span><span class="s1">: </span><span class="s5">172800</span><span class="s1">,  </span><span class="s0"># 48 hours in seconds</span>
+        <span class="s3">&quot;sleep_time&quot;</span><span class="s1">: </span><span class="s5">60</span><span class="s1">,</span>
+        <span class="s3">&quot;halal_compliance&quot;</span><span class="s1">: </span><span class="s2">True</span>
+    <span class="s1">},</span>
+    <span class="s3">&quot;quantum_config&quot;</span><span class="s1">: {</span>
+        <span class="s3">&quot;enabled&quot;</span><span class="s1">: </span><span class="s2">True</span><span class="s1">,</span>
+        <span class="s3">&quot;error_threshold&quot;</span><span class="s1">: </span><span class="s5">0.15</span><span class="s1">,  </span><span class="s0"># Maximum acceptable error rate</span>
+        <span class="s3">&quot;min_confidence&quot;</span><span class="s1">: </span><span class="s5">0.65</span><span class="s1">,  </span><span class="s0"># Minimum confidence to consider quantum signals</span>
+        <span class="s3">&quot;device&quot;</span><span class="s1">: </span><span class="s3">&quot;default.qubit&quot;</span><span class="s1">,  </span><span class="s0"># Use simulator by default</span>
+        <span class="s3">&quot;shots&quot;</span><span class="s1">: </span><span class="s5">1000</span><span class="s1">,  </span><span class="s0"># Number of quantum measurements</span>
+        <span class="s3">&quot;use_error_mitigation&quot;</span><span class="s1">: </span><span class="s2">True</span><span class="s1">,</span>
+        <span class="s3">&quot;fallback_to_classical&quot;</span><span class="s1">: </span><span class="s2">True</span>
+    <span class="s1">},</span>
+    <span class="s3">&quot;platform&quot;</span><span class="s1">: {</span>
+        <span class="s3">&quot;name&quot;</span><span class="s1">: </span><span class="s3">&quot;mock&quot;</span><span class="s1">,  </span><span class="s0"># Using mock platform for testing</span>
+        <span class="s3">&quot;use_paper_trading&quot;</span><span class="s1">: </span><span class="s2">True</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+
+<span class="s0"># Trading parameters</span>
+<span class="s1">symbols = DEFAULT_CONFIG[</span><span class="s3">&quot;trading_bot&quot;</span><span class="s1">][</span><span class="s3">&quot;symbols&quot;</span><span class="s1">]</span>
+<span class="s1">sleep_time = DEFAULT_CONFIG[</span><span class="s3">&quot;trading_bot&quot;</span><span class="s1">][</span><span class="s3">&quot;sleep_time&quot;</span><span class="s1">]</span>
+
+<span class="s0"># Global variables</span>
+<span class="s1">platform_adapter = </span><span class="s2">None</span>
+<span class="s1">trade_history = {</span><span class="s3">&quot;positions&quot;</span><span class="s1">: {}, </span><span class="s3">&quot;trades&quot;</span><span class="s1">: []}</span>
+<span class="s1">quantum_error_history = []</span>
+<span class="s1">quantum_prediction_history = []</span>
+
+
+<span class="s2">class </span><span class="s1">MockAdapter:</span>
+    <span class="s0">&quot;&quot;&quot;Enhanced mock adapter for simulating trading with realistic market data&quot;&quot;&quot;</span>
+
+    <span class="s2">def </span><span class="s1">__init__(self):</span>
+        <span class="s1">self.positions = {}</span>
+        <span class="s1">self.prices = {</span>
+            <span class="s3">&quot;AAPL&quot;</span><span class="s1">: </span><span class="s5">175.0</span><span class="s1">,</span>
+            <span class="s3">&quot;MSFT&quot;</span><span class="s1">: </span><span class="s5">350.0</span><span class="s1">,</span>
+            <span class="s3">&quot;NVDA&quot;</span><span class="s1">: </span><span class="s5">141.0</span>
+        <span class="s1">}</span>
+        <span class="s1">self.order_id = </span><span class="s5">1000</span>
+        <span class="s1">self.market_data = {}</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Mock adapter initialized&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Initialize with some simulated historical data</span>
+        <span class="s1">self._initialize_market_data()</span>
+
+    <span class="s2">def </span><span class="s1">_initialize_market_data(self):</span>
+        <span class="s0">&quot;&quot;&quot;Create realistic simulated market data with trends and patterns&quot;&quot;&quot;</span>
+        <span class="s2">for </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">self.prices.keys():</span>
+            <span class="s0"># Generate 90 days of realistic data</span>
+            <span class="s1">days = </span><span class="s5">90</span>
+            <span class="s1">base_price = self.prices[symbol]</span>
+
+            <span class="s0"># Create time series with realistic properties</span>
+            <span class="s0"># Start with random walk</span>
+            <span class="s1">random_walk = np.random.normal(</span><span class="s5">0</span><span class="s1">, </span><span class="s5">0.015</span><span class="s1">, days).cumsum()</span>
+
+            <span class="s0"># Add trend component</span>
+            <span class="s1">trend = np.linspace(</span><span class="s5">0</span><span class="s1">, </span><span class="s5">0.2</span><span class="s1">, days) </span><span class="s2">if </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">[</span><span class="s3">&quot;AAPL&quot;</span><span class="s1">, </span><span class="s3">&quot;MSFT&quot;</span><span class="s1">] </span><span class="s2">else </span><span class="s1">np.linspace(</span><span class="s5">0</span><span class="s1">, -</span><span class="s5">0.1</span><span class="s1">, days)</span>
+
+            <span class="s0"># Add cyclical component (weekly pattern)</span>
+            <span class="s1">cyclical = </span><span class="s5">0.02 </span><span class="s1">* np.sin(np.linspace(</span><span class="s5">0</span><span class="s1">, </span><span class="s5">6 </span><span class="s1">* np.pi, days))</span>
+
+            <span class="s0"># Combine components</span>
+            <span class="s1">price_series = base_price * (</span><span class="s5">1 </span><span class="s1">+ random_walk + trend + cyclical)</span>
+
+            <span class="s0"># Create more realistic volume</span>
+            <span class="s1">volume = np.random.randint(</span><span class="s5">1000000</span><span class="s1">, </span><span class="s5">10000000</span><span class="s1">, days)</span>
+
+            <span class="s0"># Create dataframe with OHLCV data</span>
+            <span class="s1">dates = pd.date_range(end=datetime.now(), periods=days)</span>
+            <span class="s1">df = pd.DataFrame({</span>
+                <span class="s3">'Date'</span><span class="s1">: dates,</span>
+                <span class="s3">'Open'</span><span class="s1">: price_series * (</span><span class="s5">1 </span><span class="s1">- np.random.uniform(</span><span class="s5">0</span><span class="s1">, </span><span class="s5">0.01</span><span class="s1">, days)),</span>
+                <span class="s3">'High'</span><span class="s1">: price_series * (</span><span class="s5">1 </span><span class="s1">+ np.random.uniform(</span><span class="s5">0</span><span class="s1">, </span><span class="s5">0.02</span><span class="s1">, days)),</span>
+                <span class="s3">'Low'</span><span class="s1">: price_series * (</span><span class="s5">1 </span><span class="s1">- np.random.uniform(</span><span class="s5">0</span><span class="s1">, </span><span class="s5">0.02</span><span class="s1">, days)),</span>
+                <span class="s3">'Close'</span><span class="s1">: price_series,</span>
+                <span class="s3">'Volume'</span><span class="s1">: volume</span>
+            <span class="s1">})</span>
+
+            <span class="s0"># Set the current price to the last close</span>
+            <span class="s1">self.prices[symbol] = float(df[</span><span class="s3">'Close'</span><span class="s1">].iloc[-</span><span class="s5">1</span><span class="s1">])</span>
+
+            <span class="s0"># Store the dataframe</span>
+            <span class="s1">self.market_data[symbol] = df</span>
+
+    <span class="s2">def </span><span class="s1">get_price(self, symbol):</span>
+        <span class="s0">&quot;&quot;&quot;Get current price with some realistic movement&quot;&quot;&quot;</span>
+        <span class="s2">if </span><span class="s1">symbol </span><span class="s2">not in </span><span class="s1">self.prices:</span>
+            <span class="s1">self.prices[symbol] = </span><span class="s5">100.0</span>
+
+        <span class="s1">price = self.prices[symbol]</span>
+        <span class="s0"># Add some random movement with momentum</span>
+        <span class="s1">change = np.random.normal(</span><span class="s5">0</span><span class="s1">, </span><span class="s5">0.01</span><span class="s1">)</span>
+        <span class="s0"># Add momentum (prices tend to continue in the same direction)</span>
+        <span class="s2">if </span><span class="s1">len(self.market_data.get(symbol, [])) &gt; </span><span class="s5">0</span><span class="s1">:</span>
+            <span class="s1">df = self.market_data[symbol]</span>
+            <span class="s2">if </span><span class="s1">len(df) &gt;= </span><span class="s5">2</span><span class="s1">:</span>
+                <span class="s1">last_change = (df[</span><span class="s3">'Close'</span><span class="s1">].iloc[-</span><span class="s5">1</span><span class="s1">] / df[</span><span class="s3">'Close'</span><span class="s1">].iloc[-</span><span class="s5">2</span><span class="s1">]) - </span><span class="s5">1</span>
+                <span class="s1">change = change + (last_change * </span><span class="s5">0.3</span><span class="s1">)  </span><span class="s0"># 30% momentum factor</span>
+
+        <span class="s1">self.prices[symbol] = price * (</span><span class="s5">1 </span><span class="s1">+ change)</span>
+
+        <span class="s0"># Update the market data</span>
+        <span class="s2">if </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">self.market_data:</span>
+            <span class="s1">new_row = pd.DataFrame({</span>
+                <span class="s3">'Date'</span><span class="s1">: [datetime.now()],</span>
+                <span class="s3">'Open'</span><span class="s1">: [price],</span>
+                <span class="s3">'High'</span><span class="s1">: [price * (</span><span class="s5">1 </span><span class="s1">+ max(</span><span class="s5">0</span><span class="s1">, change * </span><span class="s5">1.5</span><span class="s1">))],</span>
+                <span class="s3">'Low'</span><span class="s1">: [price * (</span><span class="s5">1 </span><span class="s1">+ min(</span><span class="s5">0</span><span class="s1">, change * </span><span class="s5">1.5</span><span class="s1">))],</span>
+                <span class="s3">'Close'</span><span class="s1">: [self.prices[symbol]],</span>
+                <span class="s3">'Volume'</span><span class="s1">: [np.random.randint(</span><span class="s5">1000000</span><span class="s1">, </span><span class="s5">5000000</span><span class="s1">)]</span>
+            <span class="s1">})</span>
+            <span class="s1">self.market_data[symbol] = pd.concat([self.market_data[symbol], new_row])</span>
+
+        <span class="s2">return </span><span class="s1">self.prices[symbol]</span>
+
+    <span class="s2">def </span><span class="s1">get_positions(self):</span>
+        <span class="s0">&quot;&quot;&quot;Get current positions&quot;&quot;&quot;</span>
+        <span class="s1">positions = []</span>
+        <span class="s2">for </span><span class="s1">symbol, details </span><span class="s2">in </span><span class="s1">self.positions.items():</span>
+            <span class="s1">current_price = self.get_price(symbol)</span>
+            <span class="s1">entry_price = details[</span><span class="s3">&quot;entry_price&quot;</span><span class="s1">]</span>
+            <span class="s1">quantity = details[</span><span class="s3">&quot;quantity&quot;</span><span class="s1">]</span>
+
+            <span class="s0"># Calculate P&amp;L</span>
+            <span class="s1">unrealized_pl = (current_price - entry_price) * quantity</span>
+            <span class="s1">unrealized_pl_pct = (current_price / entry_price - </span><span class="s5">1</span><span class="s1">) * </span><span class="s5">100</span>
+
+            <span class="s1">positions.append({</span>
+                <span class="s3">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+                <span class="s3">&quot;quantity&quot;</span><span class="s1">: quantity,</span>
+                <span class="s3">&quot;entry_price&quot;</span><span class="s1">: entry_price,</span>
+                <span class="s3">&quot;current_price&quot;</span><span class="s1">: current_price,</span>
+                <span class="s3">&quot;unrealized_pl&quot;</span><span class="s1">: unrealized_pl,</span>
+                <span class="s3">&quot;unrealized_pl_percent&quot;</span><span class="s1">: unrealized_pl_pct</span>
+            <span class="s1">})</span>
+
+        <span class="s2">return </span><span class="s1">positions</span>
+
+    <span class="s2">def </span><span class="s1">place_order(self, symbol, side, quantity):</span>
+        <span class="s0">&quot;&quot;&quot;Place a mock order&quot;&quot;&quot;</span>
+        <span class="s1">self.order_id += </span><span class="s5">1</span>
+        <span class="s1">current_price = self.get_price(symbol)</span>
+
+        <span class="s2">if </span><span class="s1">side.lower() == </span><span class="s3">&quot;buy&quot;</span><span class="s1">:</span>
+            <span class="s1">self.positions[symbol] = {</span>
+                <span class="s3">&quot;entry_price&quot;</span><span class="s1">: current_price,</span>
+                <span class="s3">&quot;quantity&quot;</span><span class="s1">: quantity</span>
+            <span class="s1">}</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;BUY order for </span><span class="s4">{</span><span class="s1">quantity</span><span class="s4">} </span><span class="s3">shares of </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">at $</span><span class="s4">{</span><span class="s1">current_price</span><span class="s4">:</span><span class="s3">.2f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">elif </span><span class="s1">side.lower() == </span><span class="s3">&quot;sell&quot;</span><span class="s1">:</span>
+            <span class="s2">if </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">self.positions:</span>
+                <span class="s2">del </span><span class="s1">self.positions[symbol]</span>
+                <span class="s1">logger.info(</span><span class="s3">f&quot;SELL order for </span><span class="s4">{</span><span class="s1">quantity</span><span class="s4">} </span><span class="s3">shares of </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">at $</span><span class="s4">{</span><span class="s1">current_price</span><span class="s4">:</span><span class="s3">.2f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s1">logger.warning(</span><span class="s3">f&quot;Cannot sell </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">- no position&quot;</span><span class="s1">)</span>
+                <span class="s2">return None</span>
+
+        <span class="s2">return </span><span class="s1">self.order_id</span>
+
+    <span class="s2">def </span><span class="s1">get_market_data(self, symbol, interval=</span><span class="s3">'1d'</span><span class="s1">, count=</span><span class="s5">90</span><span class="s1">):</span>
+        <span class="s0">&quot;&quot;&quot;Get historical market data for a symbol&quot;&quot;&quot;</span>
+        <span class="s2">if </span><span class="s1">symbol </span><span class="s2">not in </span><span class="s1">self.market_data:</span>
+            <span class="s0"># Create random data if we don't have it</span>
+            <span class="s1">self._initialize_market_data()</span>
+
+        <span class="s1">df = self.market_data[symbol].copy()</span>
+        <span class="s2">if </span><span class="s1">len(df) &gt; count:</span>
+            <span class="s1">df = df.iloc[-count:]</span>
+
+        <span class="s0"># Calculate common technical indicators</span>
+        <span class="s1">df[</span><span class="s3">'SMA_5'</span><span class="s1">] = df[</span><span class="s3">'Close'</span><span class="s1">].rolling(</span><span class="s5">5</span><span class="s1">).mean()</span>
+        <span class="s1">df[</span><span class="s3">'SMA_10'</span><span class="s1">] = df[</span><span class="s3">'Close'</span><span class="s1">].rolling(</span><span class="s5">10</span><span class="s1">).mean()</span>
+        <span class="s1">df[</span><span class="s3">'SMA_20'</span><span class="s1">] = df[</span><span class="s3">'Close'</span><span class="s1">].rolling(</span><span class="s5">20</span><span class="s1">).mean()</span>
+        <span class="s1">df[</span><span class="s3">'EMA_5'</span><span class="s1">] = df[</span><span class="s3">'Close'</span><span class="s1">].ewm(span=</span><span class="s5">5</span><span class="s1">).mean()</span>
+        <span class="s1">df[</span><span class="s3">'EMA_10'</span><span class="s1">] = df[</span><span class="s3">'Close'</span><span class="s1">].ewm(span=</span><span class="s5">10</span><span class="s1">).mean()</span>
+        <span class="s1">df[</span><span class="s3">'EMA_20'</span><span class="s1">] = df[</span><span class="s3">'Close'</span><span class="s1">].ewm(span=</span><span class="s5">20</span><span class="s1">).mean()</span>
+
+        <span class="s0"># Calculate RSI</span>
+        <span class="s1">delta = df[</span><span class="s3">'Close'</span><span class="s1">].diff()</span>
+        <span class="s1">gain = (delta.where(delta &gt; </span><span class="s5">0</span><span class="s1">, </span><span class="s5">0</span><span class="s1">)).rolling(window=</span><span class="s5">14</span><span class="s1">).mean()</span>
+        <span class="s1">loss = (-delta.where(delta &lt; </span><span class="s5">0</span><span class="s1">, </span><span class="s5">0</span><span class="s1">)).rolling(window=</span><span class="s5">14</span><span class="s1">).mean()</span>
+        <span class="s1">rs = gain / loss</span>
+        <span class="s1">df[</span><span class="s3">'RSI'</span><span class="s1">] = </span><span class="s5">100 </span><span class="s1">- (</span><span class="s5">100 </span><span class="s1">/ (</span><span class="s5">1 </span><span class="s1">+ rs))</span>
+
+        <span class="s0"># MACD</span>
+        <span class="s1">df[</span><span class="s3">'MACD'</span><span class="s1">] = df[</span><span class="s3">'EMA_12'</span><span class="s1">] = df[</span><span class="s3">'Close'</span><span class="s1">].ewm(span=</span><span class="s5">12</span><span class="s1">).mean() - df[</span><span class="s3">'Close'</span><span class="s1">].ewm(span=</span><span class="s5">26</span><span class="s1">).mean()</span>
+        <span class="s1">df[</span><span class="s3">'MACD_Signal'</span><span class="s1">] = df[</span><span class="s3">'MACD'</span><span class="s1">].ewm(span=</span><span class="s5">9</span><span class="s1">).mean()</span>
+        <span class="s1">df[</span><span class="s3">'MACD_Hist'</span><span class="s1">] = df[</span><span class="s3">'MACD'</span><span class="s1">] - df[</span><span class="s3">'MACD_Signal'</span><span class="s1">]</span>
+
+        <span class="s0"># Bollinger Bands</span>
+        <span class="s1">df[</span><span class="s3">'BB_Middle'</span><span class="s1">] = df[</span><span class="s3">'SMA_20'</span><span class="s1">]</span>
+        <span class="s1">df[</span><span class="s3">'BB_Upper'</span><span class="s1">] = df[</span><span class="s3">'BB_Middle'</span><span class="s1">] + </span><span class="s5">2 </span><span class="s1">* df[</span><span class="s3">'Close'</span><span class="s1">].rolling(</span><span class="s5">20</span><span class="s1">).std()</span>
+        <span class="s1">df[</span><span class="s3">'BB_Lower'</span><span class="s1">] = df[</span><span class="s3">'BB_Middle'</span><span class="s1">] - </span><span class="s5">2 </span><span class="s1">* df[</span><span class="s3">'Close'</span><span class="s1">].rolling(</span><span class="s5">20</span><span class="s1">).std()</span>
+
+        <span class="s0"># Fill NaN values</span>
+        <span class="s1">df = df.bfill()</span>
+
+        <span class="s2">return </span><span class="s1">df</span>
+
+
+<span class="s2">def </span><span class="s1">load_config():</span>
+    <span class="s0">&quot;&quot;&quot;Load configuration from file or use defaults&quot;&quot;&quot;</span>
+    <span class="s1">config_path = </span><span class="s3">&quot;config/config.json&quot;</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s2">if </span><span class="s1">os.path.exists(config_path):</span>
+            <span class="s2">with </span><span class="s1">open(config_path, </span><span class="s3">'r'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                <span class="s1">config = json.load(f)</span>
+                <span class="s1">logger.info(</span><span class="s3">&quot;Configuration loaded successfully&quot;</span><span class="s1">)</span>
+                <span class="s2">return </span><span class="s1">config</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;No configuration found, using defaults&quot;</span><span class="s1">)</span>
+            <span class="s0"># Create default config</span>
+            <span class="s1">os.makedirs(os.path.dirname(config_path), exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+            <span class="s2">with </span><span class="s1">open(config_path, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                <span class="s1">json.dump(DEFAULT_CONFIG, f, indent=</span><span class="s5">4</span><span class="s1">)</span>
+            <span class="s2">return </span><span class="s1">DEFAULT_CONFIG</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error loading configuration: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">DEFAULT_CONFIG</span>
+
+
+<span class="s2">def </span><span class="s1">load_trade_history():</span>
+    <span class="s0">&quot;&quot;&quot;Load trade history from file&quot;&quot;&quot;</span>
+    <span class="s2">global </span><span class="s1">trade_history</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s2">if </span><span class="s1">os.path.exists(</span><span class="s3">&quot;data/trade_history.json&quot;</span><span class="s1">):</span>
+            <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;data/trade_history.json&quot;</span><span class="s1">, </span><span class="s3">&quot;r&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                <span class="s1">trade_history = json.load(f)</span>
+                <span class="s1">logger.info(</span><span class="s3">&quot;Trade history loaded&quot;</span><span class="s1">)</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;No trade history found, using empty&quot;</span><span class="s1">)</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error loading trade history: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">save_trade_history():</span>
+    <span class="s0">&quot;&quot;&quot;Save trade history to file&quot;&quot;&quot;</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s1">os.makedirs(</span><span class="s3">&quot;data&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;data/trade_history.json&quot;</span><span class="s1">, </span><span class="s3">&quot;w&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">json.dump(trade_history, f, indent=</span><span class="s5">4</span><span class="s1">)</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;Trade history saved&quot;</span><span class="s1">)</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error saving trade history: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">save_performance_metrics():</span>
+    <span class="s0">&quot;&quot;&quot;Save basic performance metrics&quot;&quot;&quot;</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s1">trades = trade_history[</span><span class="s3">&quot;trades&quot;</span><span class="s1">]</span>
+        <span class="s2">if not </span><span class="s1">trades:</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;No trades to analyze&quot;</span><span class="s1">)</span>
+            <span class="s2">return</span>
+
+        <span class="s0"># Calculate metrics</span>
+        <span class="s1">sell_trades = [t </span><span class="s2">for </span><span class="s1">t </span><span class="s2">in </span><span class="s1">trades </span><span class="s2">if </span><span class="s1">t[</span><span class="s3">&quot;action&quot;</span><span class="s1">] == </span><span class="s3">&quot;SELL&quot;</span><span class="s1">]</span>
+        <span class="s2">if not </span><span class="s1">sell_trades:</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;No completed trades to analyze&quot;</span><span class="s1">)</span>
+            <span class="s2">return</span>
+
+        <span class="s0"># Calculate performance metrics</span>
+        <span class="s1">total_profit = sum(t.get(</span><span class="s3">&quot;profit_loss&quot;</span><span class="s1">, </span><span class="s5">0</span><span class="s1">) </span><span class="s2">for </span><span class="s1">t </span><span class="s2">in </span><span class="s1">sell_trades)</span>
+        <span class="s1">avg_profit = total_profit / len(sell_trades)</span>
+        <span class="s1">avg_profit_pct = sum(t.get(</span><span class="s3">&quot;profit_loss_pct&quot;</span><span class="s1">, </span><span class="s5">0</span><span class="s1">) </span><span class="s2">for </span><span class="s1">t </span><span class="s2">in </span><span class="s1">sell_trades) / len(sell_trades)</span>
+
+        <span class="s1">winning_trades = sum(</span><span class="s5">1 </span><span class="s2">for </span><span class="s1">t </span><span class="s2">in </span><span class="s1">sell_trades </span><span class="s2">if </span><span class="s1">t.get(</span><span class="s3">&quot;profit_loss&quot;</span><span class="s1">, </span><span class="s5">0</span><span class="s1">) &gt; </span><span class="s5">0</span><span class="s1">)</span>
+        <span class="s1">win_rate = winning_trades / len(sell_trades)</span>
+
+        <span class="s0"># Calculate max drawdown</span>
+        <span class="s1">equity_curve = []</span>
+        <span class="s1">current_equity = </span><span class="s5">10000  </span><span class="s0"># Start with $10,000</span>
+        <span class="s2">for </span><span class="s1">trade </span><span class="s2">in </span><span class="s1">trades:</span>
+            <span class="s2">if </span><span class="s1">trade[</span><span class="s3">&quot;action&quot;</span><span class="s1">] == </span><span class="s3">&quot;SELL&quot;</span><span class="s1">:</span>
+                <span class="s1">current_equity += trade.get(</span><span class="s3">&quot;profit_loss&quot;</span><span class="s1">, </span><span class="s5">0</span><span class="s1">)</span>
+            <span class="s1">equity_curve.append(current_equity)</span>
+
+        <span class="s2">if </span><span class="s1">equity_curve:</span>
+            <span class="s1">max_equity = equity_curve[</span><span class="s5">0</span><span class="s1">]</span>
+            <span class="s1">max_drawdown = </span><span class="s5">0</span>
+            <span class="s2">for </span><span class="s1">equity </span><span class="s2">in </span><span class="s1">equity_curve:</span>
+                <span class="s1">max_equity = max(max_equity, equity)</span>
+                <span class="s1">drawdown = (max_equity - equity) / max_equity * </span><span class="s5">100</span>
+                <span class="s1">max_drawdown = max(max_drawdown, drawdown)</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">max_drawdown = </span><span class="s5">0</span>
+
+        <span class="s0"># Include quantum metrics if available</span>
+        <span class="s1">quantum_accuracy = </span><span class="s2">None</span>
+        <span class="s2">if </span><span class="s1">quantum_prediction_history:</span>
+            <span class="s1">correct_predictions = sum(</span><span class="s5">1 </span><span class="s2">for </span><span class="s1">p </span><span class="s2">in </span><span class="s1">quantum_prediction_history </span><span class="s2">if </span><span class="s1">p[</span><span class="s3">&quot;correct&quot;</span><span class="s1">])</span>
+            <span class="s1">quantum_accuracy = correct_predictions / len(quantum_prediction_history)</span>
+
+        <span class="s0"># Save metrics</span>
+        <span class="s1">metrics = {</span>
+            <span class="s3">&quot;date&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+            <span class="s3">&quot;total_trades&quot;</span><span class="s1">: len(sell_trades),</span>
+            <span class="s3">&quot;winning_trades&quot;</span><span class="s1">: winning_trades,</span>
+            <span class="s3">&quot;win_rate&quot;</span><span class="s1">: win_rate,</span>
+            <span class="s3">&quot;total_profit&quot;</span><span class="s1">: float(total_profit),</span>
+            <span class="s3">&quot;avg_profit&quot;</span><span class="s1">: float(avg_profit),</span>
+            <span class="s3">&quot;avg_profit_pct&quot;</span><span class="s1">: float(avg_profit_pct),</span>
+            <span class="s3">&quot;max_drawdown&quot;</span><span class="s1">: float(max_drawdown),</span>
+            <span class="s3">&quot;quantum_accuracy&quot;</span><span class="s1">: quantum_accuracy</span>
+        <span class="s1">}</span>
+
+        <span class="s0"># Create metrics file</span>
+        <span class="s1">os.makedirs(</span><span class="s3">&quot;data/performance&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+        <span class="s1">metrics_path = </span><span class="s3">&quot;data/performance/metrics.json&quot;</span>
+
+        <span class="s0"># Load existing or create new</span>
+        <span class="s2">if </span><span class="s1">os.path.exists(metrics_path):</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s2">with </span><span class="s1">open(metrics_path, </span><span class="s3">&quot;r&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                    <span class="s1">all_metrics = json.load(f)</span>
+            <span class="s2">except</span><span class="s1">:</span>
+                <span class="s1">all_metrics = []</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">all_metrics = []</span>
+
+        <span class="s1">all_metrics.append(metrics)</span>
+
+        <span class="s0"># Save metrics</span>
+        <span class="s2">with </span><span class="s1">open(metrics_path, </span><span class="s3">&quot;w&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">json.dump(all_metrics, f, indent=</span><span class="s5">4</span><span class="s1">)</span>
+
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Performance metrics saved: </span><span class="s4">{</span><span class="s1">winning_trades</span><span class="s4">}</span><span class="s3">/</span><span class="s4">{</span><span class="s1">len(sell_trades)</span><span class="s4">} </span><span class="s3">winning trades&quot;</span><span class="s1">)</span>
+
+        <span class="s2">if </span><span class="s1">quantum_accuracy </span><span class="s2">is not None</span><span class="s1">:</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Quantum prediction accuracy: </span><span class="s4">{</span><span class="s1">quantum_accuracy</span><span class="s4">:</span><span class="s3">.2f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error saving performance metrics: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">initialize_quantum_device(config):</span>
+    <span class="s0">&quot;&quot;&quot;Initialize the quantum device based on configuration&quot;&quot;&quot;</span>
+    <span class="s2">if not </span><span class="s1">QUANTUM_AVAILABLE:</span>
+        <span class="s1">logger.warning(</span><span class="s3">&quot;Quantum libraries not available. Cannot initialize quantum device.&quot;</span><span class="s1">)</span>
+        <span class="s2">return None</span>
+
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s1">device_name = config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;device&quot;</span><span class="s1">, </span><span class="s3">&quot;default.qubit&quot;</span><span class="s1">)</span>
+        <span class="s1">shots = config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;shots&quot;</span><span class="s1">, </span><span class="s5">1000</span><span class="s1">)</span>
+
+        <span class="s2">if </span><span class="s1">device_name == </span><span class="s3">&quot;default.qubit&quot;</span><span class="s1">:</span>
+            <span class="s0"># Use PennyLane's default simulator</span>
+            <span class="s1">dev = qml.device(device_name, wires=</span><span class="s5">5</span><span class="s1">, shots=shots)</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Initialized PennyLane quantum device: </span><span class="s4">{</span><span class="s1">device_name</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return </span><span class="s1">dev</span>
+        <span class="s2">elif </span><span class="s3">&quot;aer&quot; </span><span class="s2">in </span><span class="s1">device_name:</span>
+            <span class="s0"># Use Qiskit's simulator through PennyLane</span>
+            <span class="s1">dev = qml.device(</span><span class="s3">'qiskit.aer'</span><span class="s1">, wires=</span><span class="s5">5</span><span class="s1">, shots=shots)</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Initialized Qiskit Aer simulator through PennyLane&quot;</span><span class="s1">)</span>
+            <span class="s2">return </span><span class="s1">dev</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s0"># Try to initialize requested device</span>
+            <span class="s1">dev = qml.device(device_name, wires=</span><span class="s5">5</span><span class="s1">, shots=shots)</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Initialized quantum device: </span><span class="s4">{</span><span class="s1">device_name</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return </span><span class="s1">dev</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error initializing quantum device: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Falling back to default simulator&quot;</span><span class="s1">)</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">return </span><span class="s1">qml.device(</span><span class="s3">&quot;default.qubit&quot;</span><span class="s1">, wires=</span><span class="s5">5</span><span class="s1">, shots=</span><span class="s5">1000</span><span class="s1">)</span>
+        <span class="s2">except</span><span class="s1">:</span>
+            <span class="s1">logger.error(</span><span class="s3">&quot;Failed to initialize fallback device&quot;</span><span class="s1">)</span>
+            <span class="s2">return None</span>
+
+
+<span class="s2">def </span><span class="s1">calibrate_quantum_measurements(backend, num_qubits):</span>
+    <span class="s0">&quot;&quot;&quot;Calibrate quantum measurements to reduce readout errors - updated for new Qiskit API&quot;&quot;&quot;</span>
+    <span class="s2">if not </span><span class="s1">QUANTUM_AVAILABLE:</span>
+        <span class="s2">return None</span>
+
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s0"># Create a simulator with noise model (simplified approach for newer Qiskit)</span>
+        <span class="s1">simulator = AerSimulator()</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Created AerSimulator for quantum measurements&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">simulator  </span><span class="s0"># Return the simulator as our &quot;filter&quot;</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error calibrating quantum measurements: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return None</span>
+
+
+<span class="s2">def </span><span class="s1">estimate_quantum_error_rate(dev):</span>
+    <span class="s0">&quot;&quot;&quot;Estimate the current error rate of the quantum device&quot;&quot;&quot;</span>
+    <span class="s2">if not </span><span class="s1">QUANTUM_AVAILABLE </span><span class="s2">or </span><span class="s1">dev </span><span class="s2">is None</span><span class="s1">:</span>
+        <span class="s2">return </span><span class="s5">1.0  </span><span class="s0"># Maximum error if quantum not available</span>
+
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s0"># Define a simple circuit that should return a known result</span>
+        <span class="s1">@qml.qnode(dev)</span>
+        <span class="s2">def </span><span class="s1">test_circuit():</span>
+            <span class="s1">qml.Hadamard(wires=</span><span class="s5">0</span><span class="s1">)</span>
+            <span class="s1">qml.CNOT(wires=[</span><span class="s5">0</span><span class="s1">, </span><span class="s5">1</span><span class="s1">])</span>
+            <span class="s2">return </span><span class="s1">qml.expval(qml.PauliZ(</span><span class="s5">0</span><span class="s1">)), qml.expval(qml.PauliZ(</span><span class="s5">1</span><span class="s1">))</span>
+
+        <span class="s0"># Run the circuit multiple times</span>
+        <span class="s1">results = []</span>
+        <span class="s2">for </span><span class="s1">_ </span><span class="s2">in </span><span class="s1">range(</span><span class="s5">10</span><span class="s1">):</span>
+            <span class="s1">results.append(test_circuit())</span>
+
+        <span class="s0"># Calculate the error rate based on deviation from expected values</span>
+        <span class="s0"># For this circuit, we expect the expectation values to be close to 0</span>
+        <span class="s1">errors = [abs(r[</span><span class="s5">0</span><span class="s1">]) + abs(r[</span><span class="s5">0</span><span class="s1">] + r[</span><span class="s5">1</span><span class="s1">]) </span><span class="s2">for </span><span class="s1">r </span><span class="s2">in </span><span class="s1">results]</span>
+        <span class="s1">error_rate = sum(errors) / len(errors) / </span><span class="s5">2  </span><span class="s0"># Normalize to [0, 1]</span>
+
+        <span class="s0"># Log the error rate</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Quantum device error rate: </span><span class="s4">{</span><span class="s1">error_rate</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Save to error history</span>
+        <span class="s1">quantum_error_history.append({</span>
+            <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+            <span class="s3">&quot;error_rate&quot;</span><span class="s1">: float(error_rate)</span>
+        <span class="s1">})</span>
+
+        <span class="s0"># Save error history to file</span>
+        <span class="s1">os.makedirs(</span><span class="s3">&quot;data/quantum&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;data/quantum/error_history.json&quot;</span><span class="s1">, </span><span class="s3">&quot;w&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">json.dump(quantum_error_history, f, indent=</span><span class="s5">4</span><span class="s1">)</span>
+
+        <span class="s2">return </span><span class="s1">error_rate</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error estimating quantum error rate: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s5">1.0  </span><span class="s0"># Assume maximum error on failure</span>
+
+
+<span class="s2">def </span><span class="s1">quantum_feature_map(x, wires):</span>
+    <span class="s0">&quot;&quot;&quot;Apply a quantum feature map to encode classical data into quantum state&quot;&quot;&quot;</span>
+    <span class="s0"># Normalize input features</span>
+    <span class="s1">x_norm = x / np.linalg.norm(x)</span>
+
+    <span class="s0"># Encode features into rotation angles</span>
+    <span class="s2">for </span><span class="s1">i, xi </span><span class="s2">in </span><span class="s1">enumerate(x_norm):</span>
+        <span class="s1">qml.RY(xi * np.pi, wires=i % len(wires))</span>
+
+    <span class="s0"># Entangle qubits</span>
+    <span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(len(wires) - </span><span class="s5">1</span><span class="s1">):</span>
+        <span class="s1">qml.CNOT(wires=[wires[i], wires[i + </span><span class="s5">1</span><span class="s1">]])</span>
+
+
+<span class="s2">def </span><span class="s1">classical_decision(historical_data):</span>
+    <span class="s0">&quot;&quot;&quot;Make a trading decision using classical methods&quot;&quot;&quot;</span>
+    <span class="s0"># Extract features from the data</span>
+    <span class="s1">df = historical_data.copy()</span>
+
+    <span class="s0"># Check for trend based on moving averages</span>
+    <span class="s1">last_row = df.iloc[-</span><span class="s5">1</span><span class="s1">]</span>
+
+    <span class="s0"># Uptrend conditions</span>
+    <span class="s1">uptrend = (</span>
+            <span class="s1">last_row[</span><span class="s3">'SMA_5'</span><span class="s1">] &gt; last_row[</span><span class="s3">'SMA_20'</span><span class="s1">] </span><span class="s2">and</span>
+            <span class="s1">last_row[</span><span class="s3">'Close'</span><span class="s1">] &gt; last_row[</span><span class="s3">'SMA_10'</span><span class="s1">] </span><span class="s2">and</span>
+            <span class="s1">last_row[</span><span class="s3">'RSI'</span><span class="s1">] &gt; </span><span class="s5">50 </span><span class="s2">and </span><span class="s1">last_row[</span><span class="s3">'RSI'</span><span class="s1">] &lt; </span><span class="s5">70</span>
+    <span class="s1">)</span>
+
+    <span class="s0"># Downtrend conditions</span>
+    <span class="s1">downtrend = (</span>
+            <span class="s1">last_row[</span><span class="s3">'SMA_5'</span><span class="s1">] &lt; last_row[</span><span class="s3">'SMA_20'</span><span class="s1">] </span><span class="s2">and</span>
+            <span class="s1">last_row[</span><span class="s3">'Close'</span><span class="s1">] &lt; last_row[</span><span class="s3">'SMA_10'</span><span class="s1">] </span><span class="s2">and</span>
+            <span class="s1">last_row[</span><span class="s3">'RSI'</span><span class="s1">] &lt; </span><span class="s5">50 </span><span class="s2">and </span><span class="s1">last_row[</span><span class="s3">'RSI'</span><span class="s1">] &gt; </span><span class="s5">30</span>
+    <span class="s1">)</span>
+
+    <span class="s0"># Determine signal</span>
+    <span class="s2">if </span><span class="s1">uptrend:</span>
+        <span class="s1">signal = random.uniform(</span><span class="s5">0.7</span><span class="s1">, </span><span class="s5">0.9</span><span class="s1">)  </span><span class="s0"># Strong buy signal</span>
+    <span class="s2">elif </span><span class="s1">downtrend:</span>
+        <span class="s1">signal = random.uniform(</span><span class="s5">0.1</span><span class="s1">, </span><span class="s5">0.3</span><span class="s1">)  </span><span class="s0"># Strong sell signal</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s1">signal = random.uniform(</span><span class="s5">0.4</span><span class="s1">, </span><span class="s5">0.6</span><span class="s1">)  </span><span class="s0"># Neutral</span>
+
+    <span class="s2">return </span><span class="s1">signal</span>
+
+
+<span class="s2">def </span><span class="s1">quantum_prediction(symbol, historical_data, quantum_device, error_rate, config):</span>
+    <span class="s0">&quot;&quot;&quot;Generate trading prediction using quantum computing&quot;&quot;&quot;</span>
+    <span class="s2">if not </span><span class="s1">QUANTUM_AVAILABLE </span><span class="s2">or </span><span class="s1">quantum_device </span><span class="s2">is None</span><span class="s1">:</span>
+        <span class="s1">logger.warning(</span><span class="s3">&quot;Quantum libraries or device not available. Using classical method.&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">classical_decision(historical_data), </span><span class="s5">0.0</span><span class="s1">, </span><span class="s5">1.0</span>
+
+    <span class="s1">min_confidence = config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;min_confidence&quot;</span><span class="s1">, </span><span class="s5">0.65</span><span class="s1">)</span>
+    <span class="s1">use_error_mitigation = config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;use_error_mitigation&quot;</span><span class="s1">, </span><span class="s2">True</span><span class="s1">)</span>
+
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s0"># Prepare features</span>
+        <span class="s1">df = historical_data.tail(</span><span class="s5">10</span><span class="s1">).copy()  </span><span class="s0"># Use last 10 days</span>
+
+        <span class="s0"># Create feature vector (normalize each feature)</span>
+        <span class="s1">features = np.array([</span>
+            <span class="s1">(df[</span><span class="s3">'Close'</span><span class="s1">].pct_change().fillna(</span><span class="s5">0</span><span class="s1">).values[-</span><span class="s5">5</span><span class="s1">:] + </span><span class="s5">1</span><span class="s1">) / </span><span class="s5">2</span><span class="s1">,  </span><span class="s0"># Price changes</span>
+            <span class="s1">(df[</span><span class="s3">'RSI'</span><span class="s1">].values[-</span><span class="s5">5</span><span class="s1">:] / </span><span class="s5">100</span><span class="s1">),  </span><span class="s0"># RSI scaled to [0, 1]</span>
+            <span class="s1">((df[</span><span class="s3">'SMA_5'</span><span class="s1">] / df[</span><span class="s3">'SMA_20'</span><span class="s1">]).values[-</span><span class="s5">5</span><span class="s1">:] - </span><span class="s5">0.8</span><span class="s1">) / </span><span class="s5">0.4</span><span class="s1">,  </span><span class="s0"># MA ratio normalized</span>
+        <span class="s1">]).flatten()</span>
+
+        <span class="s0"># Limit features to number of qubits available and ensure in [0, 1]</span>
+        <span class="s1">features = features[:</span><span class="s5">5</span><span class="s1">]</span>
+        <span class="s1">features = np.clip(features, </span><span class="s5">0</span><span class="s1">, </span><span class="s5">1</span><span class="s1">)</span>
+
+        <span class="s0"># Define the quantum circuit for prediction</span>
+        <span class="s1">@qml.qnode(quantum_device, diff_method=</span><span class="s3">&quot;parameter-shift&quot;</span><span class="s1">)</span>
+        <span class="s2">def </span><span class="s1">quantum_circuit(features, weights):</span>
+            <span class="s0"># Encode features</span>
+            <span class="s1">quantum_feature_map(features, wires=range(len(features)))</span>
+
+            <span class="s0"># Variational layer</span>
+            <span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(len(features)):</span>
+                <span class="s1">qml.Rot(weights[i, </span><span class="s5">0</span><span class="s1">], weights[i, </span><span class="s5">1</span><span class="s1">], weights[i, </span><span class="s5">2</span><span class="s1">], wires=i)</span>
+
+            <span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(len(features) - </span><span class="s5">1</span><span class="s1">):</span>
+                <span class="s1">qml.CNOT(wires=[i, i + </span><span class="s5">1</span><span class="s1">])</span>
+
+            <span class="s0"># Final rotation</span>
+            <span class="s1">qml.RY(weights[-</span><span class="s5">1</span><span class="s1">, </span><span class="s5">0</span><span class="s1">], wires=</span><span class="s5">0</span><span class="s1">)</span>
+
+            <span class="s0"># Return probability of measuring |1⟩ on first qubit</span>
+            <span class="s2">return </span><span class="s1">qml.expval(qml.PauliZ(</span><span class="s5">0</span><span class="s1">))</span>
+
+        <span class="s0"># Initialize random weights if not pre-trained</span>
+        <span class="s1">weights_file = </span><span class="s3">f&quot;models/quantum_weights_</span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">.npy&quot;</span>
+        <span class="s2">if </span><span class="s1">os.path.exists(weights_file):</span>
+            <span class="s1">weights = np.load(weights_file)</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">weights = np.random.uniform(low=-np.pi, high=np.pi, size=(len(features) + </span><span class="s5">1</span><span class="s1">, </span><span class="s5">3</span><span class="s1">))</span>
+
+        <span class="s0"># Apply error mitigation if enabled</span>
+        <span class="s2">if </span><span class="s1">use_error_mitigation </span><span class="s2">and </span><span class="s1">error_rate &gt; </span><span class="s5">0.05</span><span class="s1">:</span>
+            <span class="s0"># Simple error mitigation by running multiple times and taking average</span>
+            <span class="s1">results = []</span>
+            <span class="s2">for </span><span class="s1">_ </span><span class="s2">in </span><span class="s1">range(</span><span class="s5">5</span><span class="s1">):</span>
+                <span class="s1">results.append(quantum_circuit(features, weights))</span>
+
+            <span class="s0"># Average results and apply error correction factor</span>
+            <span class="s1">raw_result = sum(results) / len(results)</span>
+
+            <span class="s0"># Apply error correction factor (linear correction)</span>
+            <span class="s0"># For high error rates, pull result toward 0 (neutral)</span>
+            <span class="s1">corrected_result = raw_result * (</span><span class="s5">1 </span><span class="s1">- error_rate)</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s0"># Single run without error mitigation</span>
+            <span class="s1">raw_result = quantum_circuit(features, weights)</span>
+            <span class="s1">corrected_result = raw_result</span>
+
+        <span class="s0"># Convert from (-1, 1) range to (0, 1) for trading signal</span>
+        <span class="s1">trading_signal = (</span><span class="s5">1 </span><span class="s1">- corrected_result) / </span><span class="s5">2</span>
+
+        <span class="s0"># Calculate confidence based on error rate</span>
+        <span class="s1">confidence = max(</span><span class="s5">0</span><span class="s1">, </span><span class="s5">1 </span><span class="s1">- error_rate)</span>
+
+        <span class="s0"># Adjust confidence if signal is near 0.5 (uncertain)</span>
+        <span class="s2">if </span><span class="s1">abs(trading_signal - </span><span class="s5">0.5</span><span class="s1">) &lt; </span><span class="s5">0.1</span><span class="s1">:</span>
+            <span class="s1">confidence *= </span><span class="s5">0.8</span>
+
+        <span class="s0"># Fallback to classical if confidence is too low</span>
+        <span class="s2">if </span><span class="s1">confidence &lt; min_confidence:</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Quantum confidence (</span><span class="s4">{</span><span class="s1">confidence</span><span class="s4">:</span><span class="s3">.2f</span><span class="s4">}</span><span class="s3">) below threshold. Using classical method.&quot;</span><span class="s1">)</span>
+            <span class="s1">classical_signal = classical_decision(historical_data)</span>
+            <span class="s0"># Blend signals based on confidence</span>
+            <span class="s1">blended_signal = (confidence * trading_signal +</span>
+                              <span class="s1">(</span><span class="s5">1 </span><span class="s1">- confidence) * classical_signal)</span>
+            <span class="s2">return </span><span class="s1">blended_signal, confidence, error_rate</span>
+
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Quantum prediction for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">trading_signal</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">} </span><span class="s3">(confidence: </span><span class="s4">{</span><span class="s1">confidence</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">trading_signal, confidence, error_rate</span>
+
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error in quantum prediction: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Falling back to classical method&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">classical_decision(historical_data), </span><span class="s5">0.0</span><span class="s1">, </span><span class="s5">1.0</span>
+
+
+<span class="s2">def </span><span class="s1">make_trading_decision(symbol, quantum_device, config):</span>
+    <span class="s0">&quot;&quot;&quot;Trading decision logic with quantum and classical integration&quot;&quot;&quot;</span>
+    <span class="s0"># First check if the stock is halal compliant</span>
+    <span class="s2">if </span><span class="s1">config.get(</span><span class="s3">&quot;trading_bot&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;halal_compliance&quot;</span><span class="s1">, </span><span class="s2">True</span><span class="s1">):</span>
+        <span class="s1">is_halal = mock_check_halal_compliance(symbol)</span>
+        <span class="s2">if not </span><span class="s1">is_halal:</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;</span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">is not halal compliant, skipping&quot;</span><span class="s1">)</span>
+            <span class="s2">return</span>
+    <span class="s0"># Get historical data</span>
+    <span class="s1">historical_data = platform_adapter.get_market_data(symbol)</span>
+
+    <span class="s0"># Check if we have a position</span>
+    <span class="s1">has_position = symbol </span><span class="s2">in </span><span class="s1">trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">]</span>
+
+    <span class="s0"># Get quantum configuration</span>
+    <span class="s1">quantum_enabled = config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;enabled&quot;</span><span class="s1">, </span><span class="s2">True</span><span class="s1">)</span>
+    <span class="s1">error_threshold = config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;error_threshold&quot;</span><span class="s1">, </span><span class="s5">0.15</span><span class="s1">)</span>
+    <span class="s1">fallback_to_classical = config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;fallback_to_classical&quot;</span><span class="s1">, </span><span class="s2">True</span><span class="s1">)</span>
+
+    <span class="s0"># Estimate current error rate of quantum device</span>
+    <span class="s1">error_rate = estimate_quantum_error_rate(quantum_device) </span><span class="s2">if </span><span class="s1">quantum_enabled </span><span class="s2">else </span><span class="s5">1.0</span>
+
+    <span class="s1">signal = </span><span class="s5">0.5  </span><span class="s0"># Neutral default</span>
+    <span class="s1">signal_source = </span><span class="s3">&quot;classical&quot;</span>
+    <span class="s1">confidence = </span><span class="s5">0.0</span>
+
+    <span class="s0"># Decide on analysis method based on error rate</span>
+    <span class="s2">if </span><span class="s1">quantum_enabled </span><span class="s2">and </span><span class="s1">error_rate &lt;= error_threshold:</span>
+        <span class="s0"># Use quantum prediction</span>
+        <span class="s1">signal, confidence, actual_error = quantum_prediction(</span>
+            <span class="s1">symbol, historical_data, quantum_device, error_rate, config</span>
+        <span class="s1">)</span>
+        <span class="s1">signal_source = </span><span class="s3">&quot;quantum&quot;</span>
+    <span class="s2">elif </span><span class="s1">quantum_enabled </span><span class="s2">and </span><span class="s1">fallback_to_classical:</span>
+        <span class="s0"># Fallback to classical due to high error rate</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Quantum error rate (</span><span class="s4">{</span><span class="s1">error_rate</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">) above threshold. Using classical method.&quot;</span><span class="s1">)</span>
+        <span class="s1">signal = classical_decision(historical_data)</span>
+        <span class="s1">signal_source = </span><span class="s3">&quot;classical (fallback)&quot;</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s0"># Use classical method only</span>
+        <span class="s1">signal = classical_decision(historical_data)</span>
+        <span class="s1">signal_source = </span><span class="s3">&quot;classical&quot;</span>
+
+    <span class="s0"># Log the decision</span>
+    <span class="s1">logger.info(</span><span class="s3">f&quot;Trading signal for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">signal</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">} </span><span class="s3">(source: </span><span class="s4">{</span><span class="s1">signal_source</span><span class="s4">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Make trading decision based on signal</span>
+    <span class="s2">if </span><span class="s1">signal &gt; </span><span class="s5">0.7 </span><span class="s2">and not </span><span class="s1">has_position:</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;BUY signal for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">(score: </span><span class="s4">{</span><span class="s1">signal</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">, source: </span><span class="s4">{</span><span class="s1">signal_source</span><span class="s4">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+        <span class="s1">execute_trade(</span><span class="s3">&quot;BUY&quot;</span><span class="s1">, symbol)</span>
+    <span class="s2">elif </span><span class="s1">signal &lt; </span><span class="s5">0.3 </span><span class="s2">and </span><span class="s1">has_position:</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;SELL signal for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">(score: </span><span class="s4">{</span><span class="s1">signal</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">, source: </span><span class="s4">{</span><span class="s1">signal_source</span><span class="s4">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+        <span class="s1">execute_trade(</span><span class="s3">&quot;SELL&quot;</span><span class="s1">, symbol)</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;HOLD signal for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">(score: </span><span class="s4">{</span><span class="s1">signal</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">, source: </span><span class="s4">{</span><span class="s1">signal_source</span><span class="s4">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Record prediction for later accuracy assessment</span>
+    <span class="s2">if </span><span class="s1">signal_source.startswith(</span><span class="s3">&quot;quantum&quot;</span><span class="s1">):</span>
+        <span class="s1">quantum_prediction_history.append({</span>
+            <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+            <span class="s3">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+            <span class="s3">&quot;signal&quot;</span><span class="s1">: signal,</span>
+            <span class="s3">&quot;confidence&quot;</span><span class="s1">: confidence,</span>
+            <span class="s3">&quot;error_rate&quot;</span><span class="s1">: error_rate,</span>
+            <span class="s3">&quot;action&quot;</span><span class="s1">: </span><span class="s3">&quot;BUY&quot; </span><span class="s2">if </span><span class="s1">signal &gt; </span><span class="s5">0.7 </span><span class="s2">and not </span><span class="s1">has_position </span><span class="s2">else</span>
+            <span class="s3">&quot;SELL&quot; </span><span class="s2">if </span><span class="s1">signal &lt; </span><span class="s5">0.3 </span><span class="s2">and </span><span class="s1">has_position </span><span class="s2">else </span><span class="s3">&quot;HOLD&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;correct&quot;</span><span class="s1">: </span><span class="s2">None  </span><span class="s0"># Will be updated later when we can evaluate</span>
+        <span class="s1">})</span>
+
+        <span class="s0"># Save prediction history</span>
+        <span class="s1">os.makedirs(</span><span class="s3">&quot;data/quantum&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;data/quantum/prediction_history.json&quot;</span><span class="s1">, </span><span class="s3">&quot;w&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">json.dump(quantum_prediction_history, f, indent=</span><span class="s5">4</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">execute_trade(action, symbol):</span>
+    <span class="s0">&quot;&quot;&quot;Execute a trade&quot;&quot;&quot;</span>
+    <span class="s2">global </span><span class="s1">trade_history</span>
+
+    <span class="s1">quantity = </span><span class="s5">1  </span><span class="s0"># Fixed quantity for simplicity</span>
+
+    <span class="s2">if </span><span class="s1">action.upper() == </span><span class="s3">&quot;BUY&quot;</span><span class="s1">:</span>
+        <span class="s0"># Check if we already have a position</span>
+        <span class="s2">if </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">]:</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Already have a position in </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return</span>
+
+        <span class="s0"># Get current price</span>
+        <span class="s1">current_price = platform_adapter.get_price(symbol)</span>
+
+        <span class="s0"># Place order</span>
+        <span class="s1">order_id = platform_adapter.place_order(symbol, </span><span class="s3">&quot;buy&quot;</span><span class="s1">, quantity)</span>
+
+        <span class="s2">if </span><span class="s1">order_id:</span>
+            <span class="s0"># Record the position</span>
+            <span class="s1">trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">][symbol] = {</span>
+                <span class="s3">&quot;entry_price&quot;</span><span class="s1">: current_price,</span>
+                <span class="s3">&quot;quantity&quot;</span><span class="s1">: quantity,</span>
+                <span class="s3">&quot;entry_time&quot;</span><span class="s1">: time.time(),</span>
+                <span class="s3">&quot;order_id&quot;</span><span class="s1">: order_id</span>
+            <span class="s1">}</span>
+
+            <span class="s0"># Record the trade</span>
+            <span class="s1">trade_history[</span><span class="s3">&quot;trades&quot;</span><span class="s1">].append({</span>
+                <span class="s3">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+                <span class="s3">&quot;action&quot;</span><span class="s1">: </span><span class="s3">&quot;BUY&quot;</span><span class="s1">,</span>
+                <span class="s3">&quot;quantity&quot;</span><span class="s1">: quantity,</span>
+                <span class="s3">&quot;price&quot;</span><span class="s1">: current_price,</span>
+                <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+                <span class="s3">&quot;order_id&quot;</span><span class="s1">: order_id</span>
+            <span class="s1">})</span>
+
+            <span class="s0"># Save trade history</span>
+            <span class="s1">save_trade_history()</span>
+
+    <span class="s2">elif </span><span class="s1">action.upper() == </span><span class="s3">&quot;SELL&quot;</span><span class="s1">:</span>
+        <span class="s0"># Check if we have a position</span>
+        <span class="s2">if </span><span class="s1">symbol </span><span class="s2">not in </span><span class="s1">trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">]:</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;No position in </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">to sell&quot;</span><span class="s1">)</span>
+            <span class="s2">return</span>
+
+        <span class="s0"># Get position details</span>
+        <span class="s1">position = trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">][symbol]</span>
+        <span class="s1">entry_price = position[</span><span class="s3">&quot;entry_price&quot;</span><span class="s1">]</span>
+        <span class="s1">quantity = position[</span><span class="s3">&quot;quantity&quot;</span><span class="s1">]</span>
+
+        <span class="s0"># Get current price</span>
+        <span class="s1">current_price = platform_adapter.get_price(symbol)</span>
+
+        <span class="s0"># Place order</span>
+        <span class="s1">order_id = platform_adapter.place_order(symbol, </span><span class="s3">&quot;sell&quot;</span><span class="s1">, quantity)</span>
+
+        <span class="s2">if </span><span class="s1">order_id:</span>
+            <span class="s0"># Calculate profit/loss</span>
+            <span class="s1">profit_loss = (current_price - entry_price) * quantity</span>
+            <span class="s1">profit_loss_pct = (current_price / entry_price - </span><span class="s5">1</span><span class="s1">) * </span><span class="s5">100</span>
+
+            <span class="s0"># Record the trade</span>
+            <span class="s1">trade_history[</span><span class="s3">&quot;trades&quot;</span><span class="s1">].append({</span>
+                <span class="s3">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+                <span class="s3">&quot;action&quot;</span><span class="s1">: </span><span class="s3">&quot;SELL&quot;</span><span class="s1">,</span>
+                <span class="s3">&quot;quantity&quot;</span><span class="s1">: quantity,</span>
+                <span class="s3">&quot;price&quot;</span><span class="s1">: current_price,</span>
+                <span class="s3">&quot;profit_loss&quot;</span><span class="s1">: profit_loss,</span>
+                <span class="s3">&quot;profit_loss_pct&quot;</span><span class="s1">: profit_loss_pct,</span>
+                <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+                <span class="s3">&quot;order_id&quot;</span><span class="s1">: order_id</span>
+            <span class="s1">})</span>
+
+            <span class="s0"># Remove the position</span>
+            <span class="s2">del </span><span class="s1">trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">][symbol]</span>
+
+            <span class="s0"># Save trade history</span>
+            <span class="s1">save_trade_history()</span>
+
+            <span class="s1">logger.info(</span><span class="s3">f&quot;SELL completed: P&amp;L $</span><span class="s4">{</span><span class="s1">profit_loss</span><span class="s4">:</span><span class="s3">.2f</span><span class="s4">} </span><span class="s3">(</span><span class="s4">{</span><span class="s1">profit_loss_pct</span><span class="s4">:</span><span class="s3">.2f</span><span class="s4">}</span><span class="s3">%)&quot;</span><span class="s1">)</span>
+
+            <span class="s0"># Update quantum prediction accuracy if this trade was based on quantum prediction</span>
+            <span class="s2">for </span><span class="s1">pred </span><span class="s2">in </span><span class="s1">quantum_prediction_history:</span>
+                <span class="s2">if </span><span class="s1">(pred[</span><span class="s3">&quot;symbol&quot;</span><span class="s1">] == symbol </span><span class="s2">and </span><span class="s1">pred[</span><span class="s3">&quot;action&quot;</span><span class="s1">] </span><span class="s2">in </span><span class="s1">[</span><span class="s3">&quot;BUY&quot;</span><span class="s1">, </span><span class="s3">&quot;SELL&quot;</span><span class="s1">] </span><span class="s2">and</span>
+                        <span class="s1">pred[</span><span class="s3">&quot;correct&quot;</span><span class="s1">] </span><span class="s2">is None</span><span class="s1">):</span>
+                    <span class="s0"># Mark prediction as correct if we made profit, incorrect if we lost money</span>
+                    <span class="s1">pred[</span><span class="s3">&quot;correct&quot;</span><span class="s1">] = profit_loss &gt; </span><span class="s5">0</span>
+                    <span class="s1">pred[</span><span class="s3">&quot;actual_profit&quot;</span><span class="s1">] = float(profit_loss)</span>
+                    <span class="s1">pred[</span><span class="s3">&quot;actual_profit_pct&quot;</span><span class="s1">] = float(profit_loss_pct)</span>
+
+                    <span class="s0"># Save updated prediction history</span>
+                    <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;data/quantum/prediction_history.json&quot;</span><span class="s1">, </span><span class="s3">&quot;w&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                        <span class="s1">json.dump(quantum_prediction_history, f, indent=</span><span class="s5">4</span><span class="s1">)</span>
+
+                    <span class="s0"># Log accuracy</span>
+                    <span class="s1">logger.info(</span><span class="s3">f&quot;Quantum prediction was </span><span class="s4">{</span><span class="s3">'correct' </span><span class="s2">if </span><span class="s1">pred[</span><span class="s3">'correct'</span><span class="s1">] </span><span class="s2">else </span><span class="s3">'incorrect'</span><span class="s4">} </span><span class="s3">&quot;</span>
+                                <span class="s3">f&quot;with confidence </span><span class="s4">{</span><span class="s1">pred[</span><span class="s3">'confidence'</span><span class="s1">]</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                    <span class="s2">break</span>
+
+
+<span class="s2">def </span><span class="s1">update_quantum_model():</span>
+    <span class="s0">&quot;&quot;&quot;Update quantum model weights based on past predictions&quot;&quot;&quot;</span>
+    <span class="s2">if not </span><span class="s1">QUANTUM_AVAILABLE:</span>
+        <span class="s2">return False</span>
+
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s0"># Need at least 10 predictions to update model</span>
+        <span class="s2">if </span><span class="s1">len(quantum_prediction_history) &lt; </span><span class="s5">10</span><span class="s1">:</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;Not enough quantum predictions to update model&quot;</span><span class="s1">)</span>
+            <span class="s2">return False</span>
+
+        <span class="s0"># Group predictions by symbol</span>
+        <span class="s1">by_symbol = {}</span>
+        <span class="s2">for </span><span class="s1">pred </span><span class="s2">in </span><span class="s1">quantum_prediction_history:</span>
+            <span class="s1">symbol = pred[</span><span class="s3">&quot;symbol&quot;</span><span class="s1">]</span>
+            <span class="s2">if </span><span class="s1">symbol </span><span class="s2">not in </span><span class="s1">by_symbol:</span>
+                <span class="s1">by_symbol[symbol] = []</span>
+            <span class="s1">by_symbol[symbol].append(pred)</span>
+
+        <span class="s1">models_updated = </span><span class="s5">0</span>
+
+        <span class="s0"># Update model for each symbol with enough data</span>
+        <span class="s2">for </span><span class="s1">symbol, predictions </span><span class="s2">in </span><span class="s1">by_symbol.items():</span>
+            <span class="s0"># Only consider completed predictions</span>
+            <span class="s1">completed = [p </span><span class="s2">for </span><span class="s1">p </span><span class="s2">in </span><span class="s1">predictions </span><span class="s2">if </span><span class="s1">p[</span><span class="s3">&quot;correct&quot;</span><span class="s1">] </span><span class="s2">is not None</span><span class="s1">]</span>
+            <span class="s2">if </span><span class="s1">len(completed) &lt; </span><span class="s5">5</span><span class="s1">:</span>
+                <span class="s2">continue</span>
+
+            <span class="s0"># Use most recent predictions for training</span>
+            <span class="s1">completed = sorted(completed, key=</span><span class="s2">lambda </span><span class="s1">x: x[</span><span class="s3">&quot;timestamp&quot;</span><span class="s1">], reverse=</span><span class="s2">True</span><span class="s1">)[:</span><span class="s5">20</span><span class="s1">]</span>
+
+            <span class="s0"># Simple accuracy check</span>
+            <span class="s1">correct = sum(</span><span class="s5">1 </span><span class="s2">for </span><span class="s1">p </span><span class="s2">in </span><span class="s1">completed </span><span class="s2">if </span><span class="s1">p[</span><span class="s3">&quot;correct&quot;</span><span class="s1">])</span>
+            <span class="s1">accuracy = correct / len(completed)</span>
+
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Quantum model accuracy for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">accuracy</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">} </span><span class="s3">(</span><span class="s4">{</span><span class="s1">correct</span><span class="s4">}</span><span class="s3">/</span><span class="s4">{</span><span class="s1">len(completed)</span><span class="s4">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+
+            <span class="s0"># Only update if model is performing well</span>
+            <span class="s2">if </span><span class="s1">accuracy &gt; </span><span class="s5">0.55</span><span class="s1">:</span>
+                <span class="s0"># Here we would normally implement more sophisticated quantum model training</span>
+                <span class="s0"># For this example, we'll just adjust weights slightly based on performance</span>
+
+                <span class="s1">weights_file = </span><span class="s3">f&quot;models/quantum_weights_</span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">.npy&quot;</span>
+                <span class="s2">if </span><span class="s1">os.path.exists(weights_file):</span>
+                    <span class="s1">weights = np.load(weights_file)</span>
+
+                    <span class="s0"># Apply slight random adjustment to weights</span>
+                    <span class="s1">adjustment = np.random.uniform(-</span><span class="s5">0.1</span><span class="s1">, </span><span class="s5">0.1</span><span class="s1">, size=weights.shape)</span>
+                    <span class="s1">weights += adjustment</span>
+
+                    <span class="s0"># Save updated weights</span>
+                    <span class="s1">os.makedirs(</span><span class="s3">&quot;models&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+                    <span class="s1">np.save(weights_file, weights)</span>
+
+                    <span class="s1">logger.info(</span><span class="s3">f&quot;Updated quantum model weights for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                    <span class="s1">models_updated += </span><span class="s5">1</span>
+
+        <span class="s2">return </span><span class="s1">models_updated &gt; </span><span class="s5">0</span>
+
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error updating quantum model: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return False</span>
+
+
+<span class="s2">def </span><span class="s1">quantum_portfolio_optimization(symbols, historical_returns, quantum_device, error_rate, config):</span>
+    <span class="s0">&quot;&quot;&quot;Optimize portfolio using quantum computing if error rate is acceptable&quot;&quot;&quot;</span>
+    <span class="s2">if not </span><span class="s1">QUANTUM_AVAILABLE </span><span class="s2">or </span><span class="s1">quantum_device </span><span class="s2">is None</span><span class="s1">:</span>
+        <span class="s2">return None</span>
+
+    <span class="s0"># Skip if error rate is too high</span>
+    <span class="s2">if </span><span class="s1">error_rate &gt; config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;error_threshold&quot;</span><span class="s1">, </span><span class="s5">0.15</span><span class="s1">):</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Quantum error rate too high for portfolio optimization: </span><span class="s4">{</span><span class="s1">error_rate</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return None</span>
+
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s0"># Number of assets</span>
+        <span class="s1">num_assets = len(symbols)</span>
+
+        <span class="s0"># Calculate covariance matrix and expected returns</span>
+        <span class="s1">returns_matrix = np.array(historical_returns)</span>
+        <span class="s1">cov_matrix = np.cov(returns_matrix, rowvar=</span><span class="s2">False</span><span class="s1">)</span>
+        <span class="s1">exp_returns = np.mean(returns_matrix, axis=</span><span class="s5">0</span><span class="s1">)</span>
+
+        <span class="s0"># Define the circuit for portfolio optimization</span>
+        <span class="s1">@qml.qnode(quantum_device)</span>
+        <span class="s2">def </span><span class="s1">portfolio_circuit(params, gamma):</span>
+            <span class="s0"># Prepare qubits in superposition</span>
+            <span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(num_assets):</span>
+                <span class="s1">qml.Hadamard(wires=i)</span>
+
+            <span class="s0"># QAOA layers</span>
+            <span class="s0"># First the cost Hamiltonian (risk)</span>
+            <span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(num_assets):</span>
+                <span class="s2">for </span><span class="s1">j </span><span class="s2">in </span><span class="s1">range(i + </span><span class="s5">1</span><span class="s1">, num_assets):</span>
+                    <span class="s0"># Apply ZZ interaction based on covariance</span>
+                    <span class="s1">qml.IsingZZ(gamma * cov_matrix[i, j], wires=[i, j])</span>
+
+            <span class="s0"># Then the mixer Hamiltonian</span>
+            <span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(num_assets):</span>
+                <span class="s1">qml.RX(params[i], wires=i)</span>
+
+            <span class="s0"># Measure all qubits in Z basis</span>
+            <span class="s2">return </span><span class="s1">[qml.expval(qml.PauliZ(i)) </span><span class="s2">for </span><span class="s1">i </span><span class="s2">in </span><span class="s1">range(num_assets)]</span>
+
+        <span class="s0"># Initialize parameters</span>
+        <span class="s1">params = np.random.uniform(</span><span class="s5">0</span><span class="s1">, np.pi, size=num_assets)</span>
+        <span class="s1">gamma = </span><span class="s5">0.1  </span><span class="s0"># Strength of the cost Hamiltonian</span>
+
+        <span class="s0"># Run the circuit</span>
+        <span class="s1">results = portfolio_circuit(params, gamma)</span>
+
+        <span class="s0"># Convert to portfolio weights (from [-1,1] to [0,1])</span>
+        <span class="s1">weights = [(r + </span><span class="s5">1</span><span class="s1">) / </span><span class="s5">2 </span><span class="s2">for </span><span class="s1">r </span><span class="s2">in </span><span class="s1">results]</span>
+
+        <span class="s0"># Normalize weights to sum to 1</span>
+        <span class="s1">total = sum(weights)</span>
+        <span class="s2">if </span><span class="s1">total &gt; </span><span class="s5">0</span><span class="s1">:</span>
+            <span class="s1">weights = [w / total </span><span class="s2">for </span><span class="s1">w </span><span class="s2">in </span><span class="s1">weights]</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s0"># Equal weights if something went wrong</span>
+            <span class="s1">weights = [</span><span class="s5">1.0 </span><span class="s1">/ num_assets] * num_assets</span>
+
+        <span class="s1">portfolio = dict(zip(symbols, weights))</span>
+
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Quantum portfolio optimization complete: </span><span class="s4">{</span><span class="s1">portfolio</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">portfolio</span>
+
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error in quantum portfolio optimization: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return None</span>
+
+
+<span class="s2">def </span><span class="s1">handle_exit(signum, frame):</span>
+    <span class="s0">&quot;&quot;&quot;Handle exit signals gracefully&quot;&quot;&quot;</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;Exit signal received. Shutting down...&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Save final metrics</span>
+    <span class="s1">save_performance_metrics()</span>
+
+    <span class="s0"># Final trade history save</span>
+    <span class="s1">save_trade_history()</span>
+
+    <span class="s0"># Log summary</span>
+    <span class="s1">trades = trade_history[</span><span class="s3">&quot;trades&quot;</span><span class="s1">]</span>
+    <span class="s1">sell_trades = [t </span><span class="s2">for </span><span class="s1">t </span><span class="s2">in </span><span class="s1">trades </span><span class="s2">if </span><span class="s1">t[</span><span class="s3">&quot;action&quot;</span><span class="s1">] == </span><span class="s3">&quot;SELL&quot;</span><span class="s1">]</span>
+
+    <span class="s2">if </span><span class="s1">sell_trades:</span>
+        <span class="s1">total_profit = sum(t.get(</span><span class="s3">&quot;profit_loss&quot;</span><span class="s1">, </span><span class="s5">0</span><span class="s1">) </span><span class="s2">for </span><span class="s1">t </span><span class="s2">in </span><span class="s1">sell_trades)</span>
+        <span class="s1">win_count = sum(</span><span class="s5">1 </span><span class="s2">for </span><span class="s1">t </span><span class="s2">in </span><span class="s1">sell_trades </span><span class="s2">if </span><span class="s1">t.get(</span><span class="s3">&quot;profit_loss&quot;</span><span class="s1">, </span><span class="s5">0</span><span class="s1">) &gt; </span><span class="s5">0</span><span class="s1">)</span>
+
+        <span class="s1">logger.info(</span><span class="s3">&quot;=== Trading Summary ===&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Total trades closed: </span><span class="s4">{</span><span class="s1">len(sell_trades)</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Win rate: </span><span class="s4">{</span><span class="s1">win_count / len(sell_trades)</span><span class="s4">:</span><span class="s3">.2%</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Total profit: $</span><span class="s4">{</span><span class="s1">total_profit</span><span class="s4">:</span><span class="s3">.2f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;=====================&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Exit</span>
+    <span class="s1">sys.exit(</span><span class="s5">0</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">trading_loop():</span>
+    <span class="s0">&quot;&quot;&quot;Main trading loop with quantum integration&quot;&quot;&quot;</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;========== TRADING LOOP FUNCTION ENTERED ==========&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Load configuration</span>
+    <span class="s1">config = load_config()</span>
+
+    <span class="s0"># Load trade history</span>
+    <span class="s1">load_trade_history()</span>
+
+    <span class="s0"># Set up signal handling for graceful exit</span>
+    <span class="s2">if </span><span class="s1">threading.current_thread() </span><span class="s2">is </span><span class="s1">threading.main_thread():</span>
+        <span class="s1">signal.signal(signal.SIGINT, handle_exit)</span>
+        <span class="s1">signal.signal(signal.SIGTERM, handle_exit)</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Signal handlers not installed - not in main thread&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Initialize quantum device if enabled</span>
+    <span class="s1">quantum_device = </span><span class="s2">None</span>
+    <span class="s2">if </span><span class="s1">config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;enabled&quot;</span><span class="s1">, </span><span class="s2">True</span><span class="s1">) </span><span class="s2">and </span><span class="s1">QUANTUM_AVAILABLE:</span>
+        <span class="s1">quantum_device = initialize_quantum_device(config)</span>
+
+        <span class="s2">if </span><span class="s1">quantum_device </span><span class="s2">is None</span><span class="s1">:</span>
+            <span class="s1">logger.warning(</span><span class="s3">&quot;Failed to initialize quantum device. Using classical analysis only.&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Initialize platform adapter</span>
+    <span class="s2">global </span><span class="s1">platform_adapter</span>
+    <span class="s1">platform_adapter = MockAdapter()</span>
+
+    <span class="s0"># Create directories</span>
+    <span class="s1">os.makedirs(</span><span class="s3">&quot;data&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+    <span class="s1">os.makedirs(</span><span class="s3">&quot;models&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+    <span class="s1">os.makedirs(</span><span class="s3">&quot;data/quantum&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+    <span class="s1">os.makedirs(</span><span class="s3">&quot;data/performance&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+
+    <span class="s0"># Main loop</span>
+    <span class="s1">update_model_counter = </span><span class="s5">0</span>
+    <span class="s1">portfolio_opt_counter = </span><span class="s5">0</span>
+
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s2">while True</span><span class="s1">:</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;Starting trading cycle&quot;</span><span class="s1">)</span>
+
+            <span class="s0"># Check if it's market hours (simplified)</span>
+            <span class="s1">now = datetime.now()</span>
+            <span class="s1">is_market_hours = (</span>
+                    <span class="s5">0 </span><span class="s1">&lt;= now.weekday() &lt;= </span><span class="s5">4 </span><span class="s2">and  </span><span class="s0"># Monday to Friday</span>
+                    <span class="s5">9 </span><span class="s1">&lt;= now.hour &lt; </span><span class="s5">16  </span><span class="s0"># 9 AM to 4 PM</span>
+            <span class="s1">)</span>
+
+            <span class="s2">if </span><span class="s1">is_market_hours:</span>
+                <span class="s0"># Process each symbol</span>
+                <span class="s2">for </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">symbols:</span>
+                    <span class="s2">try</span><span class="s1">:</span>
+                        <span class="s1">logger.info(</span><span class="s3">f&quot;Processing </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                        <span class="s1">make_trading_decision(symbol, quantum_device, config)</span>
+                    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                        <span class="s1">logger.error(</span><span class="s3">f&quot;Error processing </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+                <span class="s0"># Save performance metrics</span>
+                <span class="s1">save_performance_metrics()</span>
+
+                <span class="s0"># Update quantum model periodically</span>
+                <span class="s1">update_model_counter += </span><span class="s5">1</span>
+                <span class="s2">if </span><span class="s1">update_model_counter &gt;= </span><span class="s5">10</span><span class="s1">:  </span><span class="s0"># Every 10 cycles</span>
+                    <span class="s1">update_model_counter = </span><span class="s5">0</span>
+                    <span class="s2">try</span><span class="s1">:</span>
+                        <span class="s1">updated = update_quantum_model()</span>
+                        <span class="s2">if </span><span class="s1">updated:</span>
+                            <span class="s1">logger.info(</span><span class="s3">&quot;Quantum trading model updated&quot;</span><span class="s1">)</span>
+                    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                        <span class="s1">logger.error(</span><span class="s3">f&quot;Error updating quantum model: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+                <span class="s0"># Perform portfolio optimization periodically</span>
+                <span class="s1">portfolio_opt_counter += </span><span class="s5">1</span>
+                <span class="s2">if </span><span class="s1">portfolio_opt_counter &gt;= </span><span class="s5">20</span><span class="s1">:  </span><span class="s0"># Every 20 cycles</span>
+                    <span class="s1">portfolio_opt_counter = </span><span class="s5">0</span>
+                    <span class="s2">try</span><span class="s1">:</span>
+                        <span class="s0"># Get historical returns for all symbols</span>
+                        <span class="s1">historical_returns = []</span>
+                        <span class="s2">for </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">symbols:</span>
+                            <span class="s1">data = platform_adapter.get_market_data(symbol)</span>
+                            <span class="s1">returns = data[</span><span class="s3">'Close'</span><span class="s1">].pct_change().dropna().values</span>
+                            <span class="s1">historical_returns.append(returns)</span>
+
+                        <span class="s0"># Transpose to have returns by date instead of by symbol</span>
+                        <span class="s1">historical_returns = np.array(historical_returns).T</span>
+
+                        <span class="s0"># Get error rate</span>
+                        <span class="s1">error_rate = estimate_quantum_error_rate(quantum_device)</span>
+
+                        <span class="s0"># Run portfolio optimization</span>
+                        <span class="s1">optimal_portfolio = quantum_portfolio_optimization(</span>
+                            <span class="s1">symbols, historical_returns, quantum_device, error_rate, config</span>
+                        <span class="s1">)</span>
+
+                        <span class="s2">if </span><span class="s1">optimal_portfolio:</span>
+                            <span class="s1">logger.info(</span><span class="s3">f&quot;Optimal portfolio weights: </span><span class="s4">{</span><span class="s1">optimal_portfolio</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+                            <span class="s0"># Save portfolio allocation</span>
+                            <span class="s1">os.makedirs(</span><span class="s3">&quot;data/portfolios&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+                            <span class="s2">with </span><span class="s1">open(</span><span class="s3">f&quot;data/portfolios/allocation_</span><span class="s4">{</span><span class="s1">datetime.now().strftime(</span><span class="s3">'%Y%m%d'</span><span class="s1">)</span><span class="s4">}</span><span class="s3">.json&quot;</span><span class="s1">,</span>
+                                      <span class="s3">&quot;w&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                                <span class="s1">json.dump({</span>
+                                    <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+                                    <span class="s3">&quot;allocation&quot;</span><span class="s1">: optimal_portfolio,</span>
+                                    <span class="s3">&quot;method&quot;</span><span class="s1">: </span><span class="s3">&quot;quantum&quot; </span><span class="s2">if </span><span class="s1">error_rate &lt;= config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span>
+                                        <span class="s3">&quot;error_threshold&quot;</span><span class="s1">, </span><span class="s5">0.15</span><span class="s1">) </span><span class="s2">else </span><span class="s3">&quot;classical&quot;</span>
+                                <span class="s1">}, f, indent=</span><span class="s5">4</span><span class="s1">)</span>
+                    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                        <span class="s1">logger.error(</span><span class="s3">f&quot;Error in portfolio optimization: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s1">logger.info(</span><span class="s3">&quot;Market is closed, waiting...&quot;</span><span class="s1">)</span>
+
+            <span class="s0"># Sleep before next cycle</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Sleeping for </span><span class="s4">{</span><span class="s1">sleep_time</span><span class="s4">} </span><span class="s3">seconds&quot;</span><span class="s1">)</span>
+            <span class="s1">time.sleep(sleep_time)</span>
+
+    <span class="s2">except </span><span class="s1">KeyboardInterrupt:</span>
+        <span class="s1">handle_exit(</span><span class="s2">None</span><span class="s1">, </span><span class="s2">None</span><span class="s1">)</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Trading bot error: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">handle_exit(</span><span class="s2">None</span><span class="s1">, </span><span class="s2">None</span><span class="s1">)</span>
+
+    <span class="s1">logger.info(</span><span class="s3">&quot;Trading bot shutdown&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">check_halal_compliance(symbol):</span>
+    <span class="s0">&quot;&quot;&quot; 
+    Check if a stock is halal compliant using the Zoya API 
+ 
+    Args: 
+        symbol (str): Stock symbol to check (e.g., 'AAPL') 
+ 
+    Returns: 
+        bool: True if stock is compliant, False if not 
+    &quot;&quot;&quot;</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s1">api_key = os.environ.get(</span><span class="s3">&quot;ZOYA_API_KEY&quot;</span><span class="s1">)</span>
+        <span class="s2">if not </span><span class="s1">api_key:</span>
+            <span class="s1">logger.error(</span><span class="s3">&quot;Zoya API key not found in environment variables&quot;</span><span class="s1">)</span>
+            <span class="s2">return False</span>
+
+        <span class="s0"># Zoya API endpoint</span>
+        <span class="s1">url = </span><span class="s3">f&quot;https://api.zoya.finance/stocks/</span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">/compliance&quot;</span>
+
+        <span class="s1">headers = {</span>
+            <span class="s3">&quot;Authorization&quot;</span><span class="s1">: </span><span class="s3">f&quot;Bearer </span><span class="s4">{</span><span class="s1">api_key</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">,</span>
+            <span class="s3">&quot;Content-Type&quot;</span><span class="s1">: </span><span class="s3">&quot;application/json&quot;</span>
+        <span class="s1">}</span>
+
+        <span class="s1">response = requests.get(url, headers=headers)</span>
+
+        <span class="s2">if </span><span class="s1">response.status_code == </span><span class="s5">200</span><span class="s1">:</span>
+            <span class="s1">data = response.json()</span>
+
+            <span class="s0"># Check compliance status</span>
+            <span class="s1">compliance_status = data.get(</span><span class="s3">&quot;compliance_status&quot;</span><span class="s1">)</span>
+
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Zoya API compliance check for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">compliance_status</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+            <span class="s0"># Return True if compliant, False otherwise</span>
+            <span class="s2">return </span><span class="s1">compliance_status == </span><span class="s3">&quot;compliant&quot;</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error calling Zoya API: </span><span class="s4">{</span><span class="s1">response.status_code</span><span class="s4">} </span><span class="s3">- </span><span class="s4">{</span><span class="s1">response.text</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return False</span>
+
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error checking halal compliance: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return False</span>
+
+
+<span class="s2">def </span><span class="s1">can_sell_stock(symbol, config):</span>
+    <span class="s0">&quot;&quot;&quot;Check if a stock can be sold based on minimum hold period&quot;&quot;&quot;</span>
+    <span class="s2">if </span><span class="s1">symbol </span><span class="s2">not in </span><span class="s1">trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">]:</span>
+        <span class="s2">return False</span>
+
+    <span class="s1">position = trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">][symbol]</span>
+    <span class="s1">entry_time = position.get(</span><span class="s3">&quot;entry_time&quot;</span><span class="s1">, </span><span class="s5">0</span><span class="s1">)</span>
+    <span class="s1">current_time = time.time()</span>
+
+    <span class="s0"># Get min hold period from config (default to 48 hours if not specified)</span>
+    <span class="s1">min_hold_period = config.get(</span><span class="s3">&quot;trading_bot&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;min_hold_period&quot;</span><span class="s1">, </span><span class="s5">86400</span><span class="s1">)</span>
+
+    <span class="s0"># Check if minimum hold period has passed</span>
+    <span class="s1">time_held = current_time - entry_time</span>
+    <span class="s1">can_sell = time_held &gt;= min_hold_period</span>
+
+    <span class="s2">if not </span><span class="s1">can_sell:</span>
+        <span class="s1">hours_left = (min_hold_period - time_held) / </span><span class="s5">3600</span>
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Cannot sell </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">yet - minimum hold period not met. </span><span class="s4">{</span><span class="s1">hours_left</span><span class="s4">:</span><span class="s3">.1f</span><span class="s4">} </span><span class="s3">hours remaining.&quot;</span><span class="s1">)</span>
+
+    <span class="s2">return </span><span class="s1">can_sell</span>
+
+
+<span class="s2">if </span><span class="s1">__name__ == </span><span class="s3">&quot;__main__&quot;</span><span class="s1">:</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;========== TRADING BOT SCRIPT STARTED ==========&quot;</span><span class="s1">)</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;About to enter trading_loop function&quot;</span><span class="s1">)</span>
+        <span class="s1">trading_loop()</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Trading bot execution completed&quot;</span><span class="s1">)</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Critical error in trading bot: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">, exc_info=</span><span class="s2">True</span><span class="s1">)</span>
+    <span class="s1">trading_loop()</span>
+</pre>
+</body>
+</html>

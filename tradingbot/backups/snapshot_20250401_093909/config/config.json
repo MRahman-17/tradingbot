@@ -1,0 +1,33 @@
+{
+  "trading_bot": {
+    "enabled": true,
+    "symbols": [
+      "AAPL"
+    ],
+    "max_drawdown": 0.05,
+    "kelly_fraction": 0.02,
+    "quantity": 1,
+    "min_hold_period": 172800,
+    "sleep_time": 60
+  },
+  "monitor_bot": {
+    "enabled": true,
+    "check_interval": 3600,
+    "quantum_optimizer_interval": 259200,
+    "legal_check_interval": 604800,
+    "api_check_interval": 86400
+  },
+  "platform": {
+    "name": "webull",
+    "use_paper_trading": true
+  },
+  "quantum_config": {
+    "enabled": true,
+    "error_threshold": 0.15,
+    "min_confidence": 0.65,
+    "device": "default.qubit",
+    "shots": 1000,
+    "use_error_mitigation": true,
+    "fallback_to_classical": true
+  }
+}

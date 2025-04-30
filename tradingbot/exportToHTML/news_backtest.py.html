@@ -1,0 +1,289 @@
+<html>
+<head>
+<title>news_backtest.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #0033b3;}
+.s1 { color: #080808;}
+.s2 { color: #067d17;}
+.s3 { color: #8c8c8c; font-style: italic;}
+.s4 { color: #0037a6;}
+.s5 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+news_backtest.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">pandas </span><span class="s0">as </span><span class="s1">pd</span>
+<span class="s0">import </span><span class="s1">numpy </span><span class="s0">as </span><span class="s1">np</span>
+<span class="s0">import </span><span class="s1">logging</span>
+<span class="s0">import </span><span class="s1">json</span>
+<span class="s0">import </span><span class="s1">os</span>
+<span class="s0">from </span><span class="s1">datetime </span><span class="s0">import </span><span class="s1">datetime, timedelta</span>
+<span class="s0">from </span><span class="s1">enhanced_sentiment </span><span class="s0">import </span><span class="s1">EnhancedSentimentAnalyzer</span>
+
+<span class="s1">logger = logging.getLogger(</span><span class="s2">&quot;News Backtest&quot;</span><span class="s1">)</span>
+
+
+<span class="s0">class </span><span class="s1">NewsSentimentBacktester:</span>
+    <span class="s0">def </span><span class="s1">__init__(self):</span>
+        <span class="s1">self.sentiment_analyzer = EnhancedSentimentAnalyzer()</span>
+        <span class="s1">self.results_cache = {}</span>
+
+    <span class="s0">def </span><span class="s1">backtest_news_sentiment(self, symbols, start_date, end_date, use_cache=</span><span class="s0">True</span><span class="s1">):</span>
+        <span class="s3">&quot;&quot;&quot;Backtest the performance of news sentiment signals&quot;&quot;&quot;</span>
+        <span class="s3"># Generate cache key</span>
+        <span class="s1">cache_key = </span><span class="s2">f&quot;</span><span class="s4">{</span><span class="s2">'-'</span><span class="s1">.join(symbols)</span><span class="s4">}</span><span class="s2">_</span><span class="s4">{</span><span class="s1">start_date</span><span class="s4">}</span><span class="s2">_</span><span class="s4">{</span><span class="s1">end_date</span><span class="s4">}</span><span class="s2">&quot;</span>
+
+        <span class="s3"># Check cache</span>
+        <span class="s0">if </span><span class="s1">use_cache </span><span class="s0">and </span><span class="s1">cache_key </span><span class="s0">in </span><span class="s1">self.results_cache:</span>
+            <span class="s1">logger.info(</span><span class="s2">&quot;Using cached backtest results&quot;</span><span class="s1">)</span>
+            <span class="s0">return </span><span class="s1">self.results_cache[cache_key]</span>
+
+        <span class="s3"># Store results for each symbol</span>
+        <span class="s1">results = {}</span>
+        <span class="s1">overall_metrics = {</span>
+            <span class="s2">&quot;total_signals&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+            <span class="s2">&quot;correct_signals&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+            <span class="s2">&quot;avg_return&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+            <span class="s2">&quot;profitable_symbols&quot;</span><span class="s1">: </span><span class="s5">0</span>
+        <span class="s1">}</span>
+
+        <span class="s0">for </span><span class="s1">symbol </span><span class="s0">in </span><span class="s1">symbols:</span>
+            <span class="s0">try</span><span class="s1">:</span>
+                <span class="s1">logger.info(</span><span class="s2">f&quot;Backtesting news sentiment for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+
+                <span class="s3"># Get historical price data</span>
+                <span class="s1">price_data = self.get_historical_prices(symbol, start_date, end_date)</span>
+
+                <span class="s3"># Get historical news data</span>
+                <span class="s1">news_data = self.get_historical_news(symbol, start_date, end_date)</span>
+
+                <span class="s0">if </span><span class="s1">news_data </span><span class="s0">and </span><span class="s1">price_data </span><span class="s0">is not None</span><span class="s1">:</span>
+                    <span class="s3"># Calculate sentiment for each news item</span>
+                    <span class="s0">for </span><span class="s1">news </span><span class="s0">in </span><span class="s1">news_data:</span>
+                        <span class="s0">if </span><span class="s2">&quot;sentiment&quot; </span><span class="s0">not in </span><span class="s1">news:</span>
+                            <span class="s1">news[</span><span class="s2">&quot;sentiment&quot;</span><span class="s1">] = self.sentiment_analyzer.analyze_sentiment(</span>
+                                <span class="s1">news[</span><span class="s2">&quot;title&quot;</span><span class="s1">] + </span><span class="s2">&quot; &quot; </span><span class="s1">+ news.get(</span><span class="s2">&quot;summary&quot;</span><span class="s1">, </span><span class="s2">&quot;&quot;</span><span class="s1">))</span>
+
+                    <span class="s3"># Group by day and calculate daily sentiment</span>
+                    <span class="s1">daily_sentiment = self.calculate_daily_sentiment(news_data)</span>
+
+                    <span class="s3"># Calculate returns following sentiment signals</span>
+                    <span class="s1">signals = []</span>
+                    <span class="s0">for </span><span class="s1">day, sentiment </span><span class="s0">in </span><span class="s1">daily_sentiment.items():</span>
+                        <span class="s0">if </span><span class="s1">day </span><span class="s0">in </span><span class="s1">price_data.index:</span>
+                            <span class="s3"># Find price movement after sentiment</span>
+                            <span class="s1">next_day_return = self.calculate_return_after_sentiment(price_data, day, days=</span><span class="s5">1</span><span class="s1">)</span>
+                            <span class="s1">five_day_return = self.calculate_return_after_sentiment(price_data, day, days=</span><span class="s5">5</span><span class="s1">)</span>
+
+                            <span class="s1">correct_direction = </span><span class="s0">False</span>
+                            <span class="s0">if </span><span class="s1">sentiment &gt; </span><span class="s5">0.1 </span><span class="s0">and </span><span class="s1">next_day_return &gt; </span><span class="s5">0</span><span class="s1">:  </span><span class="s3"># Positive sentiment threshold</span>
+                                <span class="s1">correct_direction = </span><span class="s0">True</span>
+                            <span class="s0">elif </span><span class="s1">sentiment &lt; -</span><span class="s5">0.1 </span><span class="s0">and </span><span class="s1">next_day_return &lt; </span><span class="s5">0</span><span class="s1">:  </span><span class="s3"># Negative sentiment threshold</span>
+                                <span class="s1">correct_direction = </span><span class="s0">True</span>
+
+                            <span class="s1">signals.append({</span>
+                                <span class="s2">&quot;date&quot;</span><span class="s1">: day.strftime(</span><span class="s2">&quot;%Y-%m-%d&quot;</span><span class="s1">),</span>
+                                <span class="s2">&quot;sentiment&quot;</span><span class="s1">: float(sentiment),</span>
+                                <span class="s2">&quot;next_day_return&quot;</span><span class="s1">: float(next_day_return),</span>
+                                <span class="s2">&quot;five_day_return&quot;</span><span class="s1">: float(five_day_return),</span>
+                                <span class="s2">&quot;correct_direction&quot;</span><span class="s1">: correct_direction</span>
+                            <span class="s1">})</span>
+
+                    <span class="s3"># Calculate metrics</span>
+                    <span class="s0">if </span><span class="s1">signals:</span>
+                        <span class="s1">accuracy = sum(</span><span class="s5">1 </span><span class="s0">for </span><span class="s1">s </span><span class="s0">in </span><span class="s1">signals </span><span class="s0">if </span><span class="s1">s[</span><span class="s2">&quot;correct_direction&quot;</span><span class="s1">]) / len(signals)</span>
+                        <span class="s1">avg_return = sum(s[</span><span class="s2">&quot;next_day_return&quot;</span><span class="s1">] </span><span class="s0">for </span><span class="s1">s </span><span class="s0">in </span><span class="s1">signals) / len(signals)</span>
+                        <span class="s1">avg_5day_return = sum(s[</span><span class="s2">&quot;five_day_return&quot;</span><span class="s1">] </span><span class="s0">for </span><span class="s1">s </span><span class="s0">in </span><span class="s1">signals) / len(signals)</span>
+
+                        <span class="s1">results[symbol] = {</span>
+                            <span class="s2">&quot;accuracy&quot;</span><span class="s1">: float(accuracy),</span>
+                            <span class="s2">&quot;avg_return&quot;</span><span class="s1">: float(avg_return),</span>
+                            <span class="s2">&quot;avg_5day_return&quot;</span><span class="s1">: float(avg_5day_return),</span>
+                            <span class="s2">&quot;signal_count&quot;</span><span class="s1">: len(signals),</span>
+                            <span class="s2">&quot;signals&quot;</span><span class="s1">: signals</span>
+                        <span class="s1">}</span>
+
+                        <span class="s3"># Update overall metrics</span>
+                        <span class="s1">overall_metrics[</span><span class="s2">&quot;total_signals&quot;</span><span class="s1">] += len(signals)</span>
+                        <span class="s1">overall_metrics[</span><span class="s2">&quot;correct_signals&quot;</span><span class="s1">] += sum(</span><span class="s5">1 </span><span class="s0">for </span><span class="s1">s </span><span class="s0">in </span><span class="s1">signals </span><span class="s0">if </span><span class="s1">s[</span><span class="s2">&quot;correct_direction&quot;</span><span class="s1">])</span>
+                        <span class="s1">overall_metrics[</span><span class="s2">&quot;avg_return&quot;</span><span class="s1">] += avg_return</span>
+                        <span class="s0">if </span><span class="s1">accuracy &gt; </span><span class="s5">0.5</span><span class="s1">:</span>
+                            <span class="s1">overall_metrics[</span><span class="s2">&quot;profitable_symbols&quot;</span><span class="s1">] += </span><span class="s5">1</span>
+                    <span class="s0">else</span><span class="s1">:</span>
+                        <span class="s1">logger.warning(</span><span class="s2">f&quot;No valid signals found for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+                        <span class="s1">results[symbol] = {</span>
+                            <span class="s2">&quot;accuracy&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                            <span class="s2">&quot;avg_return&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                            <span class="s2">&quot;avg_5day_return&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                            <span class="s2">&quot;signal_count&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                            <span class="s2">&quot;signals&quot;</span><span class="s1">: []</span>
+                        <span class="s1">}</span>
+                <span class="s0">else</span><span class="s1">:</span>
+                    <span class="s1">logger.warning(</span><span class="s2">f&quot;No data available for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+                    <span class="s1">results[symbol] = {</span>
+                        <span class="s2">&quot;accuracy&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                        <span class="s2">&quot;avg_return&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                        <span class="s2">&quot;avg_5day_return&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                        <span class="s2">&quot;signal_count&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                        <span class="s2">&quot;signals&quot;</span><span class="s1">: []</span>
+                    <span class="s1">}</span>
+            <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s2">f&quot;Error backtesting </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+                <span class="s1">results[symbol] = {</span>
+                    <span class="s2">&quot;error&quot;</span><span class="s1">: str(e),</span>
+                    <span class="s2">&quot;accuracy&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                    <span class="s2">&quot;avg_return&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                    <span class="s2">&quot;avg_5day_return&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                    <span class="s2">&quot;signal_count&quot;</span><span class="s1">: </span><span class="s5">0</span><span class="s1">,</span>
+                    <span class="s2">&quot;signals&quot;</span><span class="s1">: []</span>
+                <span class="s1">}</span>
+
+        <span class="s3"># Calculate overall metrics</span>
+        <span class="s0">if </span><span class="s1">overall_metrics[</span><span class="s2">&quot;total_signals&quot;</span><span class="s1">] &gt; </span><span class="s5">0</span><span class="s1">:</span>
+            <span class="s1">overall_metrics[</span><span class="s2">&quot;accuracy&quot;</span><span class="s1">] = overall_metrics[</span><span class="s2">&quot;correct_signals&quot;</span><span class="s1">] / overall_metrics[</span><span class="s2">&quot;total_signals&quot;</span><span class="s1">]</span>
+            <span class="s1">overall_metrics[</span><span class="s2">&quot;avg_return&quot;</span><span class="s1">] = overall_metrics[</span><span class="s2">&quot;avg_return&quot;</span><span class="s1">] / len(symbols)</span>
+            <span class="s1">overall_metrics[</span><span class="s2">&quot;symbol_profitability&quot;</span><span class="s1">] = overall_metrics[</span><span class="s2">&quot;profitable_symbols&quot;</span><span class="s1">] / len(symbols)</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s1">overall_metrics[</span><span class="s2">&quot;accuracy&quot;</span><span class="s1">] = </span><span class="s5">0</span>
+            <span class="s1">overall_metrics[</span><span class="s2">&quot;avg_return&quot;</span><span class="s1">] = </span><span class="s5">0</span>
+            <span class="s1">overall_metrics[</span><span class="s2">&quot;symbol_profitability&quot;</span><span class="s1">] = </span><span class="s5">0</span>
+
+        <span class="s3"># Compile final results</span>
+        <span class="s1">final_results = {</span>
+            <span class="s2">&quot;symbols&quot;</span><span class="s1">: results,</span>
+            <span class="s2">&quot;overall&quot;</span><span class="s1">: overall_metrics,</span>
+            <span class="s2">&quot;backtest_period&quot;</span><span class="s1">: {</span><span class="s2">&quot;start&quot;</span><span class="s1">: start_date, </span><span class="s2">&quot;end&quot;</span><span class="s1">: end_date},</span>
+            <span class="s2">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat()</span>
+        <span class="s1">}</span>
+
+        <span class="s3"># Cache results</span>
+        <span class="s1">self.results_cache[cache_key] = final_results</span>
+
+        <span class="s3"># Save results to file</span>
+        <span class="s1">self.save_backtest_results(final_results)</span>
+
+        <span class="s0">return </span><span class="s1">final_results</span>
+
+    <span class="s0">def </span><span class="s1">get_historical_prices(self, symbol, start_date, end_date):</span>
+        <span class="s3">&quot;&quot;&quot;Get historical price data for a symbol&quot;&quot;&quot;</span>
+        <span class="s3"># Implement connection to your existing price data source</span>
+        <span class="s3"># This could connect to your platform_adapter.get_market_data function</span>
+        <span class="s3"># or load from saved CSV/database</span>
+        <span class="s0">try</span><span class="s1">:</span>
+            <span class="s3"># Placeholder - replace with actual implementation</span>
+            <span class="s3"># Example:</span>
+            <span class="s3"># return platform_adapter.get_market_data(symbol, start_date, end_date)</span>
+            <span class="s0">pass</span>
+        <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s2">f&quot;Error getting price data for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+            <span class="s0">return None</span>
+
+    <span class="s0">def </span><span class="s1">get_historical_news(self, symbol, start_date, end_date):</span>
+        <span class="s3">&quot;&quot;&quot;Get historical news data for a symbol&quot;&quot;&quot;</span>
+        <span class="s3"># Try to load from your news archive</span>
+        <span class="s1">news_path = </span><span class="s2">f&quot;data/news/</span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">_archive.json&quot;</span>
+
+        <span class="s0">if </span><span class="s1">os.path.exists(news_path):</span>
+            <span class="s0">try</span><span class="s1">:</span>
+                <span class="s0">with </span><span class="s1">open(news_path, </span><span class="s2">'r'</span><span class="s1">) </span><span class="s0">as </span><span class="s1">f:</span>
+                    <span class="s1">all_news = json.load(f)</span>
+
+                <span class="s3"># Filter by date range</span>
+                <span class="s1">start = datetime.strptime(start_date, </span><span class="s2">&quot;%Y-%m-%d&quot;</span><span class="s1">)</span>
+                <span class="s1">end = datetime.strptime(end_date, </span><span class="s2">&quot;%Y-%m-%d&quot;</span><span class="s1">)</span>
+
+                <span class="s1">filtered_news = []</span>
+                <span class="s0">for </span><span class="s1">news </span><span class="s0">in </span><span class="s1">all_news:</span>
+                    <span class="s0">try</span><span class="s1">:</span>
+                        <span class="s1">pub_date = datetime.fromisoformat(news[</span><span class="s2">&quot;published&quot;</span><span class="s1">].replace(</span><span class="s2">&quot;Z&quot;</span><span class="s1">, </span><span class="s2">&quot;+00:00&quot;</span><span class="s1">))</span>
+                        <span class="s0">if </span><span class="s1">start &lt;= pub_date &lt;= end:</span>
+                            <span class="s1">filtered_news.append(news)</span>
+                    <span class="s0">except</span><span class="s1">:</span>
+                        <span class="s0">continue</span>
+
+                <span class="s0">return </span><span class="s1">filtered_news</span>
+            <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s2">f&quot;Error loading historical news for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+                <span class="s0">return </span><span class="s1">[]</span>
+        <span class="s0">else</span><span class="s1">:</span>
+            <span class="s1">logger.warning(</span><span class="s2">f&quot;No historical news archive found for </span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+            <span class="s0">return </span><span class="s1">[]</span>
+
+    <span class="s0">def </span><span class="s1">calculate_daily_sentiment(self, news_data):</span>
+        <span class="s3">&quot;&quot;&quot;Group news by day and calculate sentiment&quot;&quot;&quot;</span>
+        <span class="s1">daily_sentiment = {}</span>
+
+        <span class="s0">for </span><span class="s1">news </span><span class="s0">in </span><span class="s1">news_data:</span>
+            <span class="s0">try</span><span class="s1">:</span>
+                <span class="s1">pub_date = datetime.fromisoformat(news[</span><span class="s2">&quot;published&quot;</span><span class="s1">].replace(</span><span class="s2">&quot;Z&quot;</span><span class="s1">, </span><span class="s2">&quot;+00:00&quot;</span><span class="s1">))</span>
+                <span class="s1">day = pub_date.date()</span>
+
+                <span class="s0">if </span><span class="s1">day </span><span class="s0">not in </span><span class="s1">daily_sentiment:</span>
+                    <span class="s1">daily_sentiment[day] = []</span>
+
+                <span class="s3"># Add weight based on source credibility</span>
+                <span class="s1">weight = news.get(</span><span class="s2">&quot;verification_score&quot;</span><span class="s1">, </span><span class="s5">0.5</span><span class="s1">) * news.get(</span><span class="s2">&quot;relevance&quot;</span><span class="s1">, </span><span class="s5">1.0</span><span class="s1">)</span>
+
+                <span class="s1">daily_sentiment[day].append((news[</span><span class="s2">&quot;sentiment&quot;</span><span class="s1">], weight))</span>
+            <span class="s0">except</span><span class="s1">:</span>
+                <span class="s0">continue</span>
+
+        <span class="s3"># Calculate weighted average sentiment for each day</span>
+        <span class="s0">for </span><span class="s1">day </span><span class="s0">in </span><span class="s1">daily_sentiment:</span>
+            <span class="s0">if </span><span class="s1">daily_sentiment[day]:</span>
+                <span class="s1">total_weight = sum(weight </span><span class="s0">for </span><span class="s1">_, weight </span><span class="s0">in </span><span class="s1">daily_sentiment[day])</span>
+                <span class="s0">if </span><span class="s1">total_weight &gt; </span><span class="s5">0</span><span class="s1">:</span>
+                    <span class="s1">daily_sentiment[day] = sum(</span>
+                        <span class="s1">sentiment * weight </span><span class="s0">for </span><span class="s1">sentiment, weight </span><span class="s0">in </span><span class="s1">daily_sentiment[day]) / total_weight</span>
+                <span class="s0">else</span><span class="s1">:</span>
+                    <span class="s1">daily_sentiment[day] = </span><span class="s5">0</span>
+            <span class="s0">else</span><span class="s1">:</span>
+                <span class="s1">daily_sentiment[day] = </span><span class="s5">0</span>
+
+        <span class="s0">return </span><span class="s1">daily_sentiment</span>
+
+    <span class="s0">def </span><span class="s1">calculate_return_after_sentiment(self, price_data, day, days=</span><span class="s5">1</span><span class="s1">):</span>
+        <span class="s3">&quot;&quot;&quot;Calculate return after a sentiment signal&quot;&quot;&quot;</span>
+        <span class="s0">try</span><span class="s1">:</span>
+            <span class="s3"># Find the index of the day in the price data</span>
+            <span class="s0">if </span><span class="s1">day </span><span class="s0">in </span><span class="s1">price_data.index:</span>
+                <span class="s1">day_idx = price_data.index.get_loc(day)</span>
+
+                <span class="s3"># Get the closing price on the signal day</span>
+                <span class="s1">signal_price = price_data[</span><span class="s2">'Close'</span><span class="s1">].iloc[day_idx]</span>
+
+                <span class="s3"># Get the closing price N days later</span>
+                <span class="s0">if </span><span class="s1">day_idx + days &lt; len(price_data):</span>
+                    <span class="s1">future_price = price_data[</span><span class="s2">'Close'</span><span class="s1">].iloc[day_idx + days]</span>
+                    <span class="s0">return </span><span class="s1">(future_price / signal_price) - </span><span class="s5">1</span>
+                <span class="s0">else</span><span class="s1">:</span>
+                    <span class="s0">return </span><span class="s5">0  </span><span class="s3"># Not enough data for future</span>
+            <span class="s0">else</span><span class="s1">:</span>
+                <span class="s0">return </span><span class="s5">0  </span><span class="s3"># Day not found</span>
+        <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s2">f&quot;Error calculating returns: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+            <span class="s0">return </span><span class="s5">0</span>
+
+    <span class="s0">def </span><span class="s1">save_backtest_results(self, results):</span>
+        <span class="s3">&quot;&quot;&quot;Save backtest results to file&quot;&quot;&quot;</span>
+        <span class="s0">try</span><span class="s1">:</span>
+            <span class="s1">os.makedirs(</span><span class="s2">&quot;data/backtest_results&quot;</span><span class="s1">, exist_ok=</span><span class="s0">True</span><span class="s1">)</span>
+
+            <span class="s3"># Create filename with timestamp</span>
+            <span class="s1">filename = </span><span class="s2">f&quot;news_backtest_</span><span class="s4">{</span><span class="s1">datetime.now().strftime(</span><span class="s2">'%Y%m%d_%H%M%S'</span><span class="s1">)</span><span class="s4">}</span><span class="s2">.json&quot;</span>
+            <span class="s1">file_path = os.path.join(</span><span class="s2">&quot;data/backtest_results&quot;</span><span class="s1">, filename)</span>
+
+            <span class="s0">with </span><span class="s1">open(file_path, </span><span class="s2">'w'</span><span class="s1">) </span><span class="s0">as </span><span class="s1">f:</span>
+                <span class="s1">json.dump(results, f, indent=</span><span class="s5">4</span><span class="s1">)</span>
+
+            <span class="s1">logger.info(</span><span class="s2">f&quot;Backtest results saved to </span><span class="s4">{</span><span class="s1">file_path</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+        <span class="s0">except </span><span class="s1">Exception </span><span class="s0">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s2">f&quot;Error saving backtest results: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s2">&quot;</span><span class="s1">)</span>
+</pre>
+</body>
+</html>

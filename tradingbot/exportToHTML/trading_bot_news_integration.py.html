@@ -1,0 +1,393 @@
+<html>
+<head>
+<title>trading_bot_news_integration.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #8c8c8c; font-style: italic;}
+.s1 { color: #080808;}
+.s2 { color: #0033b3;}
+.s3 { color: #067d17;}
+.s4 { color: #0037a6;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+trading_bot_news_integration.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#!/usr/bin/env python3</span>
+<span class="s0">&quot;&quot;&quot; 
+This file contains functions to patch the trading_bot.py file 
+with news integration capabilities. 
+&quot;&quot;&quot;</span>
+<span class="s2">import </span><span class="s1">os</span>
+<span class="s2">import </span><span class="s1">sys</span>
+<span class="s2">import </span><span class="s1">logging</span>
+<span class="s2">import </span><span class="s1">importlib.util</span>
+<span class="s2">from </span><span class="s1">datetime </span><span class="s2">import </span><span class="s1">datetime</span>
+
+<span class="s0"># Configure logging</span>
+<span class="s1">logging.basicConfig(</span>
+    <span class="s1">level=logging.INFO,</span>
+    <span class="s1">format=</span><span class="s3">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>
+<span class="s1">)</span>
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;Trading Bot News Integration&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">integrate_news_with_trading_bot():</span>
+    <span class="s0">&quot;&quot;&quot; 
+    Integrate news analysis with the trading bot system 
+    &quot;&quot;&quot;</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;Integrating news analysis with trading bot...&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Check if all required modules are available</span>
+    <span class="s1">required_modules = check_required_modules()</span>
+    <span class="s2">if not </span><span class="s1">required_modules[</span><span class="s3">&quot;all_available&quot;</span><span class="s1">]:</span>
+        <span class="s1">logger.error(</span><span class="s3">&quot;Missing required modules. Integration canceled.&quot;</span><span class="s1">)</span>
+        <span class="s2">return False</span>
+
+    <span class="s0"># Import the main modules</span>
+    <span class="s1">news_module = required_modules[</span><span class="s3">&quot;modules&quot;</span><span class="s1">][</span><span class="s3">&quot;financial_news_module&quot;</span><span class="s1">]</span>
+    <span class="s1">news_integration = required_modules[</span><span class="s3">&quot;modules&quot;</span><span class="s1">][</span><span class="s3">&quot;news_trading_integration&quot;</span><span class="s1">]</span>
+    <span class="s1">trading_bot = required_modules[</span><span class="s3">&quot;modules&quot;</span><span class="s1">][</span><span class="s3">&quot;trading_bot&quot;</span><span class="s1">]</span>
+
+    <span class="s0"># Create the news integrator</span>
+    <span class="s1">news_integrator = news_integration.NewsIntegrator()</span>
+
+    <span class="s0"># Backup trading_bot.py before modifying</span>
+    <span class="s1">backup_trading_bot()</span>
+
+    <span class="s0"># Modify the trading loop to include news analysis</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;Enhancing trading decision logic with news analysis&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Use the integrate_with_trading_bot function</span>
+    <span class="s1">integrator, patch_successful = news_integration.integrate_with_trading_bot(trading_bot)</span>
+
+    <span class="s2">if </span><span class="s1">patch_successful:</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Successfully integrated news analysis with trading bot&quot;</span><span class="s1">)</span>
+        <span class="s2">return True</span>
+    <span class="s2">else</span><span class="s1">:</span>
+        <span class="s1">logger.error(</span><span class="s3">&quot;Failed to patch trading bot. Using backup method...&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Fallback method: Create a helper module that trading_bot can import</span>
+        <span class="s1">create_news_helper_module()</span>
+
+        <span class="s1">logger.info(</span><span class="s3">&quot;Created news_helper.py module for manual integration&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.info(</span><span class="s3">&quot;Please import and use news_helper in trading_bot.py&quot;</span><span class="s1">)</span>
+        <span class="s2">return False</span>
+
+
+<span class="s2">def </span><span class="s1">check_required_modules():</span>
+    <span class="s0">&quot;&quot;&quot; 
+    Check if all required modules are available 
+    &quot;&quot;&quot;</span>
+    <span class="s1">required = {</span>
+        <span class="s3">&quot;financial_news_module&quot;</span><span class="s1">: </span><span class="s3">&quot;financial_news_module.py&quot;</span><span class="s1">,</span>
+        <span class="s3">&quot;news_trading_integration&quot;</span><span class="s1">: </span><span class="s3">&quot;news_trading_integration.py&quot;</span><span class="s1">,</span>
+        <span class="s3">&quot;trading_bot&quot;</span><span class="s1">: </span><span class="s3">&quot;trading_bot.py&quot;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">modules = {}</span>
+    <span class="s1">all_available = </span><span class="s2">True</span>
+
+    <span class="s2">for </span><span class="s1">module_name, filename </span><span class="s2">in </span><span class="s1">required.items():</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">if not </span><span class="s1">os.path.exists(filename):</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Missing required file: </span><span class="s4">{</span><span class="s1">filename</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s1">all_available = </span><span class="s2">False</span>
+                <span class="s2">continue</span>
+
+            <span class="s0"># Import the module</span>
+            <span class="s1">spec = importlib.util.spec_from_file_location(module_name, filename)</span>
+            <span class="s1">module = importlib.util.module_from_spec(spec)</span>
+            <span class="s1">spec.loader.exec_module(module)</span>
+
+            <span class="s1">modules[module_name] = module</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Successfully imported </span><span class="s4">{</span><span class="s1">module_name</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error importing </span><span class="s4">{</span><span class="s1">module_name</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">all_available = </span><span class="s2">False</span>
+
+    <span class="s2">return </span><span class="s1">{</span>
+        <span class="s3">&quot;all_available&quot;</span><span class="s1">: all_available,</span>
+        <span class="s3">&quot;modules&quot;</span><span class="s1">: modules</span>
+    <span class="s1">}</span>
+
+
+<span class="s2">def </span><span class="s1">backup_trading_bot():</span>
+    <span class="s0">&quot;&quot;&quot; 
+    Create a backup of the trading_bot.py file 
+    &quot;&quot;&quot;</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s2">if </span><span class="s1">os.path.exists(</span><span class="s3">&quot;trading_bot.py&quot;</span><span class="s1">):</span>
+            <span class="s1">backup_filename = </span><span class="s3">f&quot;trading_bot_backup_</span><span class="s4">{</span><span class="s1">datetime.now().strftime(</span><span class="s3">'%Y%m%d_%H%M%S'</span><span class="s1">)</span><span class="s4">}</span><span class="s3">.py&quot;</span>
+            <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;trading_bot.py&quot;</span><span class="s1">, </span><span class="s3">&quot;r&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">src_file:</span>
+                <span class="s2">with </span><span class="s1">open(backup_filename, </span><span class="s3">&quot;w&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">dst_file:</span>
+                    <span class="s1">dst_file.write(src_file.read())</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Created backup of trading_bot.py as </span><span class="s4">{</span><span class="s1">backup_filename</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return True</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">logger.error(</span><span class="s3">&quot;trading_bot.py not found&quot;</span><span class="s1">)</span>
+            <span class="s2">return False</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error creating backup: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return False</span>
+
+
+<span class="s2">def </span><span class="s1">create_news_helper_module():</span>
+    <span class="s0">&quot;&quot;&quot; 
+    Create a helper module that trading_bot can import 
+    &quot;&quot;&quot;</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s1">helper_code = </span><span class="s3">&quot;&quot;&quot;#!/usr/bin/env python3 
+</span><span class="s4">\&quot;\&quot;\&quot;</span>
+<span class="s3">News Helper Module for Trading Bot 
+Provides functions to integrate news analysis with trading decisions 
+</span><span class="s4">\&quot;\&quot;\&quot;</span>
+<span class="s3">import os 
+import sys 
+import logging 
+from datetime import datetime 
+ 
+# Configure logging 
+logging.basicConfig( 
+    level=logging.INFO, 
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s' 
+) 
+logger = logging.getLogger(&quot;News Helper&quot;) 
+ 
+# Import required modules 
+try: 
+    from financial_news_module import FinancialNewsCollector 
+    from news_trading_integration import NewsIntegrator 
+ 
+    # Create global instances 
+    news_collector = FinancialNewsCollector() 
+    news_collector.load_config() 
+ 
+    news_integrator = NewsIntegrator() 
+ 
+    logger.info(&quot;News helper module initialized&quot;) 
+    NEWS_MODULE_AVAILABLE = True 
+except Exception as e: 
+    logger.error(f&quot;Error initializing news modules: {e}&quot;) 
+    NEWS_MODULE_AVAILABLE = False 
+ 
+def get_news_sentiment(symbol): 
+    </span><span class="s4">\&quot;\&quot;\&quot;</span>
+    <span class="s3">Get news sentiment for a symbol (0-1 scale) 
+ 
+    Args: 
+        symbol (str): Stock symbol 
+ 
+    Returns: 
+        float: Sentiment signal (0-1) 
+    </span><span class="s4">\&quot;\&quot;\&quot;</span>
+    <span class="s3">if not NEWS_MODULE_AVAILABLE: 
+        return 0.5  # Neutral 
+ 
+    try: 
+        # Get sentiment factors 
+        factors = news_collector.get_finance_sentiment_factors(symbol) 
+        return factors[&quot;sentiment_signal&quot;] 
+    except Exception as e: 
+        logger.error(f&quot;Error getting news sentiment: {e}&quot;) 
+        return 0.5  # Neutral 
+ 
+def get_enhanced_trading_signal(symbol, technical_signal, quantum_signal=None): 
+    </span><span class="s4">\&quot;\&quot;\&quot;</span>
+    <span class="s3">Get enhanced trading signal incorporating news 
+ 
+    Args: 
+        symbol (str): Stock symbol 
+        technical_signal (float): Technical analysis signal (0-1) 
+        quantum_signal (float): Quantum analysis signal (0-1) 
+ 
+    Returns: 
+        float: Enhanced trading signal (0-1) 
+    </span><span class="s4">\&quot;\&quot;\&quot;</span>
+    <span class="s3">if not NEWS_MODULE_AVAILABLE: 
+        return technical_signal 
+ 
+    try: 
+        # Prepare signals 
+        technical_signals = {symbol: technical_signal} 
+        quantum_signals = {symbol: quantum_signal if quantum_signal is not None else technical_signal} 
+ 
+        # Get integrated signals 
+        integrated_signals = news_integrator.get_integrated_signals( 
+            [symbol], technical_signals, quantum_signals 
+        ) 
+ 
+        if symbol in integrated_signals: 
+            return integrated_signals[symbol][&quot;integrated_signal&quot;] 
+        else: 
+            return technical_signal 
+    except Exception as e: 
+        logger.error(f&quot;Error getting enhanced trading signal: {e}&quot;) 
+        return technical_signal 
+ 
+def get_market_risk_level(): 
+    </span><span class="s4">\&quot;\&quot;\&quot;</span>
+    <span class="s3">Get current market risk level 
+ 
+    Returns: 
+        dict: Market risk factors 
+    </span><span class="s4">\&quot;\&quot;\&quot;</span>
+    <span class="s3">if not NEWS_MODULE_AVAILABLE: 
+        return {&quot;risk_level&quot;: &quot;Unknown&quot;, &quot;panic_level&quot;: 50} 
+ 
+    try: 
+        return news_collector.get_market_risk_factors() 
+    except Exception as e: 
+        logger.error(f&quot;Error getting market risk level: {e}&quot;) 
+        return {&quot;risk_level&quot;: &quot;Unknown&quot;, &quot;panic_level&quot;: 50} 
+ 
+def should_halt_trading(): 
+    </span><span class="s4">\&quot;\&quot;\&quot;</span>
+    <span class="s3">Check if trading should be halted due to extreme market conditions 
+ 
+    Returns: 
+        bool: True if trading should be halted 
+    </span><span class="s4">\&quot;\&quot;\&quot;</span>
+    <span class="s3">if not NEWS_MODULE_AVAILABLE: 
+        return False 
+ 
+    try: 
+        risk_factors = news_collector.get_market_risk_factors() 
+        panic_level = risk_factors[&quot;panic_level&quot;] 
+ 
+        # Halt trading if panic level is extremely high (above 90) 
+        if panic_level &gt;= 90: 
+            logger.warning(f&quot;EXTREME MARKET PANIC DETECTED ({panic_level}/100) - Recommending trading halt&quot;) 
+            return True 
+ 
+        return False 
+    except Exception as e: 
+        logger.error(f&quot;Error checking if trading should be halted: {e}&quot;) 
+        return False 
+ 
+def adjust_quantum_features(symbol, base_features): 
+    </span><span class="s4">\&quot;\&quot;\&quot;</span>
+    <span class="s3">Adjust quantum features based on news and sentiment 
+ 
+    Args: 
+        symbol (str): Stock symbol 
+        base_features (list): Base quantum features 
+ 
+    Returns: 
+        list: Adjusted features 
+    </span><span class="s4">\&quot;\&quot;\&quot;</span>
+    <span class="s3">if not NEWS_MODULE_AVAILABLE: 
+        return base_features 
+ 
+    try: 
+        # Get news features 
+        sentiment = news_collector.get_finance_sentiment_factors(symbol) 
+ 
+        # Add news-based features 
+        news_features = [ 
+            (sentiment[&quot;news_sentiment&quot;] + 1) / 2,  # Convert to 0-1 scale 
+            (sentiment[&quot;social_sentiment&quot;] + 1) / 2, 
+            sentiment[&quot;fear_greed_score&quot;] / 100 
+        ] 
+ 
+        # Add only if we have space 
+        max_features = 5 
+        available_slots = max_features - len(base_features) 
+ 
+        if available_slots &gt; 0: 
+            # Add news features up to available slots 
+            combined_features = base_features + news_features[:available_slots] 
+        else: 
+            # Replace some base features with news features 
+            # Keep the first 3 base features as they're likely more important 
+            combined_features = base_features[:3] + news_features[:max_features-3] 
+ 
+        # Ensure all features are in range [0,1] 
+        combined_features = [max(0, min(1, f)) for f in combined_features] 
+ 
+        return combined_features 
+    except Exception as e: 
+        logger.error(f&quot;Error adjusting quantum features: {e}&quot;) 
+        return base_features 
+ 
+# Add more helper functions as needed 
+&quot;&quot;&quot;</span>
+
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;news_helper.py&quot;</span><span class="s1">, </span><span class="s3">&quot;w&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">f.write(helper_code)</span>
+
+        <span class="s1">logger.info(</span><span class="s3">&quot;Created news_helper.py module&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Also create an integration example</span>
+        <span class="s1">example_code = </span><span class="s3">&quot;&quot;&quot; 
+# Example integration with trading_bot.py 
+ 
+# 1. Import the news helper 
+from news_helper import get_news_sentiment, get_enhanced_trading_signal, get_market_risk_level 
+ 
+# 2. In your make_trading_decision function: 
+def make_trading_decision(symbol, quantum_device, config): 
+    # Get historical data 
+    historical_data = platform_adapter.get_market_data(symbol) 
+ 
+    # Get technical signal 
+    technical_signal = classical_decision(historical_data) 
+ 
+    # Get quantum signal if available 
+    quantum_signal = None 
+    if QUANTUM_AVAILABLE and quantum_device is not None: 
+        # ... existing quantum code ... 
+        quantum_signal, confidence, actual_error = quantum_prediction( 
+            symbol, historical_data, quantum_device, error_rate, config 
+        ) 
+ 
+    # Get enhanced signal with news 
+    enhanced_signal = get_enhanced_trading_signal(symbol, technical_signal, quantum_signal) 
+ 
+    # Make trading decision based on enhanced signal 
+    has_position = symbol in trade_history[&quot;positions&quot;] 
+ 
+    if enhanced_signal &gt; 0.7 and not has_position: 
+        logger.info(f&quot;BUY signal for {symbol} (enhanced score: {enhanced_signal:.4f})&quot;) 
+        execute_trade(&quot;BUY&quot;, symbol) 
+    elif enhanced_signal &lt; 0.3 and has_position: 
+        logger.info(f&quot;SELL signal for {symbol} (enhanced score: {enhanced_signal:.4f})&quot;) 
+        execute_trade(&quot;SELL&quot;, symbol) 
+    else: 
+        logger.info(f&quot;HOLD signal for {symbol} (enhanced score: {enhanced_signal:.4f})&quot;) 
+ 
+# 3. In your quantum_prediction function, you can add news features: 
+from news_helper import adjust_quantum_features 
+ 
+def quantum_prediction(symbol, historical_data, quantum_device, error_rate, config): 
+    # ... existing code ... 
+ 
+    # Prepare features 
+    features = np.array([ 
+        # ... existing features ... 
+    ]).flatten() 
+ 
+    # Add news-based features 
+    features = adjust_quantum_features(symbol, features) 
+ 
+    # ... rest of function ... 
+&quot;&quot;&quot;</span>
+
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">&quot;trading_bot_news_integration_example.py&quot;</span><span class="s1">, </span><span class="s3">&quot;w&quot;</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">f.write(example_code)</span>
+
+        <span class="s1">logger.info(</span><span class="s3">&quot;Created integration example in trading_bot_news_integration_example.py&quot;</span><span class="s1">)</span>
+        <span class="s2">return True</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error creating helper module: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return False</span>
+
+
+<span class="s2">if </span><span class="s1">__name__ == </span><span class="s3">&quot;__main__&quot;</span><span class="s1">:</span>
+    <span class="s1">integrate_news_with_trading_bot()</span>
+</pre>
+</body>
+</html>

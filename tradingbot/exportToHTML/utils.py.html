@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>utils.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #8c8c8c; font-style: italic;}
+.s1 { color: #080808;}
+.s2 { color: #0033b3;}
+.s3 { color: #067d17;}
+.s4 { color: #0037a6;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+utils.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#!/usr/bin/env python3</span>
+<span class="s0">&quot;&quot;&quot; 
+Utility functions for the trading system 
+&quot;&quot;&quot;</span>
+<span class="s2">import </span><span class="s1">os</span>
+<span class="s2">import </span><span class="s1">time</span>
+<span class="s2">from </span><span class="s1">datetime </span><span class="s2">import </span><span class="s1">datetime</span>
+<span class="s2">import </span><span class="s1">logging</span>
+
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;Utils&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">def </span><span class="s1">create_heartbeat(bot_name):</span>
+    <span class="s0">&quot;&quot;&quot;Create a heartbeat file with current timestamp&quot;&quot;&quot;</span>
+    <span class="s1">heartbeat_dir = </span><span class="s3">&quot;logs/heartbeats&quot;</span>
+    <span class="s1">os.makedirs(heartbeat_dir, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+    <span class="s1">heartbeat_file = os.path.join(heartbeat_dir, </span><span class="s3">f&quot;</span><span class="s4">{</span><span class="s1">bot_name</span><span class="s4">}</span><span class="s3">_heartbeat.txt&quot;</span><span class="s1">)</span>
+
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s2">with </span><span class="s1">open(heartbeat_file, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">f.write(</span><span class="s3">f&quot;Last heartbeat: </span><span class="s4">{</span><span class="s1">datetime.now().isoformat()</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">logger.debug(</span><span class="s3">f&quot;Heartbeat created for </span><span class="s4">{</span><span class="s1">bot_name</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error creating heartbeat for </span><span class="s4">{</span><span class="s1">bot_name</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">import </span><span class="s1">sqlite3</span>
+
+
+<span class="s2">def </span><span class="s1">log_activity(bot_name, action):</span>
+    <span class="s0">&quot;&quot;&quot;Log bot activity to SQLite database&quot;&quot;&quot;</span>
+    <span class="s1">db_dir = </span><span class="s3">&quot;data&quot;</span>
+    <span class="s1">os.makedirs(db_dir, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+    <span class="s1">db_path = os.path.join(db_dir, </span><span class="s3">'bot_activity.db'</span><span class="s1">)</span>
+
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s1">conn = sqlite3.connect(db_path)</span>
+        <span class="s1">c = conn.cursor()</span>
+
+        <span class="s0"># Create table if it doesn't exist</span>
+        <span class="s1">c.execute(</span><span class="s3">''' 
+        CREATE TABLE IF NOT EXISTS activity_log 
+        (timestamp TEXT, bot TEXT, action TEXT) 
+        '''</span><span class="s1">)</span>
+
+        <span class="s0"># Insert activity</span>
+        <span class="s1">c.execute(</span><span class="s3">&quot;INSERT INTO activity_log VALUES (?, ?, ?)&quot;</span><span class="s1">,</span>
+                  <span class="s1">(datetime.now().isoformat(), bot_name, action))</span>
+
+        <span class="s1">conn.commit()</span>
+        <span class="s1">conn.close()</span>
+        <span class="s1">logger.debug(</span><span class="s3">f&quot;Activity logged for </span><span class="s4">{</span><span class="s1">bot_name</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">action</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error logging activity for </span><span class="s4">{</span><span class="s1">bot_name</span><span class="s4">}</span><span class="s3">: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+</pre>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>enhanced_sentiment.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #8c8c8c; font-style: italic;}
+.s1 { color: #080808;}
+.s2 { color: #0033b3;}
+.s3 { color: #067d17;}
+.s4 { color: #0037a6;}
+.s5 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+enhanced_sentiment.py</font>
+</center></td></tr></table>
+<pre><span class="s0"># Install required libraries:</span>
+<span class="s0"># pip install transformers torch</span>
+
+<span class="s2">import </span><span class="s1">logging</span>
+<span class="s2">import </span><span class="s1">torch</span>
+<span class="s2">import </span><span class="s1">transformers</span>
+<span class="s2">import </span><span class="s1">math</span>
+<span class="s2">from </span><span class="s1">datetime </span><span class="s2">import </span><span class="s1">datetime</span>
+
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;Enhanced Sentiment&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">class </span><span class="s1">EnhancedSentimentAnalyzer:</span>
+    <span class="s2">def </span><span class="s1">__init__(self):</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s1">self.finbert = transformers.AutoModelForSequenceClassification.from_pretrained(</span><span class="s3">'ProsusAI/finbert'</span><span class="s1">)</span>
+            <span class="s1">self.tokenizer = transformers.AutoTokenizer.from_pretrained(</span><span class="s3">'ProsusAI/finbert'</span><span class="s1">)</span>
+            <span class="s1">self.model_loaded = </span><span class="s2">True</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;FinBERT model loaded successfully&quot;</span><span class="s1">)</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">self.model_loaded = </span><span class="s2">False</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error loading FinBERT model: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s1">logger.info(</span><span class="s3">&quot;Will fall back to basic sentiment analysis&quot;</span><span class="s1">)</span>
+
+    <span class="s2">def </span><span class="s1">analyze_sentiment(self, text):</span>
+        <span class="s0">&quot;&quot;&quot;Use advanced NLP for financial news sentiment analysis&quot;&quot;&quot;</span>
+        <span class="s2">if not </span><span class="s1">self.model_loaded:</span>
+            <span class="s0"># Fall back to simpler method</span>
+            <span class="s2">return </span><span class="s1">self._simple_sentiment_analysis(text)</span>
+
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s0"># Process text through model</span>
+            <span class="s1">inputs = self.tokenizer(text, return_tensors=</span><span class="s3">&quot;pt&quot;</span><span class="s1">, truncation=</span><span class="s2">True</span><span class="s1">, padding=</span><span class="s2">True</span><span class="s1">, max_length=</span><span class="s5">512</span><span class="s1">)</span>
+            <span class="s1">outputs = self.finbert(**inputs)</span>
+
+            <span class="s0"># Convert to sentiment score (-1 to 1 scale)</span>
+            <span class="s1">probabilities = torch.nn.functional.softmax(outputs.logits, dim=-</span><span class="s5">1</span><span class="s1">)</span>
+            <span class="s0"># FinBERT outputs [negative, neutral, positive]</span>
+            <span class="s1">sentiment_score = probabilities[</span><span class="s5">0</span><span class="s1">][</span><span class="s5">2</span><span class="s1">].item() - probabilities[</span><span class="s5">0</span><span class="s1">][</span><span class="s5">0</span><span class="s1">].item()</span>
+
+            <span class="s2">return </span><span class="s1">sentiment_score</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error in advanced sentiment analysis: </span><span class="s4">{</span><span class="s1">e</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s0"># Fall back to simpler method</span>
+            <span class="s2">return </span><span class="s1">self._simple_sentiment_analysis(text)</span>
+
+    <span class="s2">def </span><span class="s1">_simple_sentiment_analysis(self, text):</span>
+        <span class="s0">&quot;&quot;&quot;Legacy simple sentiment analysis as fallback&quot;&quot;&quot;</span>
+        <span class="s0"># Copy the existing _simple_sentiment_analysis method from financial_news_module.py</span>
+        <span class="s0"># This serves as a fallback when the advanced model fails</span>
+        <span class="s2">pass</span>
+</pre>
+</body>
+</html>

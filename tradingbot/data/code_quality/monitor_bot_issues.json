@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-03-28T17:11:56.444053",
+  "module": "monitor_bot",
+  "issues": [
+    "Line 219: Possible hardcoded credential - api_key = os.environ.get(\"ZOYA_API_KEY\")",
+    "Line 223: Possible hardcoded credential - headers = {\"Authorization\": f\"Bearer {api_key}\"}"
+  ]
+}

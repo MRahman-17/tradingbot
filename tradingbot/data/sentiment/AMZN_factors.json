@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-04-08T00:43:32.269982",
+  "symbol": "AMZN",
+  "news_sentiment": 0,
+  "social_sentiment": -0.2076194117020241,
+  "fear_greed_sentiment": -0.52,
+  "fear_greed_score": 24,
+  "fear_greed_classification": "Extreme Fear",
+  "market_regime": "Extreme Fear - Potential Bottom",
+  "combined_sentiment": -0.16628582351060722,
+  "sentiment_signal": 0.41685708824469636
+}

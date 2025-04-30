@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>test_news_module.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #8c8c8c; font-style: italic;}
+.s1 { color: #080808;}
+.s2 { color: #0033b3;}
+.s3 { color: #067d17;}
+.s4 { color: #0037a6;}
+.s5 { color: #1750eb;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+test_news_module.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#!/usr/bin/env python3</span>
+<span class="s0">&quot;&quot;&quot; 
+Enhanced test script for the Financial News Module 
+Tests various functionality including fear &amp; greed index, news sentiment, 
+and integration with trading decision-making 
+&quot;&quot;&quot;</span>
+<span class="s2">import </span><span class="s1">os</span>
+<span class="s2">import </span><span class="s1">sys</span>
+<span class="s2">import </span><span class="s1">json</span>
+<span class="s2">import </span><span class="s1">logging</span>
+<span class="s2">from </span><span class="s1">datetime </span><span class="s2">import </span><span class="s1">datetime</span>
+
+<span class="s0"># Configure logging</span>
+<span class="s1">logging.basicConfig(</span>
+    <span class="s1">level=logging.INFO,</span>
+    <span class="s1">format=</span><span class="s3">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>
+<span class="s1">)</span>
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;News Module Test&quot;</span><span class="s1">)</span>
+
+<span class="s0"># Import the FinancialNewsCollector</span>
+<span class="s2">from </span><span class="s1">financial_news_module </span><span class="s2">import </span><span class="s1">FinancialNewsCollector</span>
+
+
+<span class="s2">def </span><span class="s1">main():</span>
+    <span class="s0">&quot;&quot;&quot;Main test function&quot;&quot;&quot;</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;=== FINANCIAL NEWS MODULE TEST ===&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Create news collector</span>
+    <span class="s1">news_collector = FinancialNewsCollector()</span>
+
+    <span class="s0"># Load configuration</span>
+    <span class="s1">news_collector.load_config()</span>
+
+    <span class="s0"># Test symbols</span>
+    <span class="s1">symbols = [</span><span class="s3">&quot;AAPL&quot;</span><span class="s1">, </span><span class="s3">&quot;MSFT&quot;</span><span class="s1">, </span><span class="s3">&quot;NVDA&quot;</span><span class="s1">, </span><span class="s3">&quot;GOOGL&quot;</span><span class="s1">, </span><span class="s3">&quot;AMZN&quot;</span><span class="s1">]</span>
+
+    <span class="s0"># Test fear &amp; greed index update</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">Testing Fear &amp; Greed Index:&quot;</span><span class="s1">)</span>
+    <span class="s1">fear_greed_data = news_collector.update_fear_greed_index()</span>
+    <span class="s1">print(</span><span class="s3">f&quot;Fear &amp; Greed Index: </span><span class="s4">{</span><span class="s1">fear_greed_data[</span><span class="s3">'score'</span><span class="s1">]</span><span class="s4">} </span><span class="s3">(</span><span class="s4">{</span><span class="s1">fear_greed_data[</span><span class="s3">'classification'</span><span class="s1">]</span><span class="s4">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s3">f&quot;Market Regime: </span><span class="s4">{</span><span class="s1">fear_greed_data[</span><span class="s3">'market_regime'</span><span class="s1">]</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Get panic level</span>
+    <span class="s1">panic_level = news_collector.get_panic_level()</span>
+    <span class="s1">print(</span><span class="s3">f&quot;Market Panic Level: </span><span class="s4">{</span><span class="s1">panic_level</span><span class="s4">}</span><span class="s3">/100&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Get market risk factors</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">Testing Market Risk Factors:&quot;</span><span class="s1">)</span>
+    <span class="s1">risk_factors = news_collector.get_market_risk_factors()</span>
+    <span class="s1">print(</span><span class="s3">f&quot;Risk Level: </span><span class="s4">{</span><span class="s1">risk_factors[</span><span class="s3">'risk_level'</span><span class="s1">]</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+    <span class="s1">print(</span><span class="s3">f&quot;Volatility Expectation: </span><span class="s4">{</span><span class="s1">risk_factors[</span><span class="s3">'volatility_expectation'</span><span class="s1">]</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Update news data for all symbols</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">Updating News Data:&quot;</span><span class="s1">)</span>
+    <span class="s1">news_sentiment = news_collector.update_news_data(symbols)</span>
+    <span class="s2">for </span><span class="s1">symbol, sentiment </span><span class="s2">in </span><span class="s1">news_sentiment.items():</span>
+        <span class="s1">print(</span><span class="s3">f&quot;</span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">News Sentiment: </span><span class="s4">{</span><span class="s1">sentiment</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Test social sentiment</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">Testing Social Sentiment:&quot;</span><span class="s1">)</span>
+    <span class="s2">for </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">symbols[:</span><span class="s5">2</span><span class="s1">]:  </span><span class="s0"># Just test a couple to save time</span>
+        <span class="s1">social_data = news_collector.get_social_sentiment(symbol)</span>
+        <span class="s1">print(</span><span class="s3">f&quot;</span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">Social Sentiment: </span><span class="s4">{</span><span class="s1">social_data[</span><span class="s3">'sentiment_score'</span><span class="s1">]</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Test getting sentiment factors</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">Testing Sentiment Factors:&quot;</span><span class="s1">)</span>
+    <span class="s2">for </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">symbols:</span>
+        <span class="s1">factors = news_collector.get_finance_sentiment_factors(symbol)</span>
+        <span class="s1">print(</span><span class="s3">f&quot;</span><span class="s4">\n{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">Sentiment Factors:&quot;</span><span class="s1">)</span>
+        <span class="s1">print(</span><span class="s3">f&quot;  News Sentiment: </span><span class="s4">{</span><span class="s1">factors[</span><span class="s3">'news_sentiment'</span><span class="s1">]</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">print(</span><span class="s3">f&quot;  Social Sentiment: </span><span class="s4">{</span><span class="s1">factors[</span><span class="s3">'social_sentiment'</span><span class="s1">]</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">print(</span><span class="s3">f&quot;  Fear &amp; Greed Sentiment: </span><span class="s4">{</span><span class="s1">factors[</span><span class="s3">'fear_greed_sentiment'</span><span class="s1">]</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">print(</span><span class="s3">f&quot;  Combined Sentiment: </span><span class="s4">{</span><span class="s1">factors[</span><span class="s3">'combined_sentiment'</span><span class="s1">]</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">print(</span><span class="s3">f&quot;  Sentiment Signal (0-1): </span><span class="s4">{</span><span class="s1">factors[</span><span class="s3">'sentiment_signal'</span><span class="s1">]</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Test event risk analysis</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">Testing Event Risk Analysis:&quot;</span><span class="s1">)</span>
+    <span class="s1">event_risks = news_collector.analyze_event_risks(symbols)</span>
+    <span class="s2">for </span><span class="s1">symbol, risk_data </span><span class="s2">in </span><span class="s1">event_risks.items():</span>
+        <span class="s1">print(</span><span class="s3">f&quot;</span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">} </span><span class="s3">Event Risk Score: </span><span class="s4">{</span><span class="s1">risk_data[</span><span class="s3">'risk_score'</span><span class="s1">]</span><span class="s4">:</span><span class="s3">.2f</span><span class="s4">} </span><span class="s3">(</span><span class="s4">{</span><span class="s1">risk_data[</span><span class="s3">'events_detected'</span><span class="s1">]</span><span class="s4">} </span><span class="s3">events)&quot;</span><span class="s1">)</span>
+
+        <span class="s0"># Print details of the first event if any</span>
+        <span class="s2">if </span><span class="s1">risk_data[</span><span class="s3">'events'</span><span class="s1">]:</span>
+            <span class="s1">event = risk_data[</span><span class="s3">'events'</span><span class="s1">][</span><span class="s5">0</span><span class="s1">]</span>
+            <span class="s1">print(</span><span class="s3">f&quot;  Example Event: </span><span class="s4">{</span><span class="s1">event[</span><span class="s3">'event_type'</span><span class="s1">]</span><span class="s4">} </span><span class="s3">- </span><span class="s4">{</span><span class="s1">event[</span><span class="s3">'title'</span><span class="s1">]</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Test sector sentiment</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">Testing Sector Sentiment:&quot;</span><span class="s1">)</span>
+    <span class="s1">sectors = [</span><span class="s3">&quot;Technology&quot;</span><span class="s1">, </span><span class="s3">&quot;Healthcare&quot;</span><span class="s1">, </span><span class="s3">&quot;Financials&quot;</span><span class="s1">]</span>
+    <span class="s2">for </span><span class="s1">sector </span><span class="s2">in </span><span class="s1">sectors:</span>
+        <span class="s1">sector_sentiment = news_collector.get_sector_sentiment(sector)</span>
+        <span class="s2">if </span><span class="s1">sector_sentiment:</span>
+            <span class="s1">print(</span><span class="s3">f&quot;</span><span class="s4">{</span><span class="s1">sector</span><span class="s4">} </span><span class="s3">Sector Sentiment: </span><span class="s4">{</span><span class="s1">sector_sentiment[</span><span class="s3">'average_sentiment'</span><span class="s1">]</span><span class="s4">:</span><span class="s3">.4f</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Save all data to see output files</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">All test data has been saved to the data directory&quot;</span><span class="s1">)</span>
+
+    <span class="s0"># Demo integration with trading decision</span>
+    <span class="s1">logger.info(</span><span class="s3">&quot;</span><span class="s4">\n</span><span class="s3">Demo Integration with Trading Decision:&quot;</span><span class="s1">)</span>
+    <span class="s2">for </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">symbols:</span>
+        <span class="s1">sentiment_signal = news_collector.get_finance_sentiment_factors(symbol)[</span><span class="s3">&quot;sentiment_signal&quot;</span><span class="s1">]</span>
+        <span class="s1">market_risk = risk_factors[</span><span class="s3">&quot;risk_level&quot;</span><span class="s1">]</span>
+
+        <span class="s0"># Simple trading decision logic</span>
+        <span class="s2">if </span><span class="s1">sentiment_signal &gt; </span><span class="s5">0.7 </span><span class="s2">and </span><span class="s3">&quot;High Risk&quot; </span><span class="s2">not in </span><span class="s1">market_risk:</span>
+            <span class="s1">decision = </span><span class="s3">&quot;BUY&quot;</span>
+        <span class="s2">elif </span><span class="s1">sentiment_signal &lt; </span><span class="s5">0.3 </span><span class="s2">or </span><span class="s3">&quot;Extreme Risk&quot; </span><span class="s2">in </span><span class="s1">market_risk:</span>
+            <span class="s1">decision = </span><span class="s3">&quot;SELL&quot;</span>
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s1">decision = </span><span class="s3">&quot;HOLD&quot;</span>
+
+        <span class="s1">print(</span><span class="s3">f&quot;</span><span class="s4">{</span><span class="s1">symbol</span><span class="s4">}</span><span class="s3">: Sentiment Signal </span><span class="s4">{</span><span class="s1">sentiment_signal</span><span class="s4">:</span><span class="s3">.2f</span><span class="s4">}</span><span class="s3">, Market Risk '</span><span class="s4">{</span><span class="s1">market_risk</span><span class="s4">}</span><span class="s3">' → </span><span class="s4">{</span><span class="s1">decision</span><span class="s4">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+
+<span class="s2">if </span><span class="s1">__name__ == </span><span class="s3">&quot;__main__&quot;</span><span class="s1">:</span>
+    <span class="s1">main()</span>
+</pre>
+</body>
+</html>

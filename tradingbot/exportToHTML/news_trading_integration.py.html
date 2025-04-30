@@ -1,0 +1,712 @@
+<html>
+<head>
+<title>news_trading_integration.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #8c8c8c; font-style: italic;}
+.s1 { color: #080808;}
+.s2 { color: #0033b3;}
+.s3 { color: #067d17;}
+.s4 { color: #1750eb;}
+.s5 { color: #0037a6;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+news_trading_integration.py</font>
+</center></td></tr></table>
+<pre><span class="s0">#!/usr/bin/env python3</span>
+<span class="s0">&quot;&quot;&quot; 
+News Trading Integration Module 
+Integrates financial news analysis with trading bot and quantum components 
+&quot;&quot;&quot;</span>
+<span class="s2">import </span><span class="s1">os</span>
+<span class="s2">import </span><span class="s1">sys</span>
+<span class="s2">import </span><span class="s1">logging</span>
+<span class="s2">import </span><span class="s1">json</span>
+<span class="s2">import </span><span class="s1">numpy </span><span class="s2">as </span><span class="s1">np</span>
+<span class="s2">from </span><span class="s1">datetime </span><span class="s2">import </span><span class="s1">datetime</span>
+<span class="s2">from </span><span class="s1">adaptive_weights </span><span class="s2">import </span><span class="s1">WeightManager</span>
+<span class="s2">from </span><span class="s1">resilient_analysis </span><span class="s2">import </span><span class="s1">ResilientNewsAnalyzer</span>
+
+<span class="s0"># Configure logging</span>
+<span class="s1">logging.basicConfig(</span>
+    <span class="s1">level=logging.INFO,</span>
+    <span class="s1">format=</span><span class="s3">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>
+<span class="s1">)</span>
+<span class="s1">logger = logging.getLogger(</span><span class="s3">&quot;News Trading Integration&quot;</span><span class="s1">)</span>
+
+<span class="s0"># Import the FinancialNewsCollector</span>
+<span class="s2">from </span><span class="s1">financial_news_module </span><span class="s2">import </span><span class="s1">FinancialNewsCollector</span>
+
+
+<span class="s2">class </span><span class="s1">NewsIntegrator:</span>
+    <span class="s0">&quot;&quot;&quot;Integrates news analysis with trading decisions&quot;&quot;&quot;</span>
+
+    <span class="s2">def </span><span class="s1">__init__(self):</span>
+        <span class="s0">&quot;&quot;&quot;Initialize the news integrator&quot;&quot;&quot;</span>
+        <span class="s1">self.news_collector = FinancialNewsCollector()</span>
+        <span class="s1">self.news_collector.load_config()</span>
+
+        <span class="s0"># Create required directories</span>
+        <span class="s1">os.makedirs(</span><span class="s3">&quot;data/integrated_signals&quot;</span><span class="s1">, exist_ok=</span><span class="s2">True</span><span class="s1">)</span>
+
+        <span class="s0"># Default weights for integration</span>
+        <span class="s1">self.integration_weights = {</span>
+            <span class="s3">&quot;technical&quot;</span><span class="s1">: </span><span class="s4">0.4</span><span class="s1">,  </span><span class="s0"># Technical analysis weight</span>
+            <span class="s3">&quot;quantum&quot;</span><span class="s1">: </span><span class="s4">0.25</span><span class="s1">,  </span><span class="s0"># Quantum analysis weight</span>
+            <span class="s3">&quot;news&quot;</span><span class="s1">: </span><span class="s4">0.25</span><span class="s1">,  </span><span class="s0"># News sentiment weight</span>
+            <span class="s3">&quot;market_risk&quot;</span><span class="s1">: </span><span class="s4">0.1  </span><span class="s0"># Market risk factors weight</span>
+        <span class="s1">}</span>
+
+        <span class="s0"># Load custom weights if available</span>
+        <span class="s1">self._load_weights()</span>
+
+        <span class="s1">logger.info(</span><span class="s3">&quot;News integrator initialized&quot;</span><span class="s1">)</span>
+
+    <span class="s2">def </span><span class="s1">_load_weights(self):</span>
+        <span class="s0">&quot;&quot;&quot;Load integration weights from file if available&quot;&quot;&quot;</span>
+        <span class="s1">weights_path = </span><span class="s3">&quot;config/integration_weights.json&quot;</span>
+        <span class="s2">if </span><span class="s1">os.path.exists(weights_path):</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s2">with </span><span class="s1">open(weights_path, </span><span class="s3">'r'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                    <span class="s1">weights = json.load(f)</span>
+                <span class="s1">self.integration_weights = weights</span>
+                <span class="s1">logger.info(</span><span class="s3">&quot;Integration weights loaded from file&quot;</span><span class="s1">)</span>
+            <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error loading integration weights: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+    <span class="s2">def </span><span class="s1">update_sentiment_data(self, symbols):</span>
+        <span class="s0">&quot;&quot;&quot;Update sentiment data for all symbols&quot;&quot;&quot;</span>
+        <span class="s0"># Update fear &amp; greed index</span>
+        <span class="s1">self.news_collector.update_fear_greed_index()</span>
+
+        <span class="s0"># Update news data</span>
+        <span class="s1">self.news_collector.update_news_data(symbols)</span>
+
+        <span class="s0"># Get market risk factors</span>
+        <span class="s1">risk_factors = self.news_collector.get_market_risk_factors()</span>
+
+        <span class="s0"># Analyze event risks</span>
+        <span class="s1">event_risks = self.news_collector.analyze_event_risks(symbols)</span>
+
+        <span class="s1">logger.info(</span><span class="s3">f&quot;Updated sentiment data for </span><span class="s5">{</span><span class="s1">len(symbols)</span><span class="s5">} </span><span class="s3">symbols&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">{</span>
+            <span class="s3">&quot;risk_factors&quot;</span><span class="s1">: risk_factors,</span>
+            <span class="s3">&quot;event_risks&quot;</span><span class="s1">: event_risks</span>
+        <span class="s1">}</span>
+
+    <span class="s2">def </span><span class="s1">get_integrated_signals(self, symbols, technical_signals, quantum_signals):</span>
+        <span class="s0">&quot;&quot;&quot; 
+        Integrate news sentiment with technical and quantum signals using adaptive weights 
+ 
+        Args: 
+            symbols (list): List of stock symbols 
+            technical_signals (dict): Technical analysis signals (0-1 scale) 
+            quantum_signals (dict): Quantum analysis signals (0-1 scale) 
+ 
+        Returns: 
+            dict: Integrated trading signals 
+        &quot;&quot;&quot;</span>
+        <span class="s1">integrated_signals = {}</span>
+
+        <span class="s0"># Initialize weight manager if not already done</span>
+        <span class="s2">if not </span><span class="s1">hasattr(self, </span><span class="s3">'weight_manager'</span><span class="s1">):</span>
+            <span class="s1">self.weight_manager = WeightManager()</span>
+
+        <span class="s0"># Initialize resilient analyzer</span>
+        <span class="s2">if not </span><span class="s1">hasattr(self, </span><span class="s3">'resilient_analyzer'</span><span class="s1">):</span>
+            <span class="s1">self.resilient_analyzer = ResilientNewsAnalyzer(news_collector=self.news_collector)</span>
+
+        <span class="s0"># Make sure we have the latest sentiment data</span>
+        <span class="s1">self.update_sentiment_data(symbols)</span>
+
+        <span class="s0"># Get market risk factors</span>
+        <span class="s1">risk_factors = self.news_collector.get_market_risk_factors()</span>
+        <span class="s1">panic_level = risk_factors[</span><span class="s3">&quot;panic_level&quot;</span><span class="s1">]</span>
+
+        <span class="s2">for </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">symbols:</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s0"># Get news sentiment factors with fallback mechanisms</span>
+                <span class="s1">sentiment_factors = self.resilient_analyzer.get_sentiment_with_fallback(symbol)</span>
+                <span class="s1">news_signal = sentiment_factors[</span><span class="s3">&quot;sentiment_signal&quot;</span><span class="s1">]</span>
+
+                <span class="s0"># Get event risks</span>
+                <span class="s1">event_risks = self.news_collector.analyze_event_risks([symbol])[symbol]</span>
+
+                <span class="s0"># Scale risk score to a 0-1 signal (higher risk = lower signal)</span>
+                <span class="s1">risk_signal = max(</span><span class="s4">0</span><span class="s1">, min(</span><span class="s4">1</span><span class="s1">, </span><span class="s4">1 </span><span class="s1">- (event_risks[</span><span class="s3">&quot;risk_score&quot;</span><span class="s1">] / </span><span class="s4">5</span><span class="s1">)))</span>
+
+                <span class="s0"># Get technical and quantum signals</span>
+                <span class="s1">technical_signal = technical_signals.get(symbol, </span><span class="s4">0.5</span><span class="s1">)</span>
+                <span class="s1">quantum_signal = quantum_signals.get(symbol, </span><span class="s4">0.5</span><span class="s1">)</span>
+
+                <span class="s0"># Get market data for the symbol (for regime detection)</span>
+                <span class="s1">market_data = </span><span class="s2">None</span>
+                <span class="s2">if </span><span class="s1">hasattr(self, </span><span class="s3">'platform_adapter'</span><span class="s1">) </span><span class="s2">and </span><span class="s1">self.platform_adapter:</span>
+                    <span class="s1">market_data = self.platform_adapter.get_market_data(symbol)</span>
+
+                <span class="s0"># Calculate confidences for each signal type</span>
+                <span class="s1">confidences = {</span>
+                    <span class="s3">&quot;technical&quot;</span><span class="s1">: </span><span class="s4">0.8</span><span class="s1">,  </span><span class="s0"># Technical analysis is generally reliable</span>
+                    <span class="s3">&quot;quantum&quot;</span><span class="s1">: </span><span class="s4">0.6</span><span class="s1">,  </span><span class="s0"># Quantum is less tested</span>
+                    <span class="s3">&quot;news&quot;</span><span class="s1">: sentiment_factors.get(</span><span class="s3">&quot;verification_score&quot;</span><span class="s1">, </span><span class="s4">0.7</span><span class="s1">),  </span><span class="s0"># Based on news verification</span>
+                    <span class="s3">&quot;market_risk&quot;</span><span class="s1">: </span><span class="s4">0.9  </span><span class="s0"># Market risk factors are reliable indicators</span>
+                <span class="s1">}</span>
+
+                <span class="s0"># Get historical performance if available</span>
+                <span class="s1">historical_performance = self.get_historical_performance(symbol)</span>
+
+                <span class="s0"># Calculate integrated signal with dynamic weights</span>
+                <span class="s1">integrated_signal, weights = self.weight_manager.get_integrated_signal(</span>
+                    <span class="s1">symbol,</span>
+                    <span class="s1">{</span>
+                        <span class="s3">&quot;technical&quot;</span><span class="s1">: technical_signal,</span>
+                        <span class="s3">&quot;quantum&quot;</span><span class="s1">: quantum_signal,</span>
+                        <span class="s3">&quot;news&quot;</span><span class="s1">: news_signal,</span>
+                        <span class="s3">&quot;market_risk&quot;</span><span class="s1">: risk_signal</span>
+                    <span class="s1">},</span>
+                    <span class="s1">confidences,</span>
+                    <span class="s1">market_data,</span>
+                    <span class="s1">historical_performance</span>
+                <span class="s1">)</span>
+
+                <span class="s0"># Record the integrated signal and components</span>
+                <span class="s1">integrated_signals[symbol] = {</span>
+                    <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+                    <span class="s3">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+                    <span class="s3">&quot;integrated_signal&quot;</span><span class="s1">: float(integrated_signal),</span>
+                    <span class="s3">&quot;components&quot;</span><span class="s1">: {</span>
+                        <span class="s3">&quot;technical_signal&quot;</span><span class="s1">: float(technical_signal),</span>
+                        <span class="s3">&quot;quantum_signal&quot;</span><span class="s1">: float(quantum_signal),</span>
+                        <span class="s3">&quot;news_signal&quot;</span><span class="s1">: float(news_signal),</span>
+                        <span class="s3">&quot;risk_signal&quot;</span><span class="s1">: float(risk_signal)</span>
+                    <span class="s1">},</span>
+                    <span class="s3">&quot;weights&quot;</span><span class="s1">: weights,</span>
+                    <span class="s3">&quot;confidences&quot;</span><span class="s1">: confidences,</span>
+                    <span class="s3">&quot;market_risk_level&quot;</span><span class="s1">: risk_factors[</span><span class="s3">&quot;risk_level&quot;</span><span class="s1">],</span>
+                    <span class="s3">&quot;panic_level&quot;</span><span class="s1">: float(panic_level),</span>
+                    <span class="s3">&quot;event_risks&quot;</span><span class="s1">: event_risks[</span><span class="s3">&quot;events_detected&quot;</span><span class="s1">]</span>
+                <span class="s1">}</span>
+
+                <span class="s1">logger.info(</span><span class="s3">f&quot;Integrated signal for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">integrated_signal</span><span class="s5">:</span><span class="s3">.4f</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error calculating integrated signal for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s0"># Provide a neutral signal on error</span>
+                <span class="s1">integrated_signals[symbol] = {</span>
+                    <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+                    <span class="s3">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+                    <span class="s3">&quot;integrated_signal&quot;</span><span class="s1">: </span><span class="s4">0.5</span><span class="s1">,</span>
+                    <span class="s3">&quot;error&quot;</span><span class="s1">: str(e)</span>
+                <span class="s1">}</span>
+
+        <span class="s0"># Save integrated signals</span>
+        <span class="s2">with </span><span class="s1">open(</span><span class="s3">f&quot;data/integrated_signals/signals_</span><span class="s5">{</span><span class="s1">datetime.now().strftime(</span><span class="s3">'%Y%m%d_%H%M%S'</span><span class="s1">)</span><span class="s5">}</span><span class="s3">.json&quot;</span><span class="s1">, </span><span class="s3">'w'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+            <span class="s1">json.dump(integrated_signals, f, indent=</span><span class="s4">4</span><span class="s1">)</span>
+
+        <span class="s2">return </span><span class="s1">integrated_signals</span>
+
+    <span class="s2">def </span><span class="s1">get_historical_performance(self, symbol):</span>
+        <span class="s0">&quot;&quot;&quot;Get historical performance metrics for different signal types&quot;&quot;&quot;</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s0"># Check if performance data exists</span>
+            <span class="s1">performance_path = </span><span class="s3">f&quot;data/performance/signal_performance_</span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">.json&quot;</span>
+            <span class="s2">if </span><span class="s1">os.path.exists(performance_path):</span>
+                <span class="s2">with </span><span class="s1">open(performance_path, </span><span class="s3">'r'</span><span class="s1">) </span><span class="s2">as </span><span class="s1">f:</span>
+                    <span class="s2">return </span><span class="s1">json.load(f)</span>
+            <span class="s2">return None</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error getting historical performance: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return None</span>
+
+    <span class="s2">def </span><span class="s1">_adjust_weights_for_market_conditions(self, panic_level):</span>
+        <span class="s0">&quot;&quot;&quot;Adjust integration weights based on market conditions&quot;&quot;&quot;</span>
+        <span class="s0"># Copy base weights</span>
+        <span class="s1">adjusted = self.integration_weights.copy()</span>
+
+        <span class="s2">if </span><span class="s1">panic_level &gt;= </span><span class="s4">75</span><span class="s1">:</span>
+            <span class="s0"># In high panic, increase weight of news and market risk</span>
+            <span class="s1">adjusted[</span><span class="s3">&quot;news&quot;</span><span class="s1">] += </span><span class="s4">0.1</span>
+            <span class="s1">adjusted[</span><span class="s3">&quot;market_risk&quot;</span><span class="s1">] += </span><span class="s4">0.1</span>
+            <span class="s1">adjusted[</span><span class="s3">&quot;technical&quot;</span><span class="s1">] -= </span><span class="s4">0.15</span>
+            <span class="s1">adjusted[</span><span class="s3">&quot;quantum&quot;</span><span class="s1">] -= </span><span class="s4">0.05</span>
+        <span class="s2">elif </span><span class="s1">panic_level &lt;= </span><span class="s4">25</span><span class="s1">:</span>
+            <span class="s0"># In low panic/high greed, increase weight of quantum</span>
+            <span class="s1">adjusted[</span><span class="s3">&quot;quantum&quot;</span><span class="s1">] += </span><span class="s4">0.1</span>
+            <span class="s1">adjusted[</span><span class="s3">&quot;news&quot;</span><span class="s1">] -= </span><span class="s4">0.05</span>
+            <span class="s1">adjusted[</span><span class="s3">&quot;market_risk&quot;</span><span class="s1">] -= </span><span class="s4">0.05</span>
+
+        <span class="s0"># Normalize weights to sum to 1</span>
+        <span class="s1">total = sum(adjusted.values())</span>
+        <span class="s2">for </span><span class="s1">key </span><span class="s2">in </span><span class="s1">adjusted:</span>
+            <span class="s1">adjusted[key] /= total</span>
+
+        <span class="s2">return </span><span class="s1">adjusted</span>
+
+    <span class="s2">def </span><span class="s1">make_trading_decision(self, symbol, integrated_signal, positions=</span><span class="s2">None</span><span class="s1">):</span>
+        <span class="s0">&quot;&quot;&quot; 
+        Make a trading decision based on integrated signal 
+ 
+        Args: 
+            symbol (str): Stock symbol 
+            integrated_signal (dict): Integrated signal data 
+            positions (dict): Current positions (optional) 
+ 
+        Returns: 
+            tuple: (decision, confidence, reason) 
+        &quot;&quot;&quot;</span>
+        <span class="s0"># Check if we have an error</span>
+        <span class="s2">if </span><span class="s3">&quot;error&quot; </span><span class="s2">in </span><span class="s1">integrated_signal:</span>
+            <span class="s2">return </span><span class="s3">&quot;HOLD&quot;</span><span class="s1">, </span><span class="s4">0.5</span><span class="s1">, </span><span class="s3">f&quot;Error in signal integration: </span><span class="s5">{</span><span class="s1">integrated_signal[</span><span class="s3">'error'</span><span class="s1">]</span><span class="s5">}</span><span class="s3">&quot;</span>
+
+        <span class="s0"># Extract the signal and components</span>
+        <span class="s1">signal = integrated_signal[</span><span class="s3">&quot;integrated_signal&quot;</span><span class="s1">]</span>
+        <span class="s1">components = integrated_signal.get(</span><span class="s3">&quot;components&quot;</span><span class="s1">, {})</span>
+
+        <span class="s0"># Check if we have a position</span>
+        <span class="s1">has_position = </span><span class="s2">False</span>
+        <span class="s2">if </span><span class="s1">positions </span><span class="s2">and </span><span class="s1">symbol </span><span class="s2">in </span><span class="s1">positions:</span>
+            <span class="s1">has_position = </span><span class="s2">True</span>
+
+        <span class="s0"># Define thresholds</span>
+        <span class="s1">buy_threshold = </span><span class="s4">0.7</span>
+        <span class="s1">sell_threshold = </span><span class="s4">0.3</span>
+
+        <span class="s0"># Additional factors</span>
+        <span class="s1">market_risk = integrated_signal.get(</span><span class="s3">&quot;market_risk_level&quot;</span><span class="s1">, </span><span class="s3">&quot;Unknown&quot;</span><span class="s1">)</span>
+        <span class="s1">panic_level = integrated_signal.get(</span><span class="s3">&quot;panic_level&quot;</span><span class="s1">, </span><span class="s4">50</span><span class="s1">)</span>
+        <span class="s1">event_risks = integrated_signal.get(</span><span class="s3">&quot;event_risks&quot;</span><span class="s1">, </span><span class="s4">0</span><span class="s1">)</span>
+
+        <span class="s0"># Calculate decision confidence</span>
+        <span class="s1">confidence = abs((signal - </span><span class="s4">0.5</span><span class="s1">) * </span><span class="s4">2</span><span class="s1">)  </span><span class="s0"># 0 to 1 scale</span>
+
+        <span class="s0"># Special cases first</span>
+        <span class="s2">if </span><span class="s3">&quot;Extreme Risk&quot; </span><span class="s2">in </span><span class="s1">market_risk </span><span class="s2">and </span><span class="s1">has_position:</span>
+            <span class="s2">return </span><span class="s3">&quot;SELL&quot;</span><span class="s1">, max(</span><span class="s4">0.7</span><span class="s1">, confidence), </span><span class="s3">&quot;Extreme market risk detected&quot;</span>
+
+        <span class="s2">if </span><span class="s1">event_risks &gt;= </span><span class="s4">3 </span><span class="s2">and </span><span class="s1">has_position:</span>
+            <span class="s2">return </span><span class="s3">&quot;SELL&quot;</span><span class="s1">, max(</span><span class="s4">0.6</span><span class="s1">, confidence), </span><span class="s3">f&quot;Multiple high-impact events detected (</span><span class="s5">{</span><span class="s1">event_risks</span><span class="s5">}</span><span class="s3">)&quot;</span>
+
+        <span class="s0"># Normal signal-based decisions</span>
+        <span class="s2">if </span><span class="s1">signal &gt; buy_threshold </span><span class="s2">and not </span><span class="s1">has_position:</span>
+            <span class="s1">reason = </span><span class="s3">f&quot;Strong buy signal (</span><span class="s5">{</span><span class="s1">signal</span><span class="s5">:</span><span class="s3">.2f</span><span class="s5">}</span><span class="s3">)&quot;</span>
+
+            <span class="s0"># Add component strengths to reason</span>
+            <span class="s1">component_info = []</span>
+            <span class="s2">if </span><span class="s1">components.get(</span><span class="s3">&quot;technical_signal&quot;</span><span class="s1">, </span><span class="s4">0</span><span class="s1">) &gt; </span><span class="s4">0.7</span><span class="s1">:</span>
+                <span class="s1">component_info.append(</span><span class="s3">&quot;technical&quot;</span><span class="s1">)</span>
+            <span class="s2">if </span><span class="s1">components.get(</span><span class="s3">&quot;quantum_signal&quot;</span><span class="s1">, </span><span class="s4">0</span><span class="s1">) &gt; </span><span class="s4">0.7</span><span class="s1">:</span>
+                <span class="s1">component_info.append(</span><span class="s3">&quot;quantum&quot;</span><span class="s1">)</span>
+            <span class="s2">if </span><span class="s1">components.get(</span><span class="s3">&quot;news_signal&quot;</span><span class="s1">, </span><span class="s4">0</span><span class="s1">) &gt; </span><span class="s4">0.7</span><span class="s1">:</span>
+                <span class="s1">component_info.append(</span><span class="s3">&quot;news&quot;</span><span class="s1">)</span>
+
+            <span class="s2">if </span><span class="s1">component_info:</span>
+                <span class="s1">reason += </span><span class="s3">f&quot; driven by </span><span class="s5">{</span><span class="s3">', '</span><span class="s1">.join(component_info)</span><span class="s5">}</span><span class="s3">&quot;</span>
+
+            <span class="s2">return </span><span class="s3">&quot;BUY&quot;</span><span class="s1">, confidence, reason</span>
+
+        <span class="s2">elif </span><span class="s1">signal &lt; sell_threshold </span><span class="s2">and </span><span class="s1">has_position:</span>
+            <span class="s1">reason = </span><span class="s3">f&quot;Strong sell signal (</span><span class="s5">{</span><span class="s1">signal</span><span class="s5">:</span><span class="s3">.2f</span><span class="s5">}</span><span class="s3">)&quot;</span>
+
+            <span class="s0"># Add component strengths to reason</span>
+            <span class="s1">component_info = []</span>
+            <span class="s2">if </span><span class="s1">components.get(</span><span class="s3">&quot;technical_signal&quot;</span><span class="s1">, </span><span class="s4">0</span><span class="s1">) &lt; </span><span class="s4">0.3</span><span class="s1">:</span>
+                <span class="s1">component_info.append(</span><span class="s3">&quot;technical&quot;</span><span class="s1">)</span>
+            <span class="s2">if </span><span class="s1">components.get(</span><span class="s3">&quot;quantum_signal&quot;</span><span class="s1">, </span><span class="s4">0</span><span class="s1">) &lt; </span><span class="s4">0.3</span><span class="s1">:</span>
+                <span class="s1">component_info.append(</span><span class="s3">&quot;quantum&quot;</span><span class="s1">)</span>
+            <span class="s2">if </span><span class="s1">components.get(</span><span class="s3">&quot;news_signal&quot;</span><span class="s1">, </span><span class="s4">0</span><span class="s1">) &lt; </span><span class="s4">0.3</span><span class="s1">:</span>
+                <span class="s1">component_info.append(</span><span class="s3">&quot;news&quot;</span><span class="s1">)</span>
+            <span class="s2">if </span><span class="s1">components.get(</span><span class="s3">&quot;risk_signal&quot;</span><span class="s1">, </span><span class="s4">0</span><span class="s1">) &lt; </span><span class="s4">0.3</span><span class="s1">:</span>
+                <span class="s1">component_info.append(</span><span class="s3">&quot;risk&quot;</span><span class="s1">)</span>
+
+            <span class="s2">if </span><span class="s1">component_info:</span>
+                <span class="s1">reason += </span><span class="s3">f&quot; driven by </span><span class="s5">{</span><span class="s3">', '</span><span class="s1">.join(component_info)</span><span class="s5">}</span><span class="s3">&quot;</span>
+
+            <span class="s2">return </span><span class="s3">&quot;SELL&quot;</span><span class="s1">, confidence, reason</span>
+
+        <span class="s2">else</span><span class="s1">:</span>
+            <span class="s2">if </span><span class="s4">0.4 </span><span class="s1">&lt;= signal &lt;= </span><span class="s4">0.6</span><span class="s1">:</span>
+                <span class="s1">reason = </span><span class="s3">&quot;Neutral signal&quot;</span>
+            <span class="s2">elif </span><span class="s1">signal &gt; </span><span class="s4">0.6</span><span class="s1">:</span>
+                <span class="s1">reason = </span><span class="s3">&quot;Positive but below buy threshold&quot;</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s1">reason = </span><span class="s3">&quot;Negative but above sell threshold&quot;</span>
+
+            <span class="s2">return </span><span class="s3">&quot;HOLD&quot;</span><span class="s1">, confidence, reason</span>
+
+    <span class="s2">def </span><span class="s1">get_quantum_adjustment_factors(self, symbol):</span>
+        <span class="s0">&quot;&quot;&quot; 
+        Get adjustment factors for quantum trading based on news and events 
+ 
+        These factors can be used to adjust quantum weights or feature importance 
+        based on current news sentiment and events 
+ 
+        Args: 
+            symbol (str): Stock symbol 
+ 
+        Returns: 
+            dict: Adjustment factors for quantum trading 
+        &quot;&quot;&quot;</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s0"># Get sentiment factors</span>
+            <span class="s1">sentiment = self.news_collector.get_finance_sentiment_factors(symbol)</span>
+
+            <span class="s0"># Get event risks</span>
+            <span class="s1">event_risks = self.news_collector.analyze_event_risks([symbol])[symbol]</span>
+
+            <span class="s0"># Get market risk</span>
+            <span class="s1">market_risk = self.news_collector.get_market_risk_factors()</span>
+
+            <span class="s0"># Calculate adjustment factors</span>
+
+            <span class="s0"># 1. Volatility factor - higher during high risk/panic</span>
+            <span class="s1">volatility_factor = </span><span class="s4">1 </span><span class="s1">+ (market_risk[</span><span class="s3">&quot;panic_level&quot;</span><span class="s1">] / </span><span class="s4">100</span><span class="s1">)</span>
+
+            <span class="s0"># 2. Sentiment factor - scale from sentiment</span>
+            <span class="s1">sentiment_factor = sentiment[</span><span class="s3">&quot;combined_sentiment&quot;</span><span class="s1">] + </span><span class="s4">1  </span><span class="s0"># Convert from [-1,1] to [0,2]</span>
+
+            <span class="s0"># 3. Event impact factor - higher when events are detected</span>
+            <span class="s1">event_impact = </span><span class="s4">1 </span><span class="s1">+ (event_risks[</span><span class="s3">&quot;events_detected&quot;</span><span class="s1">] * </span><span class="s4">0.2</span><span class="s1">)</span>
+
+            <span class="s0"># 4. Trend consistency - how aligned are different signals</span>
+            <span class="s1">signals = [</span>
+                <span class="s1">sentiment[</span><span class="s3">&quot;news_sentiment&quot;</span><span class="s1">],</span>
+                <span class="s1">sentiment[</span><span class="s3">&quot;social_sentiment&quot;</span><span class="s1">],</span>
+                <span class="s1">sentiment[</span><span class="s3">&quot;fear_greed_sentiment&quot;</span><span class="s1">]</span>
+            <span class="s1">]</span>
+
+            <span class="s0"># Calculate standard deviation of signals</span>
+            <span class="s1">signals_std = np.std(signals)</span>
+            <span class="s1">trend_consistency = </span><span class="s4">1 </span><span class="s1">- (signals_std * </span><span class="s4">2</span><span class="s1">)  </span><span class="s0"># Invert so higher = more consistent</span>
+            <span class="s1">trend_consistency = max(</span><span class="s4">0.5</span><span class="s1">, min(</span><span class="s4">2.0</span><span class="s1">, trend_consistency))  </span><span class="s0"># Limit range</span>
+
+            <span class="s0"># Combine into a set of adjustment factors</span>
+            <span class="s1">adjustment_factors = {</span>
+                <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+                <span class="s3">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+                <span class="s3">&quot;volatility_factor&quot;</span><span class="s1">: float(volatility_factor),  </span><span class="s0"># Higher during high risk</span>
+                <span class="s3">&quot;sentiment_factor&quot;</span><span class="s1">: float(sentiment_factor),  </span><span class="s0"># Higher with positive sentiment</span>
+                <span class="s3">&quot;event_impact&quot;</span><span class="s1">: float(event_impact),  </span><span class="s0"># Higher when events detected</span>
+                <span class="s3">&quot;trend_consistency&quot;</span><span class="s1">: float(trend_consistency),  </span><span class="s0"># Higher when signals agree</span>
+                <span class="s3">&quot;source_data&quot;</span><span class="s1">: {</span>
+                    <span class="s3">&quot;news_sentiment&quot;</span><span class="s1">: float(sentiment[</span><span class="s3">&quot;news_sentiment&quot;</span><span class="s1">]),</span>
+                    <span class="s3">&quot;social_sentiment&quot;</span><span class="s1">: float(sentiment[</span><span class="s3">&quot;social_sentiment&quot;</span><span class="s1">]),</span>
+                    <span class="s3">&quot;fear_greed_sentiment&quot;</span><span class="s1">: float(sentiment[</span><span class="s3">&quot;fear_greed_sentiment&quot;</span><span class="s1">]),</span>
+                    <span class="s3">&quot;panic_level&quot;</span><span class="s1">: float(market_risk[</span><span class="s3">&quot;panic_level&quot;</span><span class="s1">]),</span>
+                    <span class="s3">&quot;event_count&quot;</span><span class="s1">: event_risks[</span><span class="s3">&quot;events_detected&quot;</span><span class="s1">]</span>
+                <span class="s1">}</span>
+            <span class="s1">}</span>
+
+            <span class="s2">return </span><span class="s1">adjustment_factors</span>
+
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error calculating quantum adjustment factors for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+            <span class="s2">return </span><span class="s1">{</span>
+                <span class="s3">&quot;timestamp&quot;</span><span class="s1">: datetime.now().isoformat(),</span>
+                <span class="s3">&quot;symbol&quot;</span><span class="s1">: symbol,</span>
+                <span class="s3">&quot;volatility_factor&quot;</span><span class="s1">: </span><span class="s4">1.0</span><span class="s1">,</span>
+                <span class="s3">&quot;sentiment_factor&quot;</span><span class="s1">: </span><span class="s4">1.0</span><span class="s1">,</span>
+                <span class="s3">&quot;event_impact&quot;</span><span class="s1">: </span><span class="s4">1.0</span><span class="s1">,</span>
+                <span class="s3">&quot;trend_consistency&quot;</span><span class="s1">: </span><span class="s4">1.0</span><span class="s1">,</span>
+                <span class="s3">&quot;error&quot;</span><span class="s1">: str(e)</span>
+            <span class="s1">}</span>
+
+    <span class="s2">def </span><span class="s1">adjust_quantum_weights(self, symbol, base_weights, adjustment_factors=</span><span class="s2">None</span><span class="s1">):</span>
+        <span class="s0">&quot;&quot;&quot; 
+        Adjust quantum weights based on news and market factors 
+ 
+        Args: 
+            symbol (str): Stock symbol 
+            base_weights (list): Base quantum weights 
+            adjustment_factors (dict): Pre-calculated adjustment factors 
+ 
+        Returns: 
+            list: Adjusted quantum weights 
+        &quot;&quot;&quot;</span>
+        <span class="s2">if </span><span class="s1">adjustment_factors </span><span class="s2">is None</span><span class="s1">:</span>
+            <span class="s1">adjustment_factors = self.get_quantum_adjustment_factors(symbol)</span>
+
+        <span class="s0"># Extract factors</span>
+        <span class="s1">volatility_factor = adjustment_factors.get(</span><span class="s3">&quot;volatility_factor&quot;</span><span class="s1">, </span><span class="s4">1.0</span><span class="s1">)</span>
+        <span class="s1">sentiment_factor = adjustment_factors.get(</span><span class="s3">&quot;sentiment_factor&quot;</span><span class="s1">, </span><span class="s4">1.0</span><span class="s1">)</span>
+        <span class="s1">event_impact = adjustment_factors.get(</span><span class="s3">&quot;event_impact&quot;</span><span class="s1">, </span><span class="s4">1.0</span><span class="s1">)</span>
+        <span class="s1">trend_consistency = adjustment_factors.get(</span><span class="s3">&quot;trend_consistency&quot;</span><span class="s1">, </span><span class="s4">1.0</span><span class="s1">)</span>
+
+        <span class="s0"># Apply adjustments to each weight</span>
+        <span class="s1">adjusted_weights = []</span>
+
+        <span class="s2">for </span><span class="s1">i, weight </span><span class="s2">in </span><span class="s1">enumerate(base_weights):</span>
+            <span class="s0"># Different adjustment based on weight position</span>
+            <span class="s2">if </span><span class="s1">i &lt; len(base_weights) // </span><span class="s4">3</span><span class="s1">:</span>
+                <span class="s0"># First third - adjust more by sentiment</span>
+                <span class="s1">adj_weight = weight * sentiment_factor</span>
+            <span class="s2">elif </span><span class="s1">i &lt; </span><span class="s4">2 </span><span class="s1">* len(base_weights) // </span><span class="s4">3</span><span class="s1">:</span>
+                <span class="s0"># Middle third - adjust more by volatility</span>
+                <span class="s1">adj_weight = weight * volatility_factor</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s0"># Last third - adjust more by event impact</span>
+                <span class="s1">adj_weight = weight * event_impact</span>
+
+            <span class="s0"># Apply trend consistency to all weights</span>
+            <span class="s1">adj_weight *= trend_consistency</span>
+
+            <span class="s1">adjusted_weights.append(float(adj_weight))</span>
+
+        <span class="s0"># Normalize to preserve sum</span>
+        <span class="s1">total = sum(adjusted_weights)</span>
+        <span class="s1">normalized_weights = [w / total * sum(base_weights) </span><span class="s2">for </span><span class="s1">w </span><span class="s2">in </span><span class="s1">adjusted_weights]</span>
+
+        <span class="s2">return </span><span class="s1">normalized_weights</span>
+
+
+<span class="s2">def </span><span class="s1">integrate_with_trading_bot(trading_bot_module=</span><span class="s2">None</span><span class="s1">):</span>
+    <span class="s0">&quot;&quot;&quot; 
+    Function to integrate this module with the trading bot 
+ 
+    Args: 
+        trading_bot_module: Trading bot module (if already imported) 
+ 
+    Returns: 
+        tuple: (news_integrator, patch_successful) 
+    &quot;&quot;&quot;</span>
+    <span class="s2">try</span><span class="s1">:</span>
+        <span class="s0"># Create the news integrator</span>
+        <span class="s1">news_integrator = NewsIntegrator()</span>
+
+        <span class="s0"># Import trading bot if not provided</span>
+        <span class="s2">if </span><span class="s1">trading_bot_module </span><span class="s2">is None</span><span class="s1">:</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s2">import </span><span class="s1">trading_bot</span>
+                <span class="s1">trading_bot_module = trading_bot</span>
+            <span class="s2">except </span><span class="s1">ImportError:</span>
+                <span class="s1">logger.error(</span><span class="s3">&quot;Could not import trading_bot module&quot;</span><span class="s1">)</span>
+                <span class="s2">return </span><span class="s1">news_integrator, </span><span class="s2">False</span>
+
+        <span class="s0"># Find make_trading_decision method in trading_bot</span>
+        <span class="s1">original_make_trading_decision = </span><span class="s2">None</span>
+        <span class="s2">if </span><span class="s1">hasattr(trading_bot_module, </span><span class="s3">'make_trading_decision'</span><span class="s1">):</span>
+            <span class="s1">original_make_trading_decision = trading_bot_module.make_trading_decision</span>
+
+        <span class="s0"># Define enhanced decision function</span>
+        <span class="s2">def </span><span class="s1">enhanced_make_trading_decision(symbol, quantum_device, config):</span>
+            <span class="s0">&quot;&quot;&quot;Enhanced trading decision function with news integration&quot;&quot;&quot;</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Making enhanced trading decision for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">} </span><span class="s3">with news integration&quot;</span><span class="s1">)</span>
+
+            <span class="s0"># Call original function to get technical and quantum signals</span>
+            <span class="s0"># Store original result for reference</span>
+            <span class="s1">technical_signal = </span><span class="s2">None</span>
+            <span class="s1">quantum_signal = </span><span class="s2">None</span>
+
+            <span class="s0"># Extract signals from original function (implementation may vary based on trading_bot structure)</span>
+            <span class="s2">try</span><span class="s1">:</span>
+                <span class="s0"># Get historical data</span>
+                <span class="s1">historical_data = trading_bot_module.platform_adapter.get_market_data(symbol)</span>
+
+                <span class="s0"># Get classical decision</span>
+                <span class="s1">technical_signal = trading_bot_module.classical_decision(historical_data)</span>
+
+                <span class="s0"># Get quantum prediction if available</span>
+                <span class="s1">quantum_signal = </span><span class="s2">None</span>
+                <span class="s1">error_rate = </span><span class="s2">None</span>
+
+                <span class="s2">if </span><span class="s1">trading_bot_module.QUANTUM_AVAILABLE </span><span class="s2">and </span><span class="s1">quantum_device </span><span class="s2">is not None</span><span class="s1">:</span>
+                    <span class="s0"># Get quantum configuration</span>
+                    <span class="s1">quantum_enabled = config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;enabled&quot;</span><span class="s1">, </span><span class="s2">True</span><span class="s1">)</span>
+                    <span class="s1">error_threshold = config.get(</span><span class="s3">&quot;quantum_config&quot;</span><span class="s1">, {}).get(</span><span class="s3">&quot;error_threshold&quot;</span><span class="s1">, </span><span class="s4">0.15</span><span class="s1">)</span>
+
+                    <span class="s0"># Estimate error rate</span>
+                    <span class="s1">error_rate = trading_bot_module.estimate_quantum_error_rate(quantum_device)</span>
+
+                    <span class="s2">if </span><span class="s1">quantum_enabled </span><span class="s2">and </span><span class="s1">error_rate &lt;= error_threshold:</span>
+                        <span class="s0"># Get quantum prediction</span>
+                        <span class="s1">quantum_result, confidence, actual_error = trading_bot_module.quantum_prediction(</span>
+                            <span class="s1">symbol, historical_data, quantum_device, error_rate, config</span>
+                        <span class="s1">)</span>
+                        <span class="s1">quantum_signal = quantum_result</span>
+            <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+                <span class="s1">logger.error(</span><span class="s3">f&quot;Error getting original signals: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+                <span class="s1">technical_signal = </span><span class="s4">0.5  </span><span class="s0"># Neutral</span>
+
+            <span class="s0"># Default to neutral if we couldn't get signals</span>
+            <span class="s2">if </span><span class="s1">technical_signal </span><span class="s2">is None</span><span class="s1">:</span>
+                <span class="s1">technical_signal = </span><span class="s4">0.5</span>
+            <span class="s2">if </span><span class="s1">quantum_signal </span><span class="s2">is None</span><span class="s1">:</span>
+                <span class="s1">quantum_signal = technical_signal  </span><span class="s0"># Use technical as fallback</span>
+
+            <span class="s0"># Prepare signals for integration</span>
+            <span class="s1">technical_signals = {symbol: technical_signal}</span>
+            <span class="s1">quantum_signals = {symbol: quantum_signal}</span>
+
+            <span class="s0"># Get integrated signals</span>
+            <span class="s1">integrated_signals = news_integrator.get_integrated_signals(</span>
+                <span class="s1">[symbol], technical_signals, quantum_signals</span>
+            <span class="s1">)</span>
+
+            <span class="s0"># Make trading decision based on integrated signal</span>
+            <span class="s1">has_position = symbol </span><span class="s2">in </span><span class="s1">trading_bot_module.trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">]</span>
+            <span class="s1">decision, confidence, reason = news_integrator.make_trading_decision(</span>
+                <span class="s1">symbol, integrated_signals[symbol],</span>
+                <span class="s1">trading_bot_module.trade_history[</span><span class="s3">&quot;positions&quot;</span><span class="s1">] </span><span class="s2">if </span><span class="s1">hasattr(trading_bot_module, </span><span class="s3">'trade_history'</span><span class="s1">) </span><span class="s2">else None</span>
+            <span class="s1">)</span>
+
+            <span class="s0"># Log detailed decision</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Trading decision for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">: </span><span class="s5">{</span><span class="s1">decision</span><span class="s5">} </span><span class="s3">(confidence: </span><span class="s5">{</span><span class="s1">confidence</span><span class="s5">:</span><span class="s3">.2f</span><span class="s5">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+            <span class="s1">logger.info(</span><span class="s3">f&quot;Reason: </span><span class="s5">{</span><span class="s1">reason</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+            <span class="s0"># Execute trade if needed</span>
+            <span class="s2">if </span><span class="s1">decision == </span><span class="s3">&quot;BUY&quot; </span><span class="s2">and not </span><span class="s1">has_position:</span>
+                <span class="s1">logger.info(</span><span class="s3">f&quot;BUY signal for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">} </span><span class="s3">based on integrated analysis&quot;</span><span class="s1">)</span>
+                <span class="s1">trading_bot_module.execute_trade(</span><span class="s3">&quot;BUY&quot;</span><span class="s1">, symbol)</span>
+
+            <span class="s2">elif </span><span class="s1">decision == </span><span class="s3">&quot;SELL&quot; </span><span class="s2">and </span><span class="s1">has_position:</span>
+                <span class="s1">logger.info(</span><span class="s3">f&quot;SELL signal for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">} </span><span class="s3">based on integrated analysis&quot;</span><span class="s1">)</span>
+                <span class="s1">trading_bot_module.execute_trade(</span><span class="s3">&quot;SELL&quot;</span><span class="s1">, symbol)</span>
+
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s1">logger.info(</span><span class="s3">f&quot;HOLD signal for </span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+            <span class="s0"># Return the trading decision</span>
+            <span class="s2">return </span><span class="s1">decision, confidence, reason</span>
+
+        <span class="s0"># Try to patch trading_bot module</span>
+        <span class="s1">patch_successful = </span><span class="s2">False</span>
+        <span class="s2">try</span><span class="s1">:</span>
+            <span class="s2">if </span><span class="s1">original_make_trading_decision </span><span class="s2">is not None</span><span class="s1">:</span>
+                <span class="s0"># Save reference to original function</span>
+                <span class="s1">trading_bot_module._original_make_trading_decision = original_make_trading_decision</span>
+
+                <span class="s0"># Replace with enhanced function</span>
+                <span class="s1">trading_bot_module.make_trading_decision = enhanced_make_trading_decision</span>
+
+                <span class="s0"># Also adjust quantum weights using news data</span>
+                <span class="s1">original_quantum_prediction = trading_bot_module.quantum_prediction</span>
+
+                <span class="s2">def </span><span class="s1">enhanced_quantum_prediction(symbol, historical_data, quantum_device, error_rate, config):</span>
+                    <span class="s0">&quot;&quot;&quot;Enhanced quantum prediction with news adjustment&quot;&quot;&quot;</span>
+                    <span class="s0"># Get adjustment factors</span>
+                    <span class="s1">adjustment_factors = news_integrator.get_quantum_adjustment_factors(symbol)</span>
+
+                    <span class="s0"># Call original function</span>
+                    <span class="s1">signal, confidence, actual_error = original_quantum_prediction(</span>
+                        <span class="s1">symbol, historical_data, quantum_device, error_rate, config</span>
+                    <span class="s1">)</span>
+
+                    <span class="s0"># Adjust confidence based on news factors</span>
+                    <span class="s1">trend_consistency = adjustment_factors.get(</span><span class="s3">&quot;trend_consistency&quot;</span><span class="s1">, </span><span class="s4">1.0</span><span class="s1">)</span>
+                    <span class="s1">adjusted_confidence = confidence * trend_consistency</span>
+
+                    <span class="s0"># Adjust signal based on sentiment</span>
+                    <span class="s1">sentiment_factor = adjustment_factors.get(</span><span class="s3">&quot;sentiment_factor&quot;</span><span class="s1">, </span><span class="s4">1.0</span><span class="s1">)</span>
+                    <span class="s1">sentiment_bias = (sentiment_factor - </span><span class="s4">1.0</span><span class="s1">) * </span><span class="s4">0.1  </span><span class="s0"># Scale to small adjustment</span>
+                    <span class="s1">adjusted_signal = max(</span><span class="s4">0</span><span class="s1">, min(</span><span class="s4">1</span><span class="s1">, signal + sentiment_bias))</span>
+
+                    <span class="s2">return </span><span class="s1">adjusted_signal, adjusted_confidence, actual_error</span>
+
+                <span class="s0"># Replace quantum prediction function</span>
+                <span class="s1">trading_bot_module.quantum_prediction = enhanced_quantum_prediction</span>
+
+                <span class="s1">logger.info(</span><span class="s3">&quot;Successfully patched trading_bot module with news integration&quot;</span><span class="s1">)</span>
+                <span class="s1">patch_successful = </span><span class="s2">True</span>
+            <span class="s2">else</span><span class="s1">:</span>
+                <span class="s1">logger.warning(</span><span class="s3">&quot;Could not find make_trading_decision function in trading_bot module&quot;</span><span class="s1">)</span>
+        <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+            <span class="s1">logger.error(</span><span class="s3">f&quot;Error patching trading_bot module: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s2">return </span><span class="s1">news_integrator, patch_successful</span>
+    <span class="s2">except </span><span class="s1">Exception </span><span class="s2">as </span><span class="s1">e:</span>
+        <span class="s1">logger.error(</span><span class="s3">f&quot;Error in integrate_with_trading_bot: </span><span class="s5">{</span><span class="s1">e</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s2">return </span><span class="s1">NewsIntegrator(), </span><span class="s2">False</span>
+
+
+<span class="s2">def </span><span class="s1">create_news_quantum_features(symbol, historical_data, news_integrator):</span>
+    <span class="s0">&quot;&quot;&quot; 
+    Create additional features for quantum models based on news data 
+ 
+    Args: 
+        symbol (str): Stock symbol 
+        historical_data (DataFrame): Historical price data 
+        news_integrator (NewsIntegrator): News integration instance 
+ 
+    Returns: 
+        list: Additional quantum features 
+    &quot;&quot;&quot;</span>
+    <span class="s0"># Get news sentiment data</span>
+    <span class="s1">sentiment_factors = news_integrator.news_collector.get_finance_sentiment_factors(symbol)</span>
+
+    <span class="s0"># Get market risk data</span>
+    <span class="s1">market_risk = news_integrator.news_collector.get_market_risk_factors()</span>
+
+    <span class="s0"># Calculate additional features</span>
+    <span class="s1">features = []</span>
+
+    <span class="s0"># 1. News sentiment (scaled to 0-1)</span>
+    <span class="s1">news_sentiment = (sentiment_factors[</span><span class="s3">&quot;news_sentiment&quot;</span><span class="s1">] + </span><span class="s4">1</span><span class="s1">) / </span><span class="s4">2</span>
+    <span class="s1">features.append(news_sentiment)</span>
+
+    <span class="s0"># 2. Social sentiment (scaled to 0-1)</span>
+    <span class="s1">social_sentiment = (sentiment_factors[</span><span class="s3">&quot;social_sentiment&quot;</span><span class="s1">] + </span><span class="s4">1</span><span class="s1">) / </span><span class="s4">2</span>
+    <span class="s1">features.append(social_sentiment)</span>
+
+    <span class="s0"># 3. Market fear/greed (scaled to 0-1)</span>
+    <span class="s1">fear_greed = market_risk[</span><span class="s3">&quot;fear_greed_score&quot;</span><span class="s1">] / </span><span class="s4">100</span>
+    <span class="s1">features.append(fear_greed)</span>
+
+    <span class="s0"># 4. Event risk (inverse - higher is less risk)</span>
+    <span class="s1">event_risks = news_integrator.news_collector.analyze_event_risks([symbol])[symbol]</span>
+    <span class="s1">event_risk_factor = max(</span><span class="s4">0</span><span class="s1">, min(</span><span class="s4">1</span><span class="s1">, </span><span class="s4">1 </span><span class="s1">- (event_risks[</span><span class="s3">&quot;risk_score&quot;</span><span class="s1">] / </span><span class="s4">10</span><span class="s1">)))</span>
+    <span class="s1">features.append(event_risk_factor)</span>
+
+    <span class="s0"># 5. Panic level (inverse - higher is less panic)</span>
+    <span class="s1">panic_factor = </span><span class="s4">1 </span><span class="s1">- (market_risk[</span><span class="s3">&quot;panic_level&quot;</span><span class="s1">] / </span><span class="s4">100</span><span class="s1">)</span>
+    <span class="s1">features.append(panic_factor)</span>
+
+    <span class="s0"># Ensure all features are floats and in range [0,1]</span>
+    <span class="s1">features = [float(max(</span><span class="s4">0</span><span class="s1">, min(</span><span class="s4">1</span><span class="s1">, f))) </span><span class="s2">for </span><span class="s1">f </span><span class="s2">in </span><span class="s1">features]</span>
+
+    <span class="s2">return </span><span class="s1">features</span>
+
+
+<span class="s2">if </span><span class="s1">__name__ == </span><span class="s3">&quot;__main__&quot;</span><span class="s1">:</span>
+    <span class="s0"># Test integration</span>
+    <span class="s1">news_integrator = NewsIntegrator()</span>
+
+    <span class="s0"># Test symbols</span>
+    <span class="s1">symbols = [</span><span class="s3">&quot;AAPL&quot;</span><span class="s1">, </span><span class="s3">&quot;MSFT&quot;</span><span class="s1">, </span><span class="s3">&quot;NVDA&quot;</span><span class="s1">]</span>
+
+    <span class="s0"># Update sentiment data</span>
+    <span class="s1">news_integrator.update_sentiment_data(symbols)</span>
+
+    <span class="s0"># Simulate technical and quantum signals</span>
+    <span class="s1">technical_signals = {</span>
+        <span class="s3">&quot;AAPL&quot;</span><span class="s1">: </span><span class="s4">0.65</span><span class="s1">,</span>
+        <span class="s3">&quot;MSFT&quot;</span><span class="s1">: </span><span class="s4">0.78</span><span class="s1">,</span>
+        <span class="s3">&quot;NVDA&quot;</span><span class="s1">: </span><span class="s4">0.42</span>
+    <span class="s1">}</span>
+
+    <span class="s1">quantum_signals = {</span>
+        <span class="s3">&quot;AAPL&quot;</span><span class="s1">: </span><span class="s4">0.71</span><span class="s1">,</span>
+        <span class="s3">&quot;MSFT&quot;</span><span class="s1">: </span><span class="s4">0.67</span><span class="s1">,</span>
+        <span class="s3">&quot;NVDA&quot;</span><span class="s1">: </span><span class="s4">0.48</span>
+    <span class="s1">}</span>
+
+    <span class="s0"># Get integrated signals</span>
+    <span class="s1">integrated_signals = news_integrator.get_integrated_signals(</span>
+        <span class="s1">symbols, technical_signals, quantum_signals</span>
+    <span class="s1">)</span>
+
+    <span class="s0"># Print integrated signals</span>
+    <span class="s2">for </span><span class="s1">symbol, signal_data </span><span class="s2">in </span><span class="s1">integrated_signals.items():</span>
+        <span class="s1">print(</span><span class="s3">f&quot;</span><span class="s5">{</span><span class="s1">symbol</span><span class="s5">} </span><span class="s3">Integrated Signal: </span><span class="s5">{</span><span class="s1">signal_data[</span><span class="s3">'integrated_signal'</span><span class="s1">]</span><span class="s5">:</span><span class="s3">.4f</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+
+        <span class="s1">decision, confidence, reason = news_integrator.make_trading_decision(</span>
+            <span class="s1">symbol, signal_data</span>
+        <span class="s1">)</span>
+
+        <span class="s1">print(</span><span class="s3">f&quot;Decision: </span><span class="s5">{</span><span class="s1">decision</span><span class="s5">} </span><span class="s3">(confidence: </span><span class="s5">{</span><span class="s1">confidence</span><span class="s5">:</span><span class="s3">.2f</span><span class="s5">}</span><span class="s3">)&quot;</span><span class="s1">)</span>
+        <span class="s1">print(</span><span class="s3">f&quot;Reason: </span><span class="s5">{</span><span class="s1">reason</span><span class="s5">}</span><span class="s3">&quot;</span><span class="s1">)</span>
+        <span class="s1">print()</span>
+</pre>
+</body>
+</html>
