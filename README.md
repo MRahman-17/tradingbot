@@ -131,10 +131,3 @@ The system includes built-in compliance checks for:
 - Minimum holding periods to avoid pattern day trading restrictions
 - Automatic system backups and audit trails
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
